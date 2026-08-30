@@ -1,0 +1,1418 @@
+.t-header-1 {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 500;
+}
+.t-header-2 {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.t-header-3 {
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: 600;
+}
+.t-header-4 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.t-lead {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.t-body {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.t-caption-bold-16 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.t-caption-16 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.t-caption-bold-14 {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.t-caption-14 {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 500;
+}
+.t-mini {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+.t-mini-semibold {
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.t-menu {
+  font-size: 9px;
+  line-height: 11px;
+  font-weight: 600;
+}
+
+.color-black { color: var(--text-black); }
+.color-grey { color: var(--text-grey); }
+.color-white { color: var(--text-white); }
+.color-success { color: var(--text-success); }
+.color-error { color: var(--text-error); }
+.color-main { color: var(--main); }
+.color-current { color: inherit; }
+
+/* Status bar */
+.status-bar {
+  height: 47px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 14px 28px 12px 28px;
+  background: var(--bg-white);
+  flex-shrink: 0;
+  position: relative;
+}
+.status-bar__notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 154px;
+  height: 30px;
+  background: var(--text-black);
+  border-radius: 0 0 18px 18px;
+}
+.status-bar__time {
+  font-family: -apple-system, "SF Pro Text", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.408px;
+  color: var(--text-black);
+  width: 54px;
+  text-align: center;
+}
+.status-bar__icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 13px;
+}
+
+/* Navbar — Figma DS Navbar (390×78 Home; 108 with subtitle) */
+.navbar {
+  background: var(--bg-white);
+  padding: 8px 12px 16px 24px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.navbar__bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 54px;
+}
+.navbar__left {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 1px;
+  height: 54px;
+}
+.navbar__title {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  min-width: 1px;
+  height: 54px;
+  padding: 9px 0 11px;
+}
+.navbar__title .t-header-2,
+.navbar__title .t-header-4 {
+  white-space: nowrap;
+}
+.navbar__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+  height: 44px;
+}
+.navbar__subtitle {
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+  width: 100%;
+}
+.navbar__subtitle .t-header-4 {
+  padding: 9px 0 11px;
+}
+
+/* Wrapper — inner auto-layout of Main Button */
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.wrapper--gap { gap: 4px; }
+.wrapper__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  position: relative;
+}
+.wrapper__icon img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+.wrapper__text {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+}
+.wrapper__text--large {
+  height: 32px;
+}
+.wrapper__text--medium:not(.wrapper__text--solo) {
+  height: 32px;
+}
+.wrapper__text--solo.wrapper__text--medium {
+  padding: 4px 0 6px;
+}
+
+/* Main Button — fill, radius, padding around Wrapper */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+.btn--large { padding: 14px 32px; }
+.btn--medium { padding: 6px 20px; }
+.btn--small { padding: 2px 12px; }
+.btn--icon.btn--large { padding: 14px; }
+.btn--icon.btn--medium { padding: 6px; }
+.btn--icon.btn--small { padding: 0; }
+.btn--primary { background: var(--text-black); color: var(--text-white); }
+.btn--primary:active { background: #d9fbff; color: var(--text-black); }
+.btn--secondary {
+  background: var(--bg-white);
+  color: var(--text-black);
+  box-shadow: inset 0 0 0 1px var(--grey-borders);
+}
+.btn--promo { background: var(--main); color: var(--text-white); }
+.btn--transparent { background: transparent; }
+.btn--grey { background: var(--bg-grey); }
+/* Daily log Main Button — Background Light Blue-Grey (Figma border matches fill) */
+.btn--light-blue-grey {
+  background: var(--bg-light-blue-grey);
+  box-shadow: 0 0 0 4px var(--bg-light-blue-grey);
+}
+
+/* Chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-grey);
+  color: var(--text-grey);
+}
+.chip--on-gradient {
+  background: rgba(255, 255, 255, 0.24);
+  color: var(--text-white);
+}
+
+/* Calendar — Figma DS `Calendar` / `.calendar cell` / `.date` / Calendar Legend
+   Home HF 412:238340: outer px-12 pb-8; row px-12; 7×52 cells with mr -3.667
+   Effective row content = 7×52 − 6×3.667 = 342 → + row pad 24 = 366 (390−24) */
+.calendar {
+  background: var(--bg-white);
+  padding: 0 12px 8px;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.calendar__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.calendar-cell {
+  width: 52px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px 4px;
+  box-sizing: border-box;
+  margin-right: -3.667px;
+}
+.calendar-cell:last-child {
+  margin-right: 0;
+}
+.calendar-cell__dow-wrap {
+  display: flex;
+  align-items: flex-start;
+  padding: 2px 0 4px;
+  flex-shrink: 0;
+}
+.calendar-cell__dow {
+  color: var(--text-grey);
+  text-align: center;
+  white-space: nowrap;
+}
+.calendar-cell__date-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* `.date` — 36×36, radius 25, mb -7 under weekday */
+.calendar-date {
+  width: 36px;
+  height: 36px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -7px;
+  border: 1.5px solid transparent;
+  background: transparent;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.calendar-date__caption {
+  display: flex;
+  align-items: flex-start;
+  height: 32px;
+  padding: 7px 0 9px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.calendar-date__num {
+  text-align: center;
+  white-space: nowrap;
+}
+.calendar-date--chosen {
+  background: var(--bg-green-clear);
+  border-color: var(--text-success);
+}
+.calendar-date--muted .calendar-date__num {
+  color: var(--text-grey);
+}
+
+/* Calendar Legend — 12×12 slot under `.date` */
+.calendar-legend {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.calendar-legend__slot {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+}
+.calendar-legend__slot img {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+/* Day status card */
+.day-status-card {
+  width: 100%;
+  border-radius: var(--radius-28);
+  padding: 12px 12px 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 104px;
+}
+.day-status-card--high {
+  background: var(--gradient-high-fertility);
+}
+.day-status-card__headline {
+  color: var(--text-white);
+  text-shadow: var(--shadow-headline);
+  padding: 9px 0 11px;
+}
+
+/* daily log — Figma DS `daily log` (70×70)
+   Main Button layout 44×44 (p-6 + 32 icon); matching fill ring via 4px outline
+   Icon replace: 32×32 slot — assets are 32×32 with glyph inset (do not upscale glyph) */
+.daily-log {
+  width: 70px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 4px;
+  box-sizing: border-box;
+}
+.daily-log__btn.btn {
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.daily-log__btn .wrapper__icon {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+.daily-log__btn .wrapper__icon img {
+  width: 32px;
+  height: 32px;
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: none;
+  object-position: center;
+}
+.daily-log--default .daily-log__btn {
+  background: var(--bg-light-blue-grey);
+  box-shadow: 0 0 0 4px var(--bg-light-blue-grey);
+}
+.daily-log--selected .daily-log__btn {
+  background: var(--grey-borders);
+  box-shadow: 0 0 0 4px var(--grey-borders);
+}
+.daily-log--filled .daily-log__btn {
+  background: var(--daily-log-fill, var(--bg-light-blue-grey));
+  box-shadow: 0 0 0 4px var(--daily-log-fill, var(--bg-light-blue-grey));
+}
+.daily-log__label {
+  text-align: center;
+  color: var(--text-grey);
+  width: 100%;
+}
+
+.daily-log-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 8px 8px;
+  width: 100%;
+  max-width: 100%;
+  /* Flex item default min-width:auto expands to content and gets clipped by .hnc;
+     force a definite scrollport so overflow-x scrolls instead of growing. */
+  min-width: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  /* Allow horizontal pan on the row; vertical can still bubble to Home scroll. */
+  touch-action: pan-x pan-y;
+}
+.daily-log-row::-webkit-scrollbar {
+  display: none;
+}
+/* Keep Home card from expanding horizontally with the row content */
+.hnc--daily-logs {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Home Notification Card — Figma DS shell */
+.hnc {
+  width: 100%;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  border-radius: var(--radius-28);
+  padding-top: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.hnc__header {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 0 8px 8px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hnc__header-content {
+  flex: 1;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+.hnc__header-copy {
+  display: flex;
+  flex-direction: column;
+  padding-right: 8px;
+  width: 100%;
+}
+.hnc__title {
+  display: flex;
+  align-items: flex-start;
+  padding: 7px 0 9px;
+  margin-bottom: -6px;
+  max-width: 214px;
+}
+.hnc__caption {
+  display: flex;
+  align-items: flex-start;
+  padding: 4px 0 6px;
+  max-width: 214px;
+}
+
+.hnc__message {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px 8px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hnc__message-top {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.hnc__illustration {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-right: 8px;
+  flex-shrink: 0;
+}
+.hnc__illustration img {
+  width: 36px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+.hnc__message-title {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: 7px 8px 9px 0;
+}
+.hnc__message-body {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px 7px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hnc__hormones {
+  background: var(--bg-white);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4px 0 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hnc__hormones-inner {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+.hnc__hormones-labels {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  padding: 0 15px;
+  width: 296px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.hnc__hormones-label {
+  width: 52.5px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  padding: 4px 0 6px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.hnc__hormones-results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hnc__hormones-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  overflow: hidden;
+  border-radius: 4px;
+  width: 100%;
+}
+.hnc__hormones-time {
+  display: flex;
+  align-items: center;
+  height: 15px;
+  width: 100%;
+}
+.hnc__time-pill {
+  background: var(--bg-grey);
+  border-radius: 16px;
+  padding: 2px 8px 3px;
+  color: var(--text-black);
+  flex-shrink: 0;
+}
+.hnc__time-divider {
+  flex: 1;
+  min-width: 0;
+  height: 1px;
+  background: var(--bg-grey);
+}
+.hnc__hormones-values {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  padding: 0 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hnc__hormones-value {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 4px 0 6px;
+}
+
+/* Subtitle */
+.subtitle {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding-top: 8px;
+  width: 100%;
+  background: var(--bg-white);
+}
+.subtitle__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.subtitle__icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.subtitle__label {
+  flex: 1;
+  padding: 4px 0 5px;
+}
+
+/* Tabbar — Figma DS Tabbar + .tabbar menu + .main menu button */
+.tabbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 121px;
+  z-index: 4;
+}
+.tabbar__bg {
+  position: absolute;
+  /* Figma asset inset: -16.53% -4.1% -9.92% -4.1% of 390×121 → 422×153 */
+  top: -20px;
+  left: -16px;
+  right: -16px;
+  bottom: -12px;
+  pointer-events: none;
+}
+.tabbar__bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+.tabbar__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  height: 79px;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+/* .tabbar menu */
+.tab-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex-shrink: 0;
+  width: 32px;
+  color: var(--text-grey);
+}
+.tab-menu--active {
+  color: var(--text-black);
+}
+.tab-menu__icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.tab-menu__glyph {
+  position: absolute;
+  background: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.tab-menu__glyph--24 {
+  left: 4px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+}
+.tab-menu__glyph--32 {
+  inset: 0;
+  width: 32px;
+  height: 32px;
+}
+.tab-menu__label {
+  padding-bottom: 2px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* .main menu button */
+.main-menu-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex-shrink: 0;
+  width: 60px;
+}
+.main-menu-button__test {
+  display: grid;
+  grid-template-areas: "stack";
+  width: 60px;
+  height: 64px;
+  place-items: start;
+}
+.main-menu-button__btn {
+  grid-area: stack;
+  position: relative;
+  z-index: 1;
+}
+.main-menu-button__label {
+  padding-bottom: 2px;
+  text-align: center;
+  white-space: nowrap;
+}
+.main-menu-button__label--promo {
+  color: var(--main);
+}
+
+.home-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 34px;
+  pointer-events: none;
+  z-index: 5;
+}
+.home-indicator__bar {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--text-black);
+}
+
+/* Text Field — Figma DS Inputs (Storybook catalog; not used by Home) */
+.text-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  max-width: 358px;
+  box-sizing: border-box;
+}
+.text-field__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  border-radius: var(--radius-36);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.text-field--focused .text-field__item {
+  border-color: var(--text-grey);
+}
+.text-field--error .text-field__item {
+  border-color: var(--text-error);
+}
+.text-field__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 7px 0 9px 4px;
+  height: 44px;
+  box-sizing: border-box;
+  color: var(--text-black);
+  outline: none;
+  font: inherit;
+}
+.text-field--default .text-field__input {
+  color: var(--text-grey);
+}
+.text-field--default .text-field__input::placeholder {
+  color: var(--text-grey);
+}
+.text-field__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-field__icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.text-field__description {
+  padding: 0 20px;
+}
+.text-field__description .t-mini {
+  color: var(--text-grey);
+}
+.text-field--error .text-field__description .t-mini {
+  color: var(--text-error);
+}
+
+/* Toggle — Figma Toogle 52×32 */
+.ds-toggle {
+  width: 52px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  padding: 2px 4px;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: none;
+}
+.ds-toggle--on {
+  background: var(--main);
+  justify-content: flex-end;
+}
+.ds-toggle--off {
+  background: rgba(197, 204, 206, 0.2);
+  box-shadow: inset 0 0 0 2px var(--grey-icons);
+  justify-content: flex-start;
+}
+.ds-toggle__knob {
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  background: var(--bg-white);
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.ds-toggle--off .ds-toggle__knob {
+  background: var(--grey-icons);
+  box-shadow: none;
+}
+.ds-toggle--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Checkbox — Figma Checkbox 32 / 20 */
+.ds-checkbox {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid var(--grey-borders);
+  background: var(--bg-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.ds-checkbox--small {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+.ds-checkbox--checked {
+  background: var(--text-black);
+  border-color: var(--text-black);
+}
+.ds-checkbox--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Row / Item — Storybook catalog */
+.ds-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 327px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  background: var(--bg-grey);
+  border-radius: 20px;
+}
+.ds-row__leading-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.ds-row__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ds-row__title {
+  color: rgba(17, 45, 53, 0.4) !important;
+}
+.ds-row__chevron {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.ds-row__nested {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-white);
+  border-radius: 20px;
+  padding: 12px 8px 12px 16px;
+}
+.ds-row__cta {
+  margin-top: 8px;
+}
+.ds-row__cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+.ds-row__table {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+/* DS purpose Chips — Storybook catalog */
+.ds-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  box-sizing: border-box;
+}
+.ds-chip--info,
+.ds-chip--disabled {
+  background: var(--bg-grey);
+}
+.ds-chip--achievement {
+  background: #e4fbf3;
+}
+.ds-chip--alert {
+  background: #ffeee3;
+}
+.ds-chip--promo {
+  background: transparent;
+}
+.ds-chip__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Carousel Dots */
+.ds-carousel-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+}
+.ds-carousel-dots__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--grey-icons);
+}
+.ds-carousel-dots__dot--active {
+  width: 8px;
+  height: 8px;
+  background: var(--text-black);
+}
+
+/* Tooltip */
+.ds-tooltip {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 320px;
+}
+.ds-tooltip__card {
+  background: var(--bg-white);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow:
+    0 6px 6px rgba(0, 0, 0, 0.06),
+    0 16px 14px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ds-tooltip__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ds-tooltip__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.ds-tooltip__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.ds-tooltip__link {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px 8px;
+  color: var(--text-black);
+}
+.ds-tooltip__pointer {
+  width: 12px;
+  height: 12px;
+  background: var(--bg-white);
+  transform: rotate(45deg);
+  margin-top: -6px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.04);
+}
+.ds-tooltip--up {
+  flex-direction: column-reverse;
+}
+.ds-tooltip--up .ds-tooltip__pointer {
+  margin-top: 0;
+  margin-bottom: -6px;
+}
+
+/* Shop Card */
+.shop-card {
+  width: 366px;
+  max-width: 100%;
+  background: var(--bg-white);
+  padding-top: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.shop-card__image {
+  position: relative;
+  width: 342px;
+  max-width: 100%;
+  height: 140px;
+  background: #ececf2;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.shop-card__qty {
+  opacity: 0.1;
+  font-size: 80px;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--text-black);
+  padding-left: 8px;
+  flex-shrink: 0;
+}
+.shop-card__strip {
+  height: 114px;
+  width: auto;
+  object-fit: contain;
+}
+.shop-card__prime-badge {
+  position: absolute;
+  right: 18px;
+  bottom: 8px;
+  width: 57px;
+  height: 24px;
+  object-fit: contain;
+}
+.shop-card__content {
+  border-bottom: 1px solid var(--grey-borders);
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.shop-card__copy {
+  display: flex;
+  flex-direction: column;
+}
+.shop-card__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 12px 0;
+}
+.shop-card__buy {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 44px;
+  padding: 6px 20px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--main);
+  cursor: pointer;
+}
+.shop-card__buy img {
+  height: 26px;
+  width: auto;
+}
+.shop-card__delivery {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 8px 0 4px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--bg-light-blue-grey);
+  cursor: pointer;
+  box-sizing: border-box;
+  min-height: 32px;
+}
+.shop-card__delivery-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Symptoms Card */
+.symptoms-card {
+  width: 342px;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  border-radius: 24px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.symptoms-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+}
+.symptoms-card__header-actions {
+  display: flex;
+  gap: 4px;
+}
+.symptoms-card__icon-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.symptoms-card__body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.symptoms-card__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 20px 6px 8px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--bg-grey);
+  cursor: pointer;
+}
+.symptoms-card__pill--selected {
+  box-shadow: inset 0 0 0 1.5px var(--text-black);
+}
+.symptoms-card__helper {
+  padding: 0 8px 4px;
+}
+
+/* Modal / Bottom sheet stages */
+.ds-modal-stage,
+.ds-sheet-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ds-sheet-stage {
+  align-items: flex-end;
+}
+.ds-modal-stage__scrim,
+.ds-sheet-stage__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 45, 53, 0.4);
+}
+.ds-modal {
+  position: relative;
+  z-index: 1;
+  width: 318px;
+  max-width: calc(100% - 48px);
+  background: var(--bg-white);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow:
+    0 16px 28px rgba(0, 0, 0, 0.07),
+    0 6px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ds-modal__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+.ds-sheet {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 390px;
+  background: var(--bg-white);
+  border-radius: 28px 28px 0 0;
+  padding: 12px 24px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ds-sheet__handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--grey-borders);
+  align-self: center;
+  margin-bottom: 4px;
+}
+.ds-sheet__actions {
+  margin-top: 8px;
+}
+.ds-sheet__actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Chart Analytics catalog */
+.chart-analytics {
+  width: 342px;
+  max-width: 100%;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  border-radius: 28px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.chart-analytics__tabs {
+  display: flex;
+  gap: 0;
+  background: var(--bg-grey);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+}
+.chart-analytics__tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-pill);
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-grey);
+}
+.chart-analytics__tab--active {
+  background: var(--bg-white);
+  color: var(--text-black);
+}
+.chart-analytics__bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 120px;
+  padding: 8px 0;
+}
+.chart-analytics__bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.chart-analytics__bar {
+  width: 100%;
+  max-width: 28px;
+  border-radius: 8px 8px 4px 4px;
+}
+.chart-analytics__legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chart-analytics__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chart-analytics__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: var(--bg-grey);
+  border-radius: var(--radius-pill);
+}
+.chart-analytics__swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Home screen */
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-white);
+}
+.home__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 24px 128px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: none;
+}
+.home__scroll > * {
+  flex-shrink: 0;
+}
+.home__scroll::-webkit-scrollbar { display: none; }

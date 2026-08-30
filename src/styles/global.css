@@ -1,0 +1,109 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: #b0b0b0;
+  color: var(--text-black);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.app-stage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.phone {
+  width: 390px;
+  height: 844px;
+  background: var(--bg-white);
+  border-radius: 44px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+  flex-shrink: 0;
+}
+
+/* iOS system chrome — device preview only (not Design System) */
+.ios-status {
+  height: 47px;
+  flex-shrink: 0;
+  position: relative;
+  background: #ffffff;
+  pointer-events: none;
+  user-select: none;
+}
+.ios-status__island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 125px;
+  height: 36px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 2;
+}
+.ios-status__time {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 96px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, "SF Pro Text", "SF Pro Display", "Helvetica Neue",
+    system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+  line-height: 21px;
+  color: #000000;
+  z-index: 1;
+}
+.ios-status__trailing {
+  position: absolute;
+  right: 16px;
+  top: 19px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  z-index: 1;
+}
+.ios-status__cellular,
+.ios-status__wifi,
+.ios-status__battery {
+  display: block;
+  flex-shrink: 0;
+}

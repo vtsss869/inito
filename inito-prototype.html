@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inito Community — Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#B0B0B0;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','SF Pro Display',sans-serif;min-height:100vh;}
+.ns::-webkit-scrollbar{display:none;}
+.ns{-ms-overflow-style:none;scrollbar-width:none;}
+@keyframes prog{from{width:0}to{width:100%}}
+@keyframes slideRight{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes kbUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.prog-anim{animation:prog 2s linear forwards;}
+.screen-in{animation:slideRight 280ms ease-out forwards;}
+.kb-in{animation:kbUp 300ms ease-out forwards;}
+.post-in{animation:fadeIn 350ms ease-out;}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {useState,useEffect,useRef,useReducer,useCallback}=React;
+
+/* ══ COLORS ══ */
+const C={primary:'#5790FF',dark:'#112D35',text:'#263136',gray:'#9D9D9D',muted:'#AEAEAE',border:'#E5E5EA',surface:'#F2F2F7',surfaceBlue:'#DDE9FF',danger:'#FF3B30',success:'#34C759',infoBg:'#EAF0FF',adminBg:'rgba(87,144,255,0.12)',expertBg:'rgba(245,166,35,0.12)',expertTxt:'#FF9E55'};
+
+/* ══ REAL FIGMA ICON PATHS (from downloaded SVGs in /tmp) ══ */
+// Heart unfilled
+const HEART_OFF = `<path d="M2.41127 1.79399C4.17793 0.270848 6.44359 0.528679 7.99525 1.84673C9.54512 0.528053 11.7872 0.290607 13.5724 1.78813C15.5454 3.44326 15.7806 6.2624 14.2638 8.23247C13.6915 8.97576 12.5788 10.087 11.5158 11.0997C10.4385 12.1259 9.36403 13.0957 8.83412 13.5694C8.78395 13.6142 8.71398 13.6774 8.64662 13.7286C8.57056 13.7864 8.45756 13.8613 8.30482 13.9073C8.10375 13.9678 7.88773 13.9678 7.68666 13.9073C7.53393 13.8613 7.42093 13.7864 7.34486 13.7286C7.27749 13.6774 7.20753 13.6142 7.15736 13.5694C6.62747 13.0957 5.553 12.1259 4.47572 11.0997C3.41267 10.0869 2.29999 8.97577 1.72767 8.23247C0.204268 6.2539 0.483891 3.4561 2.41127 1.79399Z" stroke="#444343" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+// Comment bubble path
+const COMMENT_PATH = `<path d="M18.5 12C18.5 15.2796 15.8413 17.9383 12.5617 17.9383C11.8094 17.9383 11.0898 17.7984 10.4275 17.5433C10.3064 17.4966 10.2459 17.4733 10.1977 17.4622C10.1504 17.4513 10.1161 17.4467 10.0675 17.4448C10.0181 17.443 9.96397 17.4486 9.85563 17.4598L6.27796 17.8296C5.93686 17.8648 5.76631 17.8825 5.66571 17.8211C5.57808 17.7676 5.5184 17.6784 5.50251 17.577C5.48427 17.4605 5.56577 17.3097 5.72877 17.008L6.87148 14.8929C6.96558 14.7187 7.01264 14.6316 7.03395 14.5478C7.055 14.4651 7.06009 14.4055 7.05335 14.3204C7.04654 14.2343 7.00874 14.1222 6.93315 13.8979C6.73228 13.3019 6.6234 12.6637 6.6234 12C6.6234 8.72037 9.28207 6.0617 12.5617 6.0617C15.8413 6.0617 18.5 8.72037 18.5 12Z" stroke="#444343" stroke-width="1.43" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+/* ══ SVG ICON COMPONENTS ══ */
+function HeartIcon({size=24,liked=false}){
+  if(liked)return(
+    <svg width={size} height={size} viewBox="0 0 16 14.703" fill="none">
+      <path d="M2.41127 1.79399C4.17793 0.270848 6.44359 0.528679 7.99525 1.84673C9.54512 0.528053 11.7872 0.290607 13.5724 1.78813C15.5454 3.44326 15.7806 6.2624 14.2638 8.23247C13.6915 8.97576 12.5788 10.087 11.5158 11.0997C10.4385 12.1259 9.36403 13.0957 8.83412 13.5694C8.57056 13.7864 8.45756 13.8613 8.30482 13.9073C8.10375 13.9678 7.88773 13.9678 7.68666 13.9073C7.53393 13.8613 7.42093 13.7864 7.34486 13.7286C7.27749 13.6774 7.20753 13.6142 7.15736 13.5694C6.62747 13.0957 5.553 12.1259 4.47572 11.0997C3.41267 10.0869 2.29999 8.97577 1.72767 8.23247C0.204268 6.2539 0.483891 3.4561 2.41127 1.79399Z" fill="#EF6969" stroke="#EF6969" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+  return(
+    <svg width={size} height={size} viewBox="0 0 16 14.703" fill="none">
+      <path d="M2.41127 1.79399C4.17793 0.270848 6.44359 0.528679 7.99525 1.84673C9.54512 0.528053 11.7872 0.290607 13.5724 1.78813C15.5454 3.44326 15.7806 6.2624 14.2638 8.23247C13.6915 8.97576 12.5788 10.087 11.5158 11.0997C10.4385 12.1259 9.36403 13.0957 8.83412 13.5694C8.71398 13.6774 8.64662 13.7286C8.57056 13.7864 8.45756 13.8613 8.30482 13.9073C8.10375 13.9678 7.88773 13.9678 7.68666 13.9073C7.53393 13.8613 7.42093 13.7864 7.34486 13.7286C7.27749 13.6774 7.20753 13.6142 7.15736 13.5694C6.62747 13.0957 5.553 12.1259 4.47572 11.0997C3.41267 10.0869 2.29999 8.97577 1.72767 8.23247C0.204268 6.2539 0.483891 3.4561 2.41127 1.79399Z" stroke="#444343" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+function CommentIcon({size=24,c='#444343'}){
+  return(
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <path d="M18.5 12C18.5 15.28 15.84 17.94 12.56 17.94C11.81 17.94 11.09 17.8 10.43 17.54C10.15 17.44 10.07 17.45 9.86 17.46L6.28 17.83C5.94 17.86 5.67 17.82 5.51 17.58C5.36 17.36 5.42 17.05 5.73 17.01L6.87 14.89C7.01 14.63 7.05 14.4 7.02 14.16C6.73 13.3 6.62 12.66 6.62 12C6.62 8.72 9.28 6.06 12.56 6.06C15.84 6.06 18.5 8.72 18.5 12Z" stroke={c} strokeWidth="1.43" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+function BellIcon({size=22}){
+  return(
+    <svg width={size} height={size} viewBox="0 0 18 20" fill="none">
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 7.46154V14H0V16H18V14H16V7.46154C16 3.41173 12.9345 0 9 0C5.06551 0 2 3.41173 2 7.46154ZM9 2C6.30707 2 4 4.37413 4 7.46154V14H14V7.46154C14 4.37413 11.6929 2 9 2Z" fill="#263136"/>
+      <path d="M6.5 16C6.5 17.3807 7.61929 18.5 9 18.5C10.3807 18.5 11.5 17.3807 11.5 16" stroke="#263136" strokeWidth="1.5"/>
+    </svg>
+  );
+}
+function SearchIcon(){
+  return(
+    <svg width="13" height="13" viewBox="0 0 13.5 13.5" fill="none">
+      <path d="M12.75 12.75L9.75 9.75M11.25 6C11.25 8.9 8.9 11.25 6 11.25C3.1 11.25 0.75 8.9 0.75 6C0.75 3.1 3.1 0.75 6 0.75C8.9 0.75 11.25 3.1 11.25 6Z" stroke="#7F8598" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+function BackIcon(){
+  return(
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5790FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 12H5"/><path d="M12 5l-7 7 7 7"/>
+    </svg>
+  );
+}
+function XIcon({s=20,c='#263136'}){
+  return(
+    <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="2.5" strokeLinecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  );
+}
+function DotsIcon(){
+  return(
+    <svg width="18" height="4" viewBox="0 0 18 4" fill="none">
+      <path d="M9 3C9.55 3 10 2.55 10 2C10 1.45 9.55 1 9 1C8.45 1 8 1.45 8 2C8 2.55 8.45 3 9 3Z" stroke="#AEAEAE" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M16 3C16.55 3 17 2.55 17 2C17 1.45 16.55 1 16 1C15.45 1 15 1.45 15 2C15 2.55 15.45 3 16 3Z" stroke="#AEAEAE" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M2 3C2.55 3 3 2.55 3 2C3 1.45 2.55 1 2 1C1.45 1 1 1.45 1 2C1 2.55 1.45 3 2 3Z" stroke="#AEAEAE" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+function FilterIcon(){
+  return(
+    <svg width="18" height="12" viewBox="0 0 20 14" fill="none">
+      <path d="M1 1H19M4 7H16M7 13H13" stroke="#263136" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+}
+function PlusIcon(){return(<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1V15M1 8H15" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>);}
+function PhotoIcon(){return(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#263136" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>);}
+function PollIcon({c='#263136'}){return(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="16" y2="12"/><line x1="3" y1="18" x2="12" y2="18"/></svg>);}
+function ChevronRight(){return(<svg width="6" height="10" viewBox="0 0 6 9.998" fill="none"><path fillRule="evenodd" d="M1.061 9.998L0 8.95 3.903 4.999 0 1.048 1.061 0 6 4.999 1.061 9.998Z" fill="#AEAEAE"/></svg>);}
+function StarIcon(){return(<svg width="18" height="18" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>);}
+function CheckIcon(){return(<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34C759" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>);}
+function InfoIcon(){return(<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5790FF" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="#5790FF"/></svg>);}
+function LockIcon(){return(<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5790FF" strokeWidth="1.8" strokeLinecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>);}
+function SendIcon(){return(<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>);}
+function EditIcon(){return(<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#263136" strokeWidth="1.8" strokeLinecap="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4z"/></svg>);}
+function BookmarkIcon(){return(<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9D9D9D" strokeWidth="1.8" strokeLinecap="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>);}
+function ShieldIcon({s=22,c='#7A7AC7'}){return(<svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>);}
+
+/* ══ STATUS BAR ══ */
+function StatusBar({dark=false}){
+  const c=dark?'rgba(255,255,255,0.9)':'#010101';
+  return(
+    <div style={{height:50,display:'flex',alignItems:'flex-end',justifyContent:'space-between',padding:'0 28px 10px 28px',flexShrink:0}}>
+      <span style={{fontSize:15,fontWeight:600,color:c,letterSpacing:'-0.3px'}}>9:41</span>
+      <div style={{display:'flex',alignItems:'center',gap:6}}>
+        {/* Signal - from figma */}
+        <img src="/signal.svg" width="17" height="11" alt=""/>
+        {/* Wifi - from figma */}
+        <img src="/wifi.svg" width="16" height="11" alt=""/>
+        {/* Battery - from figma */}
+        <div style={{position:'relative',width:24,height:12}}>
+          <img src="/battout.svg" style={{position:'absolute',inset:0,width:'100%',height:'100%'}} alt=""/>
+          <img src="/battfill.svg" style={{position:'absolute',left:1.5,top:2,width:19,height:8}} alt=""/>
+          <img src="/battend.svg" style={{position:'absolute',right:-1.5,top:4,width:1.3,height:4}} alt=""/>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ══ MOBILE FRAME ══ */
+function MobileFrame({children}){
+  return(
+    <div style={{display:'flex',justifyContent:'center',alignItems:'flex-start',minHeight:'100vh',padding:'40px 20px 60px'}}>
+      <div style={{width:390,height:844,background:'#F5F5F5',borderRadius:50,overflow:'hidden',boxShadow:'0 0 0 1px #111,0 0 0 12px #1c1c1e,0 0 0 14px #3a3a3c,0 40px 100px rgba(0,0,0,0.4)',position:'relative',display:'flex',flexDirection:'column',flexShrink:0}}>
+        <div style={{position:'absolute',top:12,left:'50%',transform:'translateX(-50%)',width:120,height:34,background:'#000',borderRadius:20,zIndex:30,pointerEvents:'none'}}/>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* ══ AVATAR ══ */
+function Av({src,size=44,style={}}){
+  if(!src)return(
+    <div style={{width:size,height:size,borderRadius:'50%',flexShrink:0,position:'relative',overflow:'hidden',...style}}>
+      <img src="/av2bg.svg" style={{width:'100%',height:'100%'}} alt=""/>
+      <img src="/av2ic.svg" style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'55%',height:'46%',objectFit:'contain'}} alt=""/>
+    </div>
+  );
+  return <img src={src} alt="" style={{width:size,height:size,borderRadius:'50%',objectFit:'cover',flexShrink:0,...style}}/>;
+}
+
+/* ══ BADGE ══ */
+function Badge({type}){
+  if(!type)return null;
+  const admin=type==='Admin';
+  return <span style={{fontSize:11,padding:'2px 6px',borderRadius:100,background:admin?C.adminBg:C.expertBg,color:admin?C.primary:C.expertTxt,letterSpacing:'-0.2px',flexShrink:0}}>{type}</span>;
+}
+
+/* ══ PILL BUTTON ══ */
+function PillBtn({label,active,onClick}){
+  return(<button onClick={onClick} disabled={!active} style={{padding:'0 16px',borderRadius:20,border:'none',cursor:active?'pointer':'default',background:active?C.dark:C.surface,color:active?'#fff':C.gray,fontSize:14,fontWeight:600,height:32,flexShrink:0,transition:'all .15s'}}>{label}</button>);
+}
+
+/* ══ NAV BAR ══ */
+function NavBar({title,left,right,step}){
+  return(
+    <>
+      <div style={{display:'flex',alignItems:'center',padding:'10px 16px',borderBottom:`1px solid ${C.border}`,flexShrink:0,height:52,background:'#fff',position:'relative'}}>
+        <div style={{position:'absolute',left:16}}>{left}</div>
+        <span style={{flex:1,textAlign:'center',fontSize:17,fontWeight:600,color:C.text}}>{title}</span>
+        <div style={{position:'absolute',right:16}}>{right}</div>
+      </div>
+      {step&&<div style={{fontSize:12,color:C.gray,padding:'6px 16px 2px',flexShrink:0,background:'#fff'}}>{step}</div>}
+    </>
+  );
+}
+
+/* ══ TOGGLE ══ */
+function Toggle({on,onChange}){
+  return(<div onClick={onChange} style={{width:51,height:31,borderRadius:16,background:on?'#34C759':'#E5E5EA',cursor:'pointer',display:'flex',alignItems:'center',padding:2,transition:'background .2s',flexShrink:0}}><div style={{width:27,height:27,borderRadius:'50%',background:'white',boxShadow:'0 2px 4px rgba(0,0,0,.3)',transform:on?'translateX(20px)':'none',transition:'transform .2s'}}/></div>);
+}
+
+/* ══ BOTTOM SHEET ══ */
+function Sheet({open,onClose,children}){
+  const [vis,setVis]=useState(false);
+  const [anim,setAnim]=useState(false);
+  useEffect(()=>{if(open){setVis(true);setTimeout(()=>setAnim(true),10);}else{setAnim(false);setTimeout(()=>setVis(false),320);};},[open]);
+  if(!vis)return null;
+  return(
+    <div style={{position:'absolute',inset:0,zIndex:60}}>
+      <div onClick={onClose} style={{position:'absolute',inset:0,background:'rgba(0,0,0,0.5)',opacity:anim?1:0,transition:'opacity 300ms ease-out'}}/>
+      <div style={{position:'absolute',bottom:0,left:0,right:0,background:'#fff',borderRadius:'20px 20px 0 0',transform:anim?'translateY(0)':'translateY(100%)',transition:'transform 320ms cubic-bezier(0.32,0.72,0,1)',maxHeight:'88%',display:'flex',flexDirection:'column',overflow:'hidden'}}>
+        <div style={{display:'flex',justifyContent:'center',padding:'12px 0 8px',flexShrink:0}}>
+          <div style={{width:36,height:4,borderRadius:2,background:'#D9D9D9'}}/>
+        </div>
+        <div style={{flex:1,overflowY:'auto'}} className="ns">{children}</div>
+        <div style={{height:34,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><div style={{width:134,height:5,borderRadius:100,background:C.text}}/></div>
+      </div>
+    </div>
+  );
+}
+
+/* ══ BOTTOM NAV (exact Figma tab bar) ══ */
+function BottomNav(){
+  return(
+    <div style={{height:83,background:'rgba(247,247,247,0.97)',borderTop:`1px solid ${C.border}`,display:'flex',alignItems:'flex-start',paddingTop:4,flexShrink:0,backdropFilter:'blur(20px)'}}>
+      {/* Home */}
+      <div style={{flex:1,display:'flex',flexDirection:'column',alignItems:'center',gap:2,padding:'6px 0',cursor:'pointer'}}>
+        <img src="/tabh.svg" width="24" height="24" alt=""/>
+        <span style={{fontSize:9,fontFamily:'Montserrat,sans-serif',fontWeight:600,color:'#000'}}>Home</span>
+      </div>
+      {/* Chart */}
+      <div style={{flex:1,display:'flex',flexDirection:'column',alignItems:'center',gap:2,padding:'6px 0',cursor:'pointer'}}>
+        <img src="/tabc.svg" width="18" height="18" alt=""/>
+        <span style={{fontSize:9,fontFamily:'Montserrat,sans-serif',fontWeight:600,color:'#000'}}>Chart</span>
+      </div>
+      {/* Shop */}
+      <div style={{flex:1,display:'flex',flexDirection:'column',alignItems:'center',gap:2,padding:'6px 0',cursor:'pointer'}}>
+        <img src="/tabs.svg" width="18" height="18" alt=""/>
+        <span style={{fontSize:9,fontFamily:'Montserrat,sans-serif',fontWeight:600,color:'#000'}}>Shop</span>
+      </div>
+      {/* Community - active */}
+      <div style={{flex:1,display:'flex',flexDirection:'column',alignItems:'center',gap:2,padding:'6px 0',cursor:'pointer'}}>
+        <div style={{background:'#ededed',borderRadius:100,padding:'4px 14px',display:'flex',flexDirection:'column',alignItems:'center',gap:2}}>
+          <img src="/tabco.svg" width="18" height="18" alt=""/>
+          <span style={{fontSize:9,fontFamily:'Montserrat,sans-serif',fontWeight:600,color:C.dark}}>Community</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ══ INITO CHART ══ */
+function IniChart({small=false}){
+  const h=small?110:140;
+  return(
+    <div style={{borderRadius:8,border:'1px solid #f0f0f0',background:'#fff',overflow:'hidden'}}>
+      <svg width="100%" height={h} viewBox={`0 0 340 ${h}`}>
+        <rect width="340" height={h} fill="#fff"/>
+        {[28,56,84,110].map(y=>y<h&&<line key={y} x1="45" y1={y} x2="330" y2={y} stroke="#f5f5f5" strokeWidth="1"/>)}
+        <text x="5" y="14" fontSize="9" fill="#263136" fontFamily="Montserrat,sans-serif" fontWeight="700">inito</text>
+        <text x="5" y="24" fontSize="5.5" fill="#9D9D9D">Hormone Chart</text>
+        {['Jul-03','Aug-05','Sep-04','Oct-05','Mar-15','Apr-28'].map((m,i)=><text key={m} x={48+i*50} y={h-4} fontSize="5" fill="#9D9D9D" textAnchor="middle">{m}</text>)}
+        <polyline points="48,95 90,88 130,75 165,48 195,18 225,72 260,94 295,102 330,106" fill="none" stroke="#5790FF" strokeWidth="2" strokeLinejoin="round"/>
+        <polyline points="48,104 90,98 130,86 165,62 195,28 225,80 260,100 295,108 330,111" fill="none" stroke="#4caf7d" strokeWidth="1.5" strokeLinejoin="round"/>
+        <polyline points="48,108 90,107 130,106 165,104 195,100 225,88 260,72 295,62 330,65" fill="none" stroke="#FF9E55" strokeWidth="2" strokeLinejoin="round"/>
+        <polyline points="48,88 90,84 130,76 165,65 195,52 225,68 260,80 295,86 330,89" fill="none" stroke="#9b7fd4" strokeWidth="1.5" strokeDasharray="4,3"/>
+        <rect x="183" y="8" width="40" height="14" rx="4" fill="#EF6969"/>
+        <text x="203" y="18" fontSize="6.5" fill="white" textAnchor="middle">OV Peak</text>
+        <rect x="0" y="0" width="44" height="28" fill="white"/>
+      </svg>
+    </div>
+  );
+}
+
+/* ══ DATA ══ */
+const POSTS=[
+  {id:1,author:'Marissa Layfield',avatar:'https://i.pravatar.cc/80?img=47',badge:'Admin',time:'12m',text:"Fertility journeys can be a rollercoaster ride! 🌈 Whether you're just starting out or have been trying for a while, it's important to celebrate every little victory. Remember, you're not alone in this journey. Let's uplift one another and share our stories!",likes:24,comments:10},
+  {id:2,author:'Anonymous member',avatar:null,badge:null,time:'56m',text:"I'm new to Inito. How does my chart appear? Is there still a chance to confirm ov?",chart:true,likes:38,comments:2,isAnon:true},
+  {id:3,author:'Clementine',avatar:'https://i.pravatar.cc/80?img=12',badge:null,time:'2h',text:"Cycle 6 and still waiting. Some days are harder than others but knowing you're all on the same journey makes it feel less lonely 🩶",likes:78,comments:0,commentLabel:'Comment'},
+  {id:4,author:'Kate',avatar:'https://i.pravatar.cc/80?img=25',badge:'Expert',time:'4d',tags:['BFP','Pregnancy'],text:"What's the earliest DPO you got a positive test? 🗳️",poll:{voters:234,options:[{label:'8 DPO',percent:4},{label:'9 DPO',percent:23},{label:'10 DPO',percent:17},{label:'11 DPO or later',percent:56}]},likes:33,comments:10},
+  {id:5,author:'Samantha Rivers',avatar:'https://i.pravatar.cc/80?img=32',badge:null,time:'5d',text:"Tip from cycle 9 me to cycle 1 you: don't compare your chart to anyone else's. Your hormones have their own rhythm — trust the data, not the anxiety",likes:123,comments:5},
+];
+
+const ALL_USERS=[
+  {name:'Marissa Layfield',av:'https://i.pravatar.cc/80?img=47'},
+  {name:'Clementine',av:'https://i.pravatar.cc/80?img=12'},
+  {name:'Kate',av:'https://i.pravatar.cc/80?img=25'},
+  {name:'Emily Johnson',av:'https://i.pravatar.cc/80?img=1'},
+  {name:'Samantha',av:'https://i.pravatar.cc/80?img=32'},
+  {name:'Olivia Smith',av:'https://i.pravatar.cc/80?img=5'},
+  {name:'Ava',av:'https://i.pravatar.cc/80?img=9'},
+  {name:'Mia',av:'https://i.pravatar.cc/80?img=10'},
+  {name:'Sophia',av:'https://i.pravatar.cc/80?img=11'},
+  {name:'Isabella Anderson',av:'https://i.pravatar.cc/80?img=13'},
+  {name:'Charlotte Thomas',av:'https://i.pravatar.cc/80?img=14'},
+  {name:'Amelia Martinez',av:'https://i.pravatar.cc/80?img=15'},
+  {name:'Sofia Chen',av:'https://i.pravatar.cc/80?img=16'},
+];
+
+/* ══ POST CARD ══ */
+function PostCard({post,onAvatarClick,onNameClick,onTextClick,onLikesTap,onVotersTap,onCommentsTap,isNew=false}){
+  const [liked,setLiked]=useState(false);
+  const [selOpt,setSelOpt]=useState(post.poll?1:null);
+  const likeCount=post.likes+(liked?1:0);
+
+  return(
+    <div style={{background:'#fff',borderBottom:`1px solid ${C.border}`,animation:isNew?'fadeIn .35s ease-out':undefined}}>
+      {/* User row */}
+      <div style={{display:'flex',alignItems:'flex-start',gap:8,padding:'8px 16px'}}>
+        <div style={{cursor:'pointer'}} onClick={onAvatarClick||onNameClick}><Av src={post.avatar} size={44}/></div>
+        <div style={{flex:1,minWidth:0,paddingTop:2}}>
+          <div style={{display:'flex',alignItems:'center',gap:5,flexWrap:'wrap'}}>
+            <span onClick={post.isAnon?onNameClick:onAvatarClick} style={{fontSize:14,fontWeight:590,color:C.text,cursor:'pointer',letterSpacing:'-0.07px'}}>{post.author}</span>
+            <Badge type={post.badge}/>
+            {post.tags?.map(t=><span key={t} style={{fontSize:11,padding:'1px 6px',borderRadius:100,background:'rgba(231,231,231,0.6)',color:C.text,letterSpacing:'-0.2px'}}>{t}</span>)}
+            {post.tags&&<span style={{fontSize:12,color:C.muted}}>{post.time}</span>}
+          </div>
+          {!post.tags&&<div style={{fontSize:12,color:C.muted,marginTop:2}}>{post.time}</div>}
+        </div>
+        <button style={{background:'none',border:'none',cursor:'pointer',padding:'4px 0 0 4px',flexShrink:0}}><DotsIcon/></button>
+      </div>
+      {/* Text */}
+      <div onClick={post.isAnon?onTextClick:undefined} style={{padding:'0 16px 8px',fontSize:14,color:C.text,lineHeight:'18px',letterSpacing:'-0.07px',cursor:post.isAnon?'pointer':'default'}}>{post.text}</div>
+      {/* Chart */}
+      {post.chart&&<div onClick={post.isAnon?onTextClick:undefined} style={{padding:'0 16px 8px',cursor:post.isAnon?'pointer':'default'}}><IniChart/></div>}
+      {/* Poll */}
+      {post.poll&&(
+        <div style={{padding:'0 16px 8px',display:'flex',flexDirection:'column',gap:4}}>
+          {post.poll.options.map((o,i)=>{
+            const sel=selOpt===i;
+            const barW=`${(o.percent/100)*357}px`;
+            return(
+              <div key={i} onClick={()=>setSelOpt(i)} style={{position:'relative',background:'#F9F9F9',borderRadius:12,height:48,display:'flex',alignItems:'center',gap:10,padding:'0 12px 0 8px',overflow:'hidden',cursor:'pointer'}}>
+                <div style={{position:'absolute',left:0,top:0,bottom:0,width:barW,background:'#DDE9FF',opacity:sel?1:0.5,borderRadius:'12px 0 0 12px',transition:'width .3s'}}/>
+                {/* Radio - real Figma assets */}
+                <div style={{flexShrink:0,zIndex:1,width:20,height:20}}>
+                  {sel
+                    ?<img src="/radioon.svg" width="20" height="20" alt=""/>
+                    :<img src="/radiooff.svg" width="20" height="20" alt=""/>
+                  }
+                </div>
+                <span style={{flex:1,fontSize:14,color:C.text,zIndex:1,fontWeight:sel?590:400,letterSpacing:'-0.07px'}}>{o.label}</span>
+                <div style={{display:'flex',alignItems:'center',gap:4,zIndex:1}}>
+                  <span style={{fontSize:14,color:C.text}}>{o.percent}%</span>
+                  <div onClick={e=>{e.stopPropagation();onVotersTap&&onVotersTap(o);}} style={{cursor:'pointer',padding:'6px 2px',display:'flex',alignItems:'center'}}>
+                    <ChevronRight/>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <span style={{fontSize:12,color:C.gray,padding:'2px 6px',letterSpacing:'-0.048px'}}>{post.poll.voters} voters</span>
+        </div>
+      )}
+      {/* Reactions */}
+      <div style={{display:'flex',alignItems:'center',gap:8,padding:'4px 16px 12px'}}>
+        <button onClick={()=>setLiked(!liked)} style={{display:'flex',alignItems:'center',gap:3,background:'none',border:'none',cursor:'pointer',padding:0}}>
+          <HeartIcon size={24} liked={liked}/>
+        </button>
+        <button onClick={()=>onLikesTap&&onLikesTap(likeCount)} style={{background:'none',border:'none',cursor:'pointer',padding:'0 4px 0 0',fontSize:12,color:'#444343',letterSpacing:'-0.048px'}}>{likeCount}</button>
+        <button onClick={()=>onCommentsTap&&onCommentsTap(post)} style={{display:'flex',alignItems:'center',gap:4,background:'none',border:'none',cursor:'pointer',padding:0}}>
+          <CommentIcon size={24}/>
+          <span style={{fontSize:12,color:'#444343',letterSpacing:'-0.048px'}}>{post.commentLabel||(post.comments>0?`${post.comments} comments`:'Comment')}</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ══ KEYBOARDS ══ */
+function Keyboard({onDismiss}){
+  return(
+    <div className="kb-in" style={{background:'#D1D5DB',flexShrink:0,padding:'8px 4px 4px',userSelect:'none'}}>
+      {['qwertyuiop','asdfghjkl'].map((row,ri)=>(
+        <div key={ri} style={{display:'flex',justifyContent:'center',gap:ri===1?5:4,marginBottom:5,paddingInline:ri===1?'5%':0}}>
+          {row.split('').map(k=><div key={k} style={{background:'#fff',borderRadius:5,height:42,flex:1,display:'flex',alignItems:'center',justifyContent:'center',fontSize:17,boxShadow:'0 1px 0 #898989'}}>{k}</div>)}
+        </div>
+      ))}
+      <div style={{display:'flex',gap:4,marginBottom:5}}>
+        <div style={{background:'#ADB5BD',borderRadius:5,height:42,flex:1.5,display:'flex',alignItems:'center',justifyContent:'center',fontSize:15,boxShadow:'0 1px 0 #898989'}}>⇧</div>
+        {'zxcvbnm'.split('').map(k=><div key={k} style={{background:'#fff',borderRadius:5,height:42,flex:1,display:'flex',alignItems:'center',justifyContent:'center',fontSize:17,boxShadow:'0 1px 0 #898989'}}>{k}</div>)}
+        <div style={{background:'#ADB5BD',borderRadius:5,height:42,flex:1.5,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18,boxShadow:'0 1px 0 #898989'}}>⌫</div>
+      </div>
+      <div style={{display:'flex',gap:4}}>
+        <div style={{background:'#ADB5BD',borderRadius:5,height:42,width:82,display:'flex',alignItems:'center',justifyContent:'center',fontSize:13,boxShadow:'0 1px 0 #898989'}}>123</div>
+        <div style={{background:'#ADB5BD',borderRadius:5,height:42,width:36,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18,boxShadow:'0 1px 0 #898989'}}>🌐</div>
+        <div style={{background:'#fff',borderRadius:5,height:42,flex:1,boxShadow:'0 1px 0 #898989'}}/>
+        <div onClick={onDismiss} style={{background:'#ADB5BD',borderRadius:5,height:42,width:82,display:'flex',alignItems:'center',justifyContent:'center',fontSize:13,boxShadow:'0 1px 0 #898989',cursor:'pointer'}}>return</div>
+      </div>
+      <div style={{height:4}}/>
+    </div>
+  );
+}
+
+/* ══ NOTIF DATA ══ */
+const NOTIFS=[
+  {group:'Today',items:[
+    {id:'n1',type:'featured',text:'Your post was featured!',time:'2m',tap:true},
+    {id:'n2',type:'likes',avs:['https://i.pravatar.cc/80?img=47','https://i.pravatar.cc/80?img=12'],text:'Marissa Layfield and Clementine liked your post',time:'5m'},
+    {id:'n3',type:'comment',av:'https://i.pravatar.cc/80?img=25',text:'Kate commented: "This is exactly what I needed 💙"',time:'12m'},
+    {id:'n4',type:'removed',text:'Your post was removed. Tap to see feedback.',time:'1h',tap:true,navTo:'postremoved'},
+  ]},
+  {group:'Yesterday',items:[
+    {id:'n5',type:'approved',text:'Your post has been approved.',time:'1d',tap:true},
+    {id:'n6',type:'follow',av:'https://i.pravatar.cc/80?img=32',text:'Samantha Rivers started following you',time:'1d',hasFollow:true},
+    {id:'n7',type:'likes',avs:['https://i.pravatar.cc/80?img=47','https://i.pravatar.cc/80?img=12','https://i.pravatar.cc/80?img=32'],text:'Marissa, Clementine and 8 others liked your post',time:'1d'},
+  ]},
+];
+function NotifIcon({type,avs,av}){
+  if(type==='featured')return <div style={{width:36,height:36,borderRadius:'50%',background:C.surface,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><StarIcon/></div>;
+  if(type==='approved')return <div style={{width:36,height:36,borderRadius:'50%',background:'#E8F5E9',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><CheckIcon/></div>;
+  if(type==='removed')return <div style={{width:36,height:36,borderRadius:'50%',background:'#FFEBEE',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,fontSize:18,fontWeight:700,color:C.danger}}>!</div>;
+  if(type==='likes'&&avs){
+    const show=avs.slice(0,3);
+    return(
+      <div style={{position:'relative',width:36+(show.length-1)*10+8,height:36,flexShrink:0}}>
+        {show.map((a,i)=><img key={i} src={a} alt="" style={{width:36-i*4,height:36-i*4,borderRadius:'50%',objectFit:'cover',position:'absolute',left:i*10,top:0,zIndex:3-i,border:'2px solid white'}}/>)}
+        <div style={{position:'absolute',bottom:-3,right:0,width:16,height:16,borderRadius:'50%',background:C.danger,display:'flex',alignItems:'center',justifyContent:'center',border:'2px solid white'}}><HeartIcon size={8} liked/></div>
+      </div>
+    );
+  }
+  return(
+    <div style={{position:'relative',flexShrink:0}}>
+      <Av src={av} size={36}/>
+      {type==='comment'&&<div style={{position:'absolute',bottom:-2,right:-4,width:16,height:16,borderRadius:'50%',background:C.primary,display:'flex',alignItems:'center',justifyContent:'center',border:'2px solid white'}}><CommentIcon size={7} c="white"/></div>}
+    </div>
+  );
+}
+
+/* ══════════ POST DETAIL SCREEN ══════════ */
+const POST_COMMENTS=[
+  {id:'c1',author:'Nata',avatar:'https://i.pravatar.cc/80?img=5',time:'15m',text:"It's all good! Your PdG levels haven't increased yet, which might suggest an anovulatory cycle. However, there's still a possibility for a rise, so continue testing. My chart from a few cycles back looks similar. You can also still experience a second LH surge",chart:true,likes:27,replies:3},
+  {id:'c2',author:'Anonymous member',avatar:null,time:'3h',text:"Thanks! How long have you been testing for?",likes:1,isAnon:true,authorLabel:'Author'},
+  {id:'c3',author:'Grace',avatar:'https://i.pravatar.cc/80?img=4',time:'3h',text:"Interesting, I didn't realize that having two LH surges is common.",likes:2},
+  {id:'c4',author:'Grace',avatar:'https://i.pravatar.cc/80?img=4',time:'2m',text:"Keep testing, there is still a hope! How long is your regular cycle?",likes:2,hasReply:true},
+];
+
+function PostDetail({nav,post}){
+  const [commentText,setCommentText]=useState('');
+  const [kbOpen,setKbOpen]=useState(false);
+  const [posting,setPosting]=useState(false);
+  const [postedComment,setPostedComment]=useState(null);
+  const [liked,setLiked]=useState(false);
+
+  const submit=()=>{
+    if(!commentText.trim())return;
+    const c={id:'new',author:'Grace',avatar:'https://i.pravatar.cc/80?img=4',time:'now',text:commentText,likes:0,posting:true};
+    setPostedComment(c);
+    setCommentText('');
+    setKbOpen(false);
+    setPosting(true);
+    setTimeout(()=>{setPosting(false);setPostedComment(prev=>prev?{...prev,posting:false}:prev);},2000);
+  };
+
+  const allComments=[...POST_COMMENTS,...(postedComment?[postedComment]:[])];
+
+  return(
+    <div style={{flex:1,display:'flex',flexDirection:'column',background:'#fff'}} className="screen-in">
+      <StatusBar/>
+      <div style={{display:'flex',alignItems:'center',padding:'10px 16px',borderBottom:`1px solid ${C.border}`,flexShrink:0,background:'#fff'}}>
+        <button onClick={()=>nav('feed')} style={{background:'none',border:'none',cursor:'pointer',padding:4,marginLeft:-4,display:'flex'}}><BackIcon/></button>
+        <span style={{fontSize:17,fontWeight:600,color:C.text,marginLeft:4}}>Post</span>
+        <div style={{flex:1}}/>
+        <button style={{background:'none',border:'none',cursor:'pointer'}}><DotsIcon/></button>
+      </div>
+      <div style={{flex:1,overflowY:'auto'}} className="ns">
+        {/* Original post */}
+        <div style={{borderBottom:`1px solid ${C.border}`}}>
+          <div style={{display:'flex',alignItems:'flex-start',gap:8,padding:'12px 16px 8px'}}>
+            <Av src={null} size={44}/>
+            <div style={{flex:1}}>
+              <div style={{fontSize:14,fontWeight:590,color:C.text}}>Anonymous member</div>
+              <div style={{fontSize:12,color:C.muted}}>56m</div>
+            </div>
+            <DotsIcon/>
+          </div>
+          <div style={{padding:'0 16px 8px',fontSize:14,color:C.text,lineHeight:'18px'}}>I'm new to Inito. How does my chart appear? Is there still a chance to confirm ov?</div>
+          <div style={{padding:'0 16px 8px'}}><IniChart/></div>
+          <div style={{display:'flex',alignItems:'center',gap:8,padding:'4px 16px 12px'}}>
+            <button onClick={()=>setLiked(!liked)} style={{background:'none',border:'none',cursor:'pointer',padding:0,display:'flex',alignItems:'center',gap:3}}>
+              <HeartIcon size={24} liked={liked}/>
+            </button>
+            <span style={{fontSize:12,color:'#444343'}}>{38+(liked?1:0)}</span>
+            <CommentIcon size={24}/>
+            <span style={{fontSize:12,color:'#444343'}}>2 comments</span>
+          </div>
+        </div>
+        {/* Comments */}
+        {allComments.map(c=>(
+          <div key={c.id} style={{borderBottom:`1px solid #F7F7F7`,padding:'12px 16px',background:c.posting?'#F0F8FF':'#fff',transition:'background .5s'}}>
+            <div style={{display:'flex',gap:8,marginBottom:6}}>
+              <Av src={c.avatar} size={32}/>
+              <div style={{flex:1}}>
+                <div style={{display:'flex',alignItems:'center',gap:6}}>
+                  <span style={{fontSize:14,fontWeight:600,color:C.text}}>{c.author}</span>
+                  {c.authorLabel&&<span style={{fontSize:12,color:C.gray}}>{c.time} · {c.authorLabel}</span>}
+                  {!c.authorLabel&&<span style={{fontSize:12,color:C.muted}}>{c.time}</span>}
+                </div>
+              </div>
+              <DotsIcon/>
+            </div>
+            <p style={{fontSize:14,color:C.text,lineHeight:'18px',paddingLeft:40,marginBottom:6}}>{c.text}</p>
+            {c.chart&&<div style={{paddingLeft:40,marginBottom:6}}><IniChart small/></div>}
+            {c.posting&&<div style={{paddingLeft:40,fontSize:12,color:C.gray,marginBottom:4}}>Commenting...</div>}
+            <div style={{display:'flex',alignItems:'center',gap:6,paddingLeft:40}}>
+              <HeartIcon size={18} liked={false}/>
+              <span style={{fontSize:12,color:'#444343'}}>{c.likes}</span>
+              {c.hasReply&&<><CommentIcon size={18} c="#444343"/><span style={{fontSize:12,color:'#444343'}}>Reply</span></>}
+            </div>
+          </div>
+        ))}
+        <div style={{height:20}}/>
+      </div>
+      {/* Comment input bar */}
+      <div style={{borderTop:`1px solid ${C.border}`,padding:'8px 12px',display:'flex',alignItems:'center',gap:8,background:'#fff',flexShrink:0}}>
+        <Av src="https://i.pravatar.cc/80?img=4" size={32}/>
+        <div style={{flex:1,background:'#F5F5F5',borderRadius:20,padding:'8px 12px',display:'flex',alignItems:'center',cursor:'text'}} onClick={()=>setKbOpen(true)}>
+          {commentText
+            ?<span style={{fontSize:14,color:C.text}}>{commentText}</span>
+            :<span style={{fontSize:14,color:C.gray}}>Write a comment...</span>
+          }
+        </div>
+        <button onClick={submit} style={{width:32,height:32,borderRadius:'50%',background:commentText.trim()?C.dark:'#E5E5EA',border:'none',cursor:commentText.trim()?'pointer':'default',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+          <SendIcon/>
+        </button>
+      </div>
+      {kbOpen&&(
+        <div style={{flexShrink:0}}>
+          {/* Simulated typing area */}
+          <div style={{background:'#fff',padding:'8px 12px',borderTop:`1px solid ${C.border}`,display:'flex',alignItems:'center',gap:8}}>
+            <Av src="https://i.pravatar.cc/80?img=4" size={32}/>
+            <div style={{flex:1,background:'#F5F5F5',borderRadius:20,padding:'8px 12px',display:'flex',alignItems:'center',gap:4}}>
+              <input
+                autoFocus
+                value={commentText}
+                onChange={e=>setCommentText(e.target.value)}
+                placeholder="Write a comment..."
+                style={{flex:1,background:'transparent',border:'none',outline:'none',fontSize:14,color:C.text,fontFamily:'inherit'}}
+                onKeyDown={e=>e.key==='Enter'&&submit()}
+              />
+            </div>
+            <button onClick={submit} style={{width:32,height:32,borderRadius:'50%',background:commentText.trim()?C.dark:'#E5E5EA',border:'none',cursor:commentText.trim()?'pointer':'default',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+              <SendIcon/>
+            </button>
+          </div>
+          <Keyboard onDismiss={()=>setKbOpen(false)}/>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ══════════ ANON INFO SHEET ══════════ */
+function AnonInfoSheet({onClose}){
+  return(
+    <div style={{padding:'8px 24px 0'}}>
+      <h2 style={{fontSize:20,fontWeight:700,color:C.text,textAlign:'center',marginBottom:24}}>How Anonymous Posting Works</h2>
+      <div style={{background:'#F5F5F5',borderRadius:16,padding:16,marginBottom:12,display:'flex',gap:14,alignItems:'center'}}>
+        <div style={{width:40,height:40,background:'#E0E0FF',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+          <ShieldIcon s={20} c="#7A7AC7"/>
+        </div>
+        <p style={{fontSize:15,color:C.text,lineHeight:'20px'}}>Your name and profile won't be visible to other members.</p>
+      </div>
+      <div style={{background:'#F5F5F5',borderRadius:16,padding:16,marginBottom:32,display:'flex',gap:14,alignItems:'center'}}>
+        <div style={{width:40,height:40,background:'#E0E0FF',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+          <LockIcon/>
+        </div>
+        <p style={{fontSize:15,color:C.text,lineHeight:'20px'}}>Admins and moderators can still see your profile to help keep the community safe.</p>
+      </div>
+      <div style={{display:'flex',justifyContent:'center',paddingBottom:8}}>
+        <button onClick={onClose} style={{width:62,height:62,borderRadius:'50%',background:C.dark,border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',boxShadow:'0 4px 16px rgba(17,45,53,.35)'}}>
+          <CheckIcon/>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ══════════════════ SCREENS ══════════════════ */
+
+/* FEED */
+function FeedScreen({nav,newPost,isPosting}){
+  const [tab,setTab]=useState('myfeed');
+  const [modal,setModal]=useState(null);
+  const posts=newPost?[newPost,...POSTS]:POSTS;
+  return(
+    <div style={{flex:1,display:'flex',flexDirection:'column',overflow:'hidden',position:'relative'}} className="screen-in">
+      <div style={{background:'#fff',flexShrink:0}}>
+        <StatusBar/>
+        <div style={{display:'flex',alignItems:'center',gap:8,padding:'6px 16px 10px'}}>
+          <div style={{cursor:'pointer'}} onClick={()=>nav('profile')}><Av src="https://i.pravatar.cc/80?img=47" size={32}/></div>
+          <div style={{flex:1,height:36,border:`1.5px solid ${C.border}`,borderRadius:18,display:'flex',alignItems:'center',padding:'0 12px',gap:6,background:'#fff'}}>
+            <SearchIcon/><span style={{fontSize:14,color:C.gray}}>Search</span>
+          </div>
+          <button onClick={()=>nav('notifications')} style={{position:'relative',background:'none',border:'none',cursor:'pointer',padding:4}}>
+            <BellIcon/>
+            <div style={{position:'absolute',top:2,right:2,width:12,height:12}}>
+              <img src="/ndot.svg" width="10" height="10" alt=""/>
+            </div>
+          </button>
+        </div>
+        <div style={{display:'flex',alignItems:'center',padding:'0 16px',borderBottom:`1px solid ${C.border}`}}>
+          <div style={{display:'flex',gap:20,flex:1}}>
+            {[['myfeed','My feed'],['featured','Featured']].map(([k,l])=>(
+              <button key={k} onClick={()=>setTab(k)} style={{background:'none',border:'none',cursor:'pointer',padding:'10px 0',fontSize:14,fontWeight:k===tab?600:400,color:k===tab?C.text:C.gray,borderBottom:k===tab?`2px solid ${C.primary}`:'2px solid transparent',marginBottom:-1,letterSpacing:'-0.07px'}}>{l}</button>
+            ))}
+          </div>
+          <button style={{background:'none',border:'none',cursor:'pointer',position:'relative',padding:4}}>
+            <FilterIcon/>
+            <div style={{position:'absolute',top:0,right:0,width:14,height:14,background:'#1F1F1F',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+              <span style={{fontSize:8,color:'white',fontWeight:700,fontFamily:'Montserrat,sans-serif'}}>1</span>
+            </div>
+          </button>
+        </div>
+        {isPosting&&(
+          <div style={{padding:'8px 16px 4px'}}>
+            <div style={{fontSize:13,color:C.gray,marginBottom:6}}>Posting...</div>
+            <div style={{height:4,background:C.border,borderRadius:2,overflow:'hidden'}}>
+              <div className="prog-anim" style={{height:'100%',background:C.primary,borderRadius:2,width:0}}/>
+            </div>
+          </div>
+        )}
+      </div>
+      <div style={{flex:1,overflowY:'auto',background:'#F5F5F5'}} className="ns">
+        <div style={{display:'flex',flexDirection:'column',gap:4}}>
+          {posts.map((p,i)=>(
+            <PostCard key={p.id} post={p} isNew={i===0&&!!newPost}
+              onAvatarClick={()=>nav('profile')}
+              onNameClick={p.isAnon?()=>setModal({type:'anonInfo'}):()=>nav('profile')}
+              onTextClick={p.isAnon?()=>nav('postDetail'):undefined}
+              onLikesTap={(count)=>setModal({type:'likes',count})}
+              onVotersTap={(opt)=>setModal({type:'voters',opt})}
+              onCommentsTap={p.isAnon?(post)=>nav('postDetail'):undefined}
+            />
+          ))}
+        </div>
+        <div style={{height:100}}/>
+      </div>
+      {/* FAB */}
+      <button onClick={()=>nav('newpost1')} style={{position:'absolute',bottom:96,right:16,width:62,height:62,borderRadius:'50%',background:C.dark,border:'1px solid white',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',boxShadow:'0 4px 16px rgba(17,45,53,.4)',zIndex:10}}>
+        <img src="/fabplus.svg" width="14" height="14" alt="+"/>
+      </button>
+      <BottomNav/>
+
+      {/* ANON INFO SHEET */}
+      <Sheet open={modal?.type==='anonInfo'} onClose={()=>setModal(null)}>
+        <AnonInfoSheet onClose={()=>setModal(null)}/>
+      </Sheet>
+
+      {/* LIKES SHEET — single column */}
+      <Sheet open={modal?.type==='likes'} onClose={()=>setModal(null)}>
+        {modal?.type==='likes'&&(
+          <div style={{padding:'0 16px 8px'}}>
+            {ALL_USERS.slice(0,modal.count).map((u,i)=>(
+              <div key={i} style={{display:'flex',alignItems:'center',gap:12,padding:'10px 0',borderBottom:i<Math.min(modal.count,ALL_USERS.length)-1?`1px solid ${C.border}`:'none'}}>
+                <Av src={u.av} size={40}/>
+                <span style={{fontSize:14,color:C.text}}>{u.name}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </Sheet>
+
+      {/* VOTERS SHEET — single column */}
+      <Sheet open={modal?.type==='voters'} onClose={()=>setModal(null)}>
+        {modal?.type==='voters'&&(
+          <div style={{padding:'0 16px 8px'}}>
+            <div style={{textAlign:'center',padding:'4px 0 16px',borderBottom:`1px solid ${C.border}`,marginBottom:4}}>
+              <span style={{fontSize:17,fontWeight:600,color:C.text}}>{modal.opt.label}</span>
+              <span style={{fontSize:14,color:C.gray,marginLeft:8}}>· {modal.opt.percent}%</span>
+            </div>
+            {ALL_USERS.slice(0,Math.max(Math.round(ALL_USERS.length*modal.opt.percent/100),3)).map((u,i,arr)=>(
+              <div key={i} style={{display:'flex',alignItems:'center',gap:12,padding:'10px 0',borderBottom:i<arr.length-1?`1px solid ${C.border}`:'none'}}>
+                <Av src={u.av} size={40}/>
+                <span style={{fontSize:14,color:C.text}}>{u.name}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </Sheet>
+    </div>
+  );
+}
+
+/* NEW POST STEP 1 */
+function NewPost1({nav,state,dispatch}){
+  const {text,photos,isPollMode,pollOptions,isAnonymous}=state;
+  const hasContent=text.trim().length>0||photos.length>0||isPollMode;
+  const [showTip,setShowTip]=useState(false);
+  const [kbOpen,setKbOpen]=useState(false);
+  return(
+    <div style={{flex:1,display:'flex',flexDirection:'column',background:'#fff'}} className="screen-in">
+      <StatusBar/>
+      <NavBar title="New post" left={<button onClick={()=>nav('feed')} style={{background:'none',border:'none',cursor:'pointer',padding:4,display:'flex'}}><XIcon/></button>} right={<PillBtn label="Next" active={hasContent} onClick={()=>hasContent&&nav('newpost2')}/>} step="Step 1 / 2"/>
+      <div style={{flex:1,overflowY:'auto',padding:'12px 16px 0'}} className="ns">
+        <textarea value={text} onChange={e=>dispatch({type:'SET_TEXT',v:e.target.value})} onFocus={()=>setKbOpen(true)} placeholder="Add text..." style={{width:'100%',minHeight:80,border:'none',outline:'none',resize:'none',fontSize:14,color:C.text,lineHeight:'20px',fontFamily:'inherit',background:'transparent',caretColor:C.primary}}/>
+        {photos.length>0&&!isPollMode&&(
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginTop:4}}>
+            {photos.map((url,i)=>(
+              <div key={i} style={{position:'relative',borderRadius:8,overflow:'hidden',aspectRatio:'4/3',cursor:'pointer'}} onClick={()=>nav('photofull')}>
+                <img src={url} alt="" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                <button onClick={e=>{e.stopPropagation();dispatch({type:'SET_PHOTOS',v:photos.filter((_,j)=>j!==i)});}} style={{position:'absolute',top:8,right:8,width:22,height:22,borderRadius:'50%',background:'rgba(0,0,0,.55)',border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center'}}><XIcon s={11} c="white"/></button>
+              </div>
+            ))}
+          </div>
+        )}
+        {isPollMode&&(
+          <div style={{marginTop:4}}>
+            <div style={{fontSize:14,color:C.gray,borderBottom:`1px dashed ${C.border}`,paddingBottom:10,marginBottom:12}}>Ask a poll question</div>
+            {pollOptions.map((opt,i)=>(
+              <div key={i} style={{background:C.surface,borderRadius:10,height:48,display:'flex',alignItems:'center',padding:'0 14px',marginBottom:8}}>
+                <input value={opt} onChange={e=>{const o=[...pollOptions];o[i]=e.target.value;dispatch({type:'SET_POLL_OPTS',v:o});}} placeholder="Add option" style={{flex:1,border:'none',outline:'none',background:'transparent',fontSize:14,color:C.text,fontFamily:'inherit'}}/>
+              </div>
+            ))}
+            {pollOptions.length<4&&<button onClick={()=>dispatch({type:'SET_POLL_OPTS',v:[...pollOptions,'']})} style={{background:'none',border:'none',cursor:'pointer',fontSize:14,color:C.primary,padding:'0 0 8px'}}>+ Add option</button>}
+            <button onClick={()=>dispatch({type:'SET_POLL',v:false})} style={{display:'block',background:'none',border:'none',cursor:'pointer',fontSize:14,color:C.primary,padding:'4px 0 12px'}}>Remove poll</button>
+          </div>
+        )}
+      </div>
+      {showTip&&<div onClick={()=>setShowTip(false)} style={{position:'absolute',bottom:kbOpen?346:80,left:62,background:'#fff',border:`1px solid ${C.border}`,borderRadius:8,padding:'8px 12px',boxShadow:'0 4px 12px rgba(0,0,0,.12)',zIndex:20,maxWidth:224,fontSize:13,color:C.text}}>Post can include only images or poll</div>}
+      <div style={{borderTop:`1px solid ${C.border}`,padding:'10px 16px',display:'flex',alignItems:'center',background:'#fff',flexShrink:0}}>
+        <div style={{display:'flex',gap:16,flex:1,alignItems:'center'}}>
+          <button onClick={()=>{if(isPollMode)return;dispatch({type:'SET_PHOTOS',v:[...photos,`https://picsum.photos/400/300?random=${photos.length+1}`].slice(0,4)});}} style={{background:'none',border:'none',cursor:'pointer',padding:4,opacity:isPollMode?.3:1,display:'flex'}}><PhotoIcon/></button>
+          <button onClick={()=>{if(photos.length>0){setShowTip(true);setTimeout(()=>setShowTip(false),3000);return;}dispatch({type:'SET_POLL',v:!isPollMode});}} style={{background:'none',border:'none',cursor:'pointer',padding:4,opacity:photos.length>0?.3:1,display:'flex'}}><PollIcon c={isPollMode?C.primary:C.text}/></button>
+        </div>
+        <div style={{display:'flex',alignItems:'center',gap:8}}>
+          <span style={{fontSize:14,color:C.text}}>Anonymously</span>
+          <Toggle on={isAnonymous} onChange={()=>dispatch({type:'SET_ANON',v:!isAnonymous})}/>
+        </div>
+      </div>
+      {kbOpen&&<Keyboard onDismiss={()=>setKbOpen(false)}/>}
+    </div>
+  );
+}
+
+/* NEW POST STEP 2 */
+function NewPost2({nav,state,dispatch}){
+  const {selectedTopics}=state;
+  const has=selectedTopics.length>0;
+  const topics=['Mention of Loss','Pregnancy Announcement (BFP)','Graphic Images','Mention of Pregnancy','None of above'];
+  return(
+    <div style={{flex:1,display:'flex',flexDirection:'column',background:'#fff'}} className="screen-in">
+      <StatusBar/>
+      <NavBar title="New post" left={<button onClick={()=>nav('newpost1')} style={{background:'none',border:'none',cursor:'pointer',padding:4,display:'flex'}}><BackIcon/></button>} right={<PillBtn label="Post" active={has} onClick={()=>{if(!has)return;dispatch({type:'POST'});nav('feed-posting');}}/>} step="Step 2 / 2"/>
+      <div style={{flex:1,overflowY:'auto',padding:'20px 16px 160px'}} className="ns">
+        <h2 style={{fontSize:17,fontWeight:600,color:C.text,lineHeight:'23px'}}>Does your post include any sensitive topics?</h2>
+        <p style={{fontSize:13,color:C.gray,lineHeight:'18px',marginTop:8}}>Some topics can be sensitive. Adding a trigger warning helps others avoid content they're not ready to see.</p>
+        <div style={{display:'flex',flexWrap:'wrap',gap:8,marginTop:20}}>
+          {topics.map(t=>{const sel=selectedTopics.includes(t);return(<button key={t} onClick={()=>dispatch({type:'TOGGLE_TOPIC',v:t})} style={{padding:'8px 16px',borderRadius:20,border:'none',cursor:'pointer',background:sel?C.primary:C.surface,color:sel?'#fff':C.text,fontSize:14,transition:'all .15s'}}>{t}</button>);})}
+        </div>
+      </div>
+      <div style={{position:'absolute',bottom:34,left:0,right:0,padding:'0 16px 12px',background:'#fff'}}>
+        <div style={{background:C.infoBg,borderRadius:12,padding:12,display:'flex',gap:10,alignItems:'flex-start'}}>
+          <div style={{flexShrink:0,marginTop:1}}><InfoIcon/></div>
+          <p style={{fontSize:13,color:C.text,lineHeight:'18px'}}>Line eyes posts aren't allowed on the feed. Please post any line eyes in the weekly thread.</p>
+        </div>
+      </div>
+      <div style={{height:34,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,background:'#fff'}}><div style={{width:134,height:5,borderRadius:100,background:C.text}}/></div>
+    </div>
+  );
+}
+
+/* PHOTO VIEWER */
+function PhotoViewer({nav,photos}){
+  const [idx,setIdx]=useState(0);
+  const src=photos[idx]||'https://picsum.photos/390/520?random=3';
+  return(
+    <div style={{flex:1,background:'#1C1C1E',display:'flex',flexDirection:'column',position:'relative'}} className="screen-in">
+      <StatusBar dark/>
+      <div style={{flex:1,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',padding:'0 0 50px'}}>
+        <img src={src} alt="" style={{width:'100%',maxHeight:'65%',objectFit:'contain'}}/>
+        <div style={{marginTop:16,fontSize:13,color:'rgba(255,255,255,.7)'}}>{idx+1} of {Math.max(photos.length,1)}</div>
+        {photos.length>1&&<div style={{display:'flex',gap:6,marginTop:10}}>{photos.map((_,i)=><div key={i} onClick={()=>setIdx(i)} style={{width:i===idx?20:6,height:6,borderRadius:3,background:i===idx?'white':'rgba(255,255,255,.4)',cursor:'pointer',transition:'all .2s'}}/>)}</div>}
+      </div>
+      <button onClick={()=>nav('newpost1')} style={{position:'absolute',top:56,right:12,width:32,height:32,borderRadius:'50%',background:'rgba(90,90,90,.8)',border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center'}}><XIcon s={16} c="white"/></button>
+      <div style={{height:34,display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}><div style={{width:134,height:5,borderRadius:100,background:'rgba(255,255,255,.4)'}}/></div>
+    </div>
+  );
+}
+
+/* NOTIFICATIONS */
+function NotifScreen({nav}){
+  return(
+    <div style={{flex:1,display:'flex',flexDirection:'column',background:'#fff'}} className="screen-in">
+      <StatusBar/>
+      <div style={{display:'flex',alignItems:'center',padding:'10px 16px 12px',borderBottom:`1px solid ${C.border}`,flexShrink:0}}>
+        <button onClick={()=>nav('feed')} style={{background:'none',border:'none',cursor:'pointer',padding:4,marginLeft:-4,display:'flex'}}><BackIcon/></button>
+        <span style={{fontSize:20,fontWeight:700,color:C.text,marginLeft:8}}>Notifications</span>
+      </div>
+      <div style={{flex:1,overflowY:'auto'}} className="ns">
+        {NOTIFS.map(g=>(
+          <div key={g.group}>
+            <div style={{fontSize:13,fontWeight:600,color:C.gray,padding:'16px 16px 8px'}}>{g.group}</div>
+            {g.items.map(item=>(
+              <div key={item.id} onClick={()=>item.navTo&&nav(item.navTo)} style={{display:'flex',alignItems:'flex-start',gap:10,padding:'12px 16px',borderBottom:'1px solid #F7F7F7',cursor:item.tap?'pointer':'default'}}>
+                <NotifIcon type={item.type} avs={item.avs} av={item.av}/>
+                <div style={{flex:1,minWidth:0}}>
+                  <p style={{fontSize:14,color:C.text,lineHeight:'18px'}}>{item.text}</p>
+                  <span style={{fontSize:12,color:C.muted}}>{item.time}</span>
+                </div>
+                {item.hasFollow&&<button style={{padding:'5px 14px',background:C.primary,borderRadius:14,border:'none',cursor:'pointer',fontSize:13,fontWeight:600,color:'white',flexShrink:0}}>Follow</button>}
+                {item.tap&&<ChevronRight/>}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* POST REMOVED */
+function PostRemoved({nav}){
+  return(
+    <div style={{flex:1,display:'flex',flexDirection:'column',background:'#fff'}} className="screen-in">
+      <StatusBar/>
+      <NavBar title="Your post was removed" left={<button onClick={()=>nav('notifications')} style={{background:'none',border:'none',cursor:'pointer',padding:4,display:'flex'}}><BackIcon/></button>}/>
+      <div style={{flex:1,overflowY:'auto',padding:'20px 16px'}} className="ns">
+        <div style={{fontSize:12,fontWeight:600,color:C.gray,textTransform:'uppercase',marginBottom:10,letterSpacing:'0.5px'}}>Post</div>
+        <div style={{border:`1px solid ${C.border}`,borderRadius:12,padding:12,marginBottom:24}}>
+          <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:10}}>
+            <Av src="https://i.pravatar.cc/80?img=47" size={32}/>
+            <div><div style={{fontSize:14,fontWeight:600,color:C.text}}>TTCwithEmilyJourney</div><div style={{fontSize:12,color:C.muted}}>2m</div></div>
+          </div>
+          <p style={{fontSize:14,color:C.text,lineHeight:'20px'}}>Has anyone else noticed that the Inito app shows different readings? I shared this in our local Facebook group and people are confused...</p>
+        </div>
+        <div style={{fontSize:12,fontWeight:600,color:C.gray,textTransform:'uppercase',marginBottom:10,letterSpacing:'0.5px'}}>Feedback</div>
+        <div style={{background:C.infoBg,borderRadius:12,padding:12,marginBottom:24}}><p style={{fontSize:14,color:C.text,lineHeight:'20px'}}>Your post was removed because it shares community information outside of our group, which goes against our community guidelines.</p></div>
+        <div style={{fontSize:12,fontWeight:600,color:C.gray,textTransform:'uppercase',marginBottom:10,letterSpacing:'0.5px'}}>Group rules violated</div>
+        <div style={{background:C.surface,borderRadius:12,padding:12,marginBottom:24}}>
+          <div style={{fontSize:14,fontWeight:600,color:C.text,marginBottom:6}}>🤔 Don't Share Group Information Outside</div>
+          <p style={{fontSize:13,color:C.gray,lineHeight:'18px'}}>Keep all discussions, posts, and member information within the Inito community app.</p>
+        </div>
+        <p style={{fontSize:14,color:C.text,lineHeight:'20px'}}>If you believe this was a mistake, you can <span style={{color:C.primary,cursor:'pointer'}}>Appeal</span>. An admin will review your post and get back to you. Their decision will be final.</p>
+      </div>
+    </div>
+  );
+}
+
+/* USER PROFILE */
+function Profile({nav}){
+  const [activeTab,setActiveTab]=useState('posts');
+  return(
+    <div style={{flex:1,display:'flex',flexDirection:'column',background:'#fff'}} className="screen-in">
+      <StatusBar/>
+      <div style={{display:'flex',alignItems:'center',padding:'10px 16px',borderBottom:`1px solid ${C.border}`,flexShrink:0}}>
+        <button onClick={()=>nav('feed')} style={{background:'none',border:'none',cursor:'pointer',padding:4,marginLeft:-4,display:'flex'}}><BackIcon/></button>
+        <div style={{flex:1}}/>
+        <button style={{padding:'4px 14px',borderRadius:14,border:`1px solid ${C.border}`,background:'none',cursor:'pointer',fontSize:13,fontWeight:600,color:C.text,marginRight:8}}>Edit</button>
+        <button style={{background:'none',border:'none',cursor:'pointer'}}><DotsIcon/></button>
+      </div>
+      <div style={{flex:1,overflowY:'auto'}} className="ns">
+        <div style={{padding:'24px 16px 16px',display:'flex',flexDirection:'column',alignItems:'center',gap:8}}>
+          <Av src="https://i.pravatar.cc/80?img=47" size={72}/>
+          <Badge type="Expert"/>
+          <div style={{fontSize:17,fontWeight:600,color:C.text}}>TTCwithEmilyJourney</div>
+          <div style={{fontSize:13,color:C.gray}}><span style={{fontWeight:600,color:C.text}}>96</span> posts · <span style={{fontWeight:600,color:C.text}}>11</span> following · <span style={{fontWeight:600,color:C.text}}>11</span> followers</div>
+          <div style={{fontSize:14,color:C.text}}>🎯 Goal: Get pregnant</div>
+          <p style={{fontSize:14,color:C.text,textAlign:'center',lineHeight:'20px'}}>Sharing my TTC journey 💕 Day by day, one cycle at a time</p>
+        </div>
+        <div style={{display:'flex',borderTop:`1px solid ${C.border}`,borderBottom:`1px solid ${C.border}`}}>
+          {[['posts',<EditIcon/>],['saved',<BookmarkIcon/>]].map(([k,icon])=>(
+            <button key={k} onClick={()=>setActiveTab(k)} style={{flex:1,background:'none',border:'none',borderBottom:k===activeTab?`2px solid ${C.text}`:'2px solid transparent',padding:'12px',cursor:'pointer',display:'flex',justifyContent:'center',color:k===activeTab?C.text:C.gray}}>{icon}</button>
+          ))}
+        </div>
+        {POSTS.slice(0,3).map(p=><PostCard key={p.id} post={p}/>)}
+        <div style={{height:40}}/>
+      </div>
+    </div>
+  );
+}
+
+/* ══ REDUCER ══ */
+const INIT={text:'',photos:[],isPollMode:false,pollOptions:['',''],isAnonymous:false,selectedTopics:[],newPost:null};
+function reducer(s,a){
+  switch(a.type){
+    case 'SET_TEXT':return{...s,text:a.v};
+    case 'SET_PHOTOS':return{...s,photos:a.v};
+    case 'SET_POLL':return{...s,isPollMode:a.v,photos:a.v?[]:s.photos};
+    case 'SET_POLL_OPTS':return{...s,pollOptions:a.v};
+    case 'SET_ANON':return{...s,isAnonymous:a.v};
+    case 'TOGGLE_TOPIC':{const t=s.selectedTopics;return{...s,selectedTopics:t.includes(a.v)?t.filter(x=>x!==a.v):[...t,a.v]};}
+    case 'POST':return{...s,newPost:{id:Date.now(),author:s.isAnonymous?'Anonymous member':'TTCwithEmilyJourney',avatar:s.isAnonymous?null:'https://i.pravatar.cc/80?img=47',badge:null,time:'now',text:s.text||'New post',likes:0,comments:0,commentLabel:'Comment'},text:'',photos:[],isPollMode:false,pollOptions:['',''],selectedTopics:[]};
+    default:return s;
+  }
+}
+
+/* ══ APP ══ */
+function App(){
+  const [screen,setScreen]=useState('feed');
+  const [state,dispatch]=useReducer(reducer,INIT);
+  const [isPosting,setIsPosting]=useState(false);
+  const nav=useCallback((dest)=>{
+    if(dest==='feed-posting'){setIsPosting(true);setScreen('feed');setTimeout(()=>setIsPosting(false),2100);}
+    else setScreen(dest);
+  },[]);
+  return(
+    <MobileFrame>
+      {screen==='feed'&&<FeedScreen nav={nav} newPost={state.newPost} isPosting={isPosting}/>}
+      {screen==='newpost1'&&<NewPost1 nav={nav} state={state} dispatch={dispatch}/>}
+      {screen==='newpost2'&&<NewPost2 nav={nav} state={state} dispatch={dispatch}/>}
+      {screen==='photofull'&&<PhotoViewer nav={nav} photos={state.photos}/>}
+      {screen==='notifications'&&<NotifScreen nav={nav}/>}
+      {screen==='postremoved'&&<PostRemoved nav={nav}/>}
+      {screen==='profile'&&<Profile nav={nav}/>}
+      {screen==='postDetail'&&<PostDetail nav={nav} post={POSTS[1]}/>}
+    </MobileFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

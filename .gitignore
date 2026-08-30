@@ -1,0 +1,17 @@
+node_modules
+dist
+storybook-static
+.DS_Store
+
+*storybook.log
+
+# local / agent artifacts
+output
+.tmp
+.tmp-*
+.pw-tmp
+.playwright-cli
+.tmp-icon-raster
+debug-storybook.log
+*.png
+!src/**/*.png

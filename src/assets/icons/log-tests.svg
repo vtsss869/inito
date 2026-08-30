@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <!-- Figma DS: Medication/Blood Tests (14015:2571) — full 32×32 slot -->
+  <g id="Medication/Blood Tests">
+    <g id="Mask group">
+      <mask
+        id="mask0_log_tests"
+        style="mask-type:alpha"
+        maskUnits="userSpaceOnUse"
+        x="5"
+        y="13"
+        width="19"
+        height="18"
+      >
+        <rect
+          x="5.30273"
+          y="13.9628"
+          width="18.1611"
+          height="16.3802"
+          fill="#DB4368"
+        />
+      </mask>
+      <g mask="url(#mask0_log_tests)">
+        <path
+          d="M20.1553 7.63196L24.3979 11.8746L12.5351 23.7374C11.3635 24.909 9.46401 24.909 8.29243 23.7374C7.12086 22.5659 7.12086 20.6664 8.29243 19.4948L20.1553 7.63196Z"
+          fill="#DB4368"
+          stroke="#112D35"
+          stroke-width="2"
+        />
+      </g>
+    </g>
+    <g id="Group 133978">
+      <path
+        d="M20.1553 7.63196L24.3979 11.8746L12.5351 23.7374C11.3635 24.909 9.46401 24.909 8.29243 23.7374C7.12086 22.5659 7.12086 20.6664 8.29243 19.4948L20.1553 7.63196Z"
+        stroke="#112D35"
+        stroke-width="2"
+      />
+      <path
+        d="M18.7578 6.20093L25.8288 13.272"
+        stroke="#112D35"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </g>
+  </g>
+</svg>

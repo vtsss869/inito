@@ -1,0 +1,66 @@
+:root {
+  /* Text */
+  --text-black: #112d35;
+  --text-grey: #7f8598;
+  --text-white: #ffffff;
+  --text-error: #ef6262;
+  --text-success: #109e6f;
+
+  /* Backgrounds */
+  --bg-white: #ffffff;
+  --bg-grey: #f6f6f6;
+  --bg-light-blue-grey: #f7f8fd;
+  --bg-green-clear: #d0f1dc;
+  --bg-daily-pink: #f5d7f3;
+  --bg-daily-bbt: #c3d3f4;
+  --bg-daily-blue-dark: #b1e5ef;
+  --bg-daily-blue: #d9fbff;
+  --bg-daily-violet: #eedcff;
+  --bg-daily-tan: #ffeeee;
+  --bg-daily-red-light: #fde6e3;
+  --grey-borders: #eaeced;
+  --grey-icons: #bdc1cd;
+
+  /* Brand / hormones */
+  --main: #38abc5;
+  --hormones-e3g: #109e6f;
+  --hormones-lh: #8828e2;
+  --hormones-pdg: #1989bc;
+  --hormones-fsh: #f0950e;
+  --symptoms-pelvic: #db4368;
+  --symptoms-flow: #f46e5c;
+
+  /* Gradients — Day Status */
+  --gradient-high-fertility: linear-gradient(163.04deg, #0aca89 0%, #109e6f 99.16%);
+  --gradient-ovulation: linear-gradient(158deg, #995ad3 0%, #8828e2 100%);
+  --gradient-low-fertility: linear-gradient(158deg, #ff7955 0%, #ec6766 100%);
+  --gradient-fertile-window: linear-gradient(158deg, #38abc5 0%, #008697 100%);
+  --gradient-pregnancy: linear-gradient(154deg, #d287cc 0%, #ab66a5 100%);
+  --gradient-unknown: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%);
+
+  /* Radii */
+  --radius-8: 8px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-28: 28px;
+  --radius-36: 36px;
+  --radius-pill: 100px;
+
+  /* Spacing */
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Elevation */
+  --shadow-card: 0px 6px 12px rgba(0, 0, 0, 0.06), 0px 16px 28px rgba(0, 0, 0, 0.07);
+  --shadow-headline: 0px 0.5px 0px rgba(0, 0, 0, 0.3);
+  --shadow-tabbar: 0px -4px 16px rgba(17, 45, 53, 0.1);
+
+  /* Type */
+  --font: "Montserrat", system-ui, sans-serif;
+}
