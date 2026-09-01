@@ -13,7 +13,7 @@ import { Chip } from "./Chip.jsx";
  * truth for the states it documents — the DS page's own headline copy
  * ("High chance of getting pregnant!" etc.) was a design-time draft that
  * never shipped; HomeScreen.jsx already overrides it with the Legend
- * wording via explicit `pill`/`title` props, so this table now matches
+ * wording via explicit `chips`/`headline` props, so this table now matches
  * that rather than the stale DS defaults.
  *
  * high-fertility / low-fertility / ovulation-confirmed / pregnancy: chip +
@@ -88,6 +88,11 @@ const STATE_META = {
     headline: "7 weeks 6 days",
     footer: "32 weeks and 1 day left",
   },
+  "test-not-required": {
+    gradient: "day-status-card--wfpr",
+    chips: ["Cycle day 19"],
+    headline: "Test not required",
+  },
 };
 
 export function DayStatusCard({
@@ -96,8 +101,8 @@ export function DayStatusCard({
   headline,
   description,
   footer,
-  // Legacy aliases (pre-dating the full 7-state Figma audit) — kept so
-  // existing call sites (e.g. HomeScreen.jsx) keep rendering unchanged.
+  // Legacy aliases (pre-dating the chips/headline API). Home uses the
+  // current Storybook props; aliases remain so older call sites still render.
   pill,
   title,
   className = "",

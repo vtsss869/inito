@@ -201,7 +201,11 @@
   height: 13px;
 }
 
-/* Navbar — Figma DS Navbar (390×78 Home; 108 with subtitle) */
+/* Navbar — Home / Figma Header page: pt 8, pl 24, pr 12, pb 16.
+   Bar is 354×54 on a 390 screen (24+12 horizontal). Left is the H4
+   typography block (9/11 pad, 54 tall). Right hugs the 44px icon
+   buttons and 32px Today/strips controls, vertically centered in
+   the 54px bar (Figma Right y=5). */
 .navbar {
   background: var(--bg-white);
   padding: 8px 12px 16px 24px;
@@ -242,7 +246,66 @@
   justify-content: flex-end;
   gap: 4px;
   flex-shrink: 0;
-  height: 44px;
+}
+/* Home Navbar Today chip: Figma 67×32, 2px Grey Borders stroke.
+   Keep border-box so the stroke sits inside 32px (content-box + 2px
+   border was measuring 34px). Vertical padding 0 — Wrapper's 4/6 type
+   pad already fills the inner 28px. */
+.navbar__right > .btn--small:not(.btn--icon) {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 12px;
+  border: 2px solid var(--grey-borders);
+  box-shadow: none;
+}
+.navbar__right > .btn--small:not(.btn--icon):active,
+.navbar__right > .btn--small:not(.btn--icon).btn--pressed {
+  border-color: transparent;
+}
+.navbar__right > .btn--small:not(.btn--icon) .wrapper__text--solo.wrapper__text--medium {
+  padding: 4px 0;
+}
+/* Figma Header "+ Strips tracker": 59×32 including 2px stroke,
+   strip glyph overlapping a 24px count disc by 8px. */
+.navbar__strips.btn--icon.btn--small {
+  box-sizing: border-box;
+  width: 59px;
+  height: 32px;
+  padding: 0 2px 0 1px;
+  border: 2px solid var(--grey-borders);
+  box-shadow: none;
+}
+.navbar__strips .wrapper__icon:first-child {
+  margin-right: -8px;
+}
+.navbar__strips-count {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar__strips-count-disc {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+}
+.navbar__strips--ok .navbar__strips-count-disc {
+  background: var(--hormones-e3g);
+}
+.navbar__strips--low .navbar__strips-count-disc {
+  background: var(--hormones-fsh);
+}
+.navbar__strips--empty .navbar__strips-count-disc {
+  background: var(--text-error);
+}
+.navbar__strips--off .navbar__strips-count-disc {
+  background: var(--grey-icons);
 }
 .navbar__subtitle {
   display: flex;
@@ -429,6 +492,15 @@
   box-sizing: border-box;
   margin-right: -3.667px;
 }
+button.calendar-cell {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: inherit;
+}
 .calendar-cell:last-child {
   margin-right: 0;
 }
@@ -480,6 +552,14 @@
 .calendar-date--chosen {
   background: var(--bg-green-clear);
   border-color: var(--text-success);
+}
+.calendar-date--chosen-fill {
+  border-color: transparent;
+}
+.calendar-date--selected {
+  background: var(--grey-borders);
+  border-width: 2px;
+  border-color: var(--grey-icons);
 }
 .calendar-date--muted .calendar-date__num {
   color: var(--text-grey);

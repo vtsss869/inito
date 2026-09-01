@@ -11,6 +11,7 @@ const STATES = [
   "attention",
   "informational",
   "pregnancy",
+  "test-not-required",
 ];
 
 const meta = {
@@ -54,6 +55,10 @@ export const PdgIsRising = { args: { state: "pdg-is-rising" } };
 export const Attention = { args: { state: "attention" } };
 export const Informational = { args: { state: "informational" } };
 export const Pregnancy = { args: { state: "pregnancy" } };
+export const TestNotRequired = {
+  name: "Variants/Test not required",
+  args: { state: "test-not-required" },
+};
 
 export const Playground = {
   args: { state: "high-fertility" },

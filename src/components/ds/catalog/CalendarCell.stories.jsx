@@ -15,6 +15,7 @@ export const Overview = {
       <CalendarCell dow="T" day={11} muted />
       <CalendarCell dow="W" day={12} chosen />
       <CalendarCell dow="T" day={13} sex />
+      <CalendarCell dow="T" day={1} sex selected />
       <CalendarCell dow="F" day={14} legend="high-fertility" />
       <CalendarCell dow="S" day={15} legend="peak-fertility" />
       <CalendarCell dow="S" day={16} legend="test-required" />
@@ -29,6 +30,7 @@ export const DateOnly = {
       <CalendarDate day={8} />
       <CalendarDate day={9} muted />
       <CalendarDate day={10} chosen />
+      <CalendarDate day={1} selected />
     </div>
   ),
 };
@@ -38,6 +40,7 @@ export const Playground = {
     dow: "M",
     day: 20,
     chosen: false,
+    selected: false,
     muted: false,
     sex: false,
   },

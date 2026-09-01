@@ -16,6 +16,13 @@ const HOME_WEEK = [
   { dow: "SU", day: "4" },
 ];
 
+const HOME_WEEK_YESTERDAY = HOME_WEEK.map((d) => ({
+  ...d,
+  chosen: d.day === "2",
+  selected: d.day === "1",
+  stroke: d.day !== "2",
+}));
+
 const meta = {
   title: "DS/Calendar/Calendar",
   component: Calendar,
@@ -73,6 +80,13 @@ export const Overview = {
       </section>
 
       <section>
+        <SectionLabel>Home week — Yesterday selected (date 1 grey, date 2 HF fill no stroke)</SectionLabel>
+        <Phone>
+          <Calendar days={HOME_WEEK_YESTERDAY} />
+        </Phone>
+      </section>
+
+      <section>
         <SectionLabel>
           .calendar cell / Calendar days states — Home-relevant day states
         </SectionLabel>
@@ -90,6 +104,7 @@ export const Overview = {
           <CalendarCell dow="MO" day="28" muted />
           <CalendarCell dow="FR" day="2" chosen />
           <CalendarCell dow="TH" day="1" sex />
+          <CalendarCell dow="TH" day="1" sex selected />
           <CalendarCell dow="MO" day="28" muted sex />
           <CalendarCell dow="WE" day="15" legend="high-fertility" />
           <CalendarCell dow="TH" day="16" legend="peak-fertility" />
@@ -100,7 +115,7 @@ export const Overview = {
       </section>
 
       <section>
-        <SectionLabel>.date — default / muted / chosen</SectionLabel>
+        <SectionLabel>.date — default / muted / chosen / selected</SectionLabel>
         <div
           style={{
             display: "flex",
@@ -113,6 +128,7 @@ export const Overview = {
           <CalendarDate day="3" />
           <CalendarDate day="28" muted />
           <CalendarDate day="2" chosen />
+          <CalendarDate day="1" selected />
         </div>
       </section>
 
@@ -229,6 +245,13 @@ export const HomeWeek = {
   },
 };
 
+export const HomeWeekYesterday = {
+  name: "Variants/Home week (Yesterday selected)",
+  args: {
+    days: HOME_WEEK_YESTERDAY,
+  },
+};
+
 export const DayStates = {
   name: "Variants/Day states",
   render: () => (
@@ -245,6 +268,7 @@ export const DayStates = {
       <CalendarCell dow="MO" day="28" muted />
       <CalendarCell dow="FR" day="2" chosen />
       <CalendarCell dow="TH" day="1" sex />
+      <CalendarCell dow="TH" day="1" sex selected />
       <CalendarCell dow="MO" day="28" muted sex />
       <CalendarCell dow="WE" day="15" legend="high-fertility" />
       <CalendarCell dow="TH" day="16" legend="peak-fertility" />
@@ -261,11 +285,13 @@ export const Playground = {
     dow: "FR",
     day: "2",
     chosen: true,
+    selected: false,
     muted: false,
     sex: false,
   },
   argTypes: {
     chosen: { control: "boolean" },
+    selected: { control: "boolean" },
     muted: { control: "boolean" },
     sex: { control: "boolean" },
     legend: {

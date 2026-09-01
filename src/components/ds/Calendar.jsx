@@ -24,13 +24,24 @@ export const CALENDAR_LEGENDS = {
 
 /**
  * Figma DS: `.date` — 36×36, radius 25
- * States used on Home: default, muted (previous month), chosen (Calendar days states)
+ * States used on Home: default, muted (previous month), chosen (HF fill +
+ * green number; stroke only while this day is the current selected today),
+ * selected (viewed past / no-test day — grey fill + border)
  */
-export function CalendarDate({ day, muted = false, chosen = false }) {
+export function CalendarDate({
+  day,
+  muted = false,
+  chosen = false,
+  selected = false,
+  stroke = true,
+}) {
+  const showChosen = chosen && !selected;
   const dateClass = [
     "calendar-date",
-    chosen ? "calendar-date--chosen" : "",
-    muted && !chosen ? "calendar-date--muted" : "",
+    showChosen ? "calendar-date--chosen" : "",
+    showChosen && !stroke ? "calendar-date--chosen-fill" : "",
+    selected ? "calendar-date--selected" : "",
+    muted && !showChosen && !selected ? "calendar-date--muted" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -40,8 +51,8 @@ export function CalendarDate({ day, muted = false, chosen = false }) {
       <div className="calendar-date__caption">
         <Text
           as="span"
-          variant={chosen ? "caption-bold-16" : "caption-16"}
-          color={chosen ? "success" : muted ? "grey" : "black"}
+          variant={showChosen ? "caption-bold-16" : "caption-16"}
+          color={showChosen ? "success" : muted && !selected ? "grey" : "black"}
           className="calendar-date__num"
         >
           {day}
@@ -87,23 +98,34 @@ export function CalendarCell({
   dow,
   day,
   chosen = false,
+  selected = false,
+  stroke = true,
   muted = false,
   sex = false,
   legend,
+  onSelect,
 }) {
   const legendKind = resolveLegend({ sex, legend });
+  const showChosen = chosen && !selected;
   const cellClass = [
     "calendar-cell",
-    chosen ? "calendar-cell--chosen" : "",
-    muted && !chosen ? "calendar-cell--muted" : "",
+    showChosen ? "calendar-cell--chosen" : "",
+    selected ? "calendar-cell--selected" : "",
+    muted && !showChosen && !selected ? "calendar-cell--muted" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
+  const Tag = onSelect ? "button" : "div";
+
   return (
-    <div
+    <Tag
       className={cellClass}
-      data-name={chosen ? "Calendar days states" : ".calendar cell"}
+      data-name={showChosen ? "Calendar days states" : ".calendar cell"}
+      type={onSelect ? "button" : undefined}
+      onClick={onSelect}
+      aria-pressed={onSelect ? selected : undefined}
+      aria-label={onSelect ? `Day ${day}` : undefined}
     >
       <div className="calendar-cell__dow-wrap" data-name="07 Caption 17">
         <Text as="span" variant="mini-semibold" color="grey" className="calendar-cell__dow">
@@ -111,10 +133,10 @@ export function CalendarCell({
         </Text>
       </div>
       <div className="calendar-cell__date-stack" data-name="Date">
-        <CalendarDate day={day} muted={muted} chosen={chosen} />
+        <CalendarDate day={day} muted={muted} chosen={chosen} selected={selected} stroke={stroke} />
         <CalendarLegend kind={legendKind} />
       </div>
-    </div>
+    </Tag>
   );
 }
 
@@ -122,12 +144,16 @@ export function CalendarCell({
  * Figma DS / Home: `Calendar` week strip
  * Outer: pb-8 px-12 · Row: px-12 · cells 52 with mr -3.667 (except last)
  */
-export function Calendar({ days }) {
+export function Calendar({ days, onDaySelect }) {
   return (
     <div className="calendar" data-name="Calendar">
       <div className="calendar__row" data-name="Row">
-        {days.map((d) => (
-          <CalendarCell key={`${d.dow}-${d.day}`} {...d} />
+        {days.map(({ selectable, ...d }) => (
+          <CalendarCell
+            key={`${d.dow}-${d.day}`}
+            {...d}
+            onSelect={onDaySelect && selectable ? () => onDaySelect(d.day) : undefined}
+          />
         ))}
       </div>
     </div>
