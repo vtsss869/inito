@@ -171,6 +171,57 @@ export const Overview = {
   decorators: [],
 };
 
+/**
+ * Figma "Calendar" page — `Calendar` set (VIew=Week 1 month/Week 2
+ * months/Full Month). This DS only wires the single-week strip to Home; the
+ * multi-week "Full Month" view is composed here from the same
+ * `CalendarCell` primitive to visualize the layout Figma documents.
+ */
+const MONTH_WEEKS = [
+  [
+    { dow: "MO", day: "28", muted: true },
+    { dow: "TU", day: "29", muted: true },
+    { dow: "WE", day: "30", muted: true },
+    { dow: "TH", day: "1", sex: true },
+    { dow: "FR", day: "2", chosen: true },
+    { dow: "SA", day: "3" },
+    { dow: "SU", day: "4" },
+  ],
+  [
+    { dow: "MO", day: "5" },
+    { dow: "TU", day: "6" },
+    { dow: "WE", day: "7" },
+    { dow: "TH", day: "8" },
+    { dow: "FR", day: "9" },
+    { dow: "SA", day: "10" },
+    { dow: "SU", day: "11" },
+  ],
+  [
+    { dow: "MO", day: "12" },
+    { dow: "TU", day: "13" },
+    { dow: "WE", day: "14", legend: "high-fertility" },
+    { dow: "TH", day: "15", legend: "peak-fertility" },
+    { dow: "FR", day: "16" },
+    { dow: "SA", day: "17" },
+    { dow: "SU", day: "18" },
+  ],
+];
+
+export const FullMonth = {
+  name: "Variants/Full Month",
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", background: "#fff", padding: "0 12px" }}>
+      {MONTH_WEEKS.map((week, i) => (
+        <div key={i} className="calendar__row" data-name="Row">
+          {week.map((d) => (
+            <CalendarCell key={`${d.dow}-${d.day}`} {...d} />
+          ))}
+        </div>
+      ))}
+    </div>
+  ),
+};
+
 export const HomeWeek = {
   name: "Variants/Home week (HF)",
   args: {

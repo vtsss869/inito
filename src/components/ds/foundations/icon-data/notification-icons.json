@@ -1,0 +1,407 @@
+[
+  {
+    "id": "notif-next-test-tomorrow",
+    "file": "notification/notif-next-test-tomorrow.svg",
+    "name": "Next Test Tomorrow",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-rate-your-experience",
+    "file": "notification/notif-rate-your-experience.svg",
+    "name": "Rate Your Experience",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-app-goal",
+    "file": "notification/notif-app-goal.svg",
+    "name": "App Goal",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-period",
+    "file": "notification/notif-period.svg",
+    "name": "Period",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-you-need-to-pregnancy-test",
+    "file": "notification/notif-you-need-to-pregnancy-test.svg",
+    "name": "You Need To Pregnancy Test",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-info",
+    "file": "notification/notif-info.svg",
+    "name": "Info",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-peak-fertility",
+    "file": "notification/notif-peak-fertility.svg",
+    "name": "Peak Fertility",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-shop",
+    "file": "notification/notif-shop.svg",
+    "name": "Shop",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-referral",
+    "file": "notification/notif-referral.svg",
+    "name": "Referral",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-pregnancy-article",
+    "file": "notification/notif-pregnancy-article.svg",
+    "name": "Pregnancy Article",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-community",
+    "file": "notification/notif-community.svg",
+    "name": "Community",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-medication",
+    "file": "notification/notif-medication.svg",
+    "name": "Medication",
+    "viewBox": "0 0 37 60",
+    "w": 37.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-swipe",
+    "file": "notification/notif-swipe.svg",
+    "name": "Swipe",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-swipe-with-calendar",
+    "file": "notification/notif-swipe-with-calendar.svg",
+    "name": "Swipe with calendar",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-ovulation-not-confirmed",
+    "file": "notification/notif-ovulation-not-confirmed.svg",
+    "name": "Ovulation Not Confirmed",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-ovulation-confirmed",
+    "file": "notification/notif-ovulation-confirmed.svg",
+    "name": "Ovulation Confirmed",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-low-fertility",
+    "file": "notification/notif-low-fertility.svg",
+    "name": "Low Fertility",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-high-fertility",
+    "file": "notification/notif-high-fertility.svg",
+    "name": "High Fertility",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-unknown-fertility",
+    "file": "notification/notif-unknown-fertility.svg",
+    "name": "Unknown Fertility",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-result-waiting",
+    "file": "notification/notif-result-waiting.svg",
+    "name": "Result Waiting",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-test-in-progress",
+    "file": "notification/notif-test-in-progress.svg",
+    "name": "Test in progress",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-result-warning",
+    "file": "notification/notif-result-warning.svg",
+    "name": "Result Warning",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-waiting",
+    "file": "notification/notif-waiting.svg",
+    "name": "Waiting",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-validation",
+    "file": "notification/notif-validation.svg",
+    "name": "Validation",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-no-more-tests",
+    "file": "notification/notif-no-more-tests.svg",
+    "name": "No More Tests",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-test-failed",
+    "file": "notification/notif-test-failed.svg",
+    "name": "Test Failed",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-alert-orange",
+    "file": "notification/notif-alert-orange.svg",
+    "name": "Alert Orange",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-alert-red",
+    "file": "notification/notif-alert-red.svg",
+    "name": "Alert Red",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-hormone-levels",
+    "file": "notification/notif-hormone-levels.svg",
+    "name": "Hormone levels",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-gift",
+    "file": "notification/notif-gift.svg",
+    "name": "gift",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-survey",
+    "file": "notification/notif-survey.svg",
+    "name": "Survey",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-delivery",
+    "file": "notification/notif-delivery.svg",
+    "name": "Delivery",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-apple-health",
+    "file": "notification/notif-apple-health.svg",
+    "name": "Apple Health",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-insight",
+    "file": "notification/notif-insight.svg",
+    "name": "Insight",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-battery-red",
+    "file": "notification/notif-battery-red.svg",
+    "name": "Battery red",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-battery-orange",
+    "file": "notification/notif-battery-orange.svg",
+    "name": "Battery orange",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-battery-charge",
+    "file": "notification/notif-battery-charge.svg",
+    "name": "Battery charge",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-insight-2",
+    "file": "notification/notif-insight-2.svg",
+    "name": "Insight",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-review",
+    "file": "notification/notif-review.svg",
+    "name": "Review",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-hearts",
+    "file": "notification/notif-hearts.svg",
+    "name": "Hearts",
+    "viewBox": "0 0 44 60",
+    "w": 44.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-old-device",
+    "file": "notification/notif-old-device.svg",
+    "name": "Old device",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-new-device",
+    "file": "notification/notif-new-device.svg",
+    "name": "New device",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-strips",
+    "file": "notification/notif-strips.svg",
+    "name": "Strips",
+    "viewBox": "0 0 36 60",
+    "w": 36.0,
+    "h": 60.0,
+    "category": "General — 36×60"
+  },
+  {
+    "id": "notif-validation-2",
+    "file": "notification/notif-validation-2.svg",
+    "name": "Validation",
+    "viewBox": "0 0 40 40",
+    "w": 40.0,
+    "h": 40.0,
+    "category": "General — 40×40"
+  },
+  {
+    "id": "notif-validation-3",
+    "file": "notification/notif-validation-3.svg",
+    "name": "Validation",
+    "viewBox": "0 0 40 40",
+    "w": 40.0,
+    "h": 40.0,
+    "category": "General — 40×40"
+  }
+]

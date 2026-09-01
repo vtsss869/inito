@@ -1,0 +1,1361 @@
+[
+  {
+    "id": "symp32-general-general-empty",
+    "file": "symptoms/32px/symp32-general-general-empty.svg",
+    "name": "General/Empty",
+    "category": "General",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-general-general-bbt",
+    "file": "symptoms/32px/symp32-general-general-bbt.svg",
+    "name": "General/BBT",
+    "category": "General",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-beverages-beverages-water",
+    "file": "symptoms/32px/symp32-beverages-beverages-water.svg",
+    "name": "Beverages/Water",
+    "category": "Beverages",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-beverages-beverages-tea",
+    "file": "symptoms/32px/symp32-beverages-beverages-tea.svg",
+    "name": "Beverages/Tea",
+    "category": "Beverages",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-beverages-beverages-coffee",
+    "file": "symptoms/32px/symp32-beverages-beverages-coffee.svg",
+    "name": "Beverages/Coffee",
+    "category": "Beverages",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-beverages-beverages-alcohol",
+    "file": "symptoms/32px/symp32-beverages-beverages-alcohol.svg",
+    "name": "Beverages/Alcohol",
+    "category": "Beverages",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-beverages-beverages-alcohol-2",
+    "file": "symptoms/32px/symp32-beverages-beverages-alcohol-2.svg",
+    "name": "Beverages/Alcohol",
+    "category": "Beverages",
+    "viewBox": "0 0 18 18",
+    "w": 18.0,
+    "h": 18.0
+  },
+  {
+    "id": "symp32-mood-mood-calm",
+    "file": "symptoms/32px/symp32-mood-mood-calm.svg",
+    "name": "Mood/Calm",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-happy",
+    "file": "symptoms/32px/symp32-mood-mood-happy.svg",
+    "name": "Mood/Happy",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-energetic",
+    "file": "symptoms/32px/symp32-mood-mood-energetic.svg",
+    "name": "Mood/Energetic",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-mood-swings",
+    "file": "symptoms/32px/symp32-mood-mood-mood-swings.svg",
+    "name": "Mood/Mood Swings",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-sad",
+    "file": "symptoms/32px/symp32-mood-mood-sad.svg",
+    "name": "Mood/Sad",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-irritated",
+    "file": "symptoms/32px/symp32-mood-mood-irritated.svg",
+    "name": "Mood/Irritated",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-anxious",
+    "file": "symptoms/32px/symp32-mood-mood-anxious.svg",
+    "name": "Mood/Anxious",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-depressed",
+    "file": "symptoms/32px/symp32-mood-mood-depressed.svg",
+    "name": "Mood/Depressed",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-guilty",
+    "file": "symptoms/32px/symp32-mood-mood-guilty.svg",
+    "name": "Mood/Guilty",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-obsessive-thoughts",
+    "file": "symptoms/32px/symp32-mood-mood-obsessive-thoughts.svg",
+    "name": "Mood/Obsessive thoughts",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-self-critical",
+    "file": "symptoms/32px/symp32-mood-mood-self-critical.svg",
+    "name": "Mood/Self Critical",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-unable-to-focus",
+    "file": "symptoms/32px/symp32-mood-mood-unable-to-focus.svg",
+    "name": "Mood/Unable to focus",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-frisky",
+    "file": "symptoms/32px/symp32-mood-mood-frisky.svg",
+    "name": "Mood/Frisky",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-low-energy",
+    "file": "symptoms/32px/symp32-mood-mood-low-energy.svg",
+    "name": "Mood/Low energy",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-apathetic",
+    "file": "symptoms/32px/symp32-mood-mood-apathetic.svg",
+    "name": "Mood/Apathetic",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-mood-mood-confused",
+    "file": "symptoms/32px/symp32-mood-mood-confused.svg",
+    "name": "Mood/Confused",
+    "category": "Mood",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-flow-flow-no-flow",
+    "file": "symptoms/32px/symp32-flow-flow-no-flow.svg",
+    "name": "Flow/No Flow",
+    "category": "Flow",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-flow-flow-light",
+    "file": "symptoms/32px/symp32-flow-flow-light.svg",
+    "name": "Flow/Light",
+    "category": "Flow",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-flow-flow-medium",
+    "file": "symptoms/32px/symp32-flow-flow-medium.svg",
+    "name": "Flow/Medium",
+    "category": "Flow",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-flow-flow-heavy",
+    "file": "symptoms/32px/symp32-flow-flow-heavy.svg",
+    "name": "Flow/Heavy",
+    "category": "Flow",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-flow-flow-very-heavy",
+    "file": "symptoms/32px/symp32-flow-flow-very-heavy.svg",
+    "name": "Flow/Very Heavy",
+    "category": "Flow",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-flow-flow-spotting",
+    "file": "symptoms/32px/symp32-flow-flow-spotting.svg",
+    "name": "Flow/Spotting",
+    "category": "Flow",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-vaginal-discharge-none",
+    "file": "symptoms/32px/symp32-vaginal-discharge-vaginal-discharge-none.svg",
+    "name": "Vaginal Discharge/None",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-vaginal-discharge-sticky",
+    "file": "symptoms/32px/symp32-vaginal-discharge-vaginal-discharge-sticky.svg",
+    "name": "Vaginal Discharge/Sticky",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-vaginal-discharge-creamy",
+    "file": "symptoms/32px/symp32-vaginal-discharge-vaginal-discharge-creamy.svg",
+    "name": "Vaginal Discharge/Creamy",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-vaginal-discharge-eggwhite",
+    "file": "symptoms/32px/symp32-vaginal-discharge-vaginal-discharge-eggwhite.svg",
+    "name": "Vaginal Discharge/Eggwhite",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-vaginal-discharge-watery",
+    "file": "symptoms/32px/symp32-vaginal-discharge-vaginal-discharge-watery.svg",
+    "name": "Vaginal Discharge/Watery",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-interface-clumpy",
+    "file": "symptoms/32px/symp32-vaginal-discharge-interface-clumpy.svg",
+    "name": "Interface/Clumpy",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-vaginal-discharge-foul-smelling",
+    "file": "symptoms/32px/symp32-vaginal-discharge-vaginal-discharge-foul-smelling.svg",
+    "name": "Vaginal Discharge/Foul Smelling",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-vaginal-discharge-vaginal-discharge-normal",
+    "file": "symptoms/32px/symp32-vaginal-discharge-vaginal-discharge-normal.svg",
+    "name": "Vaginal Discharge/Normal",
+    "category": "Vaginal Discharge",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-no-sex",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-no-sex.svg",
+    "name": "Sex/No Sex",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-protected",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-protected.svg",
+    "name": "Sex/Protected",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-unprotected",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-unprotected.svg",
+    "name": "Sex/Unprotected",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-ejaculation-on-bottom",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-ejaculation-on-bottom.svg",
+    "name": "Sex/Ejaculation/On bottom",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-ejaculation-on-top",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-ejaculation-on-top.svg",
+    "name": "Sex/Ejaculation/On top",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-ejaculation-in-front",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-ejaculation-in-front.svg",
+    "name": "Sex/Ejaculation/In Front",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-ejaculation-other",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-ejaculation-other.svg",
+    "name": "Sex/Ejaculation/Other",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-orgasm",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-orgasm.svg",
+    "name": "Sex/Orgasm",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-no-orgasm",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-no-orgasm.svg",
+    "name": "Sex/No Orgasm",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-high-drive",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-high-drive.svg",
+    "name": "Sex/High Drive",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-low-drive",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-low-drive.svg",
+    "name": "Sex/Low Drive",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-sex-sex-drive-sex-neutral-drive",
+    "file": "symptoms/32px/symp32-sex-sex-drive-sex-neutral-drive.svg",
+    "name": "Sex/Neutral Drive",
+    "category": "Sex & Sex Drive",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-insemination-insemination-flow-iui",
+    "file": "symptoms/32px/symp32-insemination-insemination-flow-iui.svg",
+    "name": "Insemination flow/IUI",
+    "category": "Insemination",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-insemination-insemination-flow-at-home",
+    "file": "symptoms/32px/symp32-insemination-insemination-flow-at-home.svg",
+    "name": "Insemination flow/At Home",
+    "category": "Insemination",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-insemination-insemination-flow-frozen",
+    "file": "symptoms/32px/symp32-insemination-insemination-flow-frozen.svg",
+    "name": "Insemination flow/Frozen",
+    "category": "Insemination",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-insemination-insemination-flow-fresh",
+    "file": "symptoms/32px/symp32-insemination-insemination-flow-fresh.svg",
+    "name": "Insemination flow/Fresh",
+    "category": "Insemination",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pregnancy-test-pregnancy-test-no-test",
+    "file": "symptoms/32px/symp32-pregnancy-test-pregnancy-test-no-test.svg",
+    "name": "Pregnancy test/No Test",
+    "category": "Pregnancy test",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pregnancy-test-pregnancy-test-positive",
+    "file": "symptoms/32px/symp32-pregnancy-test-pregnancy-test-positive.svg",
+    "name": "Pregnancy test/Positive",
+    "category": "Pregnancy test",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pregnancy-test-pregnancy-test-negative",
+    "file": "symptoms/32px/symp32-pregnancy-test-pregnancy-test-negative.svg",
+    "name": "Pregnancy test/Negative",
+    "category": "Pregnancy test",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pregnancy-test-pregnancy-test-faint-popositive",
+    "file": "symptoms/32px/symp32-pregnancy-test-pregnancy-test-faint-popositive.svg",
+    "name": "Pregnancy test/Faint Popositive",
+    "category": "Pregnancy test",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pregnancy-test-pregnancy-test-invalid",
+    "file": "symptoms/32px/symp32-pregnancy-test-pregnancy-test-invalid.svg",
+    "name": "Pregnancy test/invalid",
+    "category": "Pregnancy test",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pelvic-pain-pelvic-pain-none",
+    "file": "symptoms/32px/symp32-pelvic-pain-pelvic-pain-none.svg",
+    "name": "Pelvic Pain/None",
+    "category": "Pelvic Pain",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pelvic-pain-pelvic-pain-light",
+    "file": "symptoms/32px/symp32-pelvic-pain-pelvic-pain-light.svg",
+    "name": "Pelvic Pain/Light",
+    "category": "Pelvic Pain",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pelvic-pain-pelvic-pain-moderate",
+    "file": "symptoms/32px/symp32-pelvic-pain-pelvic-pain-moderate.svg",
+    "name": "Pelvic Pain/Moderate",
+    "category": "Pelvic Pain",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-pelvic-pain-pelvic-pain-severe",
+    "file": "symptoms/32px/symp32-pelvic-pain-pelvic-pain-severe.svg",
+    "name": "Pelvic Pain/Severe",
+    "category": "Pelvic Pain",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-follicle-tracking-follicle-tracking-follicle-size",
+    "file": "symptoms/32px/symp32-follicle-tracking-follicle-tracking-follicle-size.svg",
+    "name": "Follicle Tracking/Follicle Size",
+    "category": "Follicle tracking",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-follicle-tracking-follicle-tracking-endometrial-thickness",
+    "file": "symptoms/32px/symp32-follicle-tracking-follicle-tracking-endometrial-thickness.svg",
+    "name": "Follicle Tracking/Endometrial Thickness",
+    "category": "Follicle tracking",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-follicle-tracking-follicle-tracking-left-ovary",
+    "file": "symptoms/32px/symp32-follicle-tracking-follicle-tracking-left-ovary.svg",
+    "name": "Follicle Tracking/Left Ovary",
+    "category": "Follicle tracking",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-follicle-tracking-follicle-tracking-right-ovary",
+    "file": "symptoms/32px/symp32-follicle-tracking-follicle-tracking-right-ovary.svg",
+    "name": "Follicle Tracking/Right Ovary",
+    "category": "Follicle tracking",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-follicle-tracking-follicle-tracking-luf",
+    "file": "symptoms/32px/symp32-follicle-tracking-follicle-tracking-luf.svg",
+    "name": "Follicle Tracking/LUF",
+    "category": "Follicle tracking",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-follicle-tracking-follicle-tracking-fluid-in-pod",
+    "file": "symptoms/32px/symp32-follicle-tracking-follicle-tracking-fluid-in-pod.svg",
+    "name": "Follicle Tracking/Fluid in Pod",
+    "category": "Follicle tracking",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-everything-is-fine",
+    "file": "symptoms/32px/symp32-symptoms-interface-everything-is-fine.svg",
+    "name": "Interface/Everything is fine",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-tender-breasts",
+    "file": "symptoms/32px/symp32-symptoms-interface-tender-breasts.svg",
+    "name": "Interface/Tender breasts",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-milky-nipple-discharge",
+    "file": "symptoms/32px/symp32-symptoms-interface-milky-nipple-discharge.svg",
+    "name": "Interface/Milky nipple discharge",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-headache",
+    "file": "symptoms/32px/symp32-symptoms-interface-headache.svg",
+    "name": "Interface/Headache",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-cramps",
+    "file": "symptoms/32px/symp32-symptoms-interface-cramps.svg",
+    "name": "Interface/Cramps",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-acne",
+    "file": "symptoms/32px/symp32-symptoms-interface-acne.svg",
+    "name": "Interface/Acne",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-backache",
+    "file": "symptoms/32px/symp32-symptoms-interface-backache.svg",
+    "name": "Interface/Backache",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-fatigue",
+    "file": "symptoms/32px/symp32-symptoms-interface-fatigue.svg",
+    "name": "Interface/Fatigue",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-cravings",
+    "file": "symptoms/32px/symp32-symptoms-interface-cravings.svg",
+    "name": "Interface/Cravings",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-nausea",
+    "file": "symptoms/32px/symp32-symptoms-interface-nausea.svg",
+    "name": "Interface/Nausea",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-abdominal-pain",
+    "file": "symptoms/32px/symp32-symptoms-interface-abdominal-pain.svg",
+    "name": "Interface/Abdominal pain",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-normal-digestion",
+    "file": "symptoms/32px/symp32-symptoms-interface-normal-digestion.svg",
+    "name": "Interface/Normal digestion",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-bloating",
+    "file": "symptoms/32px/symp32-symptoms-interface-bloating.svg",
+    "name": "Interface/Bloating",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-vaginal-itching",
+    "file": "symptoms/32px/symp32-symptoms-interface-vaginal-itching.svg",
+    "name": "Interface/Vaginal itching",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-vaginal-burning",
+    "file": "symptoms/32px/symp32-symptoms-interface-vaginal-burning.svg",
+    "name": "Interface/Vaginal burning",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-vaginal-dryness",
+    "file": "symptoms/32px/symp32-symptoms-interface-vaginal-dryness.svg",
+    "name": "Interface/Vaginal dryness",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-heartburn",
+    "file": "symptoms/32px/symp32-symptoms-interface-heartburn.svg",
+    "name": "Interface/Heartburn",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-vomiting",
+    "file": "symptoms/32px/symp32-symptoms-interface-vomiting.svg",
+    "name": "Interface/Vomiting",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-diarrhea",
+    "file": "symptoms/32px/symp32-symptoms-interface-diarrhea.svg",
+    "name": "Interface/Diarrhea",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-normal-stool",
+    "file": "symptoms/32px/symp32-symptoms-interface-normal-stool.svg",
+    "name": "Interface/Normal stool",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-constipation",
+    "file": "symptoms/32px/symp32-symptoms-interface-constipation.svg",
+    "name": "Interface/Constipation",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-sleepiness",
+    "file": "symptoms/32px/symp32-symptoms-interface-sleepiness.svg",
+    "name": "Interface/Sleepiness",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-insomnia",
+    "file": "symptoms/32px/symp32-symptoms-interface-insomnia.svg",
+    "name": "Interface/Insomnia",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-hair-loss",
+    "file": "symptoms/32px/symp32-symptoms-interface-hair-loss.svg",
+    "name": "Interface/Hair loss",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-excess-hair",
+    "file": "symptoms/32px/symp32-symptoms-interface-excess-hair.svg",
+    "name": "Interface/Excess hair",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-nipple-itching",
+    "file": "symptoms/32px/symp32-symptoms-interface-nipple-itching.svg",
+    "name": "Interface/Nipple Itching",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-hot-flashes",
+    "file": "symptoms/32px/symp32-symptoms-interface-hot-flashes.svg",
+    "name": "Interface/Hot flashes",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-hightened-sense-of-smell",
+    "file": "symptoms/32px/symp32-symptoms-interface-hightened-sense-of-smell.svg",
+    "name": "Interface/Hightened sense of smell",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-symptoms-interface-vivid-dreams",
+    "file": "symptoms/32px/symp32-symptoms-interface-vivid-dreams.svg",
+    "name": "Interface/Vivid dreams",
+    "category": "Symptoms",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-other-interface-travel",
+    "file": "symptoms/32px/symp32-other-interface-travel.svg",
+    "name": "Interface/Travel",
+    "category": "Other",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-other-interface-stress",
+    "file": "symptoms/32px/symp32-other-interface-stress.svg",
+    "name": "Interface/Stress",
+    "category": "Other",
+    "viewBox": "0 0 32 33",
+    "w": 32.0,
+    "h": 33.0
+  },
+  {
+    "id": "symp32-other-interface-ilness",
+    "file": "symptoms/32px/symp32-other-interface-ilness.svg",
+    "name": "Interface/Ilness",
+    "category": "Other",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-other-interface-injury",
+    "file": "symptoms/32px/symp32-other-interface-injury.svg",
+    "name": "Interface/Injury",
+    "category": "Other",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-other-interface-meditation",
+    "file": "symptoms/32px/symp32-other-interface-meditation.svg",
+    "name": "Interface/Meditation",
+    "category": "Other",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-other-interface-journaling",
+    "file": "symptoms/32px/symp32-other-interface-journaling.svg",
+    "name": "Interface/Journaling",
+    "category": "Other",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-other-interface-kegel-exercise",
+    "file": "symptoms/32px/symp32-other-interface-kegel-exercise.svg",
+    "name": "Interface/Kegel exercise",
+    "category": "Other",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-other-interface-breathing-exercise",
+    "file": "symptoms/32px/symp32-other-interface-breathing-exercise.svg",
+    "name": "Interface/Breathing exercise",
+    "category": "Other",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-didn-t-exercise",
+    "file": "symptoms/32px/symp32-physical-activity-interface-didn-t-exercise.svg",
+    "name": "Interface/Didn\u2019t exercise",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-yoga",
+    "file": "symptoms/32px/symp32-physical-activity-interface-yoga.svg",
+    "name": "Interface/Yoga",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-gym",
+    "file": "symptoms/32px/symp32-physical-activity-interface-gym.svg",
+    "name": "Interface/Gym",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-aerobics-dancing",
+    "file": "symptoms/32px/symp32-physical-activity-interface-aerobics-dancing.svg",
+    "name": "Interface/Aerobics & dancing",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-swimming",
+    "file": "symptoms/32px/symp32-physical-activity-interface-swimming.svg",
+    "name": "Interface/Swimming",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-team-sports",
+    "file": "symptoms/32px/symp32-physical-activity-interface-team-sports.svg",
+    "name": "Interface/Team sports",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-running",
+    "file": "symptoms/32px/symp32-physical-activity-interface-running.svg",
+    "name": "Interface/Running",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-cycling",
+    "file": "symptoms/32px/symp32-physical-activity-interface-cycling.svg",
+    "name": "Interface/Cycling",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-physical-activity-interface-walking",
+    "file": "symptoms/32px/symp32-physical-activity-interface-walking.svg",
+    "name": "Interface/Walking",
+    "category": "Physical activity",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-appetite-interface-increasedappetite",
+    "file": "symptoms/32px/symp32-appetite-interface-increasedappetite.svg",
+    "name": "Interface/IncreasedAppetite",
+    "category": "Appetite",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-appetite-interface-decreasedappetite",
+    "file": "symptoms/32px/symp32-appetite-interface-decreasedappetite.svg",
+    "name": "Interface/DecreasedAppetite",
+    "category": "Appetite",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-appetite-interface-food-aversionappetite",
+    "file": "symptoms/32px/symp32-appetite-interface-food-aversionappetite.svg",
+    "name": "Interface/Food aversionAppetite",
+    "category": "Appetite",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-swelling-interface-limbswelling",
+    "file": "symptoms/32px/symp32-swelling-interface-limbswelling.svg",
+    "name": "Interface/LimbSwelling",
+    "category": "Swelling",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-swelling-interface-facelimbswelling",
+    "file": "symptoms/32px/symp32-swelling-interface-facelimbswelling.svg",
+    "name": "Interface/FaceLimbSwelling",
+    "category": "Swelling",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-swelling-interface-nasalswelling",
+    "file": "symptoms/32px/symp32-swelling-interface-nasalswelling.svg",
+    "name": "Interface/NasalSwelling",
+    "category": "Swelling",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-colorgray",
+    "file": "symptoms/32px/symp32-color-interface-colorgray.svg",
+    "name": "Interface/ColorGray",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-colorwhite",
+    "file": "symptoms/32px/symp32-color-interface-colorwhite.svg",
+    "name": "Interface/ColorWhite",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-colorred",
+    "file": "symptoms/32px/symp32-color-interface-colorred.svg",
+    "name": "Interface/ColorRed",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-colorblack",
+    "file": "symptoms/32px/symp32-color-interface-colorblack.svg",
+    "name": "Interface/ColorBlack",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-colorbrown",
+    "file": "symptoms/32px/symp32-color-interface-colorbrown.svg",
+    "name": "Interface/ColorBrown",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-colorpink",
+    "file": "symptoms/32px/symp32-color-interface-colorpink.svg",
+    "name": "Interface/ColorPink",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-colorgreen",
+    "file": "symptoms/32px/symp32-color-interface-colorgreen.svg",
+    "name": "Interface/ColorGreen",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-color-interface-coloryellow",
+    "file": "symptoms/32px/symp32-color-interface-coloryellow.svg",
+    "name": "Interface/ColorYellow",
+    "category": "Color",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-foam",
+    "file": "symptoms/32px/symp32-medication-new-med-foam.svg",
+    "name": "New/Med/Foam",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-injection",
+    "file": "symptoms/32px/symp32-medication-new-med-injection.svg",
+    "name": "New/Med/injection",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-capsule",
+    "file": "symptoms/32px/symp32-medication-new-med-capsule.svg",
+    "name": "New/Med/capsule",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-liquid",
+    "file": "symptoms/32px/symp32-medication-new-med-liquid.svg",
+    "name": "New/Med/liquid",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-cream",
+    "file": "symptoms/32px/symp32-medication-new-med-cream.svg",
+    "name": "New/Med/cream",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-drops",
+    "file": "symptoms/32px/symp32-medication-new-med-drops.svg",
+    "name": "New/Med/Drops",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-gel",
+    "file": "symptoms/32px/symp32-medication-new-med-gel.svg",
+    "name": "New/Med/Gel",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-oinment",
+    "file": "symptoms/32px/symp32-medication-new-med-oinment.svg",
+    "name": "New/Med/Oinment",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-powder",
+    "file": "symptoms/32px/symp32-medication-new-med-powder.svg",
+    "name": "New/Med/Powder",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-suppository",
+    "file": "symptoms/32px/symp32-medication-new-med-suppository.svg",
+    "name": "New/Med/Suppository",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-topical",
+    "file": "symptoms/32px/symp32-medication-new-med-topical.svg",
+    "name": "New/Med/Topical",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-device",
+    "file": "symptoms/32px/symp32-medication-new-med-device.svg",
+    "name": "New/Med/Device",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-inhaler",
+    "file": "symptoms/32px/symp32-medication-new-med-inhaler.svg",
+    "name": "New/Med/Inhaler",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-lotion",
+    "file": "symptoms/32px/symp32-medication-new-med-lotion.svg",
+    "name": "New/Med/Lotion",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-patch",
+    "file": "symptoms/32px/symp32-medication-new-med-patch.svg",
+    "name": "New/Med/Patch",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-spray",
+    "file": "symptoms/32px/symp32-medication-new-med-spray.svg",
+    "name": "New/Med/Spray",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-medication-new-med-tablet",
+    "file": "symptoms/32px/symp32-medication-new-med-tablet.svg",
+    "name": "New/Med/Tablet",
+    "category": "Medication",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-foul-odor-new-foul-odor-yes",
+    "file": "symptoms/32px/symp32-foul-odor-new-foul-odor-yes.svg",
+    "name": "New/Foul odor/yes",
+    "category": "Foul odor",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-foul-odor-new-foul-odor-no",
+    "file": "symptoms/32px/symp32-foul-odor-new-foul-odor-no.svg",
+    "name": "New/Foul odor/no",
+    "category": "Foul odor",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-blood-test-medication-blood-tests",
+    "file": "symptoms/32px/symp32-blood-test-medication-blood-tests.svg",
+    "name": "Medication/Blood Tests",
+    "category": "Blood test",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-chart-new-chart",
+    "file": "symptoms/32px/symp32-chart-new-chart.svg",
+    "name": "New/Chart",
+    "category": "Chart",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-testosterone-new-testosterone",
+    "file": "symptoms/32px/symp32-testosterone-new-testosterone.svg",
+    "name": "New/Testosterone",
+    "category": "Testosterone",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "symp32-weight-new-weight",
+    "file": "symptoms/32px/symp32-weight-new-weight.svg",
+    "name": "New/Weight",
+    "category": "Weight",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  }
+]

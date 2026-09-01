@@ -1,3 +1,5 @@
+import { MaskIcon } from "./Icon.jsx";
+
 /**
  * Figma DS: Text Field (Inputs page)
  * States: Default | Focused | Filled | Error
@@ -28,7 +30,7 @@ export function TextField({
       <div className="text-field__item" data-name="Item">
         {leftIcon ? (
           <span className="text-field__icon">
-            <img src={leftIcon} alt="" width={32} height={32} />
+            <MaskIcon src={leftIcon} size={32} alt="" />
           </span>
         ) : null}
         <input
@@ -40,7 +42,7 @@ export function TextField({
         />
         {rightIcon ? (
           <span className="text-field__icon">
-            <img src={rightIcon} alt="" width={32} height={32} />
+            <MaskIcon src={rightIcon} size={32} alt="" />
           </span>
         ) : null}
       </div>

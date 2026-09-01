@@ -131,3 +131,45 @@ export const WithBack = {
     rightIcons: HOME_ICONS,
   },
 };
+
+// Figma "Header" page — Navbar set, Right icon=1 icon/Caption+icon/Caption,
+// Align title=Center. All four are reachable with the existing `rightIcons`
+// (any length) / `todayChip` / `align` props — no new API needed.
+export const RightOneIcon = {
+  name: "Variants/Right icon — 1 icon",
+  args: {
+    title: "Today",
+    titleSize: "h4",
+    rightIcons: [HOME_ICONS[0]],
+  },
+};
+
+export const RightCaption = {
+  name: "Variants/Right icon — Caption",
+  args: {
+    title: "Today",
+    titleSize: "h4",
+    todayChip: true,
+    rightIcons: [],
+  },
+};
+
+export const RightCaptionIcon = {
+  name: "Variants/Right icon — Caption+icon",
+  args: {
+    title: "Today",
+    titleSize: "h4",
+    todayChip: true,
+    rightIcons: [HOME_ICONS[0]],
+  },
+};
+
+export const AlignCenter = {
+  name: "Variants/Align title — Center",
+  args: {
+    title: "Today",
+    titleSize: "h4",
+    align: "center",
+    rightIcons: [HOME_ICONS[0]],
+  },
+};

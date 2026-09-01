@@ -1,18 +1,17 @@
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
-  stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
-    "@chromatic-com/storybook",
-    "@storybook/addon-vitest",
-    "@storybook/addon-a11y",
     "@storybook/addon-docs",
-    "@storybook/addon-mcp",
+    "@storybook/addon-a11y",
+    "@storybook/addon-vitest",
+    "@chromatic-com/storybook",
   ],
-  framework: "@storybook/react-vite",
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
   async viteFinal(config) {
-    // Prevent build output from thrashing the running Storybook HMR graph.
-    // Watching storybook-static after `build-storybook` caused repeated
-    // storybook-stories.js reloads and stale sidebar/HMR story IDs.
     config.server = config.server || {};
     config.server.watch = config.server.watch || {};
     const ignored = config.server.watch.ignored;

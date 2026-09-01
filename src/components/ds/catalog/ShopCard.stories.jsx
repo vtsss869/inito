@@ -23,8 +23,19 @@ export const Playground = {
     description: "Measures LH, E3G, PdG and FSH. ",
     price: "$108",
     type: "ovulation",
+    ctaVariant: "button",
   },
   argTypes: {
     type: { control: "select", options: ["ovulation", "pregnancy"] },
+    ctaVariant: { control: "select", options: ["button", "counter"] },
   },
+};
+
+export const InCart = {
+  name: "Variants/In cart (Counter CTA)",
+  render: () => (
+    <div style={{ padding: 24, maxWidth: 390 }}>
+      <ShopCard ctaVariant="counter" counterValue={2} />
+    </div>
+  ),
 };

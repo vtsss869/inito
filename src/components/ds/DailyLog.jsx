@@ -147,6 +147,11 @@ export function DailyLog({
         size="medium"
         icon={meta.icon}
         iconOnly
+        // Figma DS: category icons (log-meds.svg etc.) are two-color
+        // illustrations (dark + accent), not flat line art — they must keep
+        // their own baked-in colors rather than being masked to
+        // currentColor like Button's usual chevron/device/drop glyphs.
+        iconMono={false}
         aria-label={text}
       />
       <Text as="span" variant="mini" color="grey" className="daily-log__label">

@@ -31,12 +31,29 @@ export const Overview = {
       <Row type="icon-text" label="Meds" icon={logMeds} description="Optional note" />
       <Row type="toggle" label="Notifications" checked />
       <Row type="icon-text-text" title="Section" label="Value" icon={logMeds} />
+      <Row
+        type="icon-text-text"
+        title="Text"
+        label="Text"
+        description="Description Details"
+        icon={logMeds}
+      />
       <Row type="icon-text-button" label="Shop" icon={logMeds} buttonLabel="Go to shop" />
       <Row type="text-item" label="Subscription" nestedLabel="Change term" />
       <Row type="table" label="History" />
     </div>
   ),
 };
+
+/**
+ * Figma "Row" page note: the `Item` set's "Icon Text Text (2)" variant is a
+ * content-only re-layout of "Icon Text Text" (title + description instead
+ * of a trailing chevron) — covered above via the same `icon-text-text` type
+ * with a `description`, rather than a separate `type` value. Its "Icon Text
+ * Text" sibling also has a `Toast bar` instance nested inside its master
+ * component in Figma, which looks like authoring debris rather than an
+ * intentional composition and isn't reproduced.
+ */
 
 export const Playground = {
   render: (args) => {

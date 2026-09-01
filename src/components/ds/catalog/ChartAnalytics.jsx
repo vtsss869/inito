@@ -22,6 +22,51 @@ const HORMONES = [
   { id: "fsh", label: "FSH", color: "var(--hormones-fsh)" },
 ];
 
+const HORMONE_LEGEND = [
+  { id: "e3g", label: "E3G", unit: "mg/ml", color: "var(--hormones-e3g)" },
+  { id: "pdg", label: "PdG", unit: "ug/ml", color: "var(--hormones-pdg)" },
+  { id: "lh", label: "LH", unit: "mIU/mL", color: "var(--hormones-lh)" },
+  { id: "fsh", label: "FSH", unit: "mIU/mL", color: "var(--hormones-fsh)" },
+  { id: "bbt", label: "BBT", unit: "°F", color: "var(--text-grey)" },
+  { id: "hcg", label: "hCG", unit: "mIU/mL", color: "var(--hormones-hcg)" },
+];
+
+/** Figma "Chart Analytics" page — `.cycle` set (State=Default/Chosen). */
+export function CyclePill({ label = "10 Mar–03 Apr", chosen = false, className = "" }) {
+  return (
+    <button
+      type="button"
+      className={`chart-analytics__cycle ${chosen ? "chart-analytics__cycle--chosen" : ""} ${className}`.trim()}
+      data-name=".cycle"
+    >
+      <Text as="span" variant="caption-bold-14" color={chosen ? "black" : "main"}>
+        {label}
+      </Text>
+    </button>
+  );
+}
+
+/** Figma "Chart Analytics" page — `Graph legend` set (Type=Hormones legend). */
+export function GraphLegend({ hormones = HORMONE_LEGEND, className = "" }) {
+  return (
+    <div className={`chart-analytics__graph-legend ${className}`.trim()} data-name="Graph legend">
+      {hormones.map((h) => (
+        <div key={h.id} className="chart-analytics__graph-legend-item">
+          <span className="chart-analytics__graph-legend-dot" style={{ background: h.color }} />
+          <div>
+            <Text as="span" variant="mini-semibold" style={{ color: h.color, display: "block" }}>
+              {h.label}
+            </Text>
+            <Text as="span" variant="mini" color="grey">
+              {h.unit}
+            </Text>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function ChartAnalytics({ mode = "ttc", className = "" }) {
   return (
     <div className={`chart-analytics ${className}`.trim()} data-name="Chart">
