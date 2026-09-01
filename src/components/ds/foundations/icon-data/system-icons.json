@@ -1,0 +1,2657 @@
+[
+  {
+    "id": "sys-calendar-pictograms-interface-small-chevron-right",
+    "file": "system/sys-calendar-pictograms-interface-small-chevron-right.svg",
+    "name": "Interface/Small Chevron Right",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-small-chevron-down",
+    "file": "system/sys-calendar-pictograms-interface-small-chevron-down.svg",
+    "name": "Interface/Small Chevron Down",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-small-check",
+    "file": "system/sys-calendar-pictograms-interface-small-check.svg",
+    "name": "Interface/Small Check",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-small-notification",
+    "file": "system/sys-calendar-pictograms-interface-small-notification.svg",
+    "name": "Interface/Small Notification",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 13 13",
+    "w": 13.0,
+    "h": 13.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-high-fertility-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-high-fertility-day.svg",
+    "name": "Calendar Legend/High Fertility Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-pdg-rise-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-pdg-rise-day.svg",
+    "name": "Calendar Legend/PdG Rise Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-low-fertility-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-low-fertility-day.svg",
+    "name": "Calendar Legend/Low Fertility Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-no-fertility-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-no-fertility-day.svg",
+    "name": "Calendar Legend/No Fertility Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-hcg-abnormal-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-hcg-abnormal-day.svg",
+    "name": "Calendar Legend/hCG Abnormal Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-peak-fertility-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-peak-fertility-day.svg",
+    "name": "Calendar Legend/Peak Fertility Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-test-required",
+    "file": "system/sys-calendar-pictograms-calendar-legend-test-required.svg",
+    "name": "Calendar Legend/Test Required",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-test-missed",
+    "file": "system/sys-calendar-pictograms-calendar-legend-test-missed.svg",
+    "name": "Calendar Legend/Test Missed",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-reminder",
+    "file": "system/sys-calendar-pictograms-calendar-legend-reminder.svg",
+    "name": "Calendar Legend/Reminder",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-pregnancy-mode-due-date",
+    "file": "system/sys-calendar-pictograms-calendar-legend-pregnancy-mode-due-date.svg",
+    "name": "Calendar Legend/Pregnancy Mode/Due date",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-pregnancy-mode-test-taken",
+    "file": "system/sys-calendar-pictograms-calendar-legend-pregnancy-mode-test-taken.svg",
+    "name": "Calendar Legend/Pregnancy Mode/Test Taken",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-not-ttc-symptoms-logged",
+    "file": "system/sys-calendar-pictograms-calendar-legend-not-ttc-symptoms-logged.svg",
+    "name": "Calendar Legend/Not TTC/Symptoms logged",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-digit",
+    "file": "system/sys-calendar-pictograms-calendar-legend-digit.svg",
+    "name": "Calendar Legend/Digit",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-cross",
+    "file": "system/sys-calendar-pictograms-calendar-legend-cross.svg",
+    "name": "Calendar Legend/Cross",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-empty",
+    "file": "system/sys-calendar-pictograms-calendar-legend-empty.svg",
+    "name": "Calendar Legend/Empty",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-period-day-upcomi-ng",
+    "file": "system/sys-calendar-pictograms-calendar-legend-period-day-upcomi-ng.svg",
+    "name": "Calendar Legend/Period Day Upcomi\\ng",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-sex-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-sex-day.svg",
+    "name": "Calendar Legend/Sex Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-period-day",
+    "file": "system/sys-calendar-pictograms-calendar-legend-period-day.svg",
+    "name": "Calendar Legend/Period Day",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-calendar-legend-peak-fertility-day2",
+    "file": "system/sys-calendar-pictograms-calendar-legend-peak-fertility-day2.svg",
+    "name": "Calendar Legend/Peak Fertility Day2",
+    "category": "12px \u2014 Calendar Legend",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-delivery-done",
+    "file": "system/sys-calendar-pictograms-delivery-done.svg",
+    "name": "Delivery/done",
+    "category": "12px \u2014 Delivery",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-delivery-process",
+    "file": "system/sys-calendar-pictograms-delivery-process.svg",
+    "name": "Delivery/process",
+    "category": "12px \u2014 Delivery",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-delivery-blank",
+    "file": "system/sys-calendar-pictograms-delivery-blank.svg",
+    "name": "Delivery/blank",
+    "category": "12px \u2014 Delivery",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-delivery-full-circle",
+    "file": "system/sys-calendar-pictograms-delivery-full-circle.svg",
+    "name": "Delivery/full circle",
+    "category": "12px \u2014 Delivery",
+    "viewBox": "0 0 12 12",
+    "w": 12.0,
+    "h": 12.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-pictogram-symptoms",
+    "file": "system/sys-calendar-pictograms-interface-pictogram-symptoms.svg",
+    "name": "Interface/Pictogram/Symptoms",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-diary",
+    "file": "system/sys-calendar-pictograms-interface-diary.svg",
+    "name": "Interface/Diary",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-diary-2",
+    "file": "system/sys-calendar-pictograms-interface-diary-2.svg",
+    "name": "Interface/Diary",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-info",
+    "file": "system/sys-calendar-pictograms-interface-info.svg",
+    "name": "Interface/Info",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-light",
+    "file": "system/sys-calendar-pictograms-interface-light.svg",
+    "name": "Interface/Light",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-strips",
+    "file": "system/sys-calendar-pictograms-interface-strips.svg",
+    "name": "Interface/Strips",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-state-up-to-date",
+    "file": "system/sys-calendar-pictograms-state-up-to-date.svg",
+    "name": "State=Up to date",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-state-new",
+    "file": "system/sys-calendar-pictograms-state-new.svg",
+    "name": "State=New",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-icon-star",
+    "file": "system/sys-calendar-pictograms-icon-star.svg",
+    "name": "Icon Star",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-check-blue-24",
+    "file": "system/sys-calendar-pictograms-interface-check-blue-24.svg",
+    "name": "Interface/Check blue 24",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-check-blue-25",
+    "file": "system/sys-calendar-pictograms-interface-check-blue-25.svg",
+    "name": "Interface/Check blue 25",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-verified-by",
+    "file": "system/sys-calendar-pictograms-interface-verified-by.svg",
+    "name": "Interface/Verified by",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-play-circle",
+    "file": "system/sys-calendar-pictograms-interface-play-circle.svg",
+    "name": "Interface/play-circle",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-state-default-type-test-results",
+    "file": "system/sys-calendar-pictograms-state-default-type-test-results.svg",
+    "name": "State=Default, Type=Test Results",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-state-updates-to-review-type-test-results",
+    "file": "system/sys-calendar-pictograms-state-updates-to-review-type-test-results.svg",
+    "name": "State=Updates to review, Type=Test Results",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-alert-24",
+    "file": "system/sys-calendar-pictograms-interface-alert-24.svg",
+    "name": "Interface/alert 24",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-copy-24",
+    "file": "system/sys-calendar-pictograms-interface-copy-24.svg",
+    "name": "Interface/copy 24",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-info-24",
+    "file": "system/sys-calendar-pictograms-interface-info-24.svg",
+    "name": "Interface/info 24",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-discount",
+    "file": "system/sys-calendar-pictograms-interface-discount.svg",
+    "name": "Interface/discount",
+    "category": "24px \u2014 Pictograms for subtitles",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-more-profile-ot-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-more-profile-ot-selected-dott.svg",
+    "name": "Interface/More/Profile ot selected dott ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-more-profile-selected",
+    "file": "system/sys-calendar-pictograms-interface-more-profile-selected.svg",
+    "name": "Interface/More/Profile selected",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-more-profile-not-selected",
+    "file": "system/sys-calendar-pictograms-interface-more-profile-not-selected.svg",
+    "name": "Interface/More/Profile not selected ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-profile-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-profile-selected-dott.svg",
+    "name": "Interface/Profile selected dott",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-not-selected",
+    "file": "system/sys-calendar-pictograms-interface-cart-not-selected.svg",
+    "name": "Interface/Cart not selected",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-selected",
+    "file": "system/sys-calendar-pictograms-interface-cart-selected.svg",
+    "name": "Interface/Cart selected ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-not-selected-item-added",
+    "file": "system/sys-calendar-pictograms-interface-cart-not-selected-item-added.svg",
+    "name": "Interface/Cart not selected item added",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-selected-item-added",
+    "file": "system/sys-calendar-pictograms-interface-cart-selected-item-added.svg",
+    "name": "Interface/Cart selected item added",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-not-selected-item-added-dott",
+    "file": "system/sys-calendar-pictograms-interface-cart-not-selected-item-added-dott.svg",
+    "name": "Interface/Cart not selected item added dott",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-not-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-cart-not-selected-dott.svg",
+    "name": "Interface/Cart not selected dott",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-selected-item-added-dott",
+    "file": "system/sys-calendar-pictograms-interface-cart-selected-item-added-dott.svg",
+    "name": "Interface/Cart selected item added  dott ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-cart-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-cart-selected-dott.svg",
+    "name": "Interface/Cart selected dott ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-chart-selected",
+    "file": "system/sys-calendar-pictograms-interface-chart-selected.svg",
+    "name": "Interface/Chart selected",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-chart-not-selected",
+    "file": "system/sys-calendar-pictograms-interface-chart-not-selected.svg",
+    "name": "Interface/Chart not selected ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-chart-not-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-chart-not-selected-dott.svg",
+    "name": "Interface/Chart not selected dott ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-chart-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-chart-selected-dott.svg",
+    "name": "Interface/Chart  selected dott",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-test",
+    "file": "system/sys-calendar-pictograms-interface-test.svg",
+    "name": "Interface/Test",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-not-selected",
+    "file": "system/sys-calendar-pictograms-interface-community-not-selected.svg",
+    "name": "Interface/Community not selected",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-not-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-community-not-selected-dott.svg",
+    "name": "Interface/Community not selected dott",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-selected",
+    "file": "system/sys-calendar-pictograms-interface-community-selected.svg",
+    "name": "Interface/Community selected",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-community-selected-dott.svg",
+    "name": "Interface/Community selected dott",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-today-selected",
+    "file": "system/sys-calendar-pictograms-interface-today-selected.svg",
+    "name": "Interface/Today selected",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-today-not-selected",
+    "file": "system/sys-calendar-pictograms-interface-today-not-selected.svg",
+    "name": "Interface/Today not selected ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-today-not-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-today-not-selected-dott.svg",
+    "name": "Interface/Today not selected dott ",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-today-selected-dott",
+    "file": "system/sys-calendar-pictograms-interface-today-selected-dott.svg",
+    "name": "Interface/Today selected dott",
+    "category": "24px \u2014 Tab bar",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-like-filled",
+    "file": "system/sys-calendar-pictograms-interface-like-filled.svg",
+    "name": "Interface/like filled",
+    "category": "24px \u2014 Community",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-like-unfilled",
+    "file": "system/sys-calendar-pictograms-interface-like-unfilled.svg",
+    "name": "Interface/like unfilled",
+    "category": "24px \u2014 Community",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-chevron-right-small",
+    "file": "system/sys-calendar-pictograms-interface-community-chevron-right-small.svg",
+    "name": "Interface/Community/Chevron Right Small",
+    "category": "24px \u2014 Community",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-chevron-down-small",
+    "file": "system/sys-calendar-pictograms-interface-community-chevron-down-small.svg",
+    "name": "Interface/Community/Chevron Down Small",
+    "category": "24px \u2014 Community",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-reply",
+    "file": "system/sys-calendar-pictograms-interface-community-reply.svg",
+    "name": "Interface/Community/Reply",
+    "category": "24px \u2014 Community",
+    "viewBox": "0 0 24 24",
+    "w": 24.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-interface-community-chevron-right-small-2",
+    "file": "system/sys-calendar-pictograms-interface-community-chevron-right-small-2.svg",
+    "name": "Interface/Community/Chevron Right Small",
+    "category": "12\u00d724px \u2014 Community",
+    "viewBox": "0 0 12 24",
+    "w": 12.0,
+    "h": 24.0
+  },
+  {
+    "id": "sys-calendar-pictograms-close-icon",
+    "file": "system/sys-calendar-pictograms-close-icon.svg",
+    "name": "Close Icon",
+    "category": "16\u00d716px \u2014 Community",
+    "viewBox": "0 0 16 16",
+    "w": 16.0,
+    "h": 16.0
+  },
+  {
+    "id": "sys-interface-interface-close-s",
+    "file": "system/sys-interface-interface-close-s.svg",
+    "name": "Interface/Close S",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-close-m",
+    "file": "system/sys-interface-interface-close-m.svg",
+    "name": "Interface/Close M",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-arrow-left",
+    "file": "system/sys-interface-interface-arrow-left.svg",
+    "name": "Interface/Arrow Left",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-arrow-right",
+    "file": "system/sys-interface-interface-arrow-right.svg",
+    "name": "Interface/Arrow Right",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-left",
+    "file": "system/sys-interface-interface-chevron-left.svg",
+    "name": "Interface/Chevron Left",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-right",
+    "file": "system/sys-interface-interface-chevron-right.svg",
+    "name": "Interface/Chevron Right",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-top",
+    "file": "system/sys-interface-interface-chevron-top.svg",
+    "name": "Interface/Chevron Top",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-bottom",
+    "file": "system/sys-interface-interface-chevron-bottom.svg",
+    "name": "Interface/Chevron Bottom",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-left-small",
+    "file": "system/sys-interface-interface-chevron-left-small.svg",
+    "name": "Interface/Chevron Left Small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-right-small",
+    "file": "system/sys-interface-interface-chevron-right-small.svg",
+    "name": "Interface/Chevron Right Small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-top-small",
+    "file": "system/sys-interface-interface-chevron-top-small.svg",
+    "name": "Interface/Chevron Top Small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chevron-bottom-small",
+    "file": "system/sys-interface-interface-chevron-bottom-small.svg",
+    "name": "Interface/Chevron Bottom Small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-check-small",
+    "file": "system/sys-interface-interface-check-small.svg",
+    "name": "Interface/Check Small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-cross-small",
+    "file": "system/sys-interface-interface-cross-small.svg",
+    "name": "Interface/cross small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-question-small",
+    "file": "system/sys-interface-interface-question-small.svg",
+    "name": "Interface/question small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-not-logged",
+    "file": "system/sys-interface-interface-not-logged.svg",
+    "name": "Interface/not logged",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-clock-small",
+    "file": "system/sys-interface-interface-clock-small.svg",
+    "name": "Interface/clock small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-copy-small",
+    "file": "system/sys-interface-interface-copy-small.svg",
+    "name": "Interface/copy small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-upload-small",
+    "file": "system/sys-interface-interface-upload-small.svg",
+    "name": "Interface/Upload small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-plus",
+    "file": "system/sys-interface-interface-plus.svg",
+    "name": "Interface/Plus",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-minus",
+    "file": "system/sys-interface-interface-minus.svg",
+    "name": "Interface/Minus",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-success",
+    "file": "system/sys-interface-interface-success.svg",
+    "name": "Interface/Success",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-passeye-closed",
+    "file": "system/sys-interface-interface-passeye-closed.svg",
+    "name": "Interface/PassEye Closed",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-passeye-opened",
+    "file": "system/sys-interface-interface-passeye-opened.svg",
+    "name": "Interface/PassEye Opened",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-menu",
+    "file": "system/sys-interface-interface-menu.svg",
+    "name": "Interface/Menu",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-list",
+    "file": "system/sys-interface-interface-list.svg",
+    "name": "Interface/List",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-more",
+    "file": "system/sys-interface-interface-more.svg",
+    "name": "Interface/More",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-dott",
+    "file": "system/sys-interface-interface-dott.svg",
+    "name": "Interface/Dott",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-info-small",
+    "file": "system/sys-interface-interface-info-small.svg",
+    "name": "Interface/info small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-info-small-2",
+    "file": "system/sys-interface-interface-info-small-2.svg",
+    "name": "Interface/info small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-alert-circle",
+    "file": "system/sys-interface-interface-alert-circle.svg",
+    "name": "Interface/alert-circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-check-small-circle",
+    "file": "system/sys-interface-interface-check-small-circle.svg",
+    "name": "Interface/Check Small Circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-edit-small",
+    "file": "system/sys-interface-edit-small.svg",
+    "name": "edit-small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-alert-left",
+    "file": "system/sys-interface-interface-alert-left.svg",
+    "name": "Interface/alert left",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-count-xx",
+    "file": "system/sys-interface-interface-count-xx.svg",
+    "name": "Interface/count xx",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-count",
+    "file": "system/sys-interface-interface-count.svg",
+    "name": "Interface/count",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-strips2",
+    "file": "system/sys-interface-interface-strips2.svg",
+    "name": "Interface/Strips2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-more-profile",
+    "file": "system/sys-interface-interface-more-profile.svg",
+    "name": "Interface/More/Profile",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-more-profile-dot",
+    "file": "system/sys-interface-interface-more-profile-dot.svg",
+    "name": "Interface/More/Profile Dot",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-thermometer",
+    "file": "system/sys-interface-interface-thermometer.svg",
+    "name": "Interface/Thermometer",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-update-small",
+    "file": "system/sys-interface-interface-update-small.svg",
+    "name": "Interface/Update small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-drop-small",
+    "file": "system/sys-interface-interface-drop-small.svg",
+    "name": "Interface/Drop small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-arrow-left-small",
+    "file": "system/sys-interface-interface-arrow-left-small.svg",
+    "name": "Interface/Arrow left small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-arrow-right-small",
+    "file": "system/sys-interface-interface-arrow-right-small.svg",
+    "name": "Interface/Arrow right small ",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-phone",
+    "file": "system/sys-interface-interface-phone.svg",
+    "name": "Interface/Phone",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-update",
+    "file": "system/sys-interface-interface-update.svg",
+    "name": "Interface/Update",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-settings",
+    "file": "system/sys-interface-interface-settings.svg",
+    "name": "Interface/Settings",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-edit",
+    "file": "system/sys-interface-interface-edit.svg",
+    "name": "Interface/Edit",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-star",
+    "file": "system/sys-interface-interface-star.svg",
+    "name": "Interface/Star",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-filled",
+    "file": "system/sys-interface-interface-filled.svg",
+    "name": "Interface/Filled",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-question",
+    "file": "system/sys-interface-interface-question.svg",
+    "name": "Interface/Question",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-alert",
+    "file": "system/sys-interface-interface-alert.svg",
+    "name": "Interface/Alert",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-flow",
+    "file": "system/sys-interface-interface-flow.svg",
+    "name": "Interface/Flow",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-add-period",
+    "file": "system/sys-interface-interface-add-period.svg",
+    "name": "Interface/Add Period",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-note",
+    "file": "system/sys-interface-interface-note.svg",
+    "name": "Interface/Note",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-note-filled",
+    "file": "system/sys-interface-interface-note-filled.svg",
+    "name": "Interface/Note filled",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-notification",
+    "file": "system/sys-interface-interface-notification.svg",
+    "name": "Interface/Notification",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-notification-new",
+    "file": "system/sys-interface-interface-notification-new.svg",
+    "name": "Interface/Notification New",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-analytics",
+    "file": "system/sys-interface-interface-analytics.svg",
+    "name": "Interface/Analytics",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-cart",
+    "file": "system/sys-interface-interface-cart.svg",
+    "name": "Interface/Cart",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-cart-added",
+    "file": "system/sys-interface-interface-cart-added.svg",
+    "name": "Interface/Cart Added",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-counter-empty",
+    "file": "system/sys-interface-interface-counter-empty.svg",
+    "name": "Interface/Counter empty",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-counter",
+    "file": "system/sys-interface-interface-counter.svg",
+    "name": "Interface/Counter",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-ovulation",
+    "file": "system/sys-interface-interface-ovulation.svg",
+    "name": "Interface/Ovulation",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-today",
+    "file": "system/sys-interface-interface-today.svg",
+    "name": "Interface/Today",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-test",
+    "file": "system/sys-interface-interface-test.svg",
+    "name": "Interface/Test",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-chart",
+    "file": "system/sys-interface-interface-chart.svg",
+    "name": "Interface/Chart",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-calendar",
+    "file": "system/sys-interface-interface-calendar.svg",
+    "name": "Interface/Calendar",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-health-report",
+    "file": "system/sys-interface-interface-health-report.svg",
+    "name": "Interface/Health report",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-health-report-2",
+    "file": "system/sys-interface-interface-health-report-2.svg",
+    "name": "Interface/Health report",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-share",
+    "file": "system/sys-interface-interface-share.svg",
+    "name": "Interface/Share",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-delete",
+    "file": "system/sys-interface-interface-delete.svg",
+    "name": "Interface/Delete",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-feedback",
+    "file": "system/sys-interface-interface-feedback.svg",
+    "name": "Interface/Feedback",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-thumbs-down",
+    "file": "system/sys-interface-interface-thumbs-down.svg",
+    "name": "Interface/Thumbs-down",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-thumbs-up",
+    "file": "system/sys-interface-interface-thumbs-up.svg",
+    "name": "Interface/Thumbs-up",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-thumbs-up-small",
+    "file": "system/sys-interface-interface-thumbs-up-small.svg",
+    "name": "Interface/Thumbs-up small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-undo",
+    "file": "system/sys-interface-interface-undo.svg",
+    "name": "Interface/Undo",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-exclamationcircle",
+    "file": "system/sys-interface-interface-exclamationcircle.svg",
+    "name": "Interface/ExclamationCircle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-search",
+    "file": "system/sys-interface-interface-search.svg",
+    "name": "Interface/Search",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-person",
+    "file": "system/sys-interface-interface-person.svg",
+    "name": "Interface/Person",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-minus-circle",
+    "file": "system/sys-interface-interface-minus-circle.svg",
+    "name": "Interface/Minus-circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-plus-circle",
+    "file": "system/sys-interface-interface-plus-circle.svg",
+    "name": "Interface/Plus-circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-menu-2",
+    "file": "system/sys-interface-interface-menu-2.svg",
+    "name": "Interface/Menu",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-gift",
+    "file": "system/sys-interface-interface-gift.svg",
+    "name": "Interface/Gift",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-mode",
+    "file": "system/sys-interface-interface-mode.svg",
+    "name": "Interface/Mode",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-apple-settings",
+    "file": "system/sys-interface-interface-apple-settings.svg",
+    "name": "Interface/Apple Settings",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-apple-notifications",
+    "file": "system/sys-interface-interface-apple-notifications.svg",
+    "name": "Interface/Apple Notifications",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-apple-switcher",
+    "file": "system/sys-interface-interface-apple-switcher.svg",
+    "name": "Interface/Apple Switcher",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-apple-health",
+    "file": "system/sys-interface-interface-apple-health.svg",
+    "name": "Interface/Apple Health",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-inito",
+    "file": "system/sys-interface-interface-inito.svg",
+    "name": "Interface/Inito",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-health-profile",
+    "file": "system/sys-interface-interface-health-profile.svg",
+    "name": "Interface/Health profile",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-heart-filled",
+    "file": "system/sys-interface-interface-heart-filled.svg",
+    "name": "Interface/Heart filled",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-bell",
+    "file": "system/sys-interface-interface-bell.svg",
+    "name": "Interface/Bell",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-help",
+    "file": "system/sys-interface-interface-help.svg",
+    "name": "Interface/Help",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-settings-feedback",
+    "file": "system/sys-interface-interface-settings-feedback.svg",
+    "name": "Interface/Settings feedback",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-settings-how-to-use",
+    "file": "system/sys-interface-interface-settings-how-to-use.svg",
+    "name": "Interface/Settings how to use",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-replace",
+    "file": "system/sys-interface-interface-replace.svg",
+    "name": "Interface/Replace",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-legacy",
+    "file": "system/sys-interface-interface-legacy.svg",
+    "name": "Interface/Legacy",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-cart1",
+    "file": "system/sys-interface-interface-cart1.svg",
+    "name": "Interface/Cart1",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-eye-off",
+    "file": "system/sys-interface-interface-eye-off.svg",
+    "name": "Interface/eye-off",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-eye",
+    "file": "system/sys-interface-interface-eye.svg",
+    "name": "Interface/eye",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-gallery",
+    "file": "system/sys-interface-interface-gallery.svg",
+    "name": "Interface/gallery",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-unit",
+    "file": "system/sys-interface-interface-unit.svg",
+    "name": "Interface/Unit",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-fertility",
+    "file": "system/sys-interface-interface-fertility.svg",
+    "name": "Interface/Fertility",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-doctor",
+    "file": "system/sys-interface-interface-doctor.svg",
+    "name": "Interface/Doctor",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-profile-amazon",
+    "file": "system/sys-interface-interface-profile-amazon.svg",
+    "name": "Interface / Profile Amazon",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-facebook-app",
+    "file": "system/sys-interface-interface-facebook-app.svg",
+    "name": "Interface/Facebook app",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-contact-us",
+    "file": "system/sys-interface-interface-contact-us.svg",
+    "name": "Interface/Contact us",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-inito-logo",
+    "file": "system/sys-interface-interface-inito-logo.svg",
+    "name": "Interface/Inito logo",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-google",
+    "file": "system/sys-interface-interface-google.svg",
+    "name": "Interface/Google",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-apple",
+    "file": "system/sys-interface-interface-apple.svg",
+    "name": "Interface/Apple",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-heart-rate",
+    "file": "system/sys-interface-interface-heart-rate.svg",
+    "name": "Interface/Heart rate",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-weight",
+    "file": "system/sys-interface-interface-weight.svg",
+    "name": "Interface/Weight",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-size",
+    "file": "system/sys-interface-interface-size.svg",
+    "name": "Interface/Size",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-calendar-checked",
+    "file": "system/sys-interface-interface-calendar-checked.svg",
+    "name": "Interface/Calendar checked",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-calendar-plus",
+    "file": "system/sys-interface-interface-calendar-plus.svg",
+    "name": "Interface/Calendar plus",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-check-circle",
+    "file": "system/sys-interface-interface-check-circle.svg",
+    "name": "Interface/check-circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-circle",
+    "file": "system/sys-interface-interface-circle.svg",
+    "name": "Interface/circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-cross-circle",
+    "file": "system/sys-interface-interface-cross-circle.svg",
+    "name": "Interface/cross-circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-message-chat-circle",
+    "file": "system/sys-interface-interface-message-chat-circle.svg",
+    "name": "Interface/message-chat-circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-info-circle",
+    "file": "system/sys-interface-interface-info-circle.svg",
+    "name": "Interface/info-circle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-wireless-device",
+    "file": "system/sys-interface-interface-wireless-device.svg",
+    "name": "Interface/wireless device",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-app",
+    "file": "system/sys-interface-interface-app.svg",
+    "name": "Interface/App",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-wifi1",
+    "file": "system/sys-interface-interface-wifi1.svg",
+    "name": "Interface/wifi1",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-wifi2",
+    "file": "system/sys-interface-interface-wifi2.svg",
+    "name": "Interface/wifi2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-wifi3",
+    "file": "system/sys-interface-interface-wifi3.svg",
+    "name": "Interface/wifi3",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-wifi4",
+    "file": "system/sys-interface-interface-wifi4.svg",
+    "name": "Interface/wifi4",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-wifi-error-1",
+    "file": "system/sys-interface-interface-wifi-error-1.svg",
+    "name": "Interface/wifi error 1",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-wifi-error-2",
+    "file": "system/sys-interface-interface-wifi-error-2.svg",
+    "name": "Interface/wifi error 2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-bluetooth-on",
+    "file": "system/sys-interface-interface-bluetooth-on.svg",
+    "name": "Interface/bluetooth-on",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-bluetooth-off",
+    "file": "system/sys-interface-interface-bluetooth-off.svg",
+    "name": "Interface/bluetooth off",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-pregnancy",
+    "file": "system/sys-interface-interface-pregnancy.svg",
+    "name": "Interface/pregnancy",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-new-device",
+    "file": "system/sys-interface-interface-new-device.svg",
+    "name": "Interface/New device",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-new-device-alert",
+    "file": "system/sys-interface-interface-new-device-alert.svg",
+    "name": "Interface/New device alert",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-battery",
+    "file": "system/sys-interface-interface-battery.svg",
+    "name": "Interface/battery",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-battery2",
+    "file": "system/sys-interface-interface-battery2.svg",
+    "name": "Interface/battery2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-battery2-2",
+    "file": "system/sys-interface-interface-battery2-2.svg",
+    "name": "Interface/battery2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-battery-unknown2",
+    "file": "system/sys-interface-battery-unknown2.svg",
+    "name": "battery-unknown2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-old-device",
+    "file": "system/sys-interface-interface-old-device.svg",
+    "name": "Interface/Old device",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-coins2",
+    "file": "system/sys-interface-interface-coins2.svg",
+    "name": "Interface/Coins2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-share2",
+    "file": "system/sys-interface-interface-share2.svg",
+    "name": "Interface/Share2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-person2",
+    "file": "system/sys-interface-interface-person2.svg",
+    "name": "Interface/Person2",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-outdated",
+    "file": "system/sys-interface-outdated.svg",
+    "name": "Outdated ",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-facebook-settings",
+    "file": "system/sys-interface-interface-facebook-settings.svg",
+    "name": "Interface/ Facebook settings",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-upload-photo",
+    "file": "system/sys-interface-interface-upload-photo.svg",
+    "name": "Interface/ upload photo",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-replace-2",
+    "file": "system/sys-interface-interface-replace-2.svg",
+    "name": "Interface/Replace",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-search-icon",
+    "file": "system/sys-interface-search-icon.svg",
+    "name": "Search Icon",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-search-icon-small",
+    "file": "system/sys-interface-search-icon-small.svg",
+    "name": "Search Icon/small",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-refresh",
+    "file": "system/sys-interface-interface-refresh.svg",
+    "name": "Interface/Refresh",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-loading",
+    "file": "system/sys-interface-interface-loading.svg",
+    "name": "Interface/loading",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-new-logo",
+    "file": "system/sys-interface-interface-new-logo.svg",
+    "name": "Interface/new logo",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-pencil",
+    "file": "system/sys-interface-interface-pencil.svg",
+    "name": "Interface/pencil",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-alert-triangle",
+    "file": "system/sys-interface-interface-alert-triangle.svg",
+    "name": "Interface/ alert-triangle",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-state-connected",
+    "file": "system/sys-interface-state-connected.svg",
+    "name": "State=Connected",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-state-testing",
+    "file": "system/sys-interface-state-testing.svg",
+    "name": "State=Testing",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-state-error",
+    "file": "system/sys-interface-state-error.svg",
+    "name": "State=Error",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-state-lost-connection",
+    "file": "system/sys-interface-state-lost-connection.svg",
+    "name": "State=Lost connection",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-filter",
+    "file": "system/sys-interface-interface-filter.svg",
+    "name": "Interface/filter",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-filter-filled",
+    "file": "system/sys-interface-interface-filter-filled.svg",
+    "name": "Interface/filter filled",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-user-more",
+    "file": "system/sys-interface-interface-user-more.svg",
+    "name": "Interface/user more",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-poll",
+    "file": "system/sys-interface-interface-poll.svg",
+    "name": "Interface/poll",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-image-plus",
+    "file": "system/sys-interface-interface-image-plus.svg",
+    "name": "Interface/image-plus",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-dotts",
+    "file": "system/sys-interface-interface-dotts.svg",
+    "name": "Interface/dotts",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-plus-small",
+    "file": "system/sys-interface-interface-plus-small.svg",
+    "name": "Interface/plus small",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-group-chat",
+    "file": "system/sys-interface-interface-group-chat.svg",
+    "name": "Interface/group chat",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-turn-off-commenting",
+    "file": "system/sys-interface-interface-turn-off-commenting.svg",
+    "name": "Interface/turn off commenting",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-group-chat-new",
+    "file": "system/sys-interface-interface-group-chat-new.svg",
+    "name": "Interface/group chat new",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-image",
+    "file": "system/sys-interface-interface-image.svg",
+    "name": "Interface/image",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-arrow-small-up",
+    "file": "system/sys-interface-interface-arrow-small-up.svg",
+    "name": "Interface/Arrow small up",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-pen",
+    "file": "system/sys-interface-interface-pen.svg",
+    "name": "Interface/pen",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-pin",
+    "file": "system/sys-interface-interface-pin.svg",
+    "name": "Interface/pin",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-dotts-small",
+    "file": "system/sys-interface-interface-dotts-small.svg",
+    "name": "Interface/Dotts small",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-increase",
+    "file": "system/sys-interface-interface-increase.svg",
+    "name": "Interface/increase",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-decrease",
+    "file": "system/sys-interface-interface-decrease.svg",
+    "name": "Interface/decrease",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-interface-interface-moderator-actions",
+    "file": "system/sys-interface-interface-moderator-actions.svg",
+    "name": "Interface/moderator actions",
+    "category": "Interface Community",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-facebook-gray",
+    "file": "system/sys-32px-web-web-facebook-gray.svg",
+    "name": "Web/Facebook gray",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-linkedin-gray",
+    "file": "system/sys-32px-web-web-linkedin-gray.svg",
+    "name": "Web/Linkedin gray",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-youtube-gray",
+    "file": "system/sys-32px-web-web-youtube-gray.svg",
+    "name": "Web/YouTube gray",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-inst-gray",
+    "file": "system/sys-32px-web-web-inst-gray.svg",
+    "name": "Web/Inst gray",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-twitter-gray",
+    "file": "system/sys-32px-web-web-twitter-gray.svg",
+    "name": "Web/Twitter gray",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-pinterest-gray",
+    "file": "system/sys-32px-web-web-pinterest-gray.svg",
+    "name": "Web/Pinterest gray",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-whatsapp-gray",
+    "file": "system/sys-32px-web-web-whatsapp-gray.svg",
+    "name": "Web/Whatsapp gray",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-pinterest",
+    "file": "system/sys-32px-web-web-pinterest.svg",
+    "name": "Web/Pinterest",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-twitter",
+    "file": "system/sys-32px-web-web-twitter.svg",
+    "name": "Web/Twitter",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-inst",
+    "file": "system/sys-32px-web-web-inst.svg",
+    "name": "Web/Inst",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-linkedin",
+    "file": "system/sys-32px-web-web-linkedin.svg",
+    "name": "Web/Linkedin",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-facebook",
+    "file": "system/sys-32px-web-web-facebook.svg",
+    "name": "Web/Facebook",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-device-interface-check-blue-32",
+    "file": "system/sys-32px-web-web-device-interface-check-blue-32.svg",
+    "name": "Web/Device/Interface/Check blue 32",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-check",
+    "file": "system/sys-32px-web-web-check.svg",
+    "name": "Web/Check",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-web-web-cookies",
+    "file": "system/sys-32px-web-web-cookies.svg",
+    "name": "Web/cookies",
+    "category": "32px \u2014 Web",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-health-profile",
+    "file": "system/sys-32px-old-icons-old-icons-settings-health-profile.svg",
+    "name": "Old icons/Settings/Health Profile",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-notifications",
+    "file": "system/sys-32px-old-icons-old-icons-settings-notifications.svg",
+    "name": "Old icons/Settings/Notifications",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-demo",
+    "file": "system/sys-32px-old-icons-old-icons-settings-demo.svg",
+    "name": "Old icons/Settings/Demo",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-replace-monitor",
+    "file": "system/sys-32px-old-icons-old-icons-settings-replace-monitor.svg",
+    "name": "Old icons/Settings/Replace Monitor",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-blog",
+    "file": "system/sys-32px-old-icons-old-icons-settings-blog.svg",
+    "name": "Old icons/Settings/Blog",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-contscts",
+    "file": "system/sys-32px-old-icons-old-icons-settings-contscts.svg",
+    "name": "Old icons/Settings/Contscts",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-country",
+    "file": "system/sys-32px-old-icons-old-icons-settings-country.svg",
+    "name": "Old icons/Settings/Country",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-temperature",
+    "file": "system/sys-32px-old-icons-old-icons-settings-temperature.svg",
+    "name": "Old icons/Settings/Temperature",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-property-1-settings-property-2-connect-device",
+    "file": "system/sys-32px-old-icons-property-1-settings-property-2-connect-device.svg",
+    "name": "Property 1=Settings, Property 2=Connect Device",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-property-1-settings-property-2-alert",
+    "file": "system/sys-32px-old-icons-property-1-settings-property-2-alert.svg",
+    "name": "Property 1=Settings, Property 2=Alert",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32px-old-icons-old-icons-settings-gift",
+    "file": "system/sys-32px-old-icons-old-icons-settings-gift.svg",
+    "name": "Old icons/Settings/Gift",
+    "category": "32px \u2014 Old Icons",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
+  },
+  {
+    "id": "sys-32-54px-onboarding-icons-onboarding-icons-battery",
+    "file": "system/sys-32-54px-onboarding-icons-onboarding-icons-battery.svg",
+    "name": "Onboarding icons/battery",
+    "category": "32\u00d754px \u2014 Onboarding Icons",
+    "viewBox": "0 0 32 54",
+    "w": 32.0,
+    "h": 54.0
+  },
+  {
+    "id": "sys-32-54px-onboarding-icons-onboarding-icons-bluetooth",
+    "file": "system/sys-32-54px-onboarding-icons-onboarding-icons-bluetooth.svg",
+    "name": "Onboarding icons/bluetooth",
+    "category": "32\u00d754px \u2014 Onboarding Icons",
+    "viewBox": "0 0 32 54",
+    "w": 32.0,
+    "h": 54.0
+  },
+  {
+    "id": "sys-40px-referral-interface-person-gray",
+    "file": "system/sys-40px-referral-interface-person-gray.svg",
+    "name": "Interface/Person gray",
+    "category": "40px \u2014 Referral",
+    "viewBox": "0 0 40 40",
+    "w": 40.0,
+    "h": 40.0
+  },
+  {
+    "id": "sys-40px-referral-interface-person-blue",
+    "file": "system/sys-40px-referral-interface-person-blue.svg",
+    "name": "Interface/Person blue",
+    "category": "40px \u2014 Referral",
+    "viewBox": "0 0 40 41",
+    "w": 40.0,
+    "h": 41.0
+  },
+  {
+    "id": "sys-40px-referral-interface-gift-gray",
+    "file": "system/sys-40px-referral-interface-gift-gray.svg",
+    "name": "Interface/Gift gray",
+    "category": "40px \u2014 Referral",
+    "viewBox": "0 0 40 40",
+    "w": 40.0,
+    "h": 40.0
+  },
+  {
+    "id": "sys-48px-onboarding-devices-onboarding-devices-battery-mid",
+    "file": "system/sys-48px-onboarding-devices-onboarding-devices-battery-mid.svg",
+    "name": "Onboarding devices/Battery-mid",
+    "category": "48px \u2014 Onboarding Devices",
+    "viewBox": "0 0 48 48",
+    "w": 48.0,
+    "h": 48.0
+  },
+  {
+    "id": "sys-48px-onboarding-devices-onboarding-devices-battery-low",
+    "file": "system/sys-48px-onboarding-devices-onboarding-devices-battery-low.svg",
+    "name": "Onboarding devices/battery-low",
+    "category": "48px \u2014 Onboarding Devices",
+    "viewBox": "0 0 48 48",
+    "w": 48.0,
+    "h": 48.0
+  },
+  {
+    "id": "sys-48px-onboarding-devices-onboarding-devices-battery-empty",
+    "file": "system/sys-48px-onboarding-devices-onboarding-devices-battery-empty.svg",
+    "name": "Onboarding devices/battery-empty",
+    "category": "48px \u2014 Onboarding Devices",
+    "viewBox": "0 0 48 48",
+    "w": 48.0,
+    "h": 48.0
+  },
+  {
+    "id": "sys-48px-onboarding-devices-onboarding-devices-battery-charging-02",
+    "file": "system/sys-48px-onboarding-devices-onboarding-devices-battery-charging-02.svg",
+    "name": "Onboarding devices/battery-charging-02",
+    "category": "48px \u2014 Onboarding Devices",
+    "viewBox": "0 0 48 48",
+    "w": 48.0,
+    "h": 48.0
+  },
+  {
+    "id": "sys-48px-onboarding-devices-onboarding-devices-bluetooth",
+    "file": "system/sys-48px-onboarding-devices-onboarding-devices-bluetooth.svg",
+    "name": "Onboarding devices/bluetooth",
+    "category": "48px \u2014 Onboarding Devices",
+    "viewBox": "0 0 48 48",
+    "w": 48.0,
+    "h": 48.0
+  },
+  {
+    "id": "sys-60px-interface-photo-60",
+    "file": "system/sys-60px-interface-photo-60.svg",
+    "name": "Interface/Photo 60",
+    "category": "60px",
+    "viewBox": "0 0 60 60",
+    "w": 60.0,
+    "h": 60.0
+  },
+  {
+    "id": "sys-80px-interface-referral-friends",
+    "file": "system/sys-80px-interface-referral-friends.svg",
+    "name": "Interface/Referral Friends",
+    "category": "80px",
+    "viewBox": "0 0 80 80",
+    "w": 80.0,
+    "h": 80.0
+  },
+  {
+    "id": "sys-80px-interface-medication",
+    "file": "system/sys-80px-interface-medication.svg",
+    "name": "Interface/medication",
+    "category": "80px",
+    "viewBox": "0 0 80 80",
+    "w": 80.0,
+    "h": 80.0
+  },
+  {
+    "id": "sys-80px-interface-photo-100-tablet",
+    "file": "system/sys-80px-interface-photo-100-tablet.svg",
+    "name": "Interface/Photo 100/Tablet",
+    "category": "80px",
+    "viewBox": "0 0 100 100",
+    "w": 100.0,
+    "h": 100.0
+  },
+  {
+    "id": "sys-100px-interface-medication",
+    "file": "system/sys-100px-interface-medication.svg",
+    "name": "Interface/medication",
+    "category": "100px",
+    "viewBox": "0 0 100 100",
+    "w": 100.0,
+    "h": 100.0
+  },
+  {
+    "id": "sys-100px-interface-photo-100-photo",
+    "file": "system/sys-100px-interface-photo-100-photo.svg",
+    "name": "Interface/Photo 100/Photo",
+    "category": "100px",
+    "viewBox": "0 0 100 100",
+    "w": 100.0,
+    "h": 100.0
+  }
+]

@@ -1,4 +1,4 @@
-import { TabBar, TabMenu, MainMenuButton } from "./TabBar.jsx";
+import { TabBar, TabMenu, MainMenuButton, BottomBarChip } from "./TabBar.jsx";
 import iconHome from "../../assets/tabbar/icon-home.svg";
 import iconChart from "../../assets/tabbar/icon-chart.svg";
 import iconShop from "../../assets/tabbar/icon-shop.svg";
@@ -85,7 +85,7 @@ export const Overview = {
         <div style={{ display: "flex", gap: 24, alignItems: "flex-end", padding: 16, background: "#fff" }}>
           <TabMenu icon={iconHome} label="Home" glyph={24} active />
           <TabMenu icon={iconChart} label="Chart" glyph={24} />
-          <TabMenu icon={iconShop} label="Shop" glyph={32} />
+          <TabMenu icon={iconShop} label="Shop" glyph={32} notification />
           <TabMenu icon={iconProfile} label="Profile" glyph={32} />
         </div>
       </section>
@@ -95,6 +95,20 @@ export const Overview = {
         <div style={{ display: "flex", gap: 32, alignItems: "flex-end", padding: 24, background: "#fff" }}>
           <MainMenuButton variant="primary" icon={iconTest} />
           <MainMenuButton variant="promo" icon={iconTest} />
+        </div>
+      </section>
+
+      <section>
+        <SectionLabel>.bottom bar - category (Bottom Bar section)</SectionLabel>
+        <div style={{ display: "flex", gap: 8, alignItems: "center", padding: 24, background: "#fff" }}>
+          <BottomBarChip type="category">Category</BottomBarChip>
+          <BottomBarChip type="category" chosen>
+            Category
+          </BottomBarChip>
+          <BottomBarChip type="subcategory">Category</BottomBarChip>
+          <BottomBarChip type="subcategory" chosen>
+            Category
+          </BottomBarChip>
         </div>
       </section>
     </div>

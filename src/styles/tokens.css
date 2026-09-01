@@ -5,6 +5,7 @@
   --text-white: #ffffff;
   --text-error: #ef6262;
   --text-success: #109e6f;
+  --text-transparent-grey: rgba(17, 45, 53, 0.4); /* Figma "Text/Transparent Grey" */
 
   /* Backgrounds */
   --bg-white: #ffffff;
@@ -21,24 +22,69 @@
   --grey-borders: #eaeced;
   --grey-icons: #bdc1cd;
 
+  /* Backgrounds — remaining Figma "Background/" paint styles not yet used by a component.
+     Kept separate from the --bg-daily-* set above: two of those (--bg-daily-tan, --bg-daily-bbt)
+     were tokenized slightly off from their Figma source (Figma has #ffeee3 and #cddcfb, code has
+     #ffeeee and #c3d3f4) but are live in DailyLog.jsx, so they're left as-is here — see
+     design-system.md and DS/Foundations/Colors & Styles for the discrepancy note. */
+  --bg-blue: #d9fbff; /* Background Blue — same value as --bg-daily-blue */
+  --bg-tan: #ffeee3; /* Background Tan — correct Figma value; see note above re: --bg-daily-tan */
+  --bg-green-transparent: #e4fbf3;
+  --bg-violet: #eedcff; /* same value as --bg-daily-violet */
+  --bg-blue-dark: #b1e5ef; /* same value as --bg-daily-blue-dark */
+  --bg-red-light: #fde6e3; /* same value as --bg-daily-red-light */
+  --bg-pink-preg: #f5d7f3; /* same value as --bg-daily-pink */
+  --bg-brown: #ecdac8;
+  --bg-blue-bbt: #cddcfb; /* Background "Blue ВВT" — correct Figma value; see note re: --bg-daily-bbt */
+
+  /* Base */
+  --transparent: rgba(255, 255, 255, 0.0001);
+  --grey-base: rgba(197, 204, 206, 0.2); /* Figma "Grey" — same value already inlined in .ds-toggle--off */
+  --main-hover: #2e9bb4;
+  --violet: #dedaff;
+  --violet-gradient: linear-gradient(112deg, #ddd9ff 0%, #b9b8ff 100%);
+
   /* Brand / hormones */
   --main: #38abc5;
   --hormones-e3g: #109e6f;
   --hormones-lh: #8828e2;
   --hormones-pdg: #1989bc;
   --hormones-fsh: #f0950e;
+  --hormones-hcg: #ab66a5;
   --symptoms-pelvic: #db4368;
   --symptoms-flow: #f46e5c;
 
-  /* Gradients — Day Status */
+  /* Symptoms — remaining Figma "Symptoms/" paint styles */
+  --symptoms-discharge-mood: #f0950e;
+  --symptoms-flow-discharge: #f46e5c; /* same value as --symptoms-flow */
+  --symptoms-discharge-meds-mood: #409cc3;
+  --symptoms-vaginal-discharge-mood: #86a430;
+  /* Figma has two styles literally both named "Symptoms/Vaginal Discharge & Mood" on different
+     nodes with different hex values — a genuine naming collision in the source file, not a typo. */
+  --symptoms-vaginal-discharge-mood-2: #a98a5b;
+  --symptoms-sex-insemination: #d96bcf;
+  --symptoms-pregnancy-test: #56b9b9;
+  --symptoms-follicle-tracking: #ab66a5;
+  --symptoms-bbt: #7f8598;
+  --symptoms-blood-test-values: #e35454;
+  --symptoms-mood: #3389e1;
+  --symptoms-weight: #666975;
+  --symptoms-caffeine: #94816c;
+  --symptoms-alcohol: #414458;
+
+  /* Gradients — Day Status (Figma "Day Status Gradients/" paint styles, 8 total) */
   --gradient-high-fertility: linear-gradient(163.04deg, #0aca89 0%, #109e6f 99.16%);
   --gradient-ovulation: linear-gradient(158deg, #995ad3 0%, #8828e2 100%);
   --gradient-low-fertility: linear-gradient(158deg, #ff7955 0%, #ec6766 100%);
-  --gradient-fertile-window: linear-gradient(158deg, #38abc5 0%, #008697 100%);
+  --gradient-fertile-window: linear-gradient(158deg, #38abc5 0%, #009bae 100%);
   --gradient-pregnancy: linear-gradient(154deg, #d287cc 0%, #ab66a5 100%);
-  --gradient-unknown: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%);
+  --gradient-unknown: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%); /* Figma name: "Notify" */
+  --gradient-notify: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%); /* same value, Figma-accurate name */
+  --gradient-miss-fertility: linear-gradient(158deg, #f87676 0%, #dd525c 100%);
+  --gradient-wfpr: linear-gradient(158deg, #557ad0 0%, #4750b9 100%);
 
   /* Radii */
+  --radius-4: 4px; /* Figma "Toast bar" component (189:1741) — cornerRadius 4 */
   --radius-8: 8px;
   --radius-20: 20px;
   --radius-24: 24px;
@@ -63,4 +109,10 @@
 
   /* Type */
   --font: "Montserrat", system-ui, sans-serif;
+  /* SF Pro isn't a licensed web font — fallback stack matches the one already used for
+     .status-bar__time below. Figma source: "New - SFPro - Community" (node 22321:5) on the
+     🧬 Text Styles page — a distinct type scale from the Montserrat app scale above, used for the
+     Community feature. */
+  --font-community: -apple-system, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
 }

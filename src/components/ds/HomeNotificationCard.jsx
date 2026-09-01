@@ -13,6 +13,16 @@ import illustHighFertility from "../../assets/icons/illust-high-fertility.svg";
  * - daily-logs — title + caption + chevron Main Button + `.wrapper` DailyLogRow
  * - message — illustration + title + body (High Fertility)
  * - hormones — title + caption + chevron + hormone results `.wrapper`
+ *
+ * Figma audit note: the actual `Home Notification Card` component set on the
+ * Cards page uses inconsistent legacy variant naming (`Property 1=3,
+ * old/new=new`, `Property 1=prod type notif, old/new=new`, plus two
+ * `old/new=old` duplicates that read as deprecated) rather than a clean
+ * content-type axis, and its `componentPropertyDefinitions` throws
+ * ("Component set has existing errors") the same way the Buttons-page
+ * `.Link` set does. The three content variants above were kept as-is since
+ * they were reconciled against real Home HF usage, which is a clearer
+ * source of truth than the Figma set's own variant names.
  */
 
 const HORMONES_DEFAULT = [

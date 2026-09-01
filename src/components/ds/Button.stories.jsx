@@ -76,6 +76,8 @@ function SizeRow({ size, children }) {
   );
 }
 
+const STATES = ["default", "pressed", "disabled"];
+
 const meta = {
   title: "DS/Components/Buttons",
   component: Button,
@@ -86,6 +88,7 @@ const meta = {
     size: "medium",
     iconOnly: false,
     icon: "none",
+    state: "default",
   },
   argTypes: {
     variant: {
@@ -95,6 +98,10 @@ const meta = {
     size: {
       control: "select",
       options: SIZES,
+    },
+    state: {
+      control: "select",
+      options: STATES,
     },
     iconOnly: { control: "boolean" },
     label: { control: "text" },
@@ -162,6 +169,52 @@ export const Overview = {
               iconOnly
               aria-label={`drop ${size}`}
             />
+          </SizeRow>
+        ))}
+      </section>
+
+      <section>
+        <SectionLabel>Type — Text Icon / Icon Text / Icon Text Icon (medium)</SectionLabel>
+        <SizeRow size="medium">
+          <Button size="medium" variant="primary" iconEnd={chevronRight}>
+            <Label size="medium" variant="primary">
+              Text Icon
+            </Label>
+          </Button>
+          <Button size="medium" variant="secondary" icon={chevronRight}>
+            <Label size="medium" variant="secondary">
+              Icon Text
+            </Label>
+          </Button>
+          <Button size="medium" variant="promo" icon={chevronRight} iconEnd={chevronRight}>
+            <Label size="medium" variant="promo">
+              Icon Text Icon
+            </Label>
+          </Button>
+        </SizeRow>
+      </section>
+
+      <section>
+        <SectionLabel>
+          Type — Icon+Icon (one documented Figma combo: Secondary / Small)
+        </SectionLabel>
+        <SizeRow size="small">
+          <Button size="small" variant="secondary" icon={navDevice} iconEnd={navDrop} aria-label="Icon and icon" />
+        </SizeRow>
+      </section>
+
+      <section>
+        <SectionLabel>States — Default / Pressed / Disabled (medium)</SectionLabel>
+        {/* Plain string children (not the <Label> helper) so Wrapper's Text
+            renders with color="current" and correctly inherits the
+            per-state color set on .btn / .btn:disabled below. */}
+        {VARIANTS.filter((v) => v !== "grey").map((variant) => (
+          <SizeRow key={variant} size={variant}>
+            {STATES.map((state) => (
+              <Button key={state} size="medium" variant={variant} state={state}>
+                {state}
+              </Button>
+            ))}
           </SizeRow>
         ))}
       </section>
@@ -260,4 +313,62 @@ export const IconChevron = {
     iconOnly: true,
     label: "Open",
   },
+};
+
+export const TransparentLarge = {
+  name: "Variants/Transparent Large",
+  args: { variant: "transparent", size: "large" },
+};
+
+export const TransparentSmall = {
+  name: "Variants/Transparent Small",
+  args: { variant: "transparent", size: "small" },
+};
+
+export const IconIcon = {
+  name: "Variants/Icon+Icon (Secondary Small)",
+  render: () => (
+    <Button size="small" variant="secondary" icon={navDevice} iconEnd={navDrop} aria-label="Device and drop" />
+  ),
+};
+
+// State=Default/Pressed/Disabled — Figma "Buttons" page, Main Button set.
+export const PrimaryPressed = {
+  name: "States/Primary Pressed",
+  args: { variant: "primary", size: "medium", state: "pressed" },
+};
+
+export const PrimaryDisabled = {
+  name: "States/Primary Disabled",
+  args: { variant: "primary", size: "medium", state: "disabled" },
+};
+
+export const SecondaryPressed = {
+  name: "States/Secondary Pressed",
+  args: { variant: "secondary", size: "medium", state: "pressed" },
+};
+
+export const SecondaryDisabled = {
+  name: "States/Secondary Disabled",
+  args: { variant: "secondary", size: "medium", state: "disabled" },
+};
+
+export const PromoPressed = {
+  name: "States/Promo Pressed",
+  args: { variant: "promo", size: "medium", state: "pressed" },
+};
+
+export const PromoDisabled = {
+  name: "States/Promo Disabled",
+  args: { variant: "promo", size: "medium", state: "disabled" },
+};
+
+export const TransparentPressed = {
+  name: "States/Transparent Pressed",
+  args: { variant: "transparent", size: "medium", state: "pressed" },
+};
+
+export const TransparentDisabled = {
+  name: "States/Transparent Disabled",
+  args: { variant: "transparent", size: "medium", state: "disabled" },
 };

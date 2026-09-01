@@ -3,7 +3,7 @@ import { TextField } from "./TextField.jsx";
 import chevronRight from "../../assets/icons/chevron-right.svg";
 
 const meta = {
-  title: "DS/Components/Inputs",
+  title: "DS/Components/Text Field",
   component: TextField,
   parameters: { layout: "padded" },
   argTypes: {

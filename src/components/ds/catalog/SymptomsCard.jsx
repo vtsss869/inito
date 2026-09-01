@@ -1,4 +1,5 @@
 import { Text } from "../Text.jsx";
+import { MaskIcon } from "../Icon.jsx";
 import logSymptoms from "../../../assets/icons/log-symptoms.svg";
 import logMoods from "../../../assets/icons/log-moods.svg";
 import logMeds from "../../../assets/icons/log-meds.svg";
@@ -30,7 +31,7 @@ export function SymptomsCard({
         </Text>
         <div className="symptoms-card__header-actions">
           <button type="button" className="symptoms-card__icon-btn" aria-label="More">
-            <img src={chevronRight} alt="" width={32} height={32} />
+            <MaskIcon src={chevronRight} size={32} alt="" />
           </button>
         </div>
       </div>

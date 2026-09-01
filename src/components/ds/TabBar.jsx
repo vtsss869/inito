@@ -1,5 +1,6 @@
 import { TabMenu } from "./TabMenu.jsx";
 import { MainMenuButton } from "./MainMenuButton.jsx";
+import { Text } from "./Text.jsx";
 import tabbarBg from "../../assets/tabbar/tabbar-bg.svg";
 import iconHome from "../../assets/tabbar/icon-home.svg";
 import iconChart from "../../assets/tabbar/icon-chart.svg";
@@ -57,3 +58,30 @@ export function TabBar({ active = "home", testVariant = "primary" }) {
 
 export { TabMenu } from "./TabMenu.jsx";
 export { MainMenuButton } from "./MainMenuButton.jsx";
+
+/**
+ * Figma DS: `.bottom bar - category` (Tabbar page, Bottom Bar section)
+ * State=Default/Chosen × Type=Category/Subcategory — filter chip used on the
+ * shop bottom bar. Category Chosen = dark fill/white text; Subcategory
+ * Chosen = Background Blue fill/black text.
+ */
+export function BottomBarChip({ type = "category", chosen = false, children = "Category" }) {
+  return (
+    <button
+      type="button"
+      className={[
+        "bottom-bar-chip",
+        `bottom-bar-chip--${type}`,
+        chosen ? "bottom-bar-chip--chosen" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      aria-pressed={chosen}
+      data-name=".bottom bar - category"
+    >
+      <Text as="span" variant={type === "category" ? "caption-bold-16" : "mini"} color="current">
+        {children}
+      </Text>
+    </button>
+  );
+}

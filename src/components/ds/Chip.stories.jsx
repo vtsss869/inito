@@ -1,6 +1,18 @@
 import { Chip } from "./Chip.jsx";
 import { DsChip } from "./catalog/DsChip.jsx";
 
+/**
+ * Figma "🦠 Chips" page (62:14234) audit note: the page's only content is a
+ * `.chips meta frame` whose `.Link` set is a stray copy of the Buttons-page
+ * Link component (still literally labeled "Link", grey `#8f8f8f` icon
+ * placeholders, default black/white text) — no distinct "Chip" visual
+ * design was ever actually authored there. Structural fix applied per the
+ * audit: `.chips meta frame` converted from a plain Frame to a Section for
+ * consistency with sibling component pages (see the audit report).
+ * `Chip` (Day Status gradient chip) and `DsChip` (purpose chip) below are
+ * kept as the DS's real chip patterns since Figma's Chips page has nothing
+ * further to reconcile against.
+ */
 const meta = {
   title: "DS/Components/Chips",
   component: Chip,
