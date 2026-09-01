@@ -3,6 +3,7 @@ import { Button } from "./Button.jsx";
 import { DailyLogRow, HOME_DAILY_LOGS } from "./DailyLog.jsx";
 import chevronRight from "../../assets/icons/chevron-right.svg";
 import illustHighFertility from "../../assets/icons/illust-high-fertility.svg";
+import illustNoMoreTests from "../../assets/icons/illust-no-more-tests.svg";
 
 /**
  * Figma DS: `Home Notification Card` component set
@@ -179,6 +180,12 @@ export function HomeNotificationCard({
 export function DailyLogsCard(props) {
   return <HomeNotificationCard content="daily-logs" {...props} />;
 }
+
+export const TEST_NOT_REQUIRED_MESSAGE = {
+  title: "Test Not Required Today",
+  body: "You were not required to take a test today for fertility prediction and ovulation confirmation. We’ll let you know when you need to take your next test.",
+  illustration: illustNoMoreTests,
+};
 
 export function FertilityNotificationCard(props) {
   return <HomeNotificationCard content="message" {...props} />;

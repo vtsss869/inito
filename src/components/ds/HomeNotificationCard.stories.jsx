@@ -3,6 +3,7 @@ import {
   DailyLogsCard,
   FertilityNotificationCard,
   HormoneResultsCard,
+  TEST_NOT_REQUIRED_MESSAGE,
 } from "./HomeNotificationCard.jsx";
 
 const meta = {
@@ -71,6 +72,12 @@ export const Overview = {
         </div>
       </section>
       <section>
+        <SectionLabel>message — Test Not Required</SectionLabel>
+        <div style={{ width: 341 }}>
+          <HomeNotificationCard content="message" {...TEST_NOT_REQUIRED_MESSAGE} />
+        </div>
+      </section>
+      <section>
         <SectionLabel>hormones — Hormones test results</SectionLabel>
         <div style={{ width: 342 }}>
           <HomeNotificationCard content="hormones" />
@@ -92,6 +99,11 @@ export const DailyLogs = {
 export const HighFertilityMessage = {
   name: "Variants/Message (High Fertility)",
   render: () => <FertilityNotificationCard />,
+};
+
+export const TestNotRequiredMessage = {
+  name: "Variants/Message (Test Not Required)",
+  render: () => <FertilityNotificationCard {...TEST_NOT_REQUIRED_MESSAGE} />,
 };
 
 export const Hormones = {
