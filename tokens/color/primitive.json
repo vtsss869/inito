@@ -1,0 +1,75 @@
+{
+  "primitive": {
+    "$description": "Raw color palette — Figma Variables Colors collection",
+    "mono": {
+      "$type": "color",
+      "black": { "$value": "#2d2f33" },
+      "white": { "$value": "#ffffff" }
+    },
+    "gray": {
+      "$type": "color",
+      "darker-alcohol": { "$value": "#414458" },
+      "dark-weight": { "$value": "#666975" },
+      "dark": { "$value": "#7f8598" },
+      "default": { "$value": "#bdc1cd" },
+      "light": { "$value": "#eaeced" },
+      "light-opacity20": { "$value": "#c5ccce33" },
+      "lighter": { "$value": "#f6f6f6" }
+    },
+    "blue-main": {
+      "$type": "color",
+      "dark": { "$value": "#2e9bb4" },
+      "default": { "$value": "#38abc5" },
+      "light": { "$value": "#b1e5ef" },
+      "lighter": { "$value": "#dbeef1" },
+      "light-gray": { "$value": "#f7f8fd" }
+    },
+    "blue2": {
+      "$type": "color",
+      "bbt": { "$value": "#3b76b1" },
+      "mood": { "$value": "#3389e1" },
+      "discharge-mood-med": { "$value": "#409cc3" },
+      "hormone-pdg": { "$value": "#1989bc" },
+      "hormone-pdg-70": { "$value": "#1989bcb2" }
+    },
+    "green": {
+      "$type": "color",
+      "default": { "$value": "#109e6f" },
+      "default-10": { "$value": "#109e6f1a" },
+      "discharge-mood": { "$value": "#86a430" },
+      "test": { "$value": "#56b9b9" },
+      "light": { "$value": "#d0f1dc" }
+    },
+    "brown": {
+      "$type": "color",
+      "caffeine": { "$value": "#94816c" },
+      "discharge-mood": { "$value": "#a98a5b" }
+    },
+    "red": {
+      "$type": "color",
+      "pelvic": { "$value": "#db4368" },
+      "blood": { "$value": "#e35454" },
+      "default": { "$value": "#f26643" },
+      "flow": { "$value": "#f46e5c" },
+      "light": { "$value": "#fde6e3" }
+    },
+    "violet": {
+      "$type": "color",
+      "hormone-lh": { "$value": "#8828e2" },
+      "light": { "$value": "#dedaff" },
+      "lighter-pink": { "$value": "#eedcff" }
+    },
+    "purple": {
+      "$type": "color",
+      "hormone-hcg": { "$value": "#ab66a5" },
+      "sex": { "$value": "#d96bcf" },
+      "light": { "$value": "#f5d7f3" }
+    },
+    "orange": {
+      "$type": "color",
+      "hormone-fsh": { "$value": "#ed9512" },
+      "discharge-mood": { "$value": "#f0950e" },
+      "light": { "$value": "#ffeee3" }
+    }
+  }
+}

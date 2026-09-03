@@ -1,0 +1,112 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  theme: {
+    extend: {
+      colors: {
+        primitive: {
+          mono: {
+            black: "var(--primitive-mono-black)",
+            white: "var(--primitive-mono-white)",
+          },
+          gray: {
+            darker: "var(--primitive-gray-darker-alcohol)",
+            dark: "var(--primitive-gray-dark)",
+            DEFAULT: "var(--primitive-gray-default)",
+            light: "var(--primitive-gray-light)",
+            lighter: "var(--primitive-gray-lighter)",
+          },
+          "blue-main": {
+            dark: "var(--primitive-blue-main-dark)",
+            DEFAULT: "var(--primitive-blue-main-default)",
+            light: "var(--primitive-blue-main-light)",
+            lighter: "var(--primitive-blue-main-lighter)",
+          },
+        },
+        text: {
+          primary: "var(--color-text-primary)",
+          secondary: "var(--color-text-secondary)",
+          inverse: "var(--color-text-inverse)",
+          success: "var(--color-text-success)",
+          error: "var(--color-text-error)",
+        },
+        background: {
+          DEFAULT: "var(--color-background-default)",
+          gray: "var(--color-background-gray)",
+          "blue-grey": "var(--color-background-blue-grey)",
+          violet: "var(--color-background-violet)",
+          "purple-preg": "var(--color-background-purple-preg)",
+          "blue-dark": "var(--color-background-blue-dark)",
+          "blue-light": "var(--color-background-blue-light)",
+          "orange-tan": "var(--color-background-orange-tan)",
+          red: "var(--color-background-red)",
+          green: "var(--color-background-green)",
+          "green-light": "var(--color-background-green-light)",
+        },
+        brand: {
+          blue: "var(--color-brand-blue)",
+        },
+        surface: {
+          blue: "var(--color-surface-blue)",
+          "blue-hover": "var(--color-surface-blue-hover)",
+          gray: "var(--color-surface-gray)",
+          "gray-light": "var(--color-surface-gray-light)",
+          white: "var(--color-surface-white)",
+        },
+        border: {
+          light: "var(--color-border-light)",
+          dark: "var(--color-border-dark)",
+        },
+        hormone: {
+          e3g: "var(--color-hormone-e3g)",
+          pdg: "var(--color-hormone-pdg)",
+          lh: "var(--color-hormone-lh)",
+          fsh: "var(--color-hormone-fsh)",
+          hcg: "var(--color-hormone-hcg)",
+        },
+        symptom: {
+          flow: "var(--color-symptom-flow)",
+          pelvic: "var(--color-symptom-pelvic)",
+          blood: "var(--color-symptom-blood)",
+          mood: "var(--color-symptom-mood)",
+          bbt: "var(--color-symptom-bbt)",
+          weight: "var(--color-symptom-weight)",
+          alcohol: "var(--color-symptom-alcohol)",
+          caffeine: "var(--color-symptom-caffeine)",
+          discharge: "var(--color-symptom-discharge)",
+          "discharge-mood": "var(--color-symptom-discharge-mood)",
+          sex: "var(--color-symptom-sex)",
+          test: "var(--color-symptom-test)",
+          follicle: "var(--color-symptom-follicle)",
+        },
+      },
+      fontFamily: {
+        primary: "var(--font-primary)",
+        community: "var(--font-community)",
+      },
+      borderRadius: {
+        4: "var(--radius-4)",
+        8: "var(--radius-8)",
+        20: "var(--radius-20)",
+        24: "var(--radius-24)",
+        28: "var(--radius-28)",
+        36: "var(--radius-36)",
+        pill: "var(--radius-pill)",
+      },
+      spacing: {
+        4: "var(--space-4)",
+        6: "var(--space-6)",
+        8: "var(--space-8)",
+        12: "var(--space-12)",
+        16: "var(--space-16)",
+        20: "var(--space-20)",
+        24: "var(--space-24)",
+        32: "var(--space-32)",
+      },
+      boxShadow: {
+        card: "var(--shadow-card)",
+        headline: "var(--shadow-headline)",
+        tabbar: "var(--shadow-tabbar)",
+      },
+    },
+  },
+};

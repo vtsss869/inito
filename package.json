@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "tokens": "node sd.config.js"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -27,6 +28,7 @@
     "playwright": "^1.62.1",
     "prop-types": "latest",
     "storybook": "^10.5.10",
+    "style-dictionary": "^5.5.2",
     "vite": "^5.4.11",
     "vitest": "latest"
   }

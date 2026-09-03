@@ -1,98 +1,55 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
 :root {
-  /* Text */
-  --text-black: #112d35;
-  --text-grey: #7f8598;
-  --text-white: #ffffff;
-  --text-error: #ef6262;
-  --text-success: #109e6f;
-  --text-transparent-grey: rgba(17, 45, 53, 0.4); /* Figma "Text/Transparent Grey" */
-
-  /* Backgrounds */
-  --bg-white: #ffffff;
-  --bg-grey: #f6f6f6;
-  --bg-light-blue-grey: #f7f8fd;
-  --bg-green-clear: #d0f1dc;
-  --bg-daily-pink: #f5d7f3;
-  --bg-daily-bbt: #c3d3f4;
-  --bg-daily-blue-dark: #b1e5ef;
-  --bg-daily-blue: #d9fbff;
-  --bg-daily-violet: #eedcff;
-  --bg-daily-tan: #ffeeee;
-  --bg-daily-red-light: #fde6e3;
-  --grey-borders: #eaeced;
-  --grey-icons: #bdc1cd;
-
-  /* Backgrounds — remaining Figma "Background/" paint styles not yet used by a component.
-     Kept separate from the --bg-daily-* set above: two of those (--bg-daily-tan, --bg-daily-bbt)
-     were tokenized slightly off from their Figma source (Figma has #ffeee3 and #cddcfb, code has
-     #ffeeee and #c3d3f4) but are live in DailyLog.jsx, so they're left as-is here — see
-     design-system.md and DS/Foundations/Colors & Styles for the discrepancy note. */
-  --bg-blue: #d9fbff; /* Background Blue — same value as --bg-daily-blue */
-  --bg-tan: #ffeee3; /* Background Tan — correct Figma value; see note above re: --bg-daily-tan */
-  --bg-green-transparent: #e4fbf3;
-  --bg-violet: #eedcff; /* same value as --bg-daily-violet */
-  --bg-blue-dark: #b1e5ef; /* same value as --bg-daily-blue-dark */
-  --bg-red-light: #fde6e3; /* same value as --bg-daily-red-light */
-  --bg-pink-preg: #f5d7f3; /* same value as --bg-daily-pink */
-  --bg-brown: #ecdac8;
-  --bg-blue-bbt: #cddcfb; /* Background "Blue ВВT" — correct Figma value; see note re: --bg-daily-bbt */
-
-  /* Base */
-  --transparent: rgba(255, 255, 255, 0.0001);
-  --grey-base: rgba(197, 204, 206, 0.2); /* Figma "Grey" — same value already inlined in .ds-toggle--off */
-  --main-hover: #2e9bb4;
-  --violet: #dedaff;
-  --violet-gradient: linear-gradient(112deg, #ddd9ff 0%, #b9b8ff 100%);
-
-  /* Brand / hormones */
-  --main: #38abc5;
-  --hormones-e3g: #109e6f;
-  --hormones-lh: #8828e2;
-  --hormones-pdg: #1989bc;
-  --hormones-fsh: #f0950e;
-  --hormones-hcg: #ab66a5;
-  --symptoms-pelvic: #db4368;
-  --symptoms-flow: #f46e5c;
-
-  /* Symptoms — remaining Figma "Symptoms/" paint styles */
-  --symptoms-discharge-mood: #f0950e;
-  --symptoms-flow-discharge: #f46e5c; /* same value as --symptoms-flow */
-  --symptoms-discharge-meds-mood: #409cc3;
-  --symptoms-vaginal-discharge-mood: #86a430;
-  /* Figma has two styles literally both named "Symptoms/Vaginal Discharge & Mood" on different
-     nodes with different hex values — a genuine naming collision in the source file, not a typo. */
-  --symptoms-vaginal-discharge-mood-2: #a98a5b;
-  --symptoms-sex-insemination: #d96bcf;
-  --symptoms-pregnancy-test: #56b9b9;
-  --symptoms-follicle-tracking: #ab66a5;
-  --symptoms-bbt: #7f8598;
-  --symptoms-blood-test-values: #e35454;
-  --symptoms-mood: #3389e1;
-  --symptoms-weight: #666975;
-  --symptoms-caffeine: #94816c;
-  --symptoms-alcohol: #414458;
-
-  /* Gradients — Day Status (Figma "Day Status Gradients/" paint styles, 8 total) */
-  --gradient-high-fertility: linear-gradient(163.04deg, #0aca89 0%, #109e6f 99.16%);
-  --gradient-ovulation: linear-gradient(158deg, #995ad3 0%, #8828e2 100%);
-  --gradient-low-fertility: linear-gradient(158deg, #ff7955 0%, #ec6766 100%);
-  --gradient-fertile-window: linear-gradient(158deg, #38abc5 0%, #009bae 100%);
-  --gradient-pregnancy: linear-gradient(154deg, #d287cc 0%, #ab66a5 100%);
-  --gradient-unknown: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%); /* Figma name: "Notify" */
-  --gradient-notify: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%); /* same value, Figma-accurate name */
-  --gradient-miss-fertility: linear-gradient(158deg, #f87676 0%, #dd525c 100%);
-  --gradient-wfpr: linear-gradient(158deg, #557ad0 0%, #4750b9 100%);
-
-  /* Radii */
-  --radius-4: 4px; /* Figma "Toast bar" component (189:1741) — cornerRadius 4 */
+  --primitive-mono-black: #2d2f33;
+  --primitive-mono-white: #ffffff;
+  --primitive-gray-darker-alcohol: #414458;
+  --primitive-gray-dark-weight: #666975;
+  --primitive-gray-dark: #7f8598;
+  --primitive-gray-default: #bdc1cd;
+  --primitive-gray-light: #eaeced;
+  --primitive-gray-light-opacity20: rgba(197, 204, 206, 0.2);
+  --primitive-gray-lighter: #f6f6f6;
+  --primitive-blue-main-dark: #2e9bb4;
+  --primitive-blue-main-default: #38abc5;
+  --primitive-blue-main-light: #b1e5ef;
+  --primitive-blue-main-lighter: #dbeef1;
+  --primitive-blue-main-light-gray: #f7f8fd;
+  --primitive-blue2-bbt: #3b76b1;
+  --primitive-blue2-mood: #3389e1;
+  --primitive-blue2-discharge-mood-med: #409cc3;
+  --primitive-blue2-hormone-pdg: #1989bc;
+  --primitive-blue2-hormone-pdg-70: rgba(25, 137, 188, 0.7);
+  --primitive-green-default: #109e6f;
+  --primitive-green-default-10: rgba(16, 158, 111, 0.1);
+  --primitive-green-discharge-mood: #86a430;
+  --primitive-green-test: #56b9b9;
+  --primitive-green-light: #d0f1dc;
+  --primitive-brown-caffeine: #94816c;
+  --primitive-brown-discharge-mood: #a98a5b;
+  --primitive-red-pelvic: #db4368;
+  --primitive-red-blood: #e35454;
+  --primitive-red-default: #f26643;
+  --primitive-red-flow: #f46e5c;
+  --primitive-red-light: #fde6e3;
+  --primitive-violet-hormone-lh: #8828e2;
+  --primitive-violet-light: #dedaff;
+  --primitive-violet-lighter-pink: #eedcff;
+  --primitive-purple-hormone-hcg: #ab66a5;
+  --primitive-purple-sex: #d96bcf;
+  --primitive-purple-light: #f5d7f3;
+  --primitive-orange-hormone-fsh: #ed9512;
+  --primitive-orange-discharge-mood: #f0950e;
+  --primitive-orange-light: #ffeee3;
+  --radius-4: 4px;
   --radius-8: 8px;
   --radius-20: 20px;
   --radius-24: 24px;
   --radius-28: 28px;
   --radius-36: 36px;
   --radius-pill: 100px;
-
-  /* Spacing */
   --space-4: 4px;
   --space-6: 6px;
   --space-8: 8px;
@@ -101,18 +58,65 @@
   --space-20: 20px;
   --space-24: 24px;
   --space-32: 32px;
-
-  /* Elevation */
-  --shadow-card: 0px 6px 12px rgba(0, 0, 0, 0.06), 0px 16px 28px rgba(0, 0, 0, 0.07);
-  --shadow-headline: 0px 0.5px 0px rgba(0, 0, 0, 0.3);
-  --shadow-tabbar: 0px -4px 16px rgba(17, 45, 53, 0.1);
-
-  /* Type */
-  --font: "Montserrat", system-ui, sans-serif;
-  /* SF Pro isn't a licensed web font — fallback stack matches the one already used for
-     .status-bar__time below. Figma source: "New - SFPro - Community" (node 22321:5) on the
-     🧬 Text Styles page — a distinct type scale from the Montserrat app scale above, used for the
-     Community feature. */
-  --font-community: -apple-system, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  --shadow-card: 0px 6px 12px 0px rgba(0, 0, 0, 0.06), 0px 16px 28px 0px rgba(0, 0, 0, 0.07);
+  --shadow-headline: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.3);
+  --shadow-tabbar: 0px -4px 16px 0px rgba(17, 45, 53, 0.1);
+  --font-primary: Montserrat, system-ui, sans-serif;
+  --font-community: -apple-system, 'SF Pro Text', 'SF Pro Display', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --color-text-primary: var(--primitive-mono-black);
+  --color-text-secondary: var(--primitive-gray-dark);
+  --color-text-inverse: var(--primitive-mono-white);
+  --color-text-success: var(--primitive-green-default);
+  --color-text-error: var(--primitive-red-default);
+  --color-background-default: var(--primitive-mono-white);
+  --color-background-gray: var(--primitive-gray-lighter);
+  --color-background-blue-grey: var(--primitive-blue-main-light-gray);
+  --color-background-violet: var(--primitive-violet-light);
+  --color-background-purple-preg: var(--primitive-purple-light);
+  --color-background-blue-dark: var(--primitive-blue-main-light);
+  --color-background-blue-light: var(--primitive-blue-main-lighter);
+  --color-background-orange-tan: var(--primitive-orange-light);
+  --color-background-red: var(--primitive-red-light);
+  --color-background-green: var(--primitive-green-default-10);
+  --color-background-green-light: var(--primitive-green-light);
+  --color-surface-blue: var(--primitive-blue-main-default);
+  --color-surface-blue-hover: var(--primitive-blue-main-dark);
+  --color-surface-gray: var(--primitive-gray-default);
+  --color-surface-gray-light: var(--primitive-gray-light);
+  --color-surface-white: var(--primitive-mono-white);
+  --color-brand-blue: var(--primitive-blue-main-default);
+  --color-border-light: var(--primitive-gray-light);
+  --color-border-dark: var(--primitive-gray-dark);
+  --color-hormone-e3g: var(--primitive-green-default);
+  --color-hormone-pdg: var(--primitive-blue2-hormone-pdg);
+  --color-hormone-lh: var(--primitive-violet-hormone-lh);
+  --color-hormone-fsh: var(--primitive-orange-hormone-fsh);
+  --color-hormone-hcg: var(--primitive-purple-hormone-hcg);
+  --color-symptom-flow: var(--primitive-red-flow);
+  --color-symptom-pelvic: var(--primitive-red-pelvic);
+  --color-symptom-blood: var(--primitive-red-blood);
+  --color-symptom-mood: var(--primitive-blue2-mood);
+  --color-symptom-bbt: var(--primitive-blue2-bbt);
+  --color-symptom-weight: var(--primitive-gray-dark-weight);
+  --color-symptom-alcohol: var(--primitive-gray-darker-alcohol);
+  --color-symptom-caffeine: var(--primitive-brown-caffeine);
+  --color-symptom-discharge: var(--primitive-brown-discharge-mood);
+  --color-symptom-discharge-mood: var(--primitive-green-discharge-mood);
+  --color-symptom-discharge-mood-med: var(--primitive-blue2-discharge-mood-med);
+  --color-symptom-discharge-mood-orange: var(--primitive-orange-discharge-mood);
+  --color-symptom-sex: var(--primitive-purple-sex);
+  --color-symptom-test: var(--primitive-green-test);
+  --color-symptom-follicle: var(--primitive-purple-hormone-hcg);
+  --typography-header-1: 500 40px/40px var(--font-primary);
+  --typography-header-2: 700 28px/32px var(--font-primary);
+  --typography-header-3: 600 24px/27px var(--font-primary);
+  --typography-header-4: 600 20px/24px var(--font-primary);
+  --typography-lead: 500 20px/20px var(--font-primary);
+  --typography-body: 500 14px/20px var(--font-primary);
+  --typography-caption-bold-16: 600 16px/20px var(--font-primary);
+  --typography-caption-16: 500 16px/20px var(--font-primary);
+  --typography-caption-bold-14: 600 14px/16px var(--font-primary);
+  --typography-caption-14: 500 14px/17px var(--font-primary);
+  --typography-mini: 500 12px/14px var(--font-primary);
+  --typography-menu-caption: 600 9px/11px var(--font-primary);
 }

@@ -1,0 +1,57 @@
+{
+  "typography": {
+    "header-1": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 500, "fontSize": "40px", "lineHeight": "40px", "letterSpacing": "0px" }
+    },
+    "header-2": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 700, "fontSize": "28px", "lineHeight": "32px", "letterSpacing": "0px" }
+    },
+    "header-3": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 600, "fontSize": "24px", "lineHeight": "27px", "letterSpacing": "0px" }
+    },
+    "header-4": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 600, "fontSize": "20px", "lineHeight": "24px", "letterSpacing": "0px" }
+    },
+    "lead": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 500, "fontSize": "20px", "lineHeight": "20px", "letterSpacing": "0px" }
+    },
+    "body": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 500, "fontSize": "14px", "lineHeight": "20px", "letterSpacing": "0px" }
+    },
+    "caption-bold-16": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 600, "fontSize": "16px", "lineHeight": "20px", "letterSpacing": "0px" }
+    },
+    "caption-16": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 500, "fontSize": "16px", "lineHeight": "20px", "letterSpacing": "0px" }
+    },
+    "caption-bold-14": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 600, "fontSize": "14px", "lineHeight": "16px", "letterSpacing": "0px" }
+    },
+    "caption-14": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 500, "fontSize": "14px", "lineHeight": "17px", "letterSpacing": "0px" }
+    },
+    "mini": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 500, "fontSize": "12px", "lineHeight": "14px", "letterSpacing": "0.1px" }
+    },
+    "menu-caption": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.primary}", "fontWeight": 600, "fontSize": "9px", "lineHeight": "11px", "letterSpacing": "0px" }
+    }
+  },
+  "font": {
+    "$type": "fontFamily",
+    "primary": { "$value": ["Montserrat", "system-ui", "sans-serif"] },
+    "community": { "$value": ["-apple-system", "SF Pro Text", "SF Pro Display", "system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"] }
+  }
+}

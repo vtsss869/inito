@@ -15,3 +15,9 @@ output
 debug-storybook.log
 *.png
 !src/**/*.png
+
+# secrets
+.env
+
+# cursor
+.cursor

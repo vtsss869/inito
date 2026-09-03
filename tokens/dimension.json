@@ -1,0 +1,38 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "4": { "$value": "4px" },
+    "8": { "$value": "8px" },
+    "20": { "$value": "20px" },
+    "24": { "$value": "24px" },
+    "28": { "$value": "28px" },
+    "36": { "$value": "36px" },
+    "pill": { "$value": "100px" }
+  },
+  "space": {
+    "$type": "dimension",
+    "4": { "$value": "4px" },
+    "6": { "$value": "6px" },
+    "8": { "$value": "8px" },
+    "12": { "$value": "12px" },
+    "16": { "$value": "16px" },
+    "20": { "$value": "20px" },
+    "24": { "$value": "24px" },
+    "32": { "$value": "32px" }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "card": {
+      "$value": [
+        { "offsetX": "0px", "offsetY": "6px", "blur": "12px", "spread": "0px", "color": "rgba(0, 0, 0, 0.06)" },
+        { "offsetX": "0px", "offsetY": "16px", "blur": "28px", "spread": "0px", "color": "rgba(0, 0, 0, 0.07)" }
+      ]
+    },
+    "headline": {
+      "$value": { "offsetX": "0px", "offsetY": "0.5px", "blur": "0px", "spread": "0px", "color": "rgba(0, 0, 0, 0.3)" }
+    },
+    "tabbar": {
+      "$value": { "offsetX": "0px", "offsetY": "-4px", "blur": "16px", "spread": "0px", "color": "rgba(17, 45, 53, 0.1)" }
+    }
+  }
+}

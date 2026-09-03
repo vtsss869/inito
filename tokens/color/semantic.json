@@ -1,0 +1,71 @@
+{
+  "color": {
+    "$description": "Semantic tokens — Figma Variables Colors/Mapped collection",
+    "text": {
+      "$type": "color",
+      "primary": { "$value": "{primitive.mono.black}" },
+      "secondary": { "$value": "{primitive.gray.dark}" },
+      "inverse": { "$value": "{primitive.mono.white}" },
+      "success": { "$value": "{primitive.green.default}" },
+      "error": { "$value": "{primitive.red.default}" }
+    },
+    "background": {
+      "$type": "color",
+      "default": { "$value": "{primitive.mono.white}" },
+      "gray": { "$value": "{primitive.gray.lighter}" },
+      "blue-grey": { "$value": "{primitive.blue-main.light-gray}" },
+      "violet": { "$value": "{primitive.violet.light}" },
+      "purple-preg": { "$value": "{primitive.purple.light}" },
+      "blue-dark": { "$value": "{primitive.blue-main.light}" },
+      "blue-light": { "$value": "{primitive.blue-main.lighter}" },
+      "orange-tan": { "$value": "{primitive.orange.light}" },
+      "red": { "$value": "{primitive.red.light}" },
+      "green": { "$value": "{primitive.green.default-10}" },
+      "green-light": { "$value": "{primitive.green.light}" }
+    },
+    "surface": {
+      "$type": "color",
+      "blue": { "$value": "{primitive.blue-main.default}" },
+      "blue-hover": { "$value": "{primitive.blue-main.dark}" },
+      "gray": { "$value": "{primitive.gray.default}" },
+      "gray-light": { "$value": "{primitive.gray.light}" },
+      "white": { "$value": "{primitive.mono.white}" }
+    },
+    "brand": {
+      "$type": "color",
+      "$description": "Renamed: color/brand/primary → color/brand/blue",
+      "blue": { "$value": "{primitive.blue-main.default}" }
+    },
+    "border": {
+      "$type": "color",
+      "light": { "$value": "{primitive.gray.light}" },
+      "dark": { "$value": "{primitive.gray.dark}" }
+    },
+    "hormone": {
+      "$type": "color",
+      "e3g": { "$value": "{primitive.green.default}" },
+      "pdg": { "$value": "{primitive.blue2.hormone-pdg}" },
+      "lh": { "$value": "{primitive.violet.hormone-lh}" },
+      "fsh": { "$value": "{primitive.orange.hormone-fsh}" },
+      "hcg": { "$value": "{primitive.purple.hormone-hcg}" }
+    },
+    "symptom": {
+      "$type": "color",
+      "flow": { "$value": "{primitive.red.flow}" },
+      "pelvic": { "$value": "{primitive.red.pelvic}" },
+      "blood": { "$value": "{primitive.red.blood}" },
+      "mood": { "$value": "{primitive.blue2.mood}" },
+      "bbt": { "$value": "{primitive.blue2.bbt}" },
+      "weight": { "$value": "{primitive.gray.dark-weight}" },
+      "alcohol": { "$value": "{primitive.gray.darker-alcohol}" },
+      "caffeine": { "$value": "{primitive.brown.caffeine}" },
+      "discharge": { "$value": "{primitive.brown.discharge-mood}" },
+      "discharge-mood": { "$value": "{primitive.green.discharge-mood}" },
+      "discharge-mood-med": { "$value": "{primitive.blue2.discharge-mood-med}" },
+      "discharge-mood-orange": { "$value": "{primitive.orange.discharge-mood}" },
+      "sex": { "$value": "{primitive.purple.sex}" },
+      "test": { "$value": "{primitive.green.test}" },
+      "follicle": { "$value": "{primitive.purple.hormone-hcg}" }
+    }
+  }
+}
