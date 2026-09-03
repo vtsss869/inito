@@ -22,6 +22,5 @@ debug-storybook.log
 # cursor
 .cursor
 
-# figma local files (too large for git, 5+ GB)
-figma/*.fig
-figma/*.jam
+# figma local files
+figma/
