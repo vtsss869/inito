@@ -5,13 +5,13 @@ const STATES = [
   "high-fertility",
   "fertile-window",
   "low-fertility",
+  "peak-fertility",
   "ovulation-confirmed",
   "waiting-for-pdg-rise",
   "pdg-is-rising",
   "attention",
   "informational",
   "pregnancy",
-  "test-not-required",
 ];
 
 const meta = {
@@ -49,16 +49,13 @@ export const Overview = {
 export const HighFertility = { args: { state: "high-fertility" } };
 export const FertileWindow = { args: { state: "fertile-window" } };
 export const LowFertility = { args: { state: "low-fertility" } };
+export const PeakFertility = { args: { state: "peak-fertility" } };
 export const OvulationConfirmed = { args: { state: "ovulation-confirmed" } };
 export const WaitingForPdgRise = { args: { state: "waiting-for-pdg-rise" } };
 export const PdgIsRising = { args: { state: "pdg-is-rising" } };
 export const Attention = { args: { state: "attention" } };
 export const Informational = { args: { state: "informational" } };
 export const Pregnancy = { args: { state: "pregnancy" } };
-export const TestNotRequired = {
-  name: "Variants/Test not required",
-  args: { state: "test-not-required" },
-};
 
 export const Playground = {
   args: { state: "high-fertility" },
@@ -75,10 +72,13 @@ export const Playground = {
  * documented by the row/column position (Past/Present/Future) and the
  * surrounding NG (device test) sequence — not invented.
  *
- * States already wired in STATE_META render as live `DayStatusCard`s. The
- * rest don't have a matching gradient token confirmed against Figma yet
- * (see the "OPEN FINDING" note in DayStatusCard.jsx), so they're listed as
- * reference rows instead of guessing a color.
+ * States already wired in STATE_META (including `peak-fertility` /
+ * `ovulation-confirmed`, whose gradient colors were corrected against the
+ * full-size "Cycle day 13" / "Cycle day 21" screens in node 246:57921 —
+ * see the header comment in DayStatusCard.jsx) render as live
+ * `DayStatusCard`s. The rest don't have a confirmed gradient token of
+ * their own, so they're listed as reference rows instead of guessing a
+ * color.
  */
 function SectionHeading({ children }) {
   return (
@@ -143,11 +143,15 @@ export const LegendMainCardStates = {
           <div style={{ width: 341 }}>
             <DayStatusCard state="high-fertility" />
           </div>
-          <LegendRow
-            chip="Cycle day 13"
-            headline="Peak Fertility"
-            condition="LH surge confirmed today — the single highest-probability day to conceive."
-          />
+          <Text variant="caption-14" color="grey">
+            LH surge confirmed today — the single highest-probability day to conceive.
+          </Text>
+          <div style={{ width: 341 }}>
+            <DayStatusCard state="peak-fertility" />
+          </div>
+          <Text variant="caption-14" color="grey">
+            PdG rise confirmed ovulation for this cycle.
+          </Text>
           <div style={{ width: 341 }}>
             <DayStatusCard state="ovulation-confirmed" />
           </div>

@@ -1,0 +1,41 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F5A623"/>
+      <stop offset="100%" stop-color="#E8941A"/>
+    </radialGradient>
+    <linearGradient id="heartGrad" x1="180" y1="170" x2="340" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F8B24A"/>
+      <stop offset="55%" stop-color="#F2785C"/>
+      <stop offset="100%" stop-color="#EF6A57"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="150" y1="300" x2="370" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FBD9A8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#F7C07E" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Concentric radial glow -->
+  <circle cx="256" cy="256" r="250" fill="#FDEFD9" fill-opacity="0.35"/>
+  <circle cx="256" cy="256" r="210" fill="#FBE2BE" fill-opacity="0.55"/>
+  <circle cx="256" cy="256" r="168" fill="#F9D6A2" fill-opacity="0.75"/>
+  <circle cx="256" cy="256" r="128" fill="url(#coreGlow)"/>
+
+  <!-- Soft hormonal wave sweeping under the heart -->
+  <path d="M150 322 C 188 300, 214 340, 256 322 C 298 304, 324 344, 366 320"
+        stroke="url(#waveGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+
+  <!-- Abstract heart formed from two flowing brushstrokes + droplet -->
+  <path d="M256 332
+           C 232 300, 196 288, 196 248
+           C 196 222, 218 206, 240 212
+           C 251 215, 256 224, 256 234
+           C 256 224, 261 215, 272 212
+           C 294 206, 316 222, 316 248
+           C 316 288, 280 300, 256 332 Z"
+        fill="url(#heartGrad)"/>
+
+  <!-- Droplet highlight, hinting at a falling drop -->
+  <path d="M256 200 C 250 214, 244 222, 244 232 C 244 240, 250 246, 256 246 C 262 246, 268 240, 268 232 C 268 222, 262 214, 256 200 Z"
+        fill="#FDF3E7" fill-opacity="0.85"/>
+</svg>

@@ -3,6 +3,8 @@ import { Text } from "./Text.jsx";
 import chevronRight from "../../assets/icons/chevron-right.svg";
 import navDevice from "../../assets/icons/nav-device.svg";
 import navDrop from "../../assets/icons/nav-drop.svg";
+import pencilIcon from "../../assets/icons/system/sys-interface-interface-pencil.svg";
+import checkSmallIcon from "../../assets/icons/system/sys-interface-interface-check-small.svg";
 
 const VARIANTS = ["primary", "secondary", "promo", "transparent", "grey"];
 const SIZES = ["large", "medium", "small"];
@@ -371,4 +373,73 @@ export const TransparentPressed = {
 export const TransparentDisabled = {
   name: "States/Transparent Disabled",
   args: { variant: "transparent", size: "medium", state: "disabled" },
+};
+
+/**
+ * Figma "Community (App)" file (fileKey LLjQAqluK9e7WtuV3HNUK7), UI KIT
+ * canvas, "Community kit" section — "Button - Main" (node 15219:167888),
+ * "community post icon" (node 15220:168455) and "other examples" (node
+ * 15220:168456). Confirmed these are the SAME Buttons component already
+ * documented above (identical Style/Size/Type/State matrix in "Button -
+ * Main"), just used with Community-specific icons/labels — so no new
+ * component was created for them; these are usage examples only.
+ */
+export const CommunityComposeFab = {
+  name: "Community/Compose FAB (community post icon)",
+  args: {
+    variant: "primary",
+    size: "large",
+    icon: "compose",
+    iconOnly: true,
+    label: "New post",
+  },
+  argTypes: {
+    icon: {
+      control: "select",
+      options: ["none", "chevron", "device", "drop", "compose"],
+      mapping: {
+        none: undefined,
+        chevron: chevronRight,
+        device: navDevice,
+        drop: navDrop,
+        compose: pencilIcon,
+      },
+    },
+  },
+};
+
+export const CommunityCtaButtons = {
+  name: "Community/CTA buttons (other examples)",
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <div style={{ display: "flex", gap: 12 }}>
+        <Button size="medium" variant="primary" icon={checkSmallIcon}>
+          <Label size="medium" variant="primary">
+            Take a test
+          </Label>
+        </Button>
+        <Button size="medium" variant="primary" icon={pencilIcon}>
+          <Label size="medium" variant="primary">
+            Make a post
+          </Label>
+        </Button>
+        <Button size="medium" variant="primary" icon={pencilIcon}>
+          <Label size="medium" variant="primary">
+            Post
+          </Label>
+        </Button>
+      </div>
+      <div style={{ display: "flex", gap: 12 }}>
+        <Button size="medium" variant="primary" icon={checkSmallIcon} state="disabled">
+          Take a test
+        </Button>
+        <Button size="medium" variant="primary" icon={pencilIcon} state="disabled">
+          Make a post
+        </Button>
+        <Button size="medium" variant="primary" icon={pencilIcon} state="disabled">
+          Post
+        </Button>
+      </div>
+    </div>
+  ),
 };

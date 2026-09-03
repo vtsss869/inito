@@ -34,6 +34,26 @@ export const PurposeOverview = {
   ),
 };
 
+/**
+ * Figma "Community (App)" file (fileKey LLjQAqluK9e7WtuV3HNUK7), "Community
+ * kit" → "tags" (node 10230:345523) — content-warning pills on an anonymous
+ * post ("BFP" / "Graphic Images" / "Mention of Loss" / "Pregnancy"). The
+ * Figma instance is built from the same Main Button component as this DS's
+ * own Button (Style=Secondary, Size=Small) — documented here as a DsChip
+ * `purpose="tag"` variant rather than a new component.
+ */
+export const CommunityTags = {
+  name: "Community/Content warning tags",
+  render: () => (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 4, padding: 24 }}>
+      <DsChip purpose="tag">BFP</DsChip>
+      <DsChip purpose="tag">Graphic Images</DsChip>
+      <DsChip purpose="tag">Mention of Loss</DsChip>
+      <DsChip purpose="tag">Pregnancy</DsChip>
+    </div>
+  ),
+};
+
 export const Default = {
   name: "Day Status / Info grey",
   args: {

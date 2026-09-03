@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inito Community Flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  body {
+    background: #1C1C1E;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  }
+
+  /* ── Phone shell ── */
+  .phone {
+    width: 390px; height: 844px;
+    background: #fff;
+    border-radius: 54px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 0 2px #3A3A3C, 0 0 0 6px #2C2C2E, 0 32px 80px rgba(0,0,0,.7);
+    display: flex; flex-direction: column;
+  }
+
+  /* notch */
+  .phone::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 126px; height: 34px;
+    background: #1C1C1E;
+    border-radius: 0 0 20px 20px;
+    z-index: 100;
+  }
+
+  /* ── Status bar ── */
+  .status-bar {
+    height: 47px; padding: 14px 20px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-shrink: 0; position: relative; z-index: 10;
+    background: #fff;
+  }
+  .status-time { font-size: 15px; font-weight: 600; color: #1a1a1a; letter-spacing: -0.3px; }
+  .status-icons { display: flex; align-items: center; gap: 6px; }
+  .status-icons svg { fill: #1a1a1a; }
+
+  /* ── Screens ── */
+  .screen { display: none; flex-direction: column; flex: 1; overflow: hidden; background: #fff; }
+  .screen.active { display: flex; }
+
+  /* transitions */
+  .screen { animation: none; }
+  .screen.slide-in { animation: slideIn 0.28s ease-out; }
+  .screen.slide-in-back { animation: slideInBack 0.28s ease-out; }
+  @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  @keyframes slideInBack { from { transform: translateX(-30%); } to { transform: translateX(0); } }
+
+  /* ── Nav bar ── */
+  .nav-bar {
+    height: 52px; padding: 0 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid #E5E5EA;
+    flex-shrink: 0;
+  }
+  .nav-title { font-size: 17px; font-weight: 600; color: #26313A; }
+  .nav-btn-back { background: none; border: none; cursor: pointer; padding: 6px; color: #5790FF; display: flex; align-items: center; gap: 2px; font-size: 17px; }
+  .nav-btn-close { background: none; border: none; cursor: pointer; padding: 6px; color: #26313A; font-size: 20px; line-height: 1; }
+  .nav-pill-btn {
+    height: 32px; padding: 0 16px; border-radius: 20px; border: none; cursor: pointer;
+    font-size: 14px; font-weight: 600;
+    transition: opacity 0.15s;
+  }
+  .nav-pill-btn.active { background: #112D35; color: #fff; }
+  .nav-pill-btn.disabled { background: #F2F2F7; color: #9D9D9D; pointer-events: none; }
+  .nav-subtitle { font-size: 12px; color: #9D9D9D; padding: 4px 16px 0; flex-shrink: 0; }
+
+  /* ── Scrollable content ── */
+  .scroll-area { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .scroll-area::-webkit-scrollbar { display: none; }
+
+  /* ── Bottom nav ── */
+  .bottom-nav {
+    height: 83px; padding-bottom: 20px;
+    display: flex; align-items: flex-start; padding-top: 8px;
+    border-top: 1px solid #E5E5EA; background: #fff;
+    flex-shrink: 0;
+  }
+  .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; }
+  .nav-item svg { width: 24px; height: 24px; }
+  .nav-item span { font-size: 10px; font-weight: 400; }
+  .nav-item.active svg, .nav-item.active span { color: #5790FF; fill: #5790FF; }
+  .nav-item:not(.active) svg, .nav-item:not(.active) span { color: #8E8E93; fill: #8E8E93; }
+
+  /* ── Feed top bar ── */
+  .feed-top {
+    padding: 8px 16px; display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+    background: #fff;
+  }
+  .feed-avatar-sm { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex-shrink: 0; overflow: hidden; background: #DDE9FF; }
+  .search-bar {
+    flex: 1; height: 36px; background: #F2F2F7; border-radius: 18px;
+    display: flex; align-items: center; gap: 6px; padding: 0 12px;
+    cursor: pointer;
+  }
+  .search-bar span { font-size: 14px; color: #9D9D9D; }
+  .bell-btn { position: relative; background: none; border: none; cursor: pointer; padding: 4px; }
+  .bell-badge {
+    position: absolute; top: 0; right: 0;
+    width: 16px; height: 16px; background: #FF3B30; border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bell-badge span { font-size: 8px; color: #fff; font-weight: 700; }
+
+  /* ── Feed tabs ── */
+  .feed-tabs {
+    display: flex; align-items: center; padding: 0 16px;
+    border-bottom: 1px solid #E5E5EA; flex-shrink: 0;
+    background: #fff;
+  }
+  .tab-item { padding: 10px 0; margin-right: 20px; font-size: 14px; font-weight: 600; color: #9D9D9D; cursor: pointer; position: relative; }
+  .tab-item.active { color: #26313A; }
+  .tab-item.active::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: #5790FF; }
+  .tab-right { margin-left: auto; position: relative; cursor: pointer; }
+  .tab-badge {
+    position: absolute; top: -4px; right: -4px; width: 14px; height: 14px;
+    background: #FF9500; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  }
+  .tab-badge span { font-size: 8px; color: #fff; font-weight: 700; }
+
+  /* ── Posting bar ── */
+  .posting-bar { padding: 8px 16px 4px; flex-shrink: 0; }
+  .posting-text { font-size: 13px; color: #9D9D9D; margin-bottom: 4px; }
+  .progress-track { height: 3px; background: #E5E5EA; border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: #5790FF; border-radius: 2px; animation: progressAnim 2s linear forwards; }
+  @keyframes progressAnim { from { width: 0%; } to { width: 100%; } }
+
+  /* ── Post card ── */
+  .post-card { padding: 14px 16px 0; }
+  .post-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .post-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: #DDE9FF; overflow: hidden; cursor: pointer; }
+  .post-meta { flex: 1; }
+  .post-author-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .post-author { font-size: 14px; font-weight: 600; color: #26313A; cursor: pointer; }
+  .post-author:hover { text-decoration: underline; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 400; }
+  .badge-admin { color: #5790FF; background: rgba(87,144,255,.12); }
+  .badge-expert { color: #F5A623; background: rgba(245,166,35,.12); }
+  .badge-tag { color: #26313A; background: #F2F2F7; }
+  .post-time { font-size: 12px; color: #AEAEAE; }
+  .post-more { background: none; border: none; cursor: pointer; color: #9D9D9D; font-size: 18px; line-height: 1; padding: 0 4px; }
+  .post-body { font-size: 14px; color: #26313A; line-height: 21px; margin-left: 50px; }
+  .post-divider { height: 1px; background: #E5E5EA; margin: 12px 0 0; }
+  .post-actions { display: flex; align-items: center; gap: 16px; padding: 10px 16px 12px 66px; }
+  .action-btn { display: flex; align-items: center; gap: 5px; background: none; border: none; cursor: pointer; font-size: 14px; color: #9D9D9D; }
+  .action-btn svg { width: 18px; height: 18px; }
+
+  /* anonymous avatar */
+  .anon-avatar {
+    width: 40px; height: 40px; border-radius: 50%; background: #EEF2FF;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+
+  /* chart */
+  .chart-container { margin: 8px 0 8px 50px; border-radius: 10px; overflow: hidden; border: 1px solid #F2F2F7; }
+
+  /* poll */
+  .poll-container { margin: 8px 0 4px 50px; }
+  .poll-option {
+    display: flex; align-items: center; gap: 10px;
+    background: #DDE9FF; border-radius: 8px; padding: 12px 12px;
+    margin-bottom: 8px; cursor: pointer; position: relative; overflow: hidden;
+  }
+  .poll-option .poll-fill { position: absolute; left: 0; top: 0; height: 100%; background: rgba(87,144,255,.2); transition: width 0.3s; }
+  .poll-checkbox { width: 18px; height: 18px; border: 2px solid #5790FF; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #fff; position: relative; z-index: 1; }
+  .poll-label { flex: 1; font-size: 14px; color: #26313A; position: relative; z-index: 1; }
+  .poll-pct { font-size: 14px; color: #26313A; position: relative; z-index: 1; }
+  .poll-chevron { font-size: 12px; color: #9D9D9D; position: relative; z-index: 1; }
+  .poll-voters { font-size: 12px; color: #9D9D9D; margin-top: -4px; margin-bottom: 4px; }
+
+  /* FAB */
+  .fab {
+    position: absolute; bottom: 90px; right: 16px;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #112D35; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(17,45,53,.4);
+    transition: transform .1s;
+    z-index: 10;
+  }
+  .fab:active { transform: scale(0.95); }
+
+  /* ── New post toolbar ── */
+  .np-toolbar {
+    display: flex; align-items: center; padding: 10px 16px;
+    border-top: 1px solid #E5E5EA; flex-shrink: 0;
+    background: #fff;
+  }
+  .np-icon-btn { background: none; border: none; cursor: pointer; padding: 6px; color: #26313A; }
+  .np-spacer { flex: 1; }
+  .anon-row { display: flex; align-items: center; gap: 8px; }
+  .anon-label { font-size: 14px; color: #26313A; }
+  .toggle {
+    width: 51px; height: 31px; border-radius: 16px; background: #E5E5EA;
+    position: relative; cursor: pointer; transition: background .2s;
+    flex-shrink: 0;
+  }
+  .toggle.on { background: #34C759; }
+  .toggle::after {
+    content: ''; position: absolute; top: 2px; left: 2px;
+    width: 27px; height: 27px; border-radius: 50%; background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2); transition: transform .2s;
+  }
+  .toggle.on::after { transform: translateX(20px); }
+
+  /* text input area */
+  .np-text-area {
+    flex: 1; padding: 12px 16px; font-size: 14px; color: #26313A;
+    line-height: 21px; border: none; outline: none; resize: none;
+    font-family: inherit;
+  }
+  .np-text-area::placeholder { color: #C7C7CC; }
+
+  /* photo grid */
+  .photo-grid { display: flex; gap: 8px; padding: 0 16px 12px 16px; }
+  .photo-thumb {
+    flex: 1; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden;
+    position: relative; background: #F2F2F7; cursor: pointer;
+  }
+  .photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-remove {
+    position: absolute; top: 6px; right: 6px;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(0,0,0,.55); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 13px; line-height: 1;
+  }
+
+  /* tooltip */
+  .tooltip {
+    position: absolute; background: #fff; border: 1px solid #E5E5EA;
+    border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #26313A;
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    bottom: 58px; left: 50px; right: 16px; z-index: 20;
+  }
+
+  /* poll inputs */
+  .poll-input {
+    width: 100%; height: 48px; background: #F2F2F7; border-radius: 10px;
+    border: none; outline: none; padding: 0 14px; font-size: 14px;
+    color: #26313A; font-family: inherit; margin-bottom: 8px;
+  }
+  .poll-input::placeholder { color: #9D9D9D; }
+  .remove-poll-btn { background: none; border: none; font-size: 14px; color: #5790FF; cursor: pointer; padding: 0; }
+
+  /* iOS keyboard mockup */
+  .keyboard {
+    height: 291px; background: #D1D5DB; flex-shrink: 0;
+    border-top: 1px solid #B0B4BA;
+    display: flex; flex-direction: column;
+  }
+  .kb-rows { flex: 1; display: flex; flex-direction: column; justify-content: space-around; padding: 6px 4px 4px; gap: 6px; }
+  .kb-row { display: flex; gap: 6px; justify-content: center; }
+  .kb-key {
+    height: 42px; border-radius: 5px; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: #000; font-weight: 400; cursor: pointer;
+    box-shadow: 0 1px 0 rgba(0,0,0,.25);
+    flex: 1; min-width: 0; max-width: 36px;
+  }
+  .kb-key.wide { max-width: 48px; font-size: 14px; }
+  .kb-key.space { max-width: 9999px; flex: 4; font-size: 14px; }
+  .kb-key.gray { background: #ADB5BD; color: #000; }
+  .kb-bottom { display: flex; justify-content: space-between; padding: 4px 4px 4px; gap: 6px; }
+  .kb-bottom-key {
+    height: 42px; border-radius: 5px; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer; box-shadow: 0 1px 0 rgba(0,0,0,.25);
+  }
+  .home-indicator { height: 5px; width: 134px; background: #1C1C1E; border-radius: 3px; margin: 6px auto 4px; opacity: .2; }
+  .kb-home { height: 20px; display: flex; align-items: center; justify-content: center; background: #D1D5DB; }
+
+  /* ── Step 2 tags ── */
+  .topic-chip {
+    height: 36px; padding: 0 16px; border-radius: 18px; border: none; cursor: pointer;
+    font-size: 14px; font-family: inherit; transition: all .15s;
+    background: #F2F2F7; color: #26313A; white-space: nowrap;
+  }
+  .topic-chip.selected { background: #5790FF; color: #fff; }
+  .topic-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .info-banner {
+    margin: 16px; padding: 12px; background: #EAF0FF;
+    border-radius: 12px; display: flex; align-items: flex-start; gap: 10px;
+  }
+  .info-icon { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #5790FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .info-icon span { font-size: 11px; font-weight: 700; color: #5790FF; }
+  .info-text { font-size: 13px; color: #26313A; line-height: 18px; }
+
+  /* ── Photo fullscreen ── */
+  #screen-photo { background: #1C1C1E; }
+  .photo-full-img { width: 100%; height: auto; object-fit: contain; display: block; }
+  .photo-close-btn {
+    position: absolute; top: 60px; right: 16px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(90,90,90,.8); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 15px; z-index: 10;
+  }
+  .photo-pagination { text-align: center; font-size: 13px; color: rgba(255,255,255,.7); margin-top: 16px; }
+
+  /* ── Notifications ── */
+  .notif-section-label { font-size: 13px; font-weight: 600; color: #9D9D9D; padding: 16px 16px 6px; }
+  .notif-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 16px; cursor: pointer;
+    transition: background .1s;
+  }
+  .notif-row:active { background: #F2F2F7; }
+  .notif-icon-wrap { width: 44px; height: 44px; flex-shrink: 0; position: relative; }
+  .notif-icon-circle {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .notif-body { flex: 1; min-width: 0; }
+  .notif-text { font-size: 14px; color: #26313A; line-height: 19px; }
+  .notif-text strong { font-weight: 600; }
+  .notif-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 2px; }
+  .notif-time { font-size: 12px; color: #AEAEAE; }
+  .notif-chevron { font-size: 13px; color: #C7C7CC; }
+  .follow-btn {
+    height: 28px; padding: 0 12px; border-radius: 14px; border: none; cursor: pointer;
+    font-size: 13px; font-weight: 600;
+  }
+  .follow-btn.unfollow { background: #5790FF; color: #fff; }
+  .follow-btn.following { background: #F2F2F7; color: #26313A; }
+
+  /* ── Post removed ── */
+  .section-label { font-size: 13px; font-weight: 600; color: #9D9D9D; padding: 20px 16px 8px; text-transform: uppercase; letter-spacing: .5px; }
+  .post-preview-card {
+    margin: 0 16px; border: 1px solid #E5E5EA; border-radius: 12px; padding: 12px;
+  }
+  .feedback-card {
+    margin: 0 16px; background: #EAF0FF; border-radius: 12px; padding: 12px;
+    font-size: 14px; color: #26313A; line-height: 20px;
+  }
+  .rule-card {
+    margin: 0 16px; background: #F2F2F7; border-radius: 12px; padding: 12px;
+  }
+  .rule-title { font-size: 14px; font-weight: 600; color: #26313A; margin-bottom: 6px; }
+  .rule-desc { font-size: 13px; color: #9D9D9D; line-height: 18px; }
+  .appeal-text { padding: 20px 16px 32px; font-size: 14px; color: #26313A; line-height: 20px; }
+  .appeal-link { color: #5790FF; }
+
+  /* ── User profile ── */
+  .profile-header { display: flex; flex-direction: column; align-items: center; padding: 20px 16px 16px; }
+  .profile-avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; background: #DDE9FF; }
+  .profile-name { font-size: 17px; font-weight: 600; color: #26313A; margin-top: 4px; }
+  .profile-stats { font-size: 13px; color: #9D9D9D; margin-top: 6px; }
+  .profile-stats strong { font-weight: 600; color: #26313A; }
+  .profile-goal { font-size: 14px; color: #26313A; margin-top: 8px; }
+  .profile-tabs { display: flex; border-bottom: 1px solid #E5E5EA; flex-shrink: 0; }
+  .profile-tab {
+    flex: 1; height: 44px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; border-bottom: 2px solid transparent; color: #9D9D9D;
+  }
+  .profile-tab.active { border-bottom-color: #26313A; color: #26313A; }
+
+  /* inito chart SVG */
+  .inito-chart { width: 100%; height: 130px; }
+</style>
+</head>
+<body>
+
+<div class="phone" id="phone">
+
+  <!-- STATUS BAR (shared) -->
+  <div class="status-bar" id="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-icons">
+      <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="3" width="3" height="9" rx="1"/><rect x="4.5" y="2" width="3" height="10" rx="1"/><rect x="9" y="1" width="3" height="11" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 3.5C9.8 3.5 11.4 4.2 12.6 5.3L14 3.9C12.4 2.4 10.3 1.5 8 1.5C5.7 1.5 3.6 2.4 2 3.9L3.4 5.3C4.6 4.2 6.2 3.5 8 3.5Z"/><path d="M8 6.5C9.1 6.5 10.1 6.9 10.8 7.6L12.2 6.2C11.1 5.2 9.6 4.5 8 4.5C6.4 4.5 4.9 5.2 3.8 6.2L5.2 7.6C5.9 6.9 6.9 6.5 8 6.5Z"/><circle cx="8" cy="10.5" r="1.5"/></svg>
+      <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="22" height="10" rx="3" stroke="#1a1a1a" stroke-width="1" fill="none"/><rect x="1.5" y="2.5" width="17" height="7" rx="2" fill="#1a1a1a"/><path d="M23 4.5v3a1.5 1.5 0 000-3z" fill="#1a1a1a"/></svg>
+    </div>
+  </div>
+
+  <!-- ════════════════ FEED SCREEN ════════════════ -->
+  <div class="screen active" id="screen-feed">
+    <!-- Top bar -->
+    <div class="feed-top">
+      <div class="feed-avatar-sm" style="background: url('https://i.pravatar.cc/80?img=5') center/cover;"></div>
+      <div class="search-bar">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="5" stroke="#9D9D9D" stroke-width="1.5"/><path d="M10 10L13 13" stroke="#9D9D9D" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Search</span>
+      </div>
+      <button class="bell-btn" onclick="go('notifications')">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2a7 7 0 00-7 7v3l-1.5 2.5h17L18 12V9a7 7 0 00-7-7z" stroke="#26313A" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 18a2 2 0 004 0" stroke="#26313A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="bell-badge"><span>!</span></div>
+      </button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="feed-tabs">
+      <div class="tab-item active">My feed</div>
+      <div class="tab-item">Featured</div>
+      <div class="tab-right">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5h16M6 11h10M9 17h4" stroke="#26313A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="tab-badge"><span>1</span></div>
+      </div>
+    </div>
+
+    <!-- Posting bar (hidden by default) -->
+    <div class="posting-bar" id="posting-bar" style="display:none">
+      <div class="posting-text">Posting...</div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <!-- Posts -->
+    <div class="scroll-area">
+
+      <!-- New post (shown after posting) -->
+      <div id="new-post-card" style="display:none">
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-avatar" style="background: url('https://i.pravatar.cc/80?img=5') center/cover; cursor:default;"></div>
+            <div class="post-meta">
+              <div class="post-author-row">
+                <span class="post-author">You</span>
+                <span class="post-time">just now</span>
+              </div>
+            </div>
+            <button class="post-more">···</button>
+          </div>
+          <div class="post-body" id="new-post-text-display"></div>
+        </div>
+        <div class="post-actions">
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M9 15.5S2 11.5 2 6.5a4 4 0 017-2.65A4 4 0 0116 6.5c0 5-7 9-7 9z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 0</button>
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M15 9c0 3.31-2.69 6-6 6H4l-2 2V9c0-3.31 2.69-6 6-6s7 2.69 7 6z" stroke="#9D9D9D" stroke-width="1.4"/></svg> Comment</button>
+        </div>
+        <div class="post-divider"></div>
+      </div>
+
+      <!-- Post 1: Marissa -->
+      <div class="post-card">
+        <div class="post-header">
+          <div class="post-avatar" style="background: url('https://i.pravatar.cc/80?img=47') center/cover;" onclick="go('profile')"></div>
+          <div class="post-meta">
+            <div class="post-author-row">
+              <span class="post-author" onclick="go('profile')">Marissa Layfield</span>
+              <span class="badge badge-admin">Admin</span>
+              <span class="post-time">12m</span>
+            </div>
+          </div>
+          <button class="post-more">···</button>
+        </div>
+        <div class="post-body">Fertility journeys can be a rollercoaster ride! 🌈 Whether you're just starting out or have been trying for a while, it's important to celebrate every little victory. Remember, you're not alone in this journey. Let's uplift one another and share our stories!</div>
+        <div class="post-actions">
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M9 15.5S2 11.5 2 6.5a4 4 0 017-2.65A4 4 0 0116 6.5c0 5-7 9-7 9z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 24</button>
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M15 9c0 3.31-2.69 6-6 6H4l-2 2V9c0-3.31 2.69-6 6-6s7 2.69 7 6z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 10 comments</button>
+        </div>
+      </div>
+      <div class="post-divider"></div>
+
+      <!-- Post 2: Anonymous -->
+      <div class="post-card">
+        <div class="post-header">
+          <div class="anon-avatar">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a4 4 0 100 8 4 4 0 000-8z" fill="#6B7280"/><path d="M4 16c0-3 2.7-5 6-5s6 2 6 5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="post-meta">
+            <div class="post-author-row">
+              <span class="post-author" style="cursor:default">Anonymous member</span>
+              <span class="post-time">56m</span>
+            </div>
+          </div>
+          <button class="post-more">···</button>
+        </div>
+        <div class="post-body">I'm new to Inito. How does my chart appear? Is there still a chance to confirm ov?</div>
+        <div class="chart-container">
+          <svg class="inito-chart" viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="130" fill="#fff"/>
+            <text x="10" y="14" font-family="Montserrat,sans-serif" font-size="10" font-weight="700" fill="#112D35">inito</text>
+            <!-- grid lines -->
+            <line x1="40" y1="20" x2="310" y2="20" stroke="#F0F0F0" stroke-width="1"/>
+            <line x1="40" y1="40" x2="310" y2="40" stroke="#F0F0F0" stroke-width="1"/>
+            <line x1="40" y1="60" x2="310" y2="60" stroke="#F0F0F0" stroke-width="1"/>
+            <line x1="40" y1="80" x2="310" y2="80" stroke="#F0F0F0" stroke-width="1"/>
+            <line x1="40" y1="100" x2="310" y2="100" stroke="#F0F0F0" stroke-width="1"/>
+            <!-- LH line (purple) -->
+            <polyline points="50,90 80,85 110,75 130,55 150,35 160,28 170,38 190,60 210,70 230,78 260,82 290,85" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linejoin="round"/>
+            <!-- PdG line (green) -->
+            <polyline points="50,100 80,98 110,95 130,90 150,85 170,72 190,58 210,50 230,48 260,52 290,58" fill="none" stroke="#10B981" stroke-width="2" stroke-linejoin="round"/>
+            <!-- Estrogen line (pink) -->
+            <polyline points="50,95 80,88 110,80 130,70 150,62 165,58 175,65 190,75 210,80 230,82 260,84 290,86" fill="none" stroke="#F472B6" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- date labels -->
+            <text x="48" y="118" font-size="7" fill="#9D9D9D" font-family="sans-serif">08 Jul</text>
+            <text x="100" y="118" font-size="7" fill="#9D9D9D" font-family="sans-serif">04 Aug</text>
+            <text x="148" y="118" font-size="7" fill="#9D9D9D" font-family="sans-serif">06 Sep</text>
+            <text x="198" y="118" font-size="7" fill="#9D9D9D" font-family="sans-serif">05 Oct</text>
+            <text x="248" y="118" font-size="7" fill="#9D9D9D" font-family="sans-serif">19 Apr</text>
+            <!-- Ovulation marker -->
+            <rect x="152" y="22" width="52" height="18" rx="4" fill="#FFF0E0"/>
+            <text x="156" y="34" font-size="8" fill="#F5A623" font-weight="600" font-family="sans-serif">Ovulation ↑</text>
+          </svg>
+        </div>
+        <div class="post-actions">
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M9 15.5S2 11.5 2 6.5a4 4 0 017-2.65A4 4 0 0116 6.5c0 5-7 9-7 9z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 38</button>
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M15 9c0 3.31-2.69 6-6 6H4l-2 2V9c0-3.31 2.69-6 6-6s7 2.69 7 6z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 2 comments</button>
+        </div>
+        <div class="post-divider"></div>
+      </div>
+
+      <!-- Post 3: Clementine -->
+      <div class="post-card">
+        <div class="post-header">
+          <div class="post-avatar" style="background: url('https://i.pravatar.cc/80?img=12') center/cover;" onclick="go('profile')"></div>
+          <div class="post-meta">
+            <div class="post-author-row">
+              <span class="post-author" onclick="go('profile')">Clementine</span>
+              <span class="post-time">2h</span>
+            </div>
+          </div>
+          <button class="post-more">···</button>
+        </div>
+        <div class="post-body">Cycle 6 and still waiting. Some days are harder than others but knowing you're all on the same journey makes it feel less lonely 🩶</div>
+        <div class="post-actions">
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M9 15.5S2 11.5 2 6.5a4 4 0 017-2.65A4 4 0 0116 6.5c0 5-7 9-7 9z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 78</button>
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M15 9c0 3.31-2.69 6-6 6H4l-2 2V9c0-3.31 2.69-6 6-6s7 2.69 7 6z" stroke="#9D9D9D" stroke-width="1.4"/></svg> Comment</button>
+        </div>
+        <div class="post-divider"></div>
+      </div>
+
+      <!-- Post 4: Kate poll -->
+      <div class="post-card">
+        <div class="post-header">
+          <div class="post-avatar" style="background: url('https://i.pravatar.cc/80?img=25') center/cover;" onclick="go('profile')"></div>
+          <div class="post-meta">
+            <div class="post-author-row">
+              <span class="post-author" onclick="go('profile')">Kate</span>
+              <span class="badge badge-expert">Expert</span>
+              <span class="post-time">4d</span>
+            </div>
+            <div style="display:flex;gap:4px;margin-top:4px;">
+              <span class="badge badge-tag">BFP</span>
+              <span class="badge badge-tag">Pregnancy</span>
+            </div>
+          </div>
+          <button class="post-more">···</button>
+        </div>
+        <div class="post-body">What's the earliest DPO you got a positive test? 🌊</div>
+        <div class="poll-container">
+          <div class="poll-option" onclick="votePoll(0)">
+            <div class="poll-fill" style="width:4%"></div>
+            <div class="poll-checkbox" id="pc0"></div>
+            <span class="poll-label">8 DPO</span>
+            <span class="poll-pct">4%</span>
+            <span class="poll-chevron">›</span>
+          </div>
+          <div class="poll-option" onclick="votePoll(1)">
+            <div class="poll-fill" style="width:23%"></div>
+            <div class="poll-checkbox" id="pc1"></div>
+            <span class="poll-label">9 DPO</span>
+            <span class="poll-pct">23%</span>
+            <span class="poll-chevron">›</span>
+          </div>
+          <div class="poll-option" onclick="votePoll(2)">
+            <div class="poll-fill" style="width:17%"></div>
+            <div class="poll-checkbox" id="pc2"></div>
+            <span class="poll-label">10 DPO</span>
+            <span class="poll-pct">17%</span>
+            <span class="poll-chevron">›</span>
+          </div>
+          <div class="poll-option" onclick="votePoll(3)">
+            <div class="poll-fill" style="width:56%"></div>
+            <div class="poll-checkbox" id="pc3"></div>
+            <span class="poll-label">11 DPO or later</span>
+            <span class="poll-pct">56%</span>
+            <span class="poll-chevron">›</span>
+          </div>
+          <div class="poll-voters">234 voters</div>
+        </div>
+        <div class="post-actions">
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M9 15.5S2 11.5 2 6.5a4 4 0 017-2.65A4 4 0 0116 6.5c0 5-7 9-7 9z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 33</button>
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M15 9c0 3.31-2.69 6-6 6H4l-2 2V9c0-3.31 2.69-6 6-6s7 2.69 7 6z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 10 comments</button>
+        </div>
+        <div class="post-divider"></div>
+      </div>
+
+      <!-- Post 5: Samantha -->
+      <div class="post-card">
+        <div class="post-header">
+          <div class="post-avatar" style="background: url('https://i.pravatar.cc/80?img=32') center/cover;" onclick="go('profile')"></div>
+          <div class="post-meta">
+            <div class="post-author-row">
+              <span class="post-author" onclick="go('profile')">Samantha Rivers</span>
+              <span class="post-time">5d</span>
+            </div>
+          </div>
+          <button class="post-more">···</button>
+        </div>
+        <div class="post-body">Tip from cycle 9 me to cycle 1 you: don't compare your chart to anyone else's. Your hormones have their own rhythm — trust the data, not the anxiety</div>
+        <div class="post-actions">
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M9 15.5S2 11.5 2 6.5a4 4 0 017-2.65A4 4 0 0116 6.5c0 5-7 9-7 9z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 123</button>
+          <button class="action-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M15 9c0 3.31-2.69 6-6 6H4l-2 2V9c0-3.31 2.69-6 6-6s7 2.69 7 6z" stroke="#9D9D9D" stroke-width="1.4"/></svg> 5 comments</button>
+        </div>
+        <div class="post-divider"></div>
+      </div>
+
+      <div style="height:80px"></div>
+    </div>
+
+    <!-- FAB -->
+    <button class="fab" onclick="go('newpost1')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+
+    <!-- Bottom nav -->
+    <div class="bottom-nav">
+      <div class="nav-item"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 21V12h6v9" stroke="currentColor" stroke-width="1.5"/></svg><span>Home</span></div>
+      <div class="nav-item"><svg viewBox="0 0 24 24" fill="none"><polyline points="3,17 8,12 13,15 21,7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Chart</span></div>
+      <div class="nav-item"><svg viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5"/><path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.5"/></svg><span>Shop</span></div>
+      <div class="nav-item active"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Community</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════════ NEW POST STEP 1 ════════════════ -->
+  <div class="screen" id="screen-newpost1">
+    <div class="nav-bar">
+      <button class="nav-btn-close" onclick="go('feed')">✕</button>
+      <span class="nav-title">New post</span>
+      <button class="nav-pill-btn" id="next-btn" onclick="go('newpost2')">Next</button>
+    </div>
+    <div class="nav-subtitle">Step 1 / 2</div>
+
+    <!-- Text area -->
+    <textarea class="np-text-area" id="np-text" placeholder="Add text..." rows="5"
+      oninput="onTextChange(this.value)"
+      onfocus="showKeyboard(true)"
+    ></textarea>
+
+    <!-- Photo grid -->
+    <div class="photo-grid" id="photo-grid" style="display:none">
+      <div class="photo-thumb" onclick="go('photo')" id="ph0">
+        <img src="https://picsum.photos/400/300?random=11" alt="">
+        <button class="photo-remove" onclick="event.stopPropagation();removePhoto(0)">✕</button>
+      </div>
+      <div class="photo-thumb" onclick="go('photo')" id="ph1">
+        <img src="https://picsum.photos/400/300?random=22" alt="">
+        <button class="photo-remove" onclick="event.stopPropagation();removePhoto(1)">✕</button>
+      </div>
+    </div>
+
+    <!-- Poll inputs -->
+    <div style="padding:0 16px 12px" id="poll-inputs" style="display:none">
+      <input class="poll-input" placeholder="Ask a poll question" style="display:none" id="poll-q">
+      <input class="poll-input" placeholder="|Add option" id="poll-o1">
+      <input class="poll-input" placeholder="Add option" id="poll-o2">
+      <button class="remove-poll-btn" onclick="removePoll()">Remove poll</button>
+    </div>
+
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip" style="display:none">
+      Post can include only images or poll
+    </div>
+
+    <!-- Toolbar -->
+    <div class="np-toolbar" id="np-toolbar">
+      <button class="np-icon-btn" onclick="addPhoto()" title="Add photo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#26313A" stroke-width="1.5"/><circle cx="8.5" cy="10.5" r="1.5" stroke="#26313A" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6" stroke="#26313A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 3v4M15 5h4" stroke="#26313A" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <button class="np-icon-btn" onclick="togglePoll()" title="Add poll">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h12" stroke="#26313A" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="np-spacer"></div>
+      <div class="anon-row">
+        <span class="anon-label">Anonymously</span>
+        <div class="toggle" id="anon-toggle" onclick="this.classList.toggle('on')"></div>
+      </div>
+    </div>
+
+    <!-- Keyboard -->
+    <div class="keyboard" id="keyboard" style="display:none">
+      <div class="kb-rows">
+        <div class="kb-row">
+          <div class="kb-key">q</div><div class="kb-key">w</div><div class="kb-key">e</div>
+          <div class="kb-key">r</div><div class="kb-key">t</div><div class="kb-key">y</div>
+          <div class="kb-key">u</div><div class="kb-key">i</div><div class="kb-key">o</div>
+          <div class="kb-key">p</div>
+        </div>
+        <div class="kb-row">
+          <div class="kb-key">a</div><div class="kb-key">s</div><div class="kb-key">d</div>
+          <div class="kb-key">f</div><div class="kb-key">g</div><div class="kb-key">h</div>
+          <div class="kb-key">j</div><div class="kb-key">k</div><div class="kb-key">l</div>
+        </div>
+        <div class="kb-row">
+          <div class="kb-key gray wide">⇧</div>
+          <div class="kb-key">z</div><div class="kb-key">x</div><div class="kb-key">c</div>
+          <div class="kb-key">v</div><div class="kb-key">b</div><div class="kb-key">n</div>
+          <div class="kb-key">m</div>
+          <div class="kb-key gray wide">⌫</div>
+        </div>
+      </div>
+      <div class="kb-bottom">
+        <div class="kb-bottom-key gray" style="width:80px;font-size:14px;">123</div>
+        <div class="kb-bottom-key" style="flex:1;background:#fff;">
+          <div style="font-size:13px;color:#9D9D9D;">space</div>
+        </div>
+        <div class="kb-bottom-key gray" style="width:80px;font-size:14px;">return</div>
+      </div>
+      <div class="kb-home">
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════ NEW POST STEP 2 ════════════════ -->
+  <div class="screen" id="screen-newpost2">
+    <div class="nav-bar">
+      <button class="nav-btn-back" onclick="go('newpost1')">
+        <svg width="10" height="17" viewBox="0 0 10 17" fill="none"><path d="M9 1L1 8.5L9 16" stroke="#5790FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="nav-title">New post</span>
+      <button class="nav-pill-btn" id="post-btn" onclick="submitPost()">Post</button>
+    </div>
+    <div class="nav-subtitle">Step 2 / 2</div>
+
+    <div class="scroll-area" style="padding: 20px 16px; position:relative;">
+      <div style="font-size:17px;font-weight:600;color:#26313A;line-height:24px;margin-bottom:8px;">
+        Does your post include any sensitive topics?
+      </div>
+      <div style="font-size:13px;color:#9D9D9D;line-height:18px;margin-bottom:20px;">
+        Some topics can be sensitive. Adding a trigger warning helps others avoid content they're not ready to see.
+      </div>
+      <div class="topic-chips">
+        <button class="topic-chip" onclick="selectTopic(this)">Mention of Loss</button>
+        <button class="topic-chip" onclick="selectTopic(this)">Pregnancy Announcement (BFP)</button>
+        <button class="topic-chip" onclick="selectTopic(this)">Graphic Images</button>
+        <button class="topic-chip" onclick="selectTopic(this)">Mention of Pregnancy</button>
+        <button class="topic-chip" onclick="selectTopic(this)">None of above</button>
+      </div>
+    </div>
+
+    <!-- Info banner pinned bottom -->
+    <div style="padding-bottom:8px;">
+      <div class="info-banner">
+        <div class="info-icon"><span>i</span></div>
+        <div class="info-text">Line eyes posts aren't allowed on the feed. Please post any line eyes in the weekly thread.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════ PHOTO FULLSCREEN ════════════════ -->
+  <div class="screen" id="screen-photo" style="position:relative;justify-content:center;align-items:center;background:#1C1C1E;">
+    <button class="photo-close-btn" onclick="go('newpost1')">✕</button>
+    <img class="photo-full-img" src="https://picsum.photos/390/520?random=11" alt="" style="width:100%;height:auto;display:block;">
+    <div class="photo-pagination">1 of 2</div>
+    <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;background:rgba(255,255,255,.3);border-radius:3px;"></div>
+  </div>
+
+  <!-- ════════════════ NOTIFICATIONS ════════════════ -->
+  <div class="screen" id="screen-notifications">
+    <div class="nav-bar" style="border:none;">
+      <button class="nav-btn-back" onclick="go('feed')">
+        <svg width="10" height="17" viewBox="0 0 10 17" fill="none"><path d="M9 1L1 8.5L9 16" stroke="#5790FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="nav-title">Notifications</span>
+      <span></span>
+    </div>
+    <div class="scroll-area">
+      <div class="notif-section-label">Today</div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap"><div class="notif-icon-circle" style="background:#FFF9E6;">⭐</div></div>
+        <div class="notif-body">
+          <div class="notif-text">Your post made it to our <strong>featured section</strong> Thanks for sharing!</div>
+          <div class="notif-meta"><span class="notif-time">2d</span><span class="notif-chevron">›</span></div>
+        </div>
+      </div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap">
+          <div style="position:relative;width:44px;height:44px;">
+            <img src="https://i.pravatar.cc/80?img=47" style="width:36px;height:36px;border-radius:50%;position:absolute;top:0;left:0;object-fit:cover;">
+            <div style="position:absolute;bottom:0;right:0;width:18px;height:18px;background:#FF3B30;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;">❤️</div>
+          </div>
+        </div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>username 1</strong> liked your post</div>
+          <div class="notif-meta"><span class="notif-time">3h</span></div>
+        </div>
+      </div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap">
+          <div style="position:relative;width:44px;height:44px;">
+            <img src="https://i.pravatar.cc/80?img=12" style="width:32px;height:32px;border-radius:50%;position:absolute;top:0;left:0;object-fit:cover;border:2px solid #fff;">
+            <img src="https://i.pravatar.cc/80?img=25" style="width:32px;height:32px;border-radius:50%;position:absolute;top:0;left:12px;object-fit:cover;border:2px solid #fff;">
+            <div style="position:absolute;bottom:0;right:0;width:18px;height:18px;background:#FF3B30;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:10px;">❤️</div>
+          </div>
+        </div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>username 1</strong> and <strong>username 2</strong> liked your post</div>
+          <div class="notif-meta"><span class="notif-time">3h</span></div>
+        </div>
+      </div>
+
+      <div class="notif-section-label">Yesterday</div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap"><div class="notif-icon-circle" style="background:#F2F2F7;font-size:14px;color:#9D9D9D;">🕐</div></div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>Support request update</strong><br><span style="font-size:13px;color:#9D9D9D;">Your request from Oct 10, 2024 has been updated.</span></div>
+          <div class="notif-meta"><span class="notif-time">2d</span><span class="notif-chevron">›</span></div>
+        </div>
+      </div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap">
+          <div style="position:relative;width:44px;height:44px;">
+            <img src="https://i.pravatar.cc/80?img=32" style="width:36px;height:36px;border-radius:50%;position:absolute;top:0;left:0;object-fit:cover;">
+            <div style="position:absolute;bottom:0;right:0;width:18px;height:18px;background:#5790FF;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:10px;">💬</div>
+          </div>
+        </div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>username 1</strong> commented: ❤️❤️❤️</div>
+          <div class="notif-meta"><span class="notif-time">2d</span></div>
+        </div>
+      </div>
+
+      <div class="notif-row" onclick="go('postremoved')">
+        <div class="notif-icon-wrap"><div class="notif-icon-circle" style="background:#FFEBEE;">🚫</div></div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>Post restored</strong><br><span style="font-size:13px;color:#9D9D9D;">Your post from Oct 14, 2024 is restored.</span></div>
+          <div class="notif-meta"><span class="notif-time">2d</span><span class="notif-chevron">›</span></div>
+        </div>
+      </div>
+
+      <div class="notif-section-label">Last 7 days</div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap">
+          <img src="https://i.pravatar.cc/80?img=47" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+        </div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>username 1</strong> started following you</div>
+          <div class="notif-meta">
+            <span class="notif-time">3d</span>
+            <button class="follow-btn unfollow">Follow</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap">
+          <img src="https://i.pravatar.cc/80?img=12" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+        </div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>username 2</strong> started following you</div>
+          <div class="notif-meta">
+            <span class="notif-time">3d</span>
+            <button class="follow-btn following">Following</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="notif-section-label">Last 30 days</div>
+
+      <div class="notif-row" onclick="go('postremoved')">
+        <div class="notif-icon-wrap"><div class="notif-icon-circle" style="background:#EAF0FF;">💬</div></div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>Feedback on your comment</strong><br><span style="font-size:13px;color:#9D9D9D;">An admin shared feedback on one of your comments.</span></div>
+          <div class="notif-meta"><span class="notif-time">2d</span><span class="notif-chevron">›</span></div>
+        </div>
+      </div>
+
+      <div class="notif-row">
+        <div class="notif-icon-wrap"><div class="notif-icon-circle" style="background:#E8F5E9;">✅</div></div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>Comment approved</strong><br><span style="font-size:13px;color:#9D9D9D;">Your comment is now visible in the community.</span></div>
+          <div class="notif-meta"><span class="notif-time">2d</span><span class="notif-chevron">›</span></div>
+        </div>
+      </div>
+
+      <div class="notif-row" onclick="go('postremoved')">
+        <div class="notif-icon-wrap"><div class="notif-icon-circle" style="background:#FFEBEE;">❌</div></div>
+        <div class="notif-body">
+          <div class="notif-text"><strong>Post not approved</strong><br><span style="font-size:13px;color:#9D9D9D;">A moderator did not approve your post. See feedback for details.</span></div>
+          <div class="notif-meta"><span class="notif-time">2d</span><span class="notif-chevron">›</span></div>
+        </div>
+      </div>
+
+      <div style="height:32px"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════ POST REMOVED FEEDBACK ════════════════ -->
+  <div class="screen" id="screen-postremoved">
+    <div class="nav-bar">
+      <button class="nav-btn-back" onclick="go('notifications')">
+        <svg width="10" height="17" viewBox="0 0 10 17" fill="none"><path d="M9 1L1 8.5L9 16" stroke="#5790FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="nav-title" style="font-size:15px;">Your post was removed</span>
+      <span></span>
+    </div>
+
+    <div class="scroll-area">
+      <div class="section-label">Post</div>
+      <div class="post-preview-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <img src="https://i.pravatar.cc/80?img=5" style="width:32px;height:32px;border-radius:50%;object-fit:cover;">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#26313A;">TTCwithEmilyJourney</div>
+            <div style="font-size:12px;color:#AEAEAE;">2m</div>
+          </div>
+        </div>
+        <div style="font-size:14px;color:#26313A;line-height:20px;">Girls, I have to share this — someone in the group posted the most detailed breakdown of their Inito hormone chart and I screenshotted it to send to my sister who's also TTC. She's not in the group but I thought it would help her. Should I add her to the group instead? She's been struggling for 2 years 😊</div>
+      </div>
+
+      <div class="section-label">Feedback</div>
+      <div class="feedback-card">
+        This post references sharing screenshots of members' personal content outside of the group. To protect everyone's privacy and keep this a safe space, we ask that all content shared here stays within the group.
+      </div>
+
+      <div class="section-label">Group rules violated</div>
+      <div class="rule-card">
+        <div class="rule-title">🤔 Don't Share Group Information Outside</div>
+        <div class="rule-desc">Sharing openly is what makes this group great, but some things are best kept private. Please keep sensitive information (like screenshots) within the group.</div>
+      </div>
+
+      <div class="appeal-text">
+        If you believe this was a mistake, you can <span class="appeal-link" style="cursor:pointer;">Appeal</span>. An admin will review your post and get back to you. Their decision will be final.
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════ USER PROFILE ════════════════ -->
+  <div class="screen" id="screen-profile">
+    <div class="nav-bar">
+      <button class="nav-btn-back" onclick="go('feed')">
+        <svg width="10" height="17" viewBox="0 0 10 17" fill="none"><path d="M9 1L1 8.5L9 16" stroke="#5790FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span></span>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button style="height:28px;padding:0 12px;border-radius:14px;border:1px solid #E5E5EA;background:#fff;font-size:13px;font-weight:600;color:#26313A;cursor:pointer;">Edit</button>
+        <button style="background:none;border:none;font-size:20px;color:#26313A;cursor:pointer;padding:4px;">···</button>
+      </div>
+    </div>
+    <div class="scroll-area">
+      <div class="profile-header">
+        <img src="https://i.pravatar.cc/80?img=47" class="profile-avatar" alt="">
+        <span class="badge badge-expert" style="margin-bottom:4px;">Expert</span>
+        <div class="profile-name">TTCwithEmilyJourney</div>
+        <div class="profile-stats"><strong>96</strong> posts · <strong>11</strong> following · <strong>11</strong> followers</div>
+        <div class="profile-goal">🎯 Goal: Get pregnant</div>
+        <div style="font-size:14px;color:#26313A;margin-top:8px;text-align:center;line-height:20px;">Sharing my TTC journey one cycle at a time 🌸</div>
+      </div>
+      <div class="profile-tabs">
+        <div class="profile-tab active">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L7 13l8-8a2 2 0 012 2l-8 8-4 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="profile-tab">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 3h10a1 1 0 011 1v13l-6-4-6 4V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <!-- mini posts -->
+      <div style="padding:12px 16px;">
+        <div style="font-size:14px;color:#26313A;padding:12px 0;border-bottom:1px solid #E5E5EA;">Sharing my journey week by week — the highs, the confusing charts, and everything in between 💙</div>
+        <div style="font-size:14px;color:#26313A;padding:12px 0;border-bottom:1px solid #E5E5EA;">CD 18 and my LH still hasn't peaked. Anyone else ovulate super late? Staying hopeful ✨</div>
+        <div style="font-size:14px;color:#26313A;padding:12px 0;">My Inito readings this cycle have been SO much clearer than last month. Feeling more confident this time 🌸</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /phone -->
+
+<script>
+  // ── State ──
+  let currentScreen = 'feed';
+  let hasPhotos = false;
+  let isPollMode = false;
+  let selectedTopics = new Set();
+  let isAnon = false;
+  let npText = '';
+
+  // ── Navigation ──
+  function go(screen, direction = 'forward') {
+    const prev = document.getElementById('screen-' + currentScreen);
+    const next = document.getElementById('screen-' + screen);
+    if (!next) return;
+
+    prev.classList.remove('active');
+    next.classList.add('active');
+    next.classList.add(direction === 'back' ? 'slide-in-back' : 'slide-in');
+    setTimeout(() => next.classList.remove('slide-in', 'slide-in-back'), 300);
+
+    currentScreen = screen;
+
+    // scroll to top
+    const sa = next.querySelector('.scroll-area');
+    if (sa) sa.scrollTop = 0;
+  }
+
+  // Poll interaction in feed
+  let votedPoll = -1;
+  function votePoll(idx) {
+    if (votedPoll >= 0) return;
+    votedPoll = idx;
+    const cb = document.getElementById('pc' + idx);
+    if (cb) {
+      cb.style.background = '#5790FF';
+      cb.innerHTML = '<svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L4 7L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    }
+  }
+
+  // ── New Post ──
+  function onTextChange(val) {
+    npText = val;
+    updateNextBtn();
+  }
+
+  function updateNextBtn() {
+    const btn = document.getElementById('next-btn');
+    const hasContent = npText.trim().length > 0 || hasPhotos || isPollMode;
+    if (hasContent) {
+      btn.className = 'nav-pill-btn active';
+      btn.onclick = () => go('newpost2');
+    } else {
+      btn.className = 'nav-pill-btn disabled';
+      btn.onclick = null;
+    }
+  }
+
+  function showKeyboard(show) {
+    document.getElementById('keyboard').style.display = show ? 'flex' : 'none';
+    document.getElementById('keyboard').style.flexDirection = 'column';
+  }
+
+  // Tap outside textarea = hide keyboard
+  document.getElementById('screen-newpost1').addEventListener('click', function(e) {
+    if (!e.target.closest('.np-text-area') && !e.target.closest('.keyboard') && !e.target.closest('#poll-inputs')) {
+      showKeyboard(false);
+    }
+  });
+
+  function addPhoto() {
+    if (isPollMode) {
+      // show tooltip
+      const tt = document.getElementById('tooltip');
+      tt.style.display = 'block';
+      setTimeout(() => tt.style.display = 'none', 2500);
+      return;
+    }
+    if (!hasPhotos) {
+      hasPhotos = true;
+      document.getElementById('photo-grid').style.display = 'flex';
+      // pre-fill text for demo
+      const ta = document.getElementById('np-text');
+      if (!ta.value) {
+        ta.value = "So I built a morning ritual: test, coffee, journal. It became my time, not a source of anxiety.\nI'm on cycle 4 now. I don't know when it'll happen — but I know my body better than I ever have.\nDo you keep a cycle journal? Drop a comment 🌿";
+        npText = ta.value;
+      }
+      updateNextBtn();
+    }
+  }
+
+  function removePhoto(idx) {
+    const el = document.getElementById('ph' + idx);
+    if (el) el.style.opacity = '0.3';
+    // if both removed:
+    const ph0 = document.getElementById('ph0');
+    const ph1 = document.getElementById('ph1');
+    if ((ph0 && ph0.style.opacity === '0.3') || (ph1 && ph1.style.opacity === '0.3')) {
+      // just dim it for demo
+    }
+  }
+
+  function togglePoll() {
+    if (hasPhotos) {
+      const tt = document.getElementById('tooltip');
+      tt.style.display = 'block';
+      setTimeout(() => tt.style.display = 'none', 2500);
+      return;
+    }
+    isPollMode = !isPollMode;
+    const pi = document.getElementById('poll-inputs');
+    const ta = document.getElementById('np-text');
+    if (isPollMode) {
+      pi.style.display = 'block';
+      document.getElementById('poll-q').style.display = 'block';
+      ta.style.display = 'none';
+    } else {
+      pi.style.display = 'none';
+      ta.style.display = 'block';
+    }
+    updateNextBtn();
+    showKeyboard(true);
+  }
+
+  function removePoll() {
+    isPollMode = false;
+    document.getElementById('poll-inputs').style.display = 'none';
+    document.getElementById('np-text').style.display = 'block';
+    updateNextBtn();
+  }
+
+  // ── Step 2 topics ──
+  function selectTopic(el) {
+    el.classList.toggle('selected');
+    if (el.classList.contains('selected')) {
+      selectedTopics.add(el.textContent);
+    } else {
+      selectedTopics.delete(el.textContent);
+    }
+    const postBtn = document.getElementById('post-btn');
+    if (selectedTopics.size > 0) {
+      postBtn.className = 'nav-pill-btn active';
+    } else {
+      postBtn.className = 'nav-pill-btn disabled';
+    }
+  }
+
+  // ── Submit post ──
+  function submitPost() {
+    if (selectedTopics.size === 0) return;
+    // show feed with posting state
+    go('feed');
+
+    const postBar = document.getElementById('posting-bar');
+    postBar.style.display = 'block';
+
+    // reset progress bar
+    const fill = document.getElementById('progress-fill');
+    fill.style.animation = 'none';
+    fill.offsetHeight; // reflow
+    fill.style.animation = 'progressAnim 2s linear forwards';
+
+    // after 2s show new post
+    setTimeout(() => {
+      postBar.style.display = 'none';
+      const nc = document.getElementById('new-post-card');
+      const display = document.getElementById('new-post-text-display');
+      display.textContent = npText || 'Just posted from my Inito journey 🌸';
+      nc.style.display = 'block';
+
+      // reset new post state
+      npText = '';
+      hasPhotos = false;
+      isPollMode = false;
+      selectedTopics.clear();
+      document.getElementById('np-text').value = '';
+      document.getElementById('photo-grid').style.display = 'none';
+      document.getElementById('poll-inputs').style.display = 'none';
+      document.getElementById('np-text').style.display = 'block';
+      document.getElementById('ph0').style.opacity = '1';
+      document.getElementById('ph1').style.opacity = '1';
+      updateNextBtn();
+      document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('selected'));
+      document.getElementById('post-btn').className = 'nav-pill-btn disabled';
+
+      // scroll to top of feed
+      document.querySelector('#screen-feed .scroll-area').scrollTop = 0;
+    }, 2100);
+  }
+
+  // ── Init ──
+  updateNextBtn();
+</script>
+</body>
+</html>

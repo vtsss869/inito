@@ -5,6 +5,7 @@ import {
   CalendarLegend,
   CALENDAR_LEGENDS,
 } from "./Calendar.jsx";
+import { Text } from "./Text.jsx";
 
 const HOME_WEEK = [
   { dow: "MO", day: "28", muted: true, sex: true },
@@ -299,4 +300,112 @@ export const Playground = {
       options: [null, ...Object.keys(CALENDAR_LEGENDS)],
     },
   },
+};
+
+/**
+ * Figma "INITO | IOS – Home" (app-screens file), canvas "Calendar & main
+ * card & notification states" → section "📱 In Prod" → "Legend" (node
+ * 246:61671), the calendar-day-state grid (5 labeled columns × marker
+ * rows). Text below is transcribed verbatim from the Legend's own column
+ * headers and the one labeled row ("Sex day (could be any fertility)") —
+ * the marker rows themselves carry no text label in Figma, only color, so
+ * their description here is inferred from matching the same fertility
+ * colors named in the DayStatusCard Legend section rather than invented
+ * wording.
+ *
+ * Column → prop mapping confirmed against Calendar.jsx's own docstrings:
+ * - "Regular day"          → no chosen/selected/muted (default `.date`)
+ * - "Today in past"        → `chosen` with `stroke={false}` ("chosen-fill":
+ *                             HF-colored fill, no outline — today's style
+ *                             kept for a day that has since passed)
+ * - "Today"                → `chosen` with `stroke` (default true) — HF
+ *                             fill + green number + outline, current day
+ * - "Chosen day (not today)" → `selected` — grey fill + border, a day the
+ *                             user tapped to view that isn't today
+ */
+function LegendCellColumn({ label, condition, cellProps }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, width: 132 }}>
+      <Text variant="caption-bold-16" style={{ textAlign: "center" }}>{label}</Text>
+      <Text variant="mini" color="grey" style={{ textAlign: "center", minHeight: 44 }}>{condition}</Text>
+      <div style={{ display: "flex", gap: 4 }}>
+        <CalendarCell dow="WE" day="29" {...cellProps} />
+        <CalendarCell dow="TH" day="20" legend="high-fertility" {...cellProps} />
+        <CalendarCell dow="FR" day="13" legend="peak-fertility" {...cellProps} />
+      </div>
+    </div>
+  );
+}
+
+export const LegendDayStates = {
+  name: "Legend/Day States (Figma)",
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 32, padding: 16, background: "#fff", width: 620, maxWidth: "100%" }}>
+      <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+        <LegendCellColumn
+          label="Regular day"
+          condition="Default cell — no special relationship to the viewed date."
+          cellProps={{}}
+        />
+        <LegendCellColumn
+          label="Today in past"
+          condition={'The live "today" cell kept its today-style fill, but real-world time has since moved past it (viewing an earlier week).'}
+          cellProps={{ chosen: true, stroke: false }}
+        />
+        <LegendCellColumn
+          label="Today"
+          condition="The current real-world day — filled + outlined."
+          cellProps={{ chosen: true }}
+        />
+        <LegendCellColumn
+          label="Chosen day (not today)"
+          condition="A day the user tapped to view/select that isn't today — grey fill + border."
+          cellProps={{ selected: true }}
+        />
+      </div>
+
+      <section>
+        <Text variant="caption-bold-16" style={{ display: "block", marginBottom: 4 }}>Other states</Text>
+        <Text variant="caption-14" color="grey" style={{ display: "block", marginBottom: 12 }}>
+          Two extra badge markers appear in the Legend's "Other states" column, layered on top of a
+          date cell rather than replacing it. Neither has a wired prop in `CalendarCell` yet — flagged
+          here rather than guessed at.
+        </Text>
+        <ul style={{ margin: 0, paddingLeft: 18 }}>
+          <li>
+            <Text variant="caption-14"><b>+ Week</b> — a small numbered badge (e.g. "4") stacked on the date, on a period-colored cell. Reads as a pregnancy/cycle week-count overlay; not implemented in code.</Text>
+          </li>
+          <li>
+            <Text variant="caption-14"><b>expected</b> — the date number rendered in the period-red color with an "expected" caption beneath it, for a predicted (not logged) period day. Not implemented in code.</Text>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <Text variant="caption-bold-16" style={{ display: "block", marginBottom: 4 }}>Sex day (could be any fertility)</Text>
+        <Text variant="caption-14" color="grey" style={{ display: "block", marginBottom: 12 }}>
+          Figma's own row label — a heart marker can appear under the date regardless of that day's
+          fertility rating. Already wired via the <code>sex</code> prop / <code>legend="sex"</code>.
+        </Text>
+        <div style={{ display: "flex", gap: 4 }}>
+          <CalendarCell dow="WE" day="29" sex />
+          <CalendarCell dow="TH" day="20" legend="high-fertility" sex />
+          <CalendarCell dow="FR" day="2" chosen sex />
+        </div>
+      </section>
+
+      <section>
+        <Text variant="caption-bold-16" style={{ display: "block", marginBottom: 4 }}>Unlabeled marker rows</Text>
+        <Text variant="caption-14" color="grey">
+          The Legend's remaining rows (period, low-fertility-ish plain digit, high fertility, "LH
+          Surged", "PdG risen", plus small triangle icons) carry no text label of their own in
+          Figma — only color and, for two rows, a colored pill caption ("LH Surged" / "PdG risen").
+          Their colors line up with the same named states documented with full logic text in
+          "DS/Cards/Day Status → Legend/Main Card States", so that story is the source for the
+          condition text rather than re-describing untitled swatches here.
+        </Text>
+      </section>
+    </div>
+  ),
+  parameters: { controls: { disable: true } },
 };

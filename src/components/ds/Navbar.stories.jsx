@@ -181,6 +181,17 @@ export const ProductIconVariants = {
           <StripsTrackerButton count={7} tone="off" />
         </div>
       </section>
+      <section>
+        <SectionLabel>Open finding — profile avatar (A/B test, not shipped)</SectionLabel>
+        <Note>
+          Figma canvas "Calendar &amp; main card &amp; notification states" also has a "Final AB
+          test" section (470:61696 → 597:76350) with "Header without profile" (602:91200) and
+          "Header with profile" (602:107039) — an experiment testing whether the same NG/OG icon
+          pairs above should also carry a round profile-avatar glyph after them. It lives outside
+          the "📱 In Prod" section the rest of this file is sourced from, so it's flagged here as a
+          finding rather than added as a Navbar prop — Home doesn't ship it today.
+        </Note>
+      </section>
     </div>
   ),
   parameters: {

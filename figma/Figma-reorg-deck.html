@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figma Reorganization — Inito</title>
+<style>
+:root{
+  --bg:#FBFAF7; --panel:#FFFFFF; --ink:#26211C; --ink2:#5F5E5A; --ink3:#888780;
+  --line:#E8E6DF; --line2:#D3D1C7;
+  --g-bg:#E1F5EE; --g-st:#5DCAA5; --g-tx:#0F6E56;
+  --a-bg:#FAECE7; --a-st:#F0997B; --a-tx:#993C1D;
+  --n-bg:#F1EFE8; --n-st:#B4B2A9;
+  --b-bg:#E6F1FB; --b-st:#85B7EB; --b-tx:#1f4e7a;
+  --p-bg:#EEEDFE; --p-st:#AFA9EC; --p-tx:#3C3489;
+  --k-bg:#FBEAF0; --k-st:#ED93B1; --k-tx:#993556;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.deck{max-width:1040px;margin:0 auto;padding:24px 20px 96px}
+.slide{display:none;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:48px 52px;min-height:600px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.slide.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.kicker{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3)}
+h1{font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:14px 0}
+h2{font-size:29px;line-height:1.18;font-weight:800;letter-spacing:-.3px;margin:10px 0 6px}
+.lead{font-size:17px;color:var(--ink2);line-height:1.55;max-width:760px}
+.cols{display:grid;gap:16px;margin-top:24px}
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:1fr 1fr 1fr}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card h3{font-size:16px;font-weight:750;margin-bottom:6px}
+.card p{font-size:13.5px;color:var(--ink2);line-height:1.5}
+.card a{color:var(--p-tx);font-size:12.5px;text-decoration:none;border-bottom:1px solid var(--p-st)}
+.card a:hover{opacity:.7}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-bottom:8px}
+.t-g{background:var(--g-bg);color:var(--g-tx)} .t-a{background:var(--a-bg);color:var(--a-tx)}
+.t-b{background:var(--b-bg);color:var(--b-tx)} .t-p{background:var(--p-bg);color:var(--p-tx)}
+.t-k{background:var(--k-bg);color:var(--k-tx)} .t-n{background:var(--n-bg);color:var(--ink2)}
+ul.clean{list-style:none;margin-top:18px}
+ul.clean li{position:relative;padding:9px 0 9px 30px;font-size:16px;line-height:1.5;color:var(--ink);border-bottom:1px solid var(--line)}
+ul.clean li:last-child{border-bottom:none}
+ul.clean li b{font-weight:700}
+ul.clean li small{color:var(--ink2);font-weight:400}
+ul.clean li::before{content:"";position:absolute;left:4px;top:17px;width:9px;height:9px;border-radius:3px;background:var(--p-st)}
+ul.clean li.g::before{background:var(--g-st)} ul.clean li.a::before{background:var(--a-st)}
+ul.clean li.b::before{background:var(--b-st)} ul.clean li.n::before{background:var(--n-st)}
+.svgwrap{margin-top:20px;text-align:center}
+.svgwrap svg{max-width:100%;height:auto}
+.note{margin-top:16px;font-size:13.5px;color:var(--ink2);background:var(--bg);border:1px dashed var(--line2);border-radius:12px;padding:12px 16px;line-height:1.5}
+.note b{color:var(--ink)}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;margin-top:18px}
+.bigq{font-size:20px;line-height:1.4;font-weight:600}
+.badwrap,.fixwrap{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.row{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.row .ic{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:15px;font-weight:800}
+.row .ic.bad{background:var(--a-bg);color:var(--a-tx)} .row .ic.fix{background:var(--g-bg);color:var(--g-tx)}
+.row p{font-size:14.5px;line-height:1.5} .row p b{font-weight:700}
+.steps{counter-reset:s;margin-top:20px;display:grid;gap:10px}
+.step{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.step .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700}
+.step p{font-size:15px;line-height:1.5}.step p b{font-weight:700}
+.tbl{width:100%;border-collapse:collapse;margin-top:20px;font-size:13.5px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3);font-weight:700}
+.tbl td b{font-weight:700}
+.src{columns:2;column-gap:32px;margin-top:18px;font-size:13px;line-height:1.7}
+.src a{color:var(--p-tx);text-decoration:none;border-bottom:1px solid var(--p-st)}
+.navbar{position:fixed;left:0;right:0;bottom:0;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:16px;padding:12px}
+.navbar button{font:inherit;font-size:14px;font-weight:650;border:1px solid var(--line2);background:var(--panel);color:var(--ink);border-radius:10px;padding:8px 18px;cursor:pointer}
+.navbar button:hover{background:var(--bg)} .navbar button:disabled{opacity:.35;cursor:default}
+.counter{font-size:13px;color:var(--ink2);min-width:128px;text-align:center}
+.dots{display:flex;gap:6px;flex-wrap:wrap;max-width:420px;justify-content:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line2);cursor:pointer;border:none;padding:0}
+.dot.on{background:var(--ink)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--ink2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+@media(max-width:720px){.c2,.c3,.split{grid-template-columns:1fr}.slide{padding:32px 22px}h1{font-size:30px}.src{columns:1}}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- 1 TITLE -->
+<section class="slide active">
+  <div class="kicker">Design Ops · Inito</div>
+  <h1>Reorganizing Figma:<br>bringing order to our design files</h1>
+  <p class="lead">Research into how large design teams structure their files (Figma, Uber, Spotify, GitLab, Apple) and a concrete proposal for Inito — focused on our core pain: the drift between design and production.</p>
+  <div class="cols c3" style="margin-top:34px">
+    <div class="card"><div class="tag t-p">01 · Context</div><p>General recommendations from Figma and the tech giants</p></div>
+    <div class="card"><div class="tag t-b">02 · Variants</div><p>All common file-organization models, visualized</p></div>
+    <div class="card"><div class="tag t-g">03 · Solution</div><p>Conclusion, the structure for Inito, why the mess happens, and how to fix it</p></div>
+  </div>
+</section>
+
+<!-- 2 AGENDA -->
+<section class="slide">
+  <div class="kicker">What's inside</div>
+  <h2>5 blocks</h2>
+  <ul class="clean">
+    <li class="b"><b>1 · General recommendations</b> &nbsp;<small>what Figma and the tech giants advise — short + links</small></li>
+    <li class="b"><b>2 · Organization variants</b> &nbsp;<small>all common file-structure models, with diagrams</small></li>
+    <li class="g"><b>3 · Conclusion</b> &nbsp;<small>there is no single standard → the best approach for us</small></li>
+    <li class="a"><b>4 · Why Inito gets messy</b> &nbsp;<small>what exactly causes the design ↔ production drift</small></li>
+    <li class="g"><b>5 · How it's solved</b> &nbsp;<small>patterns + a step-by-step rollout plan</small></li>
+  </ul>
+</section>
+
+<!-- 3 RECOMMENDATIONS FIGMA -->
+<section class="slide">
+  <div class="kicker">01 · Recommendations</div>
+  <h2>What Figma itself advises</h2>
+  <p class="lead">The main point from Figma's official guide: <b>there is no single standard</b> — there are a few base models that teams mix and match to fit their product.</p>
+  <ul class="clean">
+    <li><b>Keep files small and nimble.</b> <small>One file for the whole system eventually "explodes" — split by feature/section.</small></li>
+    <li class="g"><b>Separate "done & in prod" from "in progress."</b> <small>The source of truth must not mix with experiments.</small></li>
+    <li class="b"><b>One Design System as a separate library.</b> <small>A dedicated team/project so it's clear where the source of truth lives.</small></li>
+    <li class="a"><b>Descriptive naming + named versions.</b> <small>Instead of <code>Auth_v3_final2_copy</code> — a named version with a date in history.</small></li>
+    <li class="n"><b>A governance ritual.</b> <small>Agree who moves work between states and when (a "quality day").</small></li>
+  </ul>
+  <div class="note">Source: <b>Figma — Team, project & file organization</b> and the <b>Best Practices hub</b>. Links on the last slide.</div>
+</section>
+
+<!-- 4 RECOMMENDATIONS GIANTS -->
+<section class="slide">
+  <div class="kicker">01 · Recommendations</div>
+  <h2>How the tech giants see it</h2>
+  <div class="cols c2">
+    <div class="card"><div class="tag t-g">🇺🇸 Uber · Base</div><h3>Start with 3 files</h3><p>"Most teams cram everything into one file until it explodes. We recommend starting with 3 separate files." A shared navigation template across all teams.</p><a href="https://base.uber.com/6d2425e9f/p/73bec4-design-with-figma" target="_blank">base.uber.com</a></div>
+    <div class="card"><div class="tag t-b">🇸🇪 Spotify · Encore</div><h3>Visible & discoverable to all</h3><p>Open-sourced their Figma playbook. Their #1 structure criterion is "visible and discoverable by everyone." A project lead per component.</p><a href="https://www.figma.com/community/file/832911648132248625/spotify-ways-of-working" target="_blank">Ways of Working ↗</a></div>
+    <div class="card"><div class="tag t-k">🦊 GitLab · Pajamas</div><h3>Modular file split</h3><p>Fully public structure. The UI Kit = separate files: Tokens, Component library, Icons — each publishing its own library.</p><a href="https://design.gitlab.com/get-started/uik-file-structure/" target="_blank">design.gitlab.com</a></div>
+    <div class="card"><div class="tag t-n">🍎 Apple · HIG</div><h3>Shared foundation, device on top</h3><p>Devices aren't isolated silos: a shared foundation of decisions (tokens/components) + adaptation per device.</p><a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank">developer.apple.com</a></div>
+  </div>
+</section>
+
+<!-- 5 BASE HIERARCHY -->
+<section class="slide">
+  <div class="kicker">02 · Variants</div>
+  <h2>First — Figma's base nesting</h2>
+  <p class="lead">Every model below is just a different way of laying work out inside this hierarchy.</p>
+  <div class="svgwrap">
+    <svg viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+      <g font-size="14" font-weight="700">
+        <rect x="10" y="45" width="120" height="58" rx="11" fill="var(--p-bg)" stroke="var(--p-st)"/><text x="70" y="71" text-anchor="middle" fill="var(--p-tx)">Team</text><text x="70" y="89" text-anchor="middle" font-size="10.5" font-weight="400" fill="var(--ink2)">platform/product</text>
+        <rect x="190" y="45" width="120" height="58" rx="11" fill="var(--b-bg)" stroke="var(--b-st)"/><text x="250" y="71" text-anchor="middle" fill="var(--b-tx)">Project</text><text x="250" y="89" text-anchor="middle" font-size="10.5" font-weight="400" fill="var(--ink2)">section/state</text>
+        <rect x="370" y="45" width="120" height="58" rx="11" fill="var(--panel)" stroke="var(--line2)"/><text x="430" y="71" text-anchor="middle" fill="var(--ink)">File</text><text x="430" y="89" text-anchor="middle" font-size="10.5" font-weight="400" fill="var(--ink2)">flow/module</text>
+        <rect x="550" y="45" width="120" height="58" rx="11" fill="var(--panel)" stroke="var(--line2)"/><text x="610" y="71" text-anchor="middle" fill="var(--ink)">Page</text><text x="610" y="89" text-anchor="middle" font-size="10.5" font-weight="400" fill="var(--ink2)">flow section</text>
+        <rect x="730" y="45" width="120" height="58" rx="11" fill="var(--g-bg)" stroke="var(--g-st)"/><text x="790" y="71" text-anchor="middle" fill="var(--g-tx)">Branch</text><text x="790" y="89" text-anchor="middle" font-size="10.5" font-weight="400" fill="var(--ink2)">experiment branch</text>
+      </g>
+      <g stroke="var(--line2)" stroke-width="2" fill="none">
+        <path d="M132 74 H188" marker-end="url(#ar)"/><path d="M312 74 H368" marker-end="url(#ar)"/><path d="M492 74 H548" marker-end="url(#ar)"/><path d="M672 74 H728" marker-end="url(#ar)"/>
+      </g>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--line2)"/></marker></defs>
+    </svg>
+  </div>
+</section>
+
+<!-- 6 VARIANT: single file pages -->
+<section class="slide">
+  <div class="kicker">02 · Variant A</div>
+  <h2>One file, split into pages</h2>
+  <p class="lead">This is where we started. Every section is a page in a single file. Simple at first, but the file gets heavy and everyone edits the same space.</p>
+  <div class="svgwrap">
+    <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+      <rect x="40" y="30" width="680" height="190" rx="14" fill="var(--panel)" stroke="var(--line2)" stroke-width="1.5"/>
+      <text x="64" y="58" font-size="13" font-weight="800" fill="var(--ink)">📄 iOS Inito — one file</text>
+      <g font-size="12.5" font-weight="600">
+        <rect x="64" y="78" width="150" height="42" rx="9" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="139" y="104" text-anchor="middle" fill="var(--ink)">Onboarding</text>
+        <rect x="230" y="78" width="150" height="42" rx="9" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="305" y="104" text-anchor="middle" fill="var(--ink)">Zoom</text>
+        <rect x="396" y="78" width="150" height="42" rx="9" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="471" y="104" text-anchor="middle" fill="var(--ink)">Settings</text>
+        <rect x="562" y="78" width="134" height="42" rx="9" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="629" y="104" text-anchor="middle" fill="var(--ink)">…</text>
+        <rect x="64" y="132" width="150" height="42" rx="9" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="139" y="158" text-anchor="middle" fill="var(--ink)">Paywall</text>
+        <rect x="230" y="132" width="150" height="42" rx="9" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="305" y="158" text-anchor="middle" fill="var(--ink)">Results</text>
+        <rect x="396" y="132" width="300" height="42" rx="9" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="546" y="158" text-anchor="middle" fill="var(--ink2)">…and so on — all in one</text>
+      </g>
+    </svg>
+  </div>
+  <div class="note">➕ Simple start, everything nearby. &nbsp; ➖ Gets heavy, edit conflicts, "where's the current version?" — <b>this is exactly the wall we already hit.</b></div>
+</section>
+
+<!-- 7 VARIANT: task-based / main + tasks -->
+<section class="slide">
+  <div class="kicker">02 · Variant B</div>
+  <h2>Main file + tasks that merge back</h2>
+  <p class="lead">A separate file (or branch) per task. When it's done, it merges back into the main file. This is exactly the model you described.</p>
+  <div class="svgwrap">
+    <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+      <!-- main -->
+      <rect x="280" y="112" width="200" height="64" rx="13" fill="var(--g-bg)" stroke="var(--g-st)" stroke-width="2"/>
+      <text x="380" y="140" text-anchor="middle" font-size="14" font-weight="800" fill="var(--g-tx)">🟢 Main file</text>
+      <text x="380" y="160" text-anchor="middle" font-size="11.5" fill="var(--g-tx)">current designs</text>
+      <!-- tasks -->
+      <g font-size="12" font-weight="650">
+        <rect x="40" y="30" width="150" height="40" rx="9" fill="var(--a-bg)" stroke="var(--a-st)"/><text x="115" y="55" text-anchor="middle" fill="var(--a-tx)">Task-1</text>
+        <rect x="40" y="120" width="150" height="40" rx="9" fill="var(--a-bg)" stroke="var(--a-st)"/><text x="115" y="145" text-anchor="middle" fill="var(--a-tx)">Task-2</text>
+        <rect x="40" y="210" width="150" height="40" rx="9" fill="var(--a-bg)" stroke="var(--a-st)"/><text x="115" y="235" text-anchor="middle" fill="var(--a-tx)">Task-3</text>
+        <rect x="570" y="120" width="150" height="40" rx="9" fill="var(--a-bg)" stroke="var(--a-st)"/><text x="645" y="145" text-anchor="middle" fill="var(--a-tx)">Task-1234</text>
+      </g>
+      <g stroke="var(--a-st)" stroke-width="2" fill="none" stroke-dasharray="5 4">
+        <path d="M192 50 C 250 70, 250 120, 286 132" marker-end="url(#ar2)"/>
+        <path d="M192 140 H 276" marker-end="url(#ar2)"/>
+        <path d="M192 230 C 250 210, 250 165, 286 156" marker-end="url(#ar2)"/>
+        <path d="M568 140 H 484" marker-end="url(#ar2)"/>
+      </g>
+      <text x="380" y="205" text-anchor="middle" font-size="12" fill="var(--ink2)">each task's changes are merged into the main file →</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--a-st)"/></marker></defs>
+    </svg>
+  </div>
+  <div class="note">➕ Clean main file, each task isolated, easy to tie to a ticket. &nbsp; ➖ Without branching and strict naming you get lost in versions — <b>the same headache you had at Universe Group.</b></div>
+</section>
+
+<!-- 8 VARIANT: production state -->
+<section class="slide">
+  <div class="kicker">02 · Variant C</div>
+  <h2>By state: Production / Feature / Archive</h2>
+  <p class="lead">Projects split by "maturity." It's transparent what's live and what isn't yet. Figma's officially recommended model for teams that care about state visibility.</p>
+  <div class="svgwrap">
+    <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+      <g font-size="13" font-weight="750">
+        <rect x="30" y="60" width="200" height="110" rx="13" fill="var(--a-bg)" stroke="var(--a-st)" stroke-width="1.5"/><text x="130" y="92" text-anchor="middle" fill="var(--a-tx)">🟡 Feature / WIP</text><text x="130" y="115" text-anchor="middle" font-size="11" font-weight="400" fill="var(--a-tx)">a file per task</text><text x="130" y="133" text-anchor="middle" font-size="11" font-weight="400" fill="var(--a-tx)">in progress</text>
+        <rect x="280" y="60" width="200" height="110" rx="13" fill="var(--g-bg)" stroke="var(--g-st)" stroke-width="2"/><text x="380" y="92" text-anchor="middle" fill="var(--g-tx)">🟢 Production</text><text x="380" y="115" text-anchor="middle" font-size="11" font-weight="400" fill="var(--g-tx)">source of truth</text><text x="380" y="133" text-anchor="middle" font-size="11" font-weight="400" fill="var(--g-tx)">only what's in prod</text>
+        <rect x="530" y="60" width="200" height="110" rx="13" fill="var(--n-bg)" stroke="var(--n-st)" stroke-width="1.5"/><text x="630" y="92" text-anchor="middle" fill="var(--ink)">🗃 Archive</text><text x="630" y="115" text-anchor="middle" font-size="11" font-weight="400" fill="var(--ink2)">retired work</text>
+      </g>
+      <g stroke="var(--line2)" stroke-width="2.5" fill="none">
+        <path d="M232 115 H276" marker-end="url(#ar3)"/><path d="M482 115 H526" marker-end="url(#ar3)"/>
+      </g>
+      <text x="254" y="48" text-anchor="middle" font-size="11" fill="var(--ink2)">approved</text>
+      <text x="504" y="48" text-anchor="middle" font-size="11" fill="var(--ink2)">outdated</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--line2)"/></marker></defs>
+    </svg>
+  </div>
+  <div class="note"><b>This is the base of our recommendation</b> — closest to what you intuitively described.</div>
+</section>
+
+<!-- 9 VARIANT: stage pipeline -->
+<section class="slide">
+  <div class="kicker">02 · Variant D</div>
+  <h2>By process stage: a pipeline</h2>
+  <p class="lead">Files are physically dragged between stage-projects as they mature. Handy for teams with clear review sessions (often agencies).</p>
+  <div class="svgwrap">
+    <svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+      <g font-size="12.5" font-weight="700">
+        <rect x="14" y="50" width="120" height="50" rx="11" fill="var(--a-bg)" stroke="var(--a-st)"/><text x="74" y="80" text-anchor="middle" fill="var(--a-tx)">WIP</text>
+        <rect x="172" y="50" width="120" height="50" rx="11" fill="var(--p-bg)" stroke="var(--p-st)"/><text x="232" y="80" text-anchor="middle" fill="var(--p-tx)">Review</text>
+        <rect x="330" y="50" width="120" height="50" rx="11" fill="var(--b-bg)" stroke="var(--b-st)"/><text x="390" y="80" text-anchor="middle" fill="var(--b-tx)">Development</text>
+        <rect x="488" y="50" width="120" height="50" rx="11" fill="var(--g-bg)" stroke="var(--g-st)"/><text x="548" y="80" text-anchor="middle" fill="var(--g-tx)">Shipped</text>
+        <rect x="646" y="50" width="100" height="50" rx="11" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="696" y="80" text-anchor="middle" fill="var(--ink)">Archive</text>
+      </g>
+      <g stroke="var(--line2)" stroke-width="2" fill="none">
+        <path d="M136 75 H170" marker-end="url(#ar4)"/><path d="M294 75 H328" marker-end="url(#ar4)"/><path d="M452 75 H486" marker-end="url(#ar4)"/><path d="M610 75 H644" marker-end="url(#ar4)"/>
+      </g>
+      <defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--line2)"/></marker></defs>
+    </svg>
+  </div>
+  <div class="note">➕ Maximum status transparency for stakeholders. &nbsp; ➖ Lots of manual dragging; overkill for small teams.</div>
+</section>
+
+<!-- 10 VARIANT: modular DS + branching -->
+<section class="slide">
+  <div class="kicker">02 · Variants E + F</div>
+  <h2>Modular Design System &nbsp;·&nbsp; Branching</h2>
+  <div class="cols c2" style="margin-top:8px">
+    <div>
+      <div class="tag t-b">E · Modular DS (Uber / GitLab)</div>
+      <svg viewBox="0 0 360 230" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+        <g font-size="11.5" font-weight="700">
+          <rect x="10" y="14" width="100" height="36" rx="8" fill="var(--b-bg)" stroke="var(--b-st)"/><text x="60" y="37" text-anchor="middle" fill="var(--b-tx)">Tokens</text>
+          <rect x="10" y="62" width="100" height="36" rx="8" fill="var(--b-bg)" stroke="var(--b-st)"/><text x="60" y="85" text-anchor="middle" fill="var(--b-tx)">Components</text>
+          <rect x="10" y="110" width="100" height="36" rx="8" fill="var(--b-bg)" stroke="var(--b-st)"/><text x="60" y="133" text-anchor="middle" fill="var(--b-tx)">Icons</text>
+          <rect x="10" y="158" width="100" height="36" rx="8" fill="var(--b-bg)" stroke="var(--b-st)"/><text x="60" y="181" text-anchor="middle" fill="var(--b-tx)">Docs</text>
+          <rect x="220" y="80" width="128" height="60" rx="11" fill="var(--g-bg)" stroke="var(--g-st)" stroke-width="2"/><text x="284" y="106" text-anchor="middle" font-size="12" fill="var(--g-tx)">Feature</text><text x="284" y="124" text-anchor="middle" font-size="12" fill="var(--g-tx)">files</text>
+        </g>
+        <g stroke="var(--b-st)" stroke-width="1.6" fill="none">
+          <path d="M112 32 C 170 40, 170 100, 218 105" marker-end="url(#ar5)"/>
+          <path d="M112 80 C 160 90, 170 100, 218 110" marker-end="url(#ar5)"/>
+          <path d="M112 128 C 160 120, 170 115, 218 114" marker-end="url(#ar5)"/>
+          <path d="M112 176 C 170 150, 170 130, 218 122" marker-end="url(#ar5)"/>
+        </g>
+        <defs><marker id="ar5" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--b-st)"/></marker></defs>
+      </svg>
+      <p class="card" style="font-size:12.5px;color:var(--ink2)">Separate library files are published into all feature files. One source of truth for the system.</p>
+    </div>
+    <div>
+      <div class="tag t-g">F · Branching (git-style)</div>
+      <svg viewBox="0 0 360 230" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+        <line x1="20" y1="115" x2="340" y2="115" stroke="var(--g-st)" stroke-width="3"/>
+        <text x="20" y="105" font-size="11.5" font-weight="700" fill="var(--g-tx)">main (stable)</text>
+        <g fill="var(--g-st)"><circle cx="70" cy="115" r="6"/><circle cx="180" cy="115" r="6"/><circle cx="300" cy="115" r="6"/></g>
+        <path d="M70 115 C 110 60, 150 60, 180 115" fill="none" stroke="var(--a-st)" stroke-width="2.5"/>
+        <circle cx="125" cy="70" r="5" fill="var(--a-st)"/>
+        <text x="125" y="56" text-anchor="middle" font-size="10.5" fill="var(--a-tx)">branch: Task-1</text>
+        <path d="M180 115 C 220 170, 260 170, 300 115" fill="none" stroke="var(--a-st)" stroke-width="2.5"/>
+        <circle cx="240" cy="160" r="5" fill="var(--a-st)"/>
+        <text x="240" y="182" text-anchor="middle" font-size="10.5" fill="var(--a-tx)">branch: Task-2</text>
+      </svg>
+      <p class="card" style="font-size:12.5px;color:var(--ink2)">A branch off main per ticket. While the designer works, dev keeps looking at a stable main. Done → merge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 COMPARISON -->
+<section class="slide">
+  <div class="kicker">02 · Variants summary</div>
+  <h2>Which approach, when</h2>
+  <table class="tbl">
+    <tr><th>Model</th><th>Fits</th><th>Strength</th><th>Weakness</th></tr>
+    <tr><td><b>A · One file, pages</b></td><td>very small product / start</td><td>simple, all in one place</td><td>gets heavy, version conflicts</td></tr>
+    <tr><td><b>B · File/branch per task</b></td><td>teams with a ticket flow</td><td>task isolation, clean main</td><td>no branching → version chaos</td></tr>
+    <tr><td><b>C · By state (Prod/Feature)</b></td><td>those who need "what's live" visibility</td><td>clear source of truth</td><td>needs a sync ritual</td></tr>
+    <tr><td><b>D · By stage (pipeline)</b></td><td>agencies, clear reviews</td><td>transparent status</td><td>lots of manual dragging</td></tr>
+    <tr><td><b>E · Modular DS</b></td><td>mature products with a system</td><td>one source for components</td><td>overkill early on</td></tr>
+    <tr><td><b>F · Branching</b></td><td>almost everyone, on top of A–E</td><td>safe experiments, reviews</td><td>paid plan, team habit</td></tr>
+  </table>
+  <div class="note"><b>It's not either/or.</b> Mature teams combine: e.g. C (state) + E (modular DS) + F (branching). That's exactly what we build for Inito.</div>
+</section>
+
+<!-- 12 CONCLUSION -->
+<section class="slide">
+  <div class="kicker">03 · Conclusion</div>
+  <h2>There's no single standard — and that's fine</h2>
+  <div class="split">
+    <div>
+      <p class="bigq">The right structure is the one the <b>team is comfortable with</b> and can actually follow every day.</p>
+      <ul class="clean" style="margin-top:14px">
+        <li class="g"><b>Each product is its own organism.</b> <small>Take the principles, don't copy someone's structure 1:1.</small></li>
+        <li class="b"><b>For Inito we take a hybrid:</b> <small>C (by state) + a shared foundation (Apple/GitLab) + rituals + optional branching.</small></li>
+        <li class="a"><b>It's not about folders, it's about governance.</b> <small>Without sync rules, any structure goes stale.</small></li>
+      </ul>
+    </div>
+    <div class="card" style="background:var(--g-bg);border-color:var(--g-st)">
+      <h3 style="color:var(--g-tx)">Choice criteria</h3>
+      <p style="color:var(--g-tx)">Not "how cool it looks," but:<br>1) is it easy to find the current version,<br>2) is it clear what's in prod,<br>3) will the team actually stick to it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 INITO STRUCTURE -->
+<section class="slide">
+  <div class="kicker">03 · Conclusion</div>
+  <h2>Recommended structure for Inito</h2>
+  <div class="svgwrap">
+    <svg viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+      <rect x="20" y="20" width="740" height="250" rx="16" fill="none" stroke="var(--line2)" stroke-width="1.5"/>
+      <text x="40" y="46" font-size="12" font-weight="800" letter-spacing="1" fill="var(--ink2)">TEAM · INITO PRODUCT</text>
+      <g font-size="14" font-weight="750">
+        <rect x="40" y="58" width="345" height="56" rx="11" fill="var(--b-bg)" stroke="var(--b-st)"/><text x="58" y="82" fill="var(--ink)">📦 Design System</text><text x="58" y="102" font-size="11.5" font-weight="400" fill="var(--b-tx)">Foundations · Components · Tokens · Icons</text>
+        <rect x="395" y="58" width="345" height="56" rx="11" fill="var(--g-bg)" stroke="var(--g-st)"/><text x="413" y="82" fill="var(--ink)">🟢 Production — Source of Truth</text><text x="413" y="102" font-size="11.5" font-weight="400" fill="var(--g-tx)">only what's current · per device</text>
+        <rect x="40" y="126" width="345" height="56" rx="11" fill="var(--a-bg)" stroke="var(--a-st)"/><text x="58" y="150" fill="var(--ink)">🟡 In Progress / Features</text><text x="58" y="170" font-size="11.5" font-weight="400" fill="var(--a-tx)">1 file or branch = 1 task</text>
+        <rect x="395" y="126" width="345" height="56" rx="11" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="413" y="150" fill="var(--ink)">🗂 Playground / Drafts</text><text x="413" y="170" font-size="11.5" font-weight="400" fill="var(--ink2)">killed ideas · nothing deleted</text>
+        <rect x="40" y="194" width="345" height="56" rx="11" fill="var(--k-bg)" stroke="var(--k-st)"/><text x="58" y="218" fill="var(--ink)">📚 Research &amp; Mapping</text><text x="58" y="238" font-size="11.5" font-weight="400" fill="var(--k-tx)">research · user flows</text>
+        <rect x="395" y="194" width="345" height="56" rx="11" fill="var(--n-bg)" stroke="var(--n-st)"/><text x="413" y="218" fill="var(--ink)">🗃 Archive</text><text x="413" y="238" font-size="11.5" font-weight="400" fill="var(--ink2)">already merged into Production</text>
+      </g>
+      <!-- zoom into a file -->
+      <text x="20" y="300" font-size="12.5" font-weight="800" fill="var(--ink)">Inside a Production file:</text>
+      <g font-size="11.5" font-weight="650">
+        <rect x="20" y="312" width="150" height="36" rx="8" fill="var(--panel)" stroke="var(--line2)"/><text x="95" y="335" text-anchor="middle" fill="var(--ink2)">Page: Onboarding ▾</text>
+        <rect x="186" y="312" width="270" height="36" rx="8" fill="var(--g-bg)" stroke="var(--g-st)"/><text x="321" y="335" text-anchor="middle" fill="var(--g-tx)">▦ Section: ✅ In production</text>
+        <rect x="470" y="312" width="270" height="36" rx="8" fill="var(--a-bg)" stroke="var(--a-st)"/><text x="605" y="335" text-anchor="middle" fill="var(--a-tx)">▦ Section: 🚧 In development</text>
+      </g>
+    </svg>
+  </div>
+  <div class="note"><b>Key addition:</b> inside a file — sub-pages per flow (Onboarding, Zoom, Settings…). On a flow page we split into <b>sections</b>: "✅ In production" and "🚧 In development." When "in development" reaches prod → move it to the "In production" section + a named version with the date.</div>
+</section>
+
+<!-- 14 WHY MESS -->
+<section class="slide">
+  <div class="kicker">04 · The problem</div>
+  <h2>What causes the mess in Inito</h2>
+  <p class="lead">The root pain isn't the folder structure — it's the gap between design and prod in time and communication.</p>
+  <div class="badwrap">
+    <div class="row"><div class="ic bad">1</div><p><b>Time lag.</b> Designs go into development 1–2 months later. The context is lost by then.</p></div>
+    <div class="row"><div class="ic bad">2</div><p><b>Changes without us.</b> Dev changes text, spacing, or reworks a screen — and no one tells design.</p></div>
+    <div class="row"><div class="ic bad">3</div><p><b>Figma isn't updated.</b> The mockup stays in its old state and "sits there" as a false source.</p></div>
+    <div class="row"><div class="ic bad">4</div><p><b>No single source of truth.</b> Old and new are mixed → it's unclear what's actually in prod.</p></div>
+    <div class="row"><div class="ic bad">5</div><p><b>No process owner.</b> No one is formally responsible for syncing → drift keeps accumulating.</p></div>
+  </div>
+</section>
+
+<!-- 15 HOW TO FIX -->
+<section class="slide">
+  <div class="kicker">05 · Solution</div>
+  <h2>How it's solved</h2>
+  <div class="fixwrap">
+    <div class="row"><div class="ic fix">✓</div><p><b>One Source of Truth.</b> The Production file = only the real state of prod, separated from experiments.</p></div>
+    <div class="row"><div class="ic fix">✓</div><p><b>Branching instead of copies.</b> A branch per task; main stays stable for dev.</p></div>
+    <div class="row"><div class="ic fix">✓</div><p><b>Statuses + "in prod / in dev" sections.</b> Visible right in the file what's ready and what isn't (like Headway).</p></div>
+    <div class="row"><div class="ic fix">✓</div><p><b>Named versions with dates.</b> "2026-06 — Onboarding v2 shipped" instead of <code>final2</code>.</p></div>
+    <div class="row"><div class="ic fix">✓</div><p><b>A contract with dev.</b> Changed a screen in prod → file a "update Figma" ticket. Without it, drift returns.</p></div>
+    <div class="row"><div class="ic fix">✓</div><p><b>A governance owner + a per-sprint ritual.</b> Someone runs the "prod ↔ Figma" sync regularly.</p></div>
+  </div>
+</section>
+
+<!-- 16 ROLLOUT -->
+<section class="slide">
+  <div class="kicker">05 · Solution</div>
+  <h2>Step-by-step rollout plan</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><p><b>Week 1 — Skeleton.</b> Create the projects: Design System · Production · In Progress · Playground · Research · Archive. A file template with "in prod / in dev" sections.</p></div>
+    <div class="step"><div class="n">2</div><p><b>Week 1–2 — Audit.</b> Reconcile every screen with the real prod. Current → Production, drafts → Playground, dead → Archive.</p></div>
+    <div class="step"><div class="n">3</div><p><b>Week 2 — Rules.</b> Lock in naming, named versions, the contract with dev. One agreement doc for the team.</p></div>
+    <div class="step"><div class="n">4</div><p><b>Ongoing — Ritual.</b> Once per sprint: sync prod ↔ Figma. Assign a governance owner.</p></div>
+  </div>
+  <div class="note"><b>Validate first:</b> whether all devices live in separate files vs a shared foundation; whether dev will accept the "changed → ticket" contract; projects vs pages for splitting states (depends on permission needs).</div>
+</section>
+
+<!-- 17 SOURCES -->
+<section class="slide">
+  <div class="kicker">Sources</div>
+  <h2>Links</h2>
+  <div class="src">
+    <p><b>Figma (official)</b></p>
+    <a href="https://www.figma.com/best-practices/team-file-organization/" target="_blank">Team, project & file organization</a><br>
+    <a href="https://www.figma.com/best-practices/" target="_blank">Figma Best Practices hub</a><br>
+    <a href="https://www.figma.com/scaling-design/best-practices-for-branching-in-figma/" target="_blank">Best Practices for Branching</a><br>
+    <a href="https://www.figma.com/best-practices/guide-to-developer-handoff/" target="_blank">Guide to developer handoff</a><br>
+    <p style="margin-top:10px"><b>Tech giants</b></p>
+    <a href="https://base.uber.com/6d2425e9f/p/73bec4-design-with-figma" target="_blank">Uber Base — Design with Figma</a><br>
+    <a href="https://www.figma.com/community/file/832911648132248625/spotify-ways-of-working" target="_blank">Spotify — Ways of Working</a><br>
+    <a href="https://spotify.design/article/how-spotify-organises-work-in-figma-to-improve-collaboration" target="_blank">Spotify — How they organise work in Figma</a><br>
+    <a href="https://design.gitlab.com/get-started/uik-file-structure/" target="_blank">GitLab Pajamas — File structure</a><br>
+    <a href="https://developer.apple.com/design/human-interface-guidelines/" target="_blank">Apple — Human Interface Guidelines</a><br>
+    <p style="margin-top:10px"><b>Ukraine</b></p>
+    <a href="https://www.headway.io/blog/managing-your-design-system-in-figma" target="_blank">Headway — Design system in Figma</a><br>
+    <a href="https://www.grammarly.com/blog/engineering/demystifying-figma/" target="_blank">Grammarly — Figma variables</a><br>
+    <p style="margin-top:10px"><b>Deeper reading</b></p>
+    <a href="https://decode.agency/article/figma-branching/" target="_blank">DECODE — Figma branching in practice</a><br>
+    <a href="https://www.smashingmagazine.com/2023/05/designing-better-design-handoff-file-figma/" target="_blank">Smashing — Better handoff file</a><br>
+    <a href="https://blog.logrocket.com/ux-design/organizing-figma-files-team-collaboration/" target="_blank">LogRocket — Organizing Figma files</a>
+  </div>
+</section>
+
+</div>
+
+<div class="navbar">
+  <button id="prev">← Back</button>
+  <div class="counter"><span id="cur">1</span> / <span id="tot">17</span></div>
+  <button id="next">Next →</button>
+  <div class="dots" id="dots"></div>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let i=0;const cur=document.getElementById('cur'),tot=document.getElementById('tot');
+const prev=document.getElementById('prev'),next=document.getElementById('next'),dotsEl=document.getElementById('dots');
+tot.textContent=slides.length;
+slides.forEach((_,n)=>{const b=document.createElement('button');b.className='dot';b.onclick=()=>go(n);dotsEl.appendChild(b)});
+const dots=[...dotsEl.children];
+function go(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));dots.forEach((d,k)=>d.classList.toggle('on',k===i));cur.textContent=i+1;prev.disabled=i===0;next.disabled=i===slides.length-1;window.scrollTo({top:0,behavior:'smooth'})}
+prev.onclick=()=>go(i-1);next.onclick=()=>go(i+1);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='PageDown')go(i+1);if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1)});
+go(0);
+</script>
+</body>
+</html>

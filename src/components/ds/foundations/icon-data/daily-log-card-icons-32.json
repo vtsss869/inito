@@ -1,0 +1,191 @@
+[
+  {
+    "id": "symp32-hot-flashes-interface-none",
+    "file": "symptoms/32px/symp32-hot-flashes-interface-none.svg",
+    "name": "Hot Flashes/None",
+    "category": "Hot Flashes",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-hot-flashes-interface-mild",
+    "file": "symptoms/32px/symp32-hot-flashes-interface-mild.svg",
+    "name": "Hot Flashes/Mild",
+    "category": "Hot Flashes",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-hot-flashes-interface-moderate",
+    "file": "symptoms/32px/symp32-hot-flashes-interface-moderate.svg",
+    "name": "Hot Flashes/Moderate",
+    "category": "Hot Flashes",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-hot-flashes-interface-severe",
+    "file": "symptoms/32px/symp32-hot-flashes-interface-severe.svg",
+    "name": "Hot Flashes/Severe",
+    "category": "Hot Flashes",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-night-sweats-interface-none",
+    "file": "symptoms/32px/symp32-night-sweats-interface-none.svg",
+    "name": "Night Sweats/None",
+    "category": "Night Sweats",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-night-sweats-interface-mild",
+    "file": "symptoms/32px/symp32-night-sweats-interface-mild.svg",
+    "name": "Night Sweats/Mild",
+    "category": "Night Sweats",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-night-sweats-interface-moderate",
+    "file": "symptoms/32px/symp32-night-sweats-interface-moderate.svg",
+    "name": "Night Sweats/Moderate",
+    "category": "Night Sweats",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-night-sweats-interface-severe",
+    "file": "symptoms/32px/symp32-night-sweats-interface-severe.svg",
+    "name": "Night Sweats/Severe",
+    "category": "Night Sweats",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-sleep-interface-slept-well",
+    "file": "symptoms/32px/symp32-sleep-interface-slept-well.svg",
+    "name": "Sleep/Slept Well",
+    "category": "Sleep",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-sleep-interface-trouble-falling-asleep",
+    "file": "symptoms/32px/symp32-sleep-interface-trouble-falling-asleep.svg",
+    "name": "Sleep/Trouble Falling Asleep",
+    "category": "Sleep",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-sleep-interface-woke-during-the-night",
+    "file": "symptoms/32px/symp32-sleep-interface-woke-during-the-night.svg",
+    "name": "Sleep/Woke During the Night",
+    "category": "Sleep",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-sleep-interface-woke-too-early",
+    "file": "symptoms/32px/symp32-sleep-interface-woke-too-early.svg",
+    "name": "Sleep/Woke too Early",
+    "category": "Sleep",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-sleep-interface-unrefreshing-sleep",
+    "file": "symptoms/32px/symp32-sleep-interface-unrefreshing-sleep.svg",
+    "name": "Sleep/Unrefreshing Sleep",
+    "category": "Sleep",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-joints-muscles-interface-joint-aches",
+    "file": "symptoms/32px/symp32-joints-muscles-interface-joint-aches.svg",
+    "name": "Joints & muscles/Joint Aches",
+    "category": "Joints & muscles",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-joints-muscles-interface-muscle-aches-stiffness",
+    "file": "symptoms/32px/symp32-joints-muscles-interface-muscle-aches-stiffness.svg",
+    "name": "Joints & muscles/Muscle Aches / Stiffness",
+    "category": "Joints & muscles",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-joints-muscles-interface-stiffness-on-walking",
+    "file": "symptoms/32px/symp32-joints-muscles-interface-stiffness-on-walking.svg",
+    "name": "Joints & muscles/Stiffness on Walking",
+    "category": "Joints & muscles",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-energy-focus-interface-physical-exhaustion",
+    "file": "symptoms/32px/symp32-energy-focus-interface-physical-exhaustion.svg",
+    "name": "Energy & Focus/Physical Exhaustion",
+    "category": "Energy & Focus",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-energy-focus-interface-mental-exhaustion",
+    "file": "symptoms/32px/symp32-energy-focus-interface-mental-exhaustion.svg",
+    "name": "Energy & Focus/Mental exhaustion",
+    "category": "Energy & Focus",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-energy-focus-interface-trouble-concentrating",
+    "file": "symptoms/32px/symp32-energy-focus-interface-trouble-concentrating.svg",
+    "name": "Energy & Focus/Trouble concentrating",
+    "category": "Energy & Focus",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-energy-focus-interface-memory-lapses",
+    "file": "symptoms/32px/symp32-energy-focus-interface-memory-lapses.svg",
+    "name": "Energy & Focus/Memory Lapses",
+    "category": "Energy & Focus",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  },
+  {
+    "id": "symp32-energy-focus-interface-word-finding-difficulty",
+    "file": "symptoms/32px/symp32-energy-focus-interface-word-finding-difficulty.svg",
+    "name": "Energy & Focus/Word-finding Difficulty",
+    "category": "Energy & Focus",
+    "viewBox": "0 0 64 64",
+    "w": 64.0,
+    "h": 64.0
+  }
+]

@@ -302,10 +302,10 @@
   background: var(--hormones-fsh);
 }
 .navbar__strips--empty .navbar__strips-count-disc {
-  background: var(--text-error);
+  background: var(--navbar-strips-empty);
 }
 .navbar__strips--off .navbar__strips-count-disc {
-  background: var(--grey-icons);
+  background: var(--text-grey);
 }
 .navbar__subtitle {
   display: flex;
@@ -797,6 +797,14 @@ button.calendar-cell {
   padding: 4px 8px 7px 0;
   width: 100%;
   box-sizing: border-box;
+}
+.hnc__message-action {
+  padding: 4px 8px 0 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hnc__message-action .btn {
+  width: 100%;
 }
 
 .hnc__hormones {
@@ -1306,6 +1314,14 @@ button.calendar-cell {
 .ds-chip--promo {
   background: transparent;
 }
+/* Community content-warning tag — Figma "Community (App)" file, "tags"
+   (node 10230:345523). Smaller than the other purpose chips (matches the
+   Figma instance's Size=Small Main Button), light violet @ 60% opacity. */
+.ds-chip--tag {
+  height: auto;
+  padding: 4px 10px;
+  background: rgba(233, 216, 252, 0.6);
+}
 .ds-chip__icon {
   width: 32px;
   height: 32px;
@@ -1560,6 +1576,82 @@ button.calendar-cell {
 }
 .symptoms-card__helper {
   padding: 0 8px 4px;
+}
+
+/* Daily Log Card — Figma DS "Daily logs cards" component set (22655:90121) */
+.daily-log-card {
+  width: 342px;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  border-radius: 24px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.daily-log-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 8px;
+}
+.daily-log-card__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.daily-log-card__icon-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: var(--grey-icons);
+  flex-shrink: 0;
+}
+.daily-log-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 8px;
+}
+.daily-log-card__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 16px 6px 8px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--bg-grey);
+  cursor: pointer;
+}
+/* Figma paints selected/logged chips with a solid per-category tint (Period=salmon,
+   Mood/Follicle Tracking=tan, Insemination/Sex Drive=pink, Symptoms=blue, Sleep=violet, etc —
+   see dailyLogCardData.js's `selectedFill` per category), not a ring — DailyLogCard.jsx sets
+   --daily-log-card-chip-fill inline per chip; this falls back to the plain grey pill background
+   for the handful of categories with no confirmed selected-color (BBT, Medication, Write your
+   journal never show a colored-selected chip in Figma). */
+.daily-log-card__chip--selected {
+  background: var(--daily-log-card-chip-fill, var(--bg-grey));
+}
+.daily-log-card__body-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 8px;
+}
+.daily-log-card__actions {
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px 0;
+}
+.daily-log-card__actions .btn {
+  flex: 1 1 auto;
 }
 
 /* Modal / Bottom sheet stages */
@@ -1920,6 +2012,307 @@ button.calendar-cell {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ===== Community (App) file — DS/Community catalog =====
+   Figma "Community (App)" file (fileKey LLjQAqluK9e7WtuV3HNUK7), UI KIT
+   canvas, "Community kit" section. See each component's own file-level
+   docstring in src/components/ds/catalog/ for the exact source node. */
+
+/* Avatar */
+.ds-avatar {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: visible;
+}
+.ds-avatar__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+.ds-avatar__initial {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ds-avatar__anonymous {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--bg-violet);
+  color: var(--text-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ds-avatar__unread-dot {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-error);
+  border: 2px solid var(--bg-white);
+}
+.ds-avatar__edit-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  color: var(--text-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+}
+
+/* Role Badge */
+.ds-role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+/* Reaction Bar */
+.ds-reaction-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ds-reaction-bar__count,
+.ds-reaction-bar__like,
+.ds-reaction-bar__comments {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ds-reaction-bar__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ds-reaction-bar__like {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-black);
+}
+.ds-reaction-bar__comments {
+  color: var(--text-black);
+}
+.ds-reaction-bar__icon {
+  background-color: var(--grey-icons);
+  flex-shrink: 0;
+}
+.ds-reaction-bar__icon--liked {
+  background-color: var(--text-error);
+}
+
+/* Post Thumbnail ("notif photo") */
+.ds-post-thumb {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.ds-post-thumb__photo {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-grey);
+  border: 2px solid var(--bg-white);
+}
+.ds-post-thumb--1 .ds-post-thumb__photo--0 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.ds-post-thumb--2 .ds-post-thumb__photo {
+  width: 72%;
+  height: 72%;
+}
+.ds-post-thumb--2 .ds-post-thumb__photo--0 {
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.ds-post-thumb--2 .ds-post-thumb__photo--1 {
+  bottom: 0;
+  right: 0;
+}
+.ds-post-thumb__photo img,
+.ds-post-thumb__placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.ds-post-thumb__placeholder {
+  background: var(--bg-grey);
+}
+.ds-post-thumb__badge {
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.ds-post-thumb__badge-icon {
+  background-color: var(--bg-white);
+}
+
+/* Action Item Card (moderation) */
+.ds-action-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  border-radius: var(--radius-20);
+  padding: 10px 8px 10px 16px;
+  box-sizing: border-box;
+}
+.ds-action-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.ds-action-item__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.ds-action-item__id,
+.ds-action-item__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-grey);
+  flex-shrink: 0;
+}
+.ds-action-item__status-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-grey);
+  border-radius: var(--radius-pill);
+  padding: 4px 8px;
+}
+
+/* Poll */
+.ds-poll {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ds-poll__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ds-poll__option {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--grey-borders);
+  border-radius: var(--radius-8);
+  background: var(--bg-white);
+  width: 100%;
+  box-sizing: border-box;
+}
+.ds-poll__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--bg-blue);
+  z-index: 0;
+  transition: width 0.2s ease;
+}
+.ds-poll__option-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+}
+.ds-poll__option-left,
+.ds-poll__option-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ds-poll__voters {
+  margin: 0;
+}
+
+/* Post Card */
+.ds-post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  border-radius: var(--radius-20);
+  box-sizing: border-box;
+}
+.ds-post-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.ds-post-card__meta {
+  flex: 1;
+  min-width: 0;
+}
+.ds-post-card__name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.ds-post-card__menu {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--grey-icons);
+  flex-shrink: 0;
+}
+.ds-post-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.ds-post-card__body {
+  margin: 0;
 }
 
 /* Home screen */

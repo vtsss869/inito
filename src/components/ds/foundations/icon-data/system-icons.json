@@ -2653,5 +2653,14 @@
     "viewBox": "0 0 100 100",
     "w": 100.0,
     "h": 100.0
+  },
+  {
+    "id": "sys-interface-interface-anonymous-glasses",
+    "file": "system/sys-interface-interface-anonymous-glasses.svg",
+    "name": "Interface/Anonymous Glasses",
+    "category": "Interface",
+    "viewBox": "0 0 32 32",
+    "w": 32.0,
+    "h": 32.0
   }
 ]

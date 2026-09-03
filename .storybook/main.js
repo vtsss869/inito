@@ -11,20 +11,6 @@ const config = {
     name: "@storybook/react-vite",
     options: {},
   },
-  async viteFinal(config) {
-    config.server = config.server || {};
-    config.server.watch = config.server.watch || {};
-    const ignored = config.server.watch.ignored;
-    const extra = ["**/storybook-static/**"];
-    if (Array.isArray(ignored)) {
-      config.server.watch.ignored = [...ignored, ...extra];
-    } else if (ignored) {
-      config.server.watch.ignored = [ignored, ...extra];
-    } else {
-      config.server.watch.ignored = extra;
-    }
-    return config;
-  },
 };
 
 export default config;
