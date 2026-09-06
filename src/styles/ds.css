@@ -325,6 +325,8 @@
   display: inline-block;
   flex-shrink: 0;
   background-color: currentColor;
+  -webkit-mask-image: var(--mask-src);
+  mask-image: var(--mask-src);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -349,6 +351,8 @@
   border-radius: var(--radius-pill);
   position: relative;
   background-color: currentColor;
+  -webkit-mask-image: var(--mask-src);
+  mask-image: var(--mask-src);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -991,6 +995,8 @@ button.calendar-cell {
 .tab-menu__glyph {
   position: absolute;
   background: currentColor;
+  -webkit-mask-image: var(--mask-src);
+  mask-image: var(--mask-src);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;

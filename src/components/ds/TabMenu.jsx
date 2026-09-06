@@ -11,10 +11,7 @@ export function TabMenu({ icon, label, active = false, notification = false, gly
       <span className="tab-menu__icon">
         <span
           className={`tab-menu__glyph tab-menu__glyph--${glyph}`}
-          style={{
-            WebkitMaskImage: `url(${icon})`,
-            maskImage: `url(${icon})`,
-          }}
+          style={{ "--mask-src": `url(${icon})` }}
           aria-hidden="true"
         />
         {notification ? <span className="tab-menu__badge" aria-hidden="true" /> : null}

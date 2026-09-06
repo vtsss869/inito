@@ -19,8 +19,7 @@ export function MaskIcon({ src, size = 24, alt = "", className = "" }) {
       style={{
         width: size,
         height: size,
-        WebkitMaskImage: `url(${src})`,
-        maskImage: `url(${src})`,
+        "--mask-src": `url(${src})`,
       }}
       role={alt ? "img" : undefined}
       aria-label={alt || undefined}

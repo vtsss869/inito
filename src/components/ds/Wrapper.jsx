@@ -23,7 +23,7 @@ export function WrapperIcon({ src, alt = "", mono = true }) {
   return (
     <span
       className="wrapper__icon"
-      style={{ WebkitMaskImage: `url(${src})`, maskImage: `url(${src})` }}
+      style={{ "--mask-src": `url(${src})` }}
       role={alt ? "img" : undefined}
       aria-label={alt || undefined}
     />
