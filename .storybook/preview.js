@@ -5,6 +5,7 @@ const style = document.createElement("style");
 style.textContent = `
   body {
     background: #ffffff;
+    font-family: -apple-system, "SF Pro Text", "SF Pro Display", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 `;
 document.head.appendChild(style);

@@ -394,6 +394,7 @@
   background: transparent;
   cursor: pointer;
   font: inherit;
+  font-family: var(--font);
   padding: 0;
 }
 .btn--large { padding: 14px 32px; }
@@ -495,6 +496,7 @@
 button.calendar-cell {
   appearance: none;
   font: inherit;
+  font-family: var(--font);
   color: inherit;
   background: transparent;
   border: none;
@@ -1129,6 +1131,7 @@ button.calendar-cell {
   color: var(--text-black);
   outline: none;
   font: inherit;
+  font-family: var(--font);
 }
 .text-field--default .text-field__input {
   color: var(--text-grey);
@@ -1856,6 +1859,7 @@ button.calendar-cell {
   cursor: pointer;
   color: var(--main);
   font: inherit;
+  font-family: var(--font);
 }
 .link:disabled {
   color: var(--text-grey);
@@ -1970,6 +1974,7 @@ button.calendar-cell {
   cursor: pointer;
   flex-shrink: 0;
   font: inherit;
+  font-family: var(--font);
 }
 .ds-segment-control__btn--selected {
   background: var(--bg-white);
