@@ -169,6 +169,27 @@
   --symptoms-caffeine: #94816c;
   --symptoms-alcohol: #414458;
 
+  /* Avatar palette (Figma Community App, "Section 3" node 3833:273282) */
+  --avatar-1-bg: #cccbff;
+  --avatar-1-text: #7f7dff;
+  --avatar-2-bg: #fde3d4;
+  --avatar-2-text: #ff9e55;
+  --avatar-3-bg: #def1d3;
+  --avatar-3-text: #59a667;
+  --avatar-4-bg: #bfd7ff;
+  --avatar-4-text: #5790ff;
+  --avatar-5-bg: #e9d8fc;
+  --avatar-5-text: #9e53f0;
+  --avatar-6-bg: #c0cbe6;
+  --avatar-6-text: rgba(57, 86, 160, 0.85);
+  --avatar-7-bg: #f5d5e8;
+  --avatar-7-text: #dc73b3;
+  --avatar-8-bg: #ffe2aa;
+  --avatar-8-text: #ff9e55;
+
+  /* Navbar */
+  --navbar-strips-empty: #ef6262;
+
   /* Day Status Gradients */
   --gradient-high-fertility: linear-gradient(163.04deg, #0aca89 0%, #109e6f 99.16%);
   --gradient-ovulation: linear-gradient(158deg, #995ad3 0%, #8828e2 100%);
