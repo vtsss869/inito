@@ -1,8 +1,5 @@
-/**
- * Do not edit directly, this file was auto-generated.
- */
-
 :root {
+  /* ── Primitive palette (Style Dictionary) ────────────────────────── */
   --primitive-mono-black: #2d2f33;
   --primitive-mono-white: #ffffff;
   --primitive-gray-darker-alcohol: #414458;
@@ -43,26 +40,8 @@
   --primitive-orange-hormone-fsh: #ed9512;
   --primitive-orange-discharge-mood: #f0950e;
   --primitive-orange-light: #ffeee3;
-  --radius-4: 4px;
-  --radius-8: 8px;
-  --radius-20: 20px;
-  --radius-24: 24px;
-  --radius-28: 28px;
-  --radius-36: 36px;
-  --radius-pill: 100px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-  --shadow-card: 0px 6px 12px 0px rgba(0, 0, 0, 0.06), 0px 16px 28px 0px rgba(0, 0, 0, 0.07);
-  --shadow-headline: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.3);
-  --shadow-tabbar: 0px -4px 16px 0px rgba(17, 45, 53, 0.1);
-  --font-primary: Montserrat, system-ui, sans-serif;
-  --font-community: -apple-system, 'SF Pro Text', 'SF Pro Display', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* ── Semantic aliases (Style Dictionary) ─────────────────────────── */
   --color-text-primary: var(--primitive-mono-black);
   --color-text-secondary: var(--primitive-gray-dark);
   --color-text-inverse: var(--primitive-mono-white);
@@ -107,6 +86,10 @@
   --color-symptom-sex: var(--primitive-purple-sex);
   --color-symptom-test: var(--primitive-green-test);
   --color-symptom-follicle: var(--primitive-purple-hormone-hcg);
+
+  /* ── Typography shorthand (Style Dictionary) ─────────────────────── */
+  --font-primary: Montserrat, system-ui, sans-serif;
+  --font-community: -apple-system, 'SF Pro Text', 'SF Pro Display', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --typography-header-1: 500 40px/40px var(--font-primary);
   --typography-header-2: 700 28px/32px var(--font-primary);
   --typography-header-3: 600 24px/27px var(--font-primary);
@@ -119,4 +102,108 @@
   --typography-caption-14: 500 14px/17px var(--font-primary);
   --typography-mini: 500 12px/14px var(--font-primary);
   --typography-menu-caption: 600 9px/11px var(--font-primary);
+
+  /* ── Legacy semantic tokens (used by ds.css components) ──────────── */
+
+  /* Text */
+  --text-black: #112d35;
+  --text-grey: #7f8598;
+  --text-white: #ffffff;
+  --text-error: #ef6262;
+  --text-success: #109e6f;
+  --text-transparent-grey: rgba(17, 45, 53, 0.4);
+
+  /* Backgrounds */
+  --bg-white: #ffffff;
+  --bg-grey: #f6f6f6;
+  --bg-light-blue-grey: #f7f8fd;
+  --bg-green-clear: #d0f1dc;
+  --bg-daily-pink: #f5d7f3;
+  --bg-daily-bbt: #c3d3f4;
+  --bg-daily-blue-dark: #b1e5ef;
+  --bg-daily-blue: #d9fbff;
+  --bg-daily-violet: #eedcff;
+  --bg-daily-tan: #ffeeee;
+  --bg-daily-red-light: #fde6e3;
+  --grey-borders: #eaeced;
+  --grey-icons: #bdc1cd;
+
+  --bg-blue: #d9fbff;
+  --bg-tan: #ffeee3;
+  --bg-green-transparent: #e4fbf3;
+  --bg-violet: #eedcff;
+  --bg-blue-dark: #b1e5ef;
+  --bg-red-light: #fde6e3;
+  --bg-pink-preg: #f5d7f3;
+  --bg-brown: #ecdac8;
+  --bg-blue-bbt: #cddcfb;
+
+  /* Base */
+  --transparent: rgba(255, 255, 255, 0.0001);
+  --grey-base: rgba(197, 204, 206, 0.2);
+  --main-hover: #2e9bb4;
+  --violet: #dedaff;
+  --violet-gradient: linear-gradient(112deg, #ddd9ff 0%, #b9b8ff 100%);
+
+  /* Brand / hormones */
+  --main: #38abc5;
+  --hormones-e3g: #109e6f;
+  --hormones-lh: #8828e2;
+  --hormones-pdg: #1989bc;
+  --hormones-fsh: #f0950e;
+  --hormones-hcg: #ab66a5;
+  --symptoms-pelvic: #db4368;
+  --symptoms-flow: #f46e5c;
+  --symptoms-discharge-mood: #f0950e;
+  --symptoms-flow-discharge: #f46e5c;
+  --symptoms-discharge-meds-mood: #409cc3;
+  --symptoms-vaginal-discharge-mood: #86a430;
+  --symptoms-vaginal-discharge-mood-2: #a98a5b;
+  --symptoms-sex-insemination: #d96bcf;
+  --symptoms-pregnancy-test: #56b9b9;
+  --symptoms-follicle-tracking: #ab66a5;
+  --symptoms-bbt: #7f8598;
+  --symptoms-blood-test-values: #e35454;
+  --symptoms-mood: #3389e1;
+  --symptoms-weight: #666975;
+  --symptoms-caffeine: #94816c;
+  --symptoms-alcohol: #414458;
+
+  /* Day Status Gradients */
+  --gradient-high-fertility: linear-gradient(163.04deg, #0aca89 0%, #109e6f 99.16%);
+  --gradient-ovulation: linear-gradient(158deg, #995ad3 0%, #8828e2 100%);
+  --gradient-low-fertility: linear-gradient(158deg, #ff7955 0%, #ec6766 100%);
+  --gradient-fertile-window: linear-gradient(158deg, #38abc5 0%, #009bae 100%);
+  --gradient-pregnancy: linear-gradient(154deg, #d287cc 0%, #ab66a5 100%);
+  --gradient-unknown: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%);
+  --gradient-notify: linear-gradient(158deg, #b2b8ca 0%, #7f8598 100%);
+  --gradient-miss-fertility: linear-gradient(158deg, #f87676 0%, #dd525c 100%);
+  --gradient-wfpr: linear-gradient(158deg, #557ad0 0%, #4750b9 100%);
+
+  /* Radii */
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-28: 28px;
+  --radius-36: 36px;
+  --radius-pill: 100px;
+
+  /* Spacing */
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Elevation */
+  --shadow-card: 0px 6px 12px rgba(0, 0, 0, 0.06), 0px 16px 28px rgba(0, 0, 0, 0.07);
+  --shadow-headline: 0px 0.5px 0px rgba(0, 0, 0, 0.3);
+  --shadow-tabbar: 0px -4px 16px rgba(17, 45, 53, 0.1);
+
+  /* Type (legacy alias) */
+  --font: "Montserrat", system-ui, sans-serif;
 }
