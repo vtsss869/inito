@@ -1,14 +1,11 @@
 import { useRef, useLayoutEffect } from "react";
 
-/**
- * Sets both -webkit-mask-image and mask-image directly on the DOM element,
- * bypassing React's style deduplication and CSS var() resolution issues
- * that cause solid squares in headless Chromium (Chromatic).
- */
+// Quotes inside url() are required: Vite inlines SVGs as data URIs with unescaped
+// single quotes, which breaks unquoted url() in headless Chromium (Chromatic).
 export function useMaskImage(ref, src) {
   useLayoutEffect(() => {
     if (ref.current && src) {
-      const val = `url(${src})`;
+      const val = `url("${src}")`;
       ref.current.style.setProperty("-webkit-mask-image", val);
       ref.current.style.setProperty("mask-image", val);
     }
