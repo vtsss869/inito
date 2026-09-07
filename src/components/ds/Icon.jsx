@@ -1,26 +1,29 @@
+import { useRef, useLayoutEffect } from "react";
+
 /**
- * MaskIcon — renders a single-flat-color line icon via CSS `mask-image` +
- * `background-color: currentColor`, so it recolors dynamically with the
- * surrounding text color instead of baking in whatever flat color the
- * source SVG file happens to use (see Wrapper.jsx's `WrapperIcon`, which
- * established this technique for Button/Link icons).
- *
- * Only correct for simple, single-color line-art icons (chevrons, arrows,
- * small UI glyphs) — NOT for illustrative multi-color icons (daily-log
- * categories, notification/system pictograms, brand logos), which must
- * keep rendering as a real `<img>`/`IconAsset` so their own colors survive.
- * Check the source SVG's fills/strokes before reaching for this.
+ * Sets both -webkit-mask-image and mask-image directly on the DOM element,
+ * bypassing React's style deduplication and CSS var() resolution issues
+ * that cause solid squares in headless Chromium (Chromatic).
  */
+export function useMaskImage(ref, src) {
+  useLayoutEffect(() => {
+    if (ref.current && src) {
+      const val = `url(${src})`;
+      ref.current.style.setProperty("-webkit-mask-image", val);
+      ref.current.style.setProperty("mask-image", val);
+    }
+  }, [src]);
+}
+
 export function MaskIcon({ src, size = 24, alt = "", className = "" }) {
+  const ref = useRef(null);
+  useMaskImage(ref, src);
   if (!src) return null;
   return (
     <span
+      ref={ref}
       className={`ds-mask-icon ${className}`.trim()}
-      style={{
-        width: size,
-        height: size,
-        "--mask-src": `url(${src})`,
-      }}
+      style={{ width: size, height: size }}
       role={alt ? "img" : undefined}
       aria-label={alt || undefined}
       aria-hidden={alt ? undefined : "true"}

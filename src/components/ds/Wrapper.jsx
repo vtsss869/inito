@@ -1,29 +1,22 @@
+import { useRef } from "react";
 import { Text } from "./Text.jsx";
+import { useMaskImage } from "./Icon.jsx";
 
 const HAS_START_ICON = new Set(["icon", "icon-icon", "icon-text", "icon-text-icon"]);
 const HAS_END_ICON = new Set(["text-icon", "icon-icon", "icon-text-icon"]);
 const HAS_TEXT = new Set(["wrapper", "text-icon", "icon-text", "icon-text-icon"]);
 
 export function WrapperIcon({ src, alt = "", mono = true }) {
+  const ref = useRef(null);
+  useMaskImage(ref, mono ? src : null);
   if (!src) return null;
-  // Figma "Buttons" page, Main Button set: the icon stroke always matches the
-  // button's text color per Style (white on Primary/Promo, dark on Secondary/
-  // Transparent) — mask-image + currentColor recolors the flat line-art SVG
-  // dynamically instead of baking in whatever color the source file happens
-  // to use, so it stays correct across every variant/state automatically.
-  //
-  // `mono` opts a Button/Link/Navbar icon slot OUT of that recolor. Some
-  // callers (Daily Log's category glyphs — log-meds.svg etc.) are genuine
-  // multi-color illustrations, not flat line art; masking them to
-  // currentColor would flatten their own brand colors to a solid block.
-  // Those pass `mono={false}` and get a plain <img> instead.
   if (!mono) {
     return <img className="wrapper__icon-img" src={src} alt={alt} width={32} height={32} />;
   }
   return (
     <span
+      ref={ref}
       className="wrapper__icon"
-      style={{ "--mask-src": `url(${src})` }}
       role={alt ? "img" : undefined}
       aria-label={alt || undefined}
     />
