@@ -316,6 +316,28 @@
 .navbar__subtitle .t-header-4 {
   padding: 9px 0 11px;
 }
+.navbar--center .navbar__bar {
+  position: relative;
+}
+.navbar--center .navbar__left {
+  flex: 0 0 auto;
+  z-index: 1;
+}
+.navbar--center .navbar__title {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  flex: none;
+  width: max-content;
+  max-width: calc(100% - 120px);
+  pointer-events: none;
+  justify-content: center;
+}
+.navbar--center .navbar__right {
+  flex: 1 0 0;
+  z-index: 1;
+}
 
 /* MaskIcon (Icon.jsx) — shared base for the currentColor + mask-image
    recolor technique used by any single-flat-color line icon outside the
@@ -651,6 +673,14 @@ button.calendar-cell {
   gap: 8px;
   padding-top: 4px;
   box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+.daily-log:focus-visible .daily-log__btn {
+  outline: 2px solid var(--main);
+  outline-offset: 2px;
 }
 .daily-log__btn.btn {
   width: 44px;
@@ -1562,6 +1592,205 @@ button.calendar-cell {
   padding: 0 8px 4px;
 }
 
+/* Follicle Size Sheet — Figma `215:443703` */
+.follicle-sheet-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.follicle-sheet-stage__scrim {
+  position: absolute;
+  inset: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+}
+.follicle-sheet {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.follicle-sheet__card {
+  margin: 0 24px 12px;
+  padding: 8px;
+  border-radius: 24px;
+  background: var(--bg-white);
+  border: 1px solid var(--grey-borders);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.follicle-sheet__title {
+  padding: 7px 8px 9px;
+  margin: 0;
+}
+.follicle-sheet__helper {
+  padding: 4px 8px 6px;
+  margin: 0;
+}
+.follicle-sheet__input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 50px 6px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-grey);
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+}
+.follicle-sheet__input--active {
+  box-shadow: inset 0 0 0 1.5px var(--grey-borders);
+}
+.follicle-sheet__value {
+  flex: 1 1 auto;
+  text-align: center;
+  min-width: 0;
+}
+.follicle-sheet__field {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.follicle-sheet__value-text {
+  min-width: 1ch;
+  text-align: right;
+}
+.follicle-sheet__unit {
+  flex-shrink: 0;
+}
+.follicle-sheet__error {
+  margin: 0;
+  padding: 0 8px 4px;
+  color: var(--text-error);
+}
+.follicle-sheet__tracks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 100%;
+}
+.follicle-sheet__logged-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.follicle-sheet__dock {
+  background: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.follicle-sheet__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 24px;
+  box-sizing: border-box;
+}
+.follicle-sheet__toolbar-side {
+  min-width: 132px;
+}
+/* iOS numeric keypad — Figma `215:444991` / `762:336796` */
+.follicle-sheet__keys {
+  --ios-kb-bg: #d1d3d9;
+  box-sizing: border-box;
+  width: 100%;
+  height: 290px;
+  padding: 6px 6px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: var(--ios-kb-bg);
+}
+.follicle-sheet__key-row {
+  display: flex;
+  gap: 5px;
+  height: 46px;
+  flex-shrink: 0;
+}
+.follicle-sheet__key {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 46px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 4.6px;
+  background: var(--bg-white);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  color: #000000;
+  -webkit-tap-highlight-color: transparent;
+}
+.follicle-sheet__key:active {
+  background: var(--bg-grey);
+}
+.follicle-sheet__key--ghost {
+  background: transparent;
+  box-shadow: none;
+}
+.follicle-sheet__key--ghost:active {
+  background: rgba(255, 255, 255, 0.35);
+}
+.follicle-sheet__key-digit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 8px);
+  transform: translateY(-50%);
+  font-family: "SF Pro Display", "SF Pro Text", Montserrat, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.2912px;
+  text-align: center;
+  pointer-events: none;
+}
+.follicle-sheet__key-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 61.9%;
+  bottom: 9.52%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "SF Pro Text", Montserrat, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-align: center;
+  pointer-events: none;
+}
+.follicle-sheet__key img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 /* Modal / Bottom sheet stages */
 .ds-modal-stage,
 .ds-sheet-stage {
@@ -1578,6 +1807,10 @@ button.calendar-cell {
 .ds-sheet-stage__scrim {
   position: absolute;
   inset: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
   background: rgba(17, 45, 53, 0.4);
 }
 .ds-modal {
@@ -1851,32 +2084,33 @@ button.calendar-cell {
   flex: 1;
 }
 
-/* Segment Control — Figma "Segment Control" page, " Segment Control"
-   component (327×48, radius 28, Background Grey track with a white pill
-   behind the selected segment). The page's Android-style Segment-start /
-   Segment-middle / Segment-end + Segmented button_Android set is a
-   separate platform variant, not covered by this component. */
+/* Segment Control — Figma Sorting Control (212:399604) / catalog Segment
+   Control: 342×48 (Daily Logs), p 2, radius 28 track, equal flex segments,
+   white pill when selected. Android Segment-start/middle/end set is separate. */
 .ds-segment-control {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
   padding: 2px;
   background: var(--bg-grey);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-28);
   max-width: 100%;
-  overflow-x: auto;
+  overflow: hidden;
 }
 .ds-segment-control__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
   height: 44px;
   padding: 0 16px;
   border: none;
   border-radius: var(--radius-pill);
   background: transparent;
   cursor: pointer;
-  flex-shrink: 0;
   font: inherit;
 }
 .ds-segment-control__btn--selected {
@@ -1943,3 +2177,508 @@ button.calendar-cell {
   flex-shrink: 0;
 }
 .home__scroll::-webkit-scrollbar { display: none; }
+
+/* Symptom chip — Daily Logs cards */
+.symptom-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 6px 20px 6px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-grey);
+  border: 2px solid transparent;
+}
+.symptom-chip img {
+  flex-shrink: 0;
+}
+.symptom-chip--selected {
+  background: var(--bg-white);
+  border-color: transparent;
+}
+/* Logged / selected fills — Figma Daily logs filled screens (128:105483) */
+.symptom-chip--tone-pink {
+  background: var(--bg-pink-preg);
+}
+.symptom-chip--tone-tan {
+  background: var(--bg-tan);
+}
+.symptom-chip--tone-blue {
+  background: var(--bg-blue-dark);
+}
+.symptom-chip--tone-violet {
+  background: var(--bg-violet);
+}
+.symptom-chip--tone-green {
+  background: var(--bg-green-transparent);
+}
+.symptom-chip--tone-red {
+  background: var(--bg-red-light);
+}
+.symptom-chip--tone-bbt {
+  background: var(--bg-blue-bbt);
+}
+
+/* Daily Logs section cards */
+.daily-logs-section {
+  width: 100%;
+  max-width: 342px;
+  margin: 0 auto;
+  padding: 8px;
+  border: 1px solid var(--grey-borders);
+  border-radius: 24px;
+  background: var(--bg-white);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.daily-logs-section--bare {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: none;
+}
+.daily-logs-section--journal {
+  min-height: 0;
+  /* Figma Journal card: pl 16 / pr 8 / py 8 (not uniform p 8) */
+  padding: 8px 8px 8px 16px;
+  gap: 0;
+  justify-content: space-between;
+}
+.daily-logs-section--journal-empty {
+  height: 142px;
+  min-height: 142px;
+}
+.daily-logs-section--journal-logged {
+  height: auto;
+  min-height: 130px;
+  gap: 12px;
+}
+.daily-logs-section__header--journal {
+  padding-left: 0;
+  align-items: center;
+}
+.daily-logs-section__journal-pen.btn--icon.btn--medium {
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  background: var(--bg-grey);
+  color: var(--text-black);
+}
+.daily-logs-section__journal-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 4px;
+  flex: 1 1 auto;
+}
+.daily-logs-section__journal {
+  width: 100%;
+  margin: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  border: none;
+  resize: none;
+  background: transparent;
+  color: var(--text-black);
+  outline: none;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.1px;
+  padding: 4px 0 6px;
+}
+.daily-logs-section__journal::placeholder {
+  color: var(--text-transparent-grey);
+}
+/* Figma Daily Logs Cards header: pl 8 only. Title typography block owns
+   pt 7 / pb 9. Info is a 32×32 transparent Main Button (Grey Icons). */
+.daily-logs-section__header {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 0 0 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.daily-logs-section__title {
+  flex: 1 0 0;
+  min-width: 0;
+  padding: 7px 0 9px;
+}
+.daily-logs-section__header-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.daily-logs-section__info.btn--icon.btn--medium {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--grey-icons);
+  background: transparent;
+}
+.daily-logs-section__info.btn--icon.btn--medium:active,
+.daily-logs-section__info.btn--icon.btn--medium.btn--pressed {
+  color: var(--text-black);
+}
+.daily-logs-section__helper {
+  padding: 0 8px 4px;
+}
+.daily-logs-section__subtitle {
+  padding: 0 8px 4px;
+}
+.daily-logs-section__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0 0 4px;
+}
+.daily-logs-section__nested {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+.daily-logs-section__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.daily-logs-section__actions .btn--full {
+  width: 100%;
+  justify-content: center;
+}
+/* Figma Symptoms Button — meds/mood plus glyph on grey pill CTA */
+.daily-logs-section__action-add.btn--type-icon-text .wrapper__icon {
+  color: var(--symptoms-discharge-meds-mood);
+}
+.daily-logs-section__logged-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.daily-logs-section__clear.btn--icon.btn--medium {
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  background: var(--bg-grey);
+}
+
+/* Blood Test Values — editing row (Figma `219:131892`) */
+.daily-logs-blood-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 0;
+}
+.daily-logs-blood-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  flex-basis: 100%;
+}
+.daily-logs-blood-row__name {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.daily-logs-blood-row__value {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.daily-logs-blood-error {
+  margin: 0;
+  padding: 0 4px 4px;
+  color: var(--text-error);
+}
+
+/* Medication logged schedule (Figma `679:159800`) */
+.med-logged__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.med-logged__card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 20px;
+  background: var(--bg-grey);
+  box-sizing: border-box;
+}
+.med-logged__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.med-logged__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.med-logged__icon--blue {
+  background: var(--bg-blue-bbt);
+}
+.med-logged__icon--violet {
+  background: var(--bg-violet);
+}
+.med-logged__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.med-logged__dose {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.med-logged__dose-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-black);
+  text-align: left;
+}
+.med-logged__dose-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+.med-logged__status {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--grey-borders);
+  background: var(--bg-white);
+  color: var(--text-black);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.med-logged__status--taken {
+  border-color: transparent;
+  background: var(--symptoms-discharge-meds-mood);
+  color: var(--text-white);
+}
+.med-logged__status--skipped {
+  border-color: transparent;
+  background: var(--grey-icons);
+  color: var(--text-white);
+}
+
+/* BBT logged meta time */
+.daily-logs-bbt-time {
+  color: var(--text-grey);
+  margin-left: 4px;
+}
+
+.daily-logs-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 24px 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-white);
+}
+.daily-logs-meta__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-grey);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.daily-logs-meta__chip--date {
+  padding: 0 12px 0 8px;
+  gap: 4px;
+}
+.daily-logs-meta__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: block;
+}
+.daily-logs-meta__chip .t-mini {
+  color: var(--text-black);
+}
+
+/* Daily Logs screen */
+.daily-logs-screen-page,
+.daily-logs-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-white);
+  position: relative;
+  min-height: 0;
+}
+.daily-logs-screen-page .daily-logs-screen {
+  flex: 1;
+  min-height: 0;
+}
+.daily-logs-screen__meta {
+  flex-shrink: 0;
+}
+.daily-logs-screen__segment {
+  flex-shrink: 0;
+  padding: 0 24px 12px;
+}
+.daily-logs-screen__segment .ds-segment-control {
+  width: 100%;
+  max-width: 342px;
+  margin: 0 auto;
+}
+.daily-logs-screen__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  scrollbar-width: none;
+}
+.daily-logs-screen__scroll::-webkit-scrollbar {
+  display: none;
+}
+/* Figma sticky Save `212:441327` — only when draft has ≥1 selection (`211:383822`) */
+.daily-logs-screen__save {
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 24px 24px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--bg-white) 40%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.daily-logs-screen__save .btn--full {
+  width: 100%;
+  max-width: 342px;
+}
+
+/* Edit Daily logs — Figma `128:111439` */
+.edit-daily-logs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-white);
+  min-height: 0;
+}
+.edit-daily-logs__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: none;
+}
+.edit-daily-logs__scroll::-webkit-scrollbar {
+  display: none;
+}
+.edit-daily-logs__section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  flex-shrink: 0;
+}
+/* Figma Title Section — App/Mini 12 (Text mini) · Text Grey · pt 4 / pb 6 */
+.edit-daily-logs__section-label {
+  padding: 4px 0 6px;
+  margin: 0;
+}
+.edit-daily-logs__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+}
+/* Hit area when Hidden is empty — invisible drop target (no floating chrome) */
+.edit-daily-logs__list--drop {
+  min-height: 52px;
+}
+.edit-daily-logs__row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: var(--bg-grey);
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.edit-daily-logs__row:active {
+  opacity: 0.85;
+}
+.edit-daily-logs__row--hidden .edit-daily-logs__label {
+  color: var(--text-grey);
+}
+.edit-daily-logs__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 7px 0 9px;
+}
+/* Figma Visible: Interface/Minus Text Error · Hidden: Interface/Plus Grey Icons — stroke only */
+.edit-daily-logs__toggle {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 100px;
+  padding: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.edit-daily-logs__toggle--hide {
+  color: var(--text-error);
+}
+.edit-daily-logs__toggle--show {
+  color: var(--grey-icons);
+}

@@ -31,7 +31,12 @@ The main data-entry surface of the app. A single scrollable form (opened as a mo
 - Symptoms (large tag list: Cramps, Tender breasts, Headache, Acne, Hair loss, Excess hair, Backache, Fatigue, Cravings, Insomnia, Nausea, Bloating, Constipation, Diarrhea, Vaginal itching/burning/dryness, etc.)
 - Abdominal pain, Vaginal Discharge, Other (Travel, Stress, Injury, Meditation, Journaling, Angel exercise, Breathing exercise)
 - Physical Activity (Yoga, Gym, Aerobics & Dancing, Swimming, Team Sports, Running, Cycling, Walking)
-- Follicle Tracking (follicle size, endometrial thickness, ovary side, "Fluid in Pod", "LUF Detected" — luteinized unruptured follicle)
+- Follicle Tracking — Figma incomplete/logged card states `682:582195` / `682:590376` / `682:587103`:
+  - **Empty:** Follicle Size helper + full-width “Add Follicle Size” CTA
+  - **After modal confirm (partial or full):** sections stack as Follicle Size → Endometrial Thickness → Additional tracks
+  - Logged values use **Background Tan** (`#FFEEE3`) chips with ✕ clear; unselected track chips stay grey
+  - Endometrial missing → full-width “Add Endometrial Thickness”; ovary selected → ✕ + tan chip row; Fluid/LUF multi-toggle
+  - Overlay sheet (`Follicle Size Sheet`): white **70%** scrim, accessory Clear All / ✓ / Back, desktop-visible iOS-style decimal keypad (2–30 mm validation)
 - Blood Test Values (manual entry of clinical labs: Progesterone/P4, Estradiol, AMH, FSH, LH, TSH, PRL, hCG — each with a numeric keypad entry screen and unit)
 - Pregnancy Test result (Did Not Test / Positive / Negative / Faint Positive / Invalid Test)
 - Insemination (for users tracking IUI/IVF-adjacent timing)
@@ -68,6 +73,7 @@ This is a meaningfully deep feature — closer to a medication-adherence tool (a
 - **Bottom tab bar (5 tabs):** Home, Chart, Test (center, visually emphasized as a filled circular button — the primary daily action), Shop, Profile.
 - **Home screen structure (top to bottom):** week calendar strip → big gradient Day Status Card (fertility phase / test status / period / pregnancy) → "Fill in your daily logs" progress + shortcuts → Notifications feed (contextual guidance, alerts like low strip stock, feedback prompts) → Test Results / Hormones card.
 - **Daily Logs** is a modal/sheet reached from the Home screen (via the "Fill in your daily logs" row or its quick-log icons), not a separate tab — it's the universal data-entry surface for the day.
+- **Edit Daily logs** (gear on Daily Logs → `128:111439`): tap a category row (or − / +) to move it between Visible and Hidden. No drag-reorder; ✓ saves layout, ✕ discards.
 - A **Shop** tab exists, and strip-stock alerts, "Test strips alert" notifications, and low-stock states all route to it — commerce (buying more test strips) is a first-class, integrated flow, not an afterthought.
 - **Chart** tab was not opened directly in this pass (no node given for it) — likely where hormone trend lines over time live, given the "track hormone trends" language in the Required Test Days modal and the design system's hormone color tokens (E3G/PdG/LH/FSH/hCG).
 

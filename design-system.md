@@ -50,7 +50,7 @@ These style names recur constantly as component text styles below (e.g. "Caption
 | Background Blue Dark | `#B1E5EF` |
 | Background Blue BBT | `#C3D3F4` |
 | Background Blue | `#D9FBFF` |
-| Background Tan | `#FFEEEE` *(swatch value; components use a near-identical `#FFEEE3` — see Chips/Calendar below)* |
+| Background Tan | `#FFEEE3` (`--bg-tan`; Follicle logged chips / alert chips) |
 | Background Brown | `#ECDAC8` |
 | Background Red Light | `#FDE6E3` |
 | Background Green (10%) | `#109E6F` at 10% opacity |
@@ -264,6 +264,40 @@ bg white, `rounded-8`, shadow `0px 6px 6px rgba(0,0,0,0.06)` + `0px 16px 14px rg
 
 ### Carousel Dots
 Row of up to 6 dot indicators, `gap-12`, `px-20 py-12`. Active dot `8px`, inactive dots `4px` (inactive color = Grey Icons `#BDC1CD`).
+
+### Daily Logs cards & Follicle sheet (prototype / Storybook)
+Implemented in `src/components/ds/` (single source for Storybook + phone prototype).
+
+**SymptomChip selected tones** (`tone` prop → Background/* tokens):
+| Tone | Token | Typical categories |
+|---|---|---|
+| pink | `--bg-pink-preg` | Sex |
+| tan | `--bg-tan` (`#FFEEE3`) | Mood, **Follicle Tracking logged** |
+| blue | `--bg-blue-dark` | Symptoms |
+| violet | `--bg-violet` | Other |
+| green | `--bg-green-transparent` | Activity |
+| red | `--bg-red-light` | Pain / blood |
+| bbt | `--bg-blue-bbt` | BBT |
+
+**Follicle Tracking card** (Figma `682:580559` empty · `682:582195` size-only · `682:590376` size+endo · `682:587103` logged):
+- Helpers: Mini 12 / Text Grey — Follicle Size → Endometrial Thickness → Additional tracks
+- Logged: ✕ (grey icon button) + tan `SymptomChip`; missing endo → full-width grey “Add …” CTA
+- Additional tracks: Left/Right single-select (selected → ✕ row); Fluid / LUF multi
+
+**Follicle Size Sheet** (`DS/Data / Analytics/Follicle Size Sheet`):
+- Scrim `rgba(255,255,255,0.7)` (white 70%)
+- Accessory: Clear All · primary ✓ · Back
+- Desktop/Storybook: visible iOS numeric keypad (`#D1D3D9` chrome, white keys, digit + lettering without overlap)
+- Valid follicle mm **2–30** unlocks Endometrial CTA; starting endo unlocks Additional tracks
+
+**Edit Daily logs** (`DS/Data / Analytics/Edit Daily Logs`, Figma `128:111439`):
+- Tap category row (or − / +) toggles Visible ↔ Hidden — **no drag handle / reorder**
+
+Storybook entry points:
+- `DS/Screens/Daily Logs` — full screen + Follicle deep-link
+- `DS/Data / Analytics/Daily Logs Cards` — empty / partial / logged Follicle cards
+- `DS/Data / Analytics/Follicle Size Sheet` — modal + keypad playground
+- `DS/Data / Analytics/Edit Daily Logs` — tap-to-hide layout editor
 
 ---
 

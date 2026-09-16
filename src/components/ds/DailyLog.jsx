@@ -33,7 +33,7 @@ export const DAILY_LOG_CATEGORIES = {
     id: "meds",
     label: "Meds",
     icon: logMeds,
-    filledBg: "var(--bg-daily-tan)",
+    filledBg: "var(--bg-daily-blue)",
   },
   periods: {
     id: "periods",
@@ -51,49 +51,49 @@ export const DAILY_LOG_CATEGORIES = {
     id: "symptoms",
     label: "Symptoms",
     icon: logSymptoms,
-    filledBg: "var(--bg-daily-red-light)",
+    filledBg: "var(--bg-daily-blue)",
   },
   moods: {
     id: "moods",
     label: "Moods",
     icon: logMoods,
-    filledBg: "var(--bg-daily-violet)",
+    filledBg: "var(--bg-tan)",
   },
   activities: {
     id: "activities",
     label: "Activities",
     icon: logActivities,
-    filledBg: "var(--bg-daily-blue)",
+    filledBg: "var(--bg-green-transparent)",
   },
   tests: {
     id: "tests",
     label: "Tests",
     icon: logTests,
-    filledBg: "var(--bg-daily-blue-dark)",
+    filledBg: "var(--bg-daily-red-light)",
   },
   "preg-test": {
     id: "preg-test",
     label: "Preg test",
     icon: logPreg,
-    filledBg: "var(--bg-daily-pink)",
+    filledBg: "var(--bg-daily-violet)",
   },
   bbt: {
     id: "bbt",
     label: "BBT",
     icon: logBbt,
-    filledBg: "var(--bg-daily-bbt)",
+    filledBg: "var(--bg-blue-bbt)",
   },
   diary: {
     id: "diary",
     label: "Diary",
     icon: logDiary,
-    filledBg: "var(--bg-daily-blue)",
+    filledBg: "var(--bg-daily-violet)",
   },
   appetite: {
     id: "appetite",
     label: "Appetite",
     icon: logAppetite,
-    filledBg: "var(--bg-daily-tan)",
+    filledBg: "var(--bg-tan)",
   },
 };
 
@@ -113,10 +113,81 @@ export const HOME_DAILY_LOGS = [
   { category: "diary" },
 ];
 
+/** Home circular log → Daily Logs section id (for deep-link scroll). */
+export const HOME_CATEGORY_TO_SECTION = {
+  "preg-test": "pregnancy-test",
+  symptoms: "symptoms",
+  periods: "period",
+  bbt: "bbt",
+  meds: "medication",
+  moods: "mood",
+  tests: "blood-tests",
+  activities: "activity",
+  sex: "sex",
+  diary: "journal",
+};
+
+function hasSelection(selections, sectionId) {
+  return (selections?.[sectionId] || []).length > 0;
+}
+
+/** Whether a Home daily-log category should show `filled` from saved Daily Logs. */
+export function isHomeCategoryFilled(category, saved) {
+  if (!saved) return false;
+  const selections = saved.selections || {};
+  switch (category) {
+    case "preg-test":
+      return hasSelection(selections, "pregnancy-test");
+    case "symptoms":
+      return (
+        hasSelection(selections, "symptoms") ||
+        hasSelection(selections, "abdominal") ||
+        hasSelection(selections, "discharge")
+      );
+    case "periods":
+      return hasSelection(selections, "period");
+    case "bbt":
+      return Boolean(saved.bbtValue);
+    case "meds":
+      return Boolean(saved.medicationLogged) || hasSelection(selections, "medication");
+    case "moods":
+      return hasSelection(selections, "mood");
+    case "tests":
+      return (
+        hasSelection(selections, "blood-tests") ||
+        Boolean(saved.follicleSizes?.length) ||
+        Boolean(saved.endometrialThickness) ||
+        Object.keys(saved.bloodValues || {}).length > 0
+      );
+    case "activities":
+      return hasSelection(selections, "activity");
+    case "sex":
+      return hasSelection(selections, "sex") || hasSelection(selections, "sex-drive");
+    case "diary":
+      return Boolean(String(saved.journal || "").trim());
+    default:
+      return false;
+  }
+}
+
+/** Figma Home `204:380112` — filled icons after Save; caption `N/15 logged`. */
+export function homeDailyLogItemsFromSaved(saved) {
+  return HOME_DAILY_LOGS.map((item) => ({
+    ...item,
+    state: isHomeCategoryFilled(item.category, saved) ? "filled" : "default",
+  }));
+}
+
+export function homeDailyLogsCaption(saved) {
+  const filled = homeDailyLogItemsFromSaved(saved).filter((i) => i.state === "filled").length;
+  return `${filled}/15 logged`;
+}
+
 export function DailyLog({
   category = "meds",
   state = "default",
   label,
+  onClick,
   className = "",
 }) {
   const meta = DAILY_LOG_CATEGORIES[category] || DAILY_LOG_CATEGORIES.meds;
@@ -133,6 +204,8 @@ export function DailyLog({
       ? { "--daily-log-fill": meta.filledBg }
       : undefined;
 
+  const interactive = typeof onClick === "function";
+
   return (
     <div
       className={`daily-log ${toneClass} ${className}`.trim()}
@@ -140,6 +213,19 @@ export function DailyLog({
       data-category={meta.id}
       data-state={state}
       style={style}
+      role={interactive ? "button" : undefined}
+      tabIndex={interactive ? 0 : undefined}
+      onClick={interactive ? onClick : undefined}
+      onKeyDown={
+        interactive
+          ? (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onClick(e);
+              }
+            }
+          : undefined
+      }
     >
       <Button
         className="daily-log__btn"
@@ -153,6 +239,18 @@ export function DailyLog({
         // currentColor like Button's usual chevron/device/drop glyphs.
         iconMono={false}
         aria-label={text}
+        tabIndex={interactive ? -1 : undefined}
+        // Outer `.daily-log` owns the click (deep-link). Keep the visual
+        // Button but don't nest a second activation target.
+        onClick={
+          interactive
+            ? (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClick(e);
+              }
+            : undefined
+        }
       />
       <Text as="span" variant="mini" color="grey" className="daily-log__label">
         {text}
@@ -168,7 +266,7 @@ export function DailyLog({
  * Uses native overflow-x scrolling (touch / trackpad). Mouse drag in the desktop
  * phone preview updates the same scrollLeft — not a transform animation.
  */
-export function DailyLogRow({ items = HOME_DAILY_LOGS, className = "" }) {
+export function DailyLogRow({ items = HOME_DAILY_LOGS, onItemClick, className = "" }) {
   const rowRef = useRef(null);
 
   useEffect(() => {
@@ -183,7 +281,9 @@ export function DailyLogRow({ items = HOME_DAILY_LOGS, className = "" }) {
 
     const onPointerDown = (e) => {
       // Touch / pen use native overflow scrolling; only bridge mouse drag.
+      // Never capture when tapping a log item — that must open Daily Logs.
       if (e.pointerType !== "mouse" || e.button !== 0) return;
+      if (e.target.closest(".daily-log")) return;
       dragging = true;
       moved = false;
       pointerId = e.pointerId;
@@ -249,6 +349,11 @@ export function DailyLogRow({ items = HOME_DAILY_LOGS, className = "" }) {
           category={item.category}
           state={item.state || "default"}
           label={item.label}
+          onClick={
+            onItemClick
+              ? () => onItemClick(item.category, HOME_CATEGORY_TO_SECTION[item.category])
+              : undefined
+          }
         />
       ))}
     </div>

@@ -63,6 +63,7 @@ export function Navbar({
   title = "H2",
   titleSize = "h2",
   back = false,
+  onBackClick,
   todayChip = false,
   onTodayClick,
   rightIcons = [],
@@ -83,6 +84,7 @@ export function Navbar({
               icon={typeof back === "string" ? back : navBack}
               iconOnly
               aria-label="Back"
+              onClick={onBackClick}
             />
           ) : null}
           <div className={`navbar__title navbar__title--${titleSize}`}>
@@ -105,6 +107,7 @@ export function Navbar({
               icon={icon.src}
               iconOnly
               aria-label={icon.label}
+              onClick={icon.onClick}
             />
           ))}
           {trailing}

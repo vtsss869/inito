@@ -26,11 +26,20 @@ export function ModalWindow({
   primaryLabel = "Continue",
   secondaryLabel = "Cancel",
   tertiaryLabel = "Not now",
+  onPrimary,
+  onSecondary,
+  onTertiary,
+  onDismiss,
   className = "",
 }) {
   return (
     <div className={`ds-modal-stage ${className}`.trim()} data-name="modal">
-      <div className="ds-modal-stage__scrim" />
+      <button
+        type="button"
+        className="ds-modal-stage__scrim"
+        aria-label="Dismiss"
+        onClick={onDismiss || onSecondary}
+      />
       <div className="ds-modal" role="dialog" aria-modal="true" aria-labelledby="ds-modal-title">
         {showTitle ? (
           <Text as="h2" id="ds-modal-title" variant="header-3">
@@ -44,34 +53,41 @@ export function ModalWindow({
         ) : null}
         <div className={`ds-modal__actions ${ACTIONS_CLASS[buttonsLayout] ?? ""}`.trim()}>
           {buttonsLayout === "icon" ? (
-            <Button size="medium" variant="secondary" icon={chevronRight} iconOnly aria-label="Close" />
+            <Button
+              size="medium"
+              variant="secondary"
+              icon={chevronRight}
+              iconOnly
+              aria-label="Close"
+              onClick={onDismiss || onSecondary}
+            />
           ) : buttonsLayout === "3-rows" ? (
             <>
-              <Button size="large" variant="primary">
+              <Button size="large" variant="primary" onClick={onPrimary}>
                 {primaryLabel}
               </Button>
-              <Button size="large" variant="secondary">
+              <Button size="large" variant="secondary" onClick={onSecondary}>
                 {secondaryLabel}
               </Button>
-              <Button size="large" variant="transparent">
+              <Button size="large" variant="transparent" onClick={onTertiary}>
                 {tertiaryLabel}
               </Button>
             </>
           ) : buttonsLayout === "2-rows" ? (
             <>
-              <Button size="large" variant="primary">
+              <Button size="large" variant="primary" onClick={onPrimary}>
                 {primaryLabel}
               </Button>
-              <Button size="large" variant="secondary">
+              <Button size="large" variant="secondary" onClick={onSecondary}>
                 {secondaryLabel}
               </Button>
             </>
           ) : (
             <>
-              <Button size="medium" variant="secondary">
+              <Button size="medium" variant="secondary" onClick={onSecondary}>
                 {secondaryLabel}
               </Button>
-              <Button size="medium" variant="primary">
+              <Button size="medium" variant="primary" onClick={onPrimary}>
                 {primaryLabel}
               </Button>
             </>

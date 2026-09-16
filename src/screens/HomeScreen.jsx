@@ -23,7 +23,7 @@ const WEEK = [
   { dow: "SU", day: "4" },
 ];
 
-export function HomeScreen() {
+export function HomeScreen({ onOpenDailyLogs, savedDailyLogs = null }) {
   const [selectedDay, setSelectedDay] = useState("2");
   const isYesterday = selectedDay === "1";
 
@@ -63,7 +63,11 @@ export function HomeScreen() {
             headline="High Fertility"
           />
         )}
-        <HomeNotificationCard content="daily-logs" />
+        <HomeNotificationCard
+          content="daily-logs"
+          savedDailyLogs={savedDailyLogs}
+          onOpenDailyLogs={onOpenDailyLogs}
+        />
         <Subtitle icon={pictogramNotifications}>Notifications</Subtitle>
         {isYesterday ? (
           <HomeNotificationCard content="message" {...TEST_NOT_REQUIRED_MESSAGE} />

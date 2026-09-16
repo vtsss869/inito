@@ -1,6 +1,11 @@
 import { Text } from "./Text.jsx";
 import { Button } from "./Button.jsx";
-import { DailyLogRow, HOME_DAILY_LOGS } from "./DailyLog.jsx";
+import {
+  DailyLogRow,
+  HOME_DAILY_LOGS,
+  homeDailyLogItemsFromSaved,
+  homeDailyLogsCaption,
+} from "./DailyLog.jsx";
 import chevronRight from "../../assets/icons/chevron-right.svg";
 import illustHighFertility from "../../assets/icons/illust-high-fertility.svg";
 import illustNoMoreTests from "../../assets/icons/illust-no-more-tests.svg";
@@ -55,7 +60,7 @@ function CardHeader({ title, caption, action }) {
   );
 }
 
-function ChevronAction({ label }) {
+function ChevronAction({ label, onClick }) {
   return (
     <Button
       variant="grey"
@@ -63,23 +68,36 @@ function ChevronAction({ label }) {
       icon={chevronRight}
       iconOnly
       aria-label={label}
+      onClick={onClick}
     />
   );
 }
 
 function DailyLogsContent({
   title = "Fill in your daily logs",
-  caption = "0/15 logged",
-  items = HOME_DAILY_LOGS,
+  caption,
+  items,
+  savedDailyLogs = null,
+  onOpenDailyLogs,
 }) {
+  const resolvedItems = items ?? homeDailyLogItemsFromSaved(savedDailyLogs);
+  const resolvedCaption = caption ?? homeDailyLogsCaption(savedDailyLogs);
   return (
     <>
       <CardHeader
         title={title}
-        caption={caption}
-        action={<ChevronAction label="Open daily logs" />}
+        caption={resolvedCaption}
+        action={
+          <ChevronAction
+            label="Open daily logs"
+            onClick={() => onOpenDailyLogs?.()}
+          />
+        }
       />
-      <DailyLogRow items={items} />
+      <DailyLogRow
+        items={resolvedItems.length ? resolvedItems : HOME_DAILY_LOGS}
+        onItemClick={(_category, sectionId) => onOpenDailyLogs?.(sectionId)}
+      />
     </>
   );
 }

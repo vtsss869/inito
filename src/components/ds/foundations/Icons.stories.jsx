@@ -1,6 +1,6 @@
 import { Text } from "../Text.jsx";
 
-const iconModules = import.meta.glob("../../../assets/icons/*.{svg,png}", {
+const iconModules = import.meta.glob("../../../assets/icons/**/*.{svg,png}", {
   eager: true,
   import: "default",
 });
@@ -9,8 +9,9 @@ const ICONS = Object.entries(iconModules)
   .map(([path, src]) => ({
     src,
     name: path.split("/").pop(),
+    path: path.replace("../../../assets/icons/", ""),
   }))
-  .sort((a, b) => a.name.localeCompare(b.name));
+  .sort((a, b) => a.path.localeCompare(b.path));
 
 const meta = {
   title: "DS/Foundations/Icons",
@@ -41,7 +42,7 @@ export const Overview = {
       >
         {ICONS.map((icon) => (
           <div
-            key={icon.name}
+            key={icon.path}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -66,7 +67,7 @@ export const Overview = {
               <img src={icon.src} alt="" width={32} height={32} style={{ objectFit: "contain" }} />
             </div>
             <Text variant="mini" color="grey" style={{ textAlign: "center", wordBreak: "break-all" }}>
-              {icon.name}
+              {icon.path}
             </Text>
           </div>
         ))}

@@ -1,0 +1,16 @@
+---
+description: Inito Figma → Storybook → QA → Prototype workflow (pixel-perfect gate)
+alwaysApply: true
+---
+
+# Inito design workflow
+
+When implementing or fixing UI from Figma:
+
+1. Use skill **storybook-first-ds** for implementation.
+2. Use skill **figma-qa-pixel** for verification.
+3. Order: **Storybook first → QA PASS → Prototype → QA PASS**.
+4. Do not tell the user the work is complete until QA reports **identical to Figma**.
+5. QA must also flag hardcoding (raw hex, one-off markup, remote Figma asset URLs).
+
+Daily Logs / Home components live in `src/components/ds/` and must stay the single source for both Storybook and the phone prototype.

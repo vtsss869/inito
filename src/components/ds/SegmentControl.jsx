@@ -2,7 +2,8 @@ import { Text } from "./Text.jsx";
 
 /**
  * Figma DS: "Segment Control" page — " Segment Control" component
- * (327×48, radius 28, Background Grey track with a white pill behind the
+ * (342×48 Daily Logs sorting / 327×48 catalog, radius 28, Background Grey
+ * track with a white pill behind the
  * selected segment).
  *
  * The page's Android-style Segment-start / Segment-middle / Segment-end +
