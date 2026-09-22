@@ -16,7 +16,11 @@ Load the matching skill first — these are mandatory prerequisites, not optiona
 - `figma-design-to-code` before `get_design_context` when translating a Figma node to code
 - `figma-generate-library` when building/updating tokens, variants, or component sets in Figma itself
 - `audit-design-system` / `apply-design-system` for drift audits and reconciling a screen to DS components
-- `dobzha-storybook-ds` for Storybook-specific setup/maintenance conventions this project already follows — it's the project's own configured approach and should take precedence over generic Storybook instincts
+- `dobzha-storybook-ds` for Storybook-specific setup/maintenance conventions this project already follows — it's the project's own configured approach and should take precedence over generic Storybook instincts. This is the project's Storybook agent-equivalent already — there is no separate "Storybook agent" and none needs to be created; this skill inside this agent is where that work lives.
+- `figma-code-connect` when binding a Figma component to its React counterpart formally (Code Connect), rather than relying on the drift audit alone to keep them associated
+- `sync-figma-token` / `cc-figma-tokens` when the task is specifically token sync (Figma Variables → `tokens.css`/`tokens.js`) — pick whichever actually matches the task shape, don't run both
+- `cc-figma-component` for component-level Figma↔code binding tasks that aren't quite Code Connect but are in the same family
+- `frontend-design` for implementation-quality guidance on the actual React/DS component code you write, beyond matching the visual spec
 
 Live editing of the Figma DS file happens through the **Figma Console MCP** (Desktop Bridge plugin), which stays connected to whichever file is open in the Figma desktop app — currently `[Design System] Inito` (fileKey `LwXvi6EzEzOpBt6ZFVOkuq`). Run `figma_get_status` / `figma_diagnose` if a call fails to confirm the plugin bridge is still connected and pointed at the right file before assuming the change went through.
 

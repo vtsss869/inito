@@ -61,11 +61,25 @@ design-system.md           # Comprehensive DS spec (typography, colors, componen
 - Foundation stories (Colors, Typography, Icons, Layouts) in `src/components/ds/foundations/`
 - Use CSF3 format (object export)
 
-## Design system agents
+## Custom agents
 
-Two custom agents are configured in `.claude/agents/`:
+Configured in `.claude/agents/`, split into two deliberately separate tracks plus an orchestrator. **`lead-agent` decides which track a task belongs to — if it's ambiguous whether something should stay in Figma or turn into real shipped code, it must ask, never guess.**
+
+- **lead-agent** — orchestrator for everything below; use it for tasks that span more than one specialty, or whenever it's unclear which track (design-only vs code-shipping) a task belongs to. Breaks the task into stages, delegates each to the matching agent, and ends with a stage-coverage table plus an aggregated Сделано/Не получилось summary.
+
+Design track (Figma only, nothing shipped as running code):
+- **research-agent** — deep research combining clinical/medical evidence with UX/competitive pattern analysis (`feature-research` skill + Mobbin). Writes a project `.md` report and, on request, pushes it into Figma as a formatted research note (SF Pro font, bullets, bold/italic emphasis).
+- **design-agent** (formerly figma-icon-sync-agent) — two jobs: (1) takes a brief/context and produces Figma design variants using existing DS components/patterns, each with a rationale note documenting *why* (evidence → derivation → alternatives considered, not just what changed); (2) moves new icon/category artwork from Figma staging into the Icons — 32px/18px reference frames and propagates it into consumers (Symptom Chip, Main Button "Icon replace" slots, category buttons) across the Design System file and the product files (INITO iOS Home, INITO iOS Chart) that reference it. Uses the official Figma MCP tools, not the Console MCP Desktop Bridge plugin the agents below rely on.
+
+Bridge (Figma ↔ code, scoped only to design-system components, not full features):
 - **design-system-agent** — builds/syncs DS components between Figma and code
 - **design-system-qa-agent** — read-only verification of Figma-vs-Storybook parity (must run before reporting any DS task as complete)
+
+Code-shipping track (a full feature/app, spec through to a live deploy — never touches Figma):
+- **spec-agent** — writes `SPEC.md` (states, behavior, edge cases, acceptance criteria) and stops for explicit user approval before anything gets built
+- **builder-agent** — implements exactly the approved spec, runs it locally, returns a working URL
+- **code-reviewer-agent** — read-only PASS/FAIL against the spec; on FAIL, back to builder-agent until PASS
+- **shipper-agent** — on PASS: conventional commit → push (with confirmation) → deploy (Cloudflare Pages or Vercel, whichever this repo is actually configured for) → live URL
 
 ## Working with this project
 
