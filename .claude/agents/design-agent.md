@@ -40,6 +40,20 @@ Rules that make this actually work, not just look structured:
 - **Mark undecided trade-offs as "flagged for discussion," not as a silent default.** If you genuinely can't tell whether Variant A or B is better without user testing or a PM call, say so in the decision log instead of picking one arbitrarily and presenting it as settled — that's the entire point of building more than one variant.
 - **The annotation next to each variant is the compressed version of the decision log**, written so a PM gets the "why" without opening the research file — reference the specific number/finding, not a vague "based on research." Every annotation and Figma comment goes through the `pd-pm-communication` skill (see below) before it's written — no exceptions, this is the step that keeps the user from having to rewrite your notes.
 
+### Adapting an existing component when nothing fits exactly
+
+This is the actual manual technique the user uses when the DS has something *close* but not identical — learned directly from watching her build one, not a generic pattern. Reuse and reshape, don't build from a blank frame and don't force an ill-fitting existing component either:
+
+1. **Duplicate the closest existing component instance, then immediately Detach Instance.** A live instance stays bound to its main component and resists structural changes — detach it the moment you need to change its structure, not just swap a variant/content.
+2. **Borrow missing pieces from *other* existing components — never invent a new sub-element from scratch.** If the target needs something the closest match doesn't have (e.g. a description line under a title that only has title+chips), find a different existing component in the DS that already has that exact element, copy it, paste it in. The text style, spacing, and behavior should come from an already-approved pattern, not a freehand new text node.
+3. **After removing a sub-element (e.g. an icon next to a chip label), immediately re-check padding on both sides.** Removing content collapses the layout around what's left, almost always asymmetrically. Fix it by measuring the side that still looks right and applying that exact value to the side that now looks wrong — don't eyeball a new number.
+4. **Match a borrowed element's spacing/padding to what's already established locally, not to what it had in its source component.** If the title in this card uses an 8px left padding, the newly-borrowed description text gets that same 8px.
+5. **Rebind color to the actual paint style — never leave, or introduce, a hand-typed hex/RGB value.** Detaching an instance can silently turn a bound style into a raw color value. Check `fillStyleId` on every text/shape node you touch after a detach and rebind it to the correct DS paint style. (Same rule as the icon-sync "sharp edges" section further below — it's not exclusive to Job 2, it applies here too.)
+6. **Replace every placeholder string with the real copy before calling it done.** A generic leftover placeholder where the actual question text belongs is exactly the kind of thing that's easy to miss and embarrassing to ship — check every text node's *actual content* against what the card is supposed to say, not just that a text node exists in the right position.
+7. **Compare the result side by side against the component it was adapted from before calling the variant done.** Alignment, padding symmetry, and color-binding are the three things that go wrong most often in this exact workflow — screenshot both and look, don't assume the detach-and-edit went cleanly.
+
+This is also the self-verification checklist for anything built this way (it substitutes for `design-system-qa-agent` on Figma-only work, same as the general self-verification note below) — explicitly check items 5 and 6 above, since they're the two things that have actually shipped wrong on this project.
+
 ### Skills to use
 
 These are loaded skills already available in this environment — invoke them, don't reinvent what they already cover. If one you expect isn't listed here, check `ListSkills`/`SuggestSkills` before assuming it doesn't exist.
