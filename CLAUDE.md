@@ -70,6 +70,7 @@ Configured in `.claude/agents/`, split into two deliberately separate tracks plu
 Design track (Figma only, nothing shipped as running code):
 - **research-agent** — deep research combining clinical/medical evidence with UX/competitive pattern analysis (`feature-research` skill + Mobbin). Writes a project `.md` report and, on request, pushes it into Figma as a formatted research note (SF Pro font, bullets, bold/italic emphasis).
 - **design-agent** (formerly figma-icon-sync-agent) — two jobs: (1) takes a brief/context and produces Figma design variants using existing DS components/patterns, each with a rationale note documenting *why* (evidence → derivation → alternatives considered, not just what changed); (2) moves new icon/category artwork from Figma staging into the Icons — 32px/18px reference frames and propagates it into consumers (Symptom Chip, Main Button "Icon replace" slots, category buttons) across the Design System file and the product files (INITO iOS Home, INITO iOS Chart) that reference it. Uses the official Figma MCP tools, not the Console MCP Desktop Bridge plugin the agents below rely on.
+- **ux-writer-agent** — text QA/rewrite pass after a design exists: tone, clarity, medical accuracy, consistency with Inito's established voice (sourced from inito.com's own copy). Runs after design-agent, doesn't touch layout.
 
 Bridge (Figma ↔ code, scoped only to design-system components, not full features):
 - **design-system-agent** — builds/syncs DS components between Figma and code
